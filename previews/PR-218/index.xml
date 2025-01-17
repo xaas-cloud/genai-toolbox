@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Gen AI Toolbox</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/</link><description>Recent content in Documentation on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/introduction/</guid><description>&lt;h1 id="introduction">Introduction&lt;a class="td-heading-self-link" href="#introduction" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>This is a placeholder for the introduction.&lt;/p></description></item><item><title>Toolbox Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/quickstart/</guid><description>&lt;h2 id="step-1-set-up-a-cloud-sql-database">Step 1: Set up a Cloud SQL database&lt;a class="td-heading-self-link" href="#step-1-set-up-a-cloud-sql-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;ol>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#create-instance">Create a Cloud SQL instance&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#create-database">Create a
-database&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#create_a_user">Create a database
-user&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#set_up_a_service_account">Set up a service
-account&lt;/a>.&lt;/li>
-&lt;/ol>
+&lt;p>This is a placeholder for the introduction.&lt;/p></description></item><item><title>Toolbox Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/getting-started/quickstart/</guid><description>&lt;h2 id="step-1-set-up-a-database">Step 1: Set up a database&lt;a class="td-heading-self-link" href="#step-1-set-up-a-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://neon.tech/postgresql/postgresql-getting-started">Install postgres and configure a
+database&lt;/a> for your
+system.&lt;/p>
+&lt;p>This process creates a database &lt;code>postgres&lt;/code> with superuser &lt;code>postgres&lt;/code>.&lt;/p>
 &lt;h2 id="step-2-import-data-into-the-database">Step 2: Import data into the database&lt;a class="td-heading-self-link" href="#step-2-import-data-into-the-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Run the command.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gcloud sql import sql &lt;span style="color:#f92672">{&lt;/span>INSTANCE_NAME&lt;span style="color:#f92672">}&lt;/span> gs://toolbox-quickstart/hotels.gz --database&lt;span style="color:#f92672">={&lt;/span>DATABASE_NAME&lt;span style="color:#f92672">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="optional-explore-your-data">(Optional) Explore your data&lt;a class="td-heading-self-link" href="#optional-explore-your-data" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>You can explore the data by logging into &lt;a href="https://cloud.google.com/sql/docs/mysql/manage-data-using-studio#explore-data">Cloud SQL
-Studio&lt;/a>
-and running SQL queries.&lt;/p>
-&lt;h2 id="step-3-create-a-tools-config-file">Step 3: Create a tools config file&lt;a class="td-heading-self-link" href="#step-3-create-a-tools-config-file" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Create a &lt;code>tools.yaml&lt;/code> file with the following content, updating the &lt;code>project&lt;/code>,
-&lt;code>database&lt;/code>, &lt;code>instance&lt;/code>, &lt;code>user&lt;/code>, and &lt;code>password&lt;/code> fields:&lt;/p></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</guid><description/></item></channel></rss>
+&lt;ol>
+&lt;li>
+&lt;p>Connect to the database using command line.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>psql -U postgres -d postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, the first postgres denotes the user and the second one denotes the
+database name.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create a table using the following command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> hotels(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> id INTEGER &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span> &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">location&lt;/span> VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> price_tier VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> checkin_date DATE &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> checkout_date DATE &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> booked BIT &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/li>
+&lt;li>
+&lt;p>Insert data into the table.&lt;/p></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</guid><description/></item></channel></rss>
