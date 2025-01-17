@@ -19,4 +19,4 @@ system.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ALTER DATABASE test_db OWNER TO test_user;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>Connect to your database with your new user.&lt;/p></description></item></channel></rss>
+&lt;p>Quit the db connection with the superuser.&lt;/p></description></item></channel></rss>
