@@ -7,23 +7,16 @@ system.&lt;/p>
 &lt;h2 id="step-2-import-data-into-the-database">Step 2: Import data into the database&lt;a class="td-heading-self-link" href="#step-2-import-data-into-the-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Connect to the database using command line.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>psql -U postgres -d postgres
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, the first postgres denotes the user and the second one denotes the
-database name.&lt;/p>
+&lt;p>Connect to postgres using command line.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>psql -U postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, &lt;code>postgres&lt;/code> denotes the default postgres superuser.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Create a table using the following command.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> hotels(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> id INTEGER &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span> &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">location&lt;/span> VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> price_tier VARCHAR &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> checkin_date DATE &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> checkout_date DATE &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> booked BIT &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
-&lt;/li>
+&lt;p>Create a new database and a new user.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>CREATE USER test_user WITH PASSWORD &lt;span style="color:#e6db74">&amp;#39;{password}&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CREATE DATABASE test_db;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GRANT ALL PRIVILEGES ON DATABASE test_db to test_user;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ALTER DATABASE test_db OWNER TO test_user;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>Insert data into the table.&lt;/p></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</guid><description/></item></channel></rss>
+&lt;p>Connect to your database with your new user.&lt;/p></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-218/development/contributing/</guid><description/></item></channel></rss>
