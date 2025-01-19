@@ -14,7 +14,7 @@ AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.co
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/postgres">Cloud SQL for PostgreSQL&lt;/a> is a fully-managed database service
 that helps you set up, maintain, manage, and administer your PostgreSQL
 relational databases on Google Cloud Platform.&lt;/p>
-&lt;p>If you are new to Cloud SQL for PostgreSQL, you can try &lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer">creating and connecting
+&lt;p>If you are new to Cloud SQL for PostgreSQL, you can try &lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-compaduter">creating and connecting
 to a database by following these instructions&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
