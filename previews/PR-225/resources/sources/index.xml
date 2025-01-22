@@ -4,7 +4,7 @@ database for demanding transactional workloads. It provides enterprise-grade
 performance and availability while maintaining 100% compatibility with
 open-source PostgreSQL.&lt;/p>
 &lt;p>If you are new to AlloyDB for PostgreSQL, you can &lt;a href="https://cloud.google.com/alloydb/docs/create-free-trial-cluster">create a free trial
-cluster.&lt;/a>.&lt;/p>
+cluster&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
