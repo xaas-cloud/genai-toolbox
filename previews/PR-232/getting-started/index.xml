@@ -4,7 +4,7 @@
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a>&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
-&lt;li>Have setup &lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">Vertex AI through LangChain&lt;/a> (or are
+&lt;li>Completed &lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">setup for &lt;code>langchain-vertexai&lt;/code> package&lt;/a> (or are
 comfortable switching the example to a different LLM model)&lt;/li>
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
