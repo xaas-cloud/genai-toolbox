@@ -32,6 +32,17 @@ to a database by following these instructions&lt;/a>.&lt;/p>
 &lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
 authorize and establish mTLS connections to your Cloud SQL instance. The Go
 connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
+your connection to Cloud SQL.&lt;/p></description></item><item><title>Cloud SQL for SQL Server</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/cloud-sql-mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/sqlserver">Cloud SQL for SQL Server&lt;/a> is a managed database service that
+helps you set up, maintain, manage, and administer your SQL Server databases on
+Google Cloud.&lt;/p>
+&lt;p>If you are new to Cloud SQL for SQL Server, you can try &lt;a href="https://cloud.google.com/sql/docs/sqlserver/connect-overview">creating and connecting
+to a database by following these instructions&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
+authorize and establish mTLS connections to your Cloud SQL instance. The Go
+connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
 your connection to Cloud SQL.&lt;/p></description></item><item><title>Introduction</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</guid><description>&lt;h1 id="introduction">Introduction&lt;a class="td-heading-self-link" href="#introduction" aria-label="Heading self-link">&lt;/a>&lt;/h1>
 &lt;p>This is a placeholder for the introduction.&lt;/p></description></item><item><title>Neo4j</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/neo4j/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/neo4j/</guid><description>&lt;p>&lt;a href="https://neo4j.com/docs">Neo4j&lt;/a> is a powerful, open source graph database system with over
 15 years of active development that has earned it a strong reputation for
@@ -179,15 +190,4 @@ comfortable switching the example to a different LLM model)&lt;/li>
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title/><link>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/cloud-sql-mssql/</guid><description>&lt;h1 id="cloud-sql-for-sql-server-source">Cloud SQL for SQL Server Source&lt;a class="td-heading-self-link" href="#cloud-sql-for-sql-server-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>&lt;a href="https://cloud.google.com/sql/docs/sqlserver">Cloud SQL for SQL Server&lt;/a> is a managed database service that
-helps you set up, maintain, manage, and administer your SQL Server databases on
-Google Cloud.&lt;/p>
-&lt;p>If you are new to Cloud SQL for SQL Server, you can try &lt;a href="https://cloud.google.com/sql/docs/sqlserver/connect-overview">creating and connecting
-to a database by following these instructions&lt;/a>.&lt;/p>
-&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="iam-identity">IAM Identity&lt;a class="td-heading-self-link" href="#iam-identity" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
-authorize and establish mTLS connections to your Cloud SQL instance. The Go
-connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
-your connection to Cloud SQL.&lt;/p></description></item></channel></rss>
+access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item></channel></rss>
