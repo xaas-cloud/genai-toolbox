@@ -10,11 +10,33 @@ cluster&lt;/a>.&lt;/p>
 &lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
 Connector&lt;/a> to authorize and establish mTLS connections to your
 AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
-(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>Cloud SQL for PostgreSQL</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-pg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-pg/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>Cloud SQL for MySQL</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql">Cloud SQL for MySQL&lt;/a> is a fully-managed database service
+that helps you set up, maintain, manage, and administer your MySQL
+relational databases on Google Cloud Platform.&lt;/p>
+&lt;p>If you are new to Cloud SQL for MySQL, you can try &lt;a href="https://cloud.google.com/sql/docs/mysql/connect-instance-local-computer">creating and connecting
+to a database by following these instructions&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
+authorize and establish mTLS connections to your Cloud SQL instance. The Go
+connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
+your connection to Cloud SQL.&lt;/p></description></item><item><title>Cloud SQL for PostgreSQL</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-pg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-pg/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/postgres">Cloud SQL for PostgreSQL&lt;/a> is a fully-managed database service
 that helps you set up, maintain, manage, and administer your PostgreSQL
 relational databases on Google Cloud Platform.&lt;/p>
 &lt;p>If you are new to Cloud SQL for PostgreSQL, you can try &lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer">creating and connecting
+to a database by following these instructions&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
+authorize and establish mTLS connections to your Cloud SQL instance. The Go
+connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
+your connection to Cloud SQL.&lt;/p></description></item><item><title>Cloud SQL for SQL Server</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/sqlserver">Cloud SQL for SQL Server&lt;/a> is a managed database service that
+helps you set up, maintain, manage, and administer your SQL Server databases on
+Google Cloud.&lt;/p>
+&lt;p>If you are new to Cloud SQL for SQL Server, you can try &lt;a href="https://cloud.google.com/sql/docs/sqlserver/connect-overview">creating and connecting
 to a database by following these instructions&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
@@ -168,15 +190,4 @@ comfortable switching the example to a different LLM model)&lt;/li>
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title/><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-247/resources/sources/cloud-sql-mssql/</guid><description>&lt;h1 id="cloud-sql-for-sql-server-source">Cloud SQL for SQL Server Source&lt;a class="td-heading-self-link" href="#cloud-sql-for-sql-server-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>&lt;a href="https://cloud.google.com/sql/docs/sqlserver">Cloud SQL for SQL Server&lt;/a> is a managed database service that
-helps you set up, maintain, manage, and administer your SQL Server databases on
-Google Cloud.&lt;/p>
-&lt;p>If you are new to Cloud SQL for SQL Server, you can try &lt;a href="https://cloud.google.com/sql/docs/sqlserver/connect-overview">creating and connecting
-to a database by following these instructions&lt;/a>.&lt;/p>
-&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="iam-identity">IAM Identity&lt;a class="td-heading-self-link" href="#iam-identity" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
-authorize and establish mTLS connections to your Cloud SQL instance. The Go
-connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
-your connection to Cloud SQL.&lt;/p></description></item></channel></rss>
+access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item></channel></rss>
