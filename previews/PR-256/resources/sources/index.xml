@@ -241,7 +241,7 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
  &lt;td>password&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Password of the Postgres user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
+ &lt;td>Password of the SQL Server user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item></channel></rss>

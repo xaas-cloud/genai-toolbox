@@ -242,7 +242,7 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
  &lt;td>password&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Password of the Postgres user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
+ &lt;td>Password of the SQL Server user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/development/contributing/</guid><description/></item><item><title>Local Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-256/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
