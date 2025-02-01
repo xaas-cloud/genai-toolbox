@@ -43,7 +43,17 @@ to a database by following these instructions&lt;/a>.&lt;/p>
 &lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
 authorize and establish mTLS connections to your Cloud SQL instance. The Go
 connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
-your connection to Cloud SQL.&lt;/p></description></item><item><title>Introduction</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</guid><description>&lt;h1 id="introduction">Introduction&lt;a class="td-heading-self-link" href="#introduction" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+your connection to Cloud SQL.&lt;/p></description></item><item><title>Dgraph</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/dgraph/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is a horizontally scalable and distributed graph database.
+It provides ACID transactions, consistent replication, and linearizable reads.&lt;/p>
+&lt;p>This source can connect to either a self-managed Dgraph cluster or one hosted on
+Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started is to
+&lt;a href="https://cloud.dgraph.io/login">sign up for Dgraph Cloud&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="database-user">Database User&lt;a class="td-heading-self-link" href="#database-user" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>When &lt;strong>connecting to a hosted Dgraph database&lt;/strong>, this source uses the API key
+for access. If you are using a dedicated environment, you will additionally need
+the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>Introduction</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/introduction/</guid><description>&lt;h1 id="introduction">Introduction&lt;a class="td-heading-self-link" href="#introduction" aria-label="Heading self-link">&lt;/a>&lt;/h1>
 &lt;p>This is a placeholder for the introduction.&lt;/p></description></item><item><title>MySQL</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/resources/sources/mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://www.mysql.com/">MySQL&lt;/a> is a relational database management system (RDBMS) that
 stores and manages data. It&amp;rsquo;s a popular choice for developers because of its
