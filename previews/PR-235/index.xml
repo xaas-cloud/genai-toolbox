@@ -755,7 +755,7 @@ following sources:&lt;/p>
 &lt;h3 id="googlesql">GoogleSQL&lt;a class="td-heading-self-link" href="#googlesql" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>For the &lt;code>googlesql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://cloud.google.com/spanner/docs/reference/standard-sql/dml-syntax">data
 manipulation language (DML)&lt;/a> statements, and specified parameters will
-inserted according to their name: e.g. &amp;ldquo;@name&amp;rdquo;.&lt;/p>
+inserted according to their name: e.g. &lt;code>@name&lt;/code>.&lt;/p>
 &lt;h3 id="postgresql">PostgreSQL&lt;a class="td-heading-self-link" href="#postgresql" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>For the &lt;code>postgresql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared
 statement&lt;/a>, and specified parameters will inserted according to
