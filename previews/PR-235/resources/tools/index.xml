@@ -110,7 +110,7 @@ query.&lt;/p>
  &lt;td>description&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Description of the tool&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>statement&lt;/td>
@@ -145,9 +145,9 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;li>&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-235/previews/PR-235/resources/sources/mssql/">mssql&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Toolbox supports the &lt;a href="https://learn.microsoft.com/sql/relational-databases/system-stored-procedures/sp-prepare-transact-sql?view=sql-server-ver16">prepare statement syntax&lt;/a> of MS SQL
-Server and expects parameters in the SQL query to be in the form of either @Name
-or @p1 to @pN (ordinal position).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>db.QueryContext(ctx, &lt;span style="color:#f92672">`&lt;/span>&lt;span style="color:#66d9ef">select&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">from&lt;/span> t &lt;span style="color:#66d9ef">where&lt;/span> ID &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">@&lt;/span>ID &lt;span style="color:#66d9ef">and&lt;/span> Name &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">@&lt;/span>p2;&lt;span style="color:#f92672">`&lt;/span>, &lt;span style="color:#66d9ef">sql&lt;/span>.Named(&lt;span style="color:#e6db74">&amp;#34;ID&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>), &lt;span style="color:#e6db74">&amp;#34;Bob&amp;#34;&lt;/span>)
+Server and expects parameters in the SQL query to be in the form of either
+&lt;code>@Name&lt;/code> or &lt;code>@p1&lt;/code> to &lt;code>@pN&lt;/code> (ordinal position).&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">db&lt;/span>.&lt;span style="color:#a6e22e">QueryContext&lt;/span>(&lt;span style="color:#a6e22e">ctx&lt;/span>, &lt;span style="color:#e6db74">`select * from t where ID = @ID and Name = @p2;`&lt;/span>, &lt;span style="color:#a6e22e">sql&lt;/span>.&lt;span style="color:#a6e22e">Named&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;ID&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>), &lt;span style="color:#e6db74">&amp;#34;Bob&amp;#34;&lt;/span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">search_flights_by_number&lt;/span>:
@@ -383,7 +383,7 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
  &lt;td>description&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Description of the tool&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>statement&lt;/td>
@@ -407,8 +407,8 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;li>&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-235/previews/PR-235/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared statement&lt;/a>,
-and specified parameters will inserted according to their position: e.g. &amp;lsquo;$1&amp;rsquo;
-will be the first parameter specified, &amp;lsquo;$@&amp;rsquo; will be the second parameter, and so
+and specified parameters will inserted according to their position: e.g. &lt;code>1&lt;/code>
+will be the first parameter specified, &lt;code>$@&lt;/code> will be the second parameter, and so
 on.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
