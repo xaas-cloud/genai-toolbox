@@ -866,7 +866,7 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a>&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
-&lt;li>Completed setup for usage with a &lt;a href="https://python.langchain.com/docs/integrations/chat/">LangChain Chat Model&lt;/a>, such as:
+&lt;li>Completed setup for usage with a &lt;a href="https://python.langchain.com/docs/integrations/chat/">LangChain chat model&lt;/a>, such as:
 &lt;ul>
 &lt;li>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">&lt;code>langchain-vertexai&lt;/code> package&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">&lt;code>langchain-google-genai&lt;/code> package&lt;/a>&lt;/li>
