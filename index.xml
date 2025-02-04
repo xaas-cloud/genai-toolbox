@@ -861,13 +861,18 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
  &lt;td>Password of the SQL Server user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</guid><description/></item><item><title>Local Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/table></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</guid><description/></item><item><title>Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a>&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
-&lt;li>Completed &lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">setup for &lt;code>langchain-vertexai&lt;/code> package&lt;/a> (or are
-comfortable switching the example to a different LLM model)&lt;/li>
+&lt;li>Completed setup for usage with a &lt;a href="https://python.langchain.com/docs/integrations/chat/">LangChain chat model&lt;/a>, such as:
+&lt;ul>
+&lt;li>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">&lt;code>langchain-vertexai&lt;/code> package&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">&lt;code>langchain-google-genai&lt;/code> package&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://python.langchain.com/docs/integrations/chat/anthropic/#setup">&lt;code>langchain-anthropic&lt;/code> package&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
