@@ -12,25 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: llamaindex
+name: lint-sdk
 on:
   pull_request:
     paths:
-      - 'sdks/llamaindex/**'
-      - '!sdks/llamaindex/**/*.md'
+      - "sdks/**"
+      - "!sdks/**/*.md"
 
 # Declare default permissions as read only.
 permissions: read-all
 
 jobs:
   lint:
+    name: ${{ matrix.sdk }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk: [langchain, llamaindex]
+      fail-fast: false
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.sdk }}
       cancel-in-progress: true
     defaults:
       run:
-        working-directory: ./sdks/llamaindex
+        working-directory: ./sdks/${{ matrix.sdk }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
@@ -54,4 +59,4 @@ jobs:
       - name: Run type-check
         env:
           MYPYPATH: './src'
-        run: mypy --install-types --non-interactive --cache-dir=.mypy_cache/ -p toolbox_llamaindex_sdk
+        run: mypy --install-types --non-interactive --cache-dir=.mypy_cache/ -p toolbox_${{ matrix.sdk }}_sdk

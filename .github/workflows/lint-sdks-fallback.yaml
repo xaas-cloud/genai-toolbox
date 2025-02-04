@@ -12,15 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: langchain
+name: lint-sdk
 on:
   pull_request:
     paths: # These paths are the inverse of lint.yml
-      - "sdks/langchain/**/*.md"
+      - "sdks/**/*.md"
 
 jobs:
   lint:
+    name: ${{ matrix.sdk }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk: [langchain, llamaindex]
     permissions:
       contents: none
 
