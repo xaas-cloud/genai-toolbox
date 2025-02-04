@@ -3,8 +3,8 @@
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
 &lt;p>Toolbox exports telemetry data of logs via standard out/err, and traces/metrics
-through OpenTelemetry. Additional flags can be passed to Toolbox to enable
-different logging behavior, or to export metrics through a specific
-&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-263/concepts/telemetry/#exporter">exporter&lt;/a>.&lt;/p>
+through &lt;a href="https://opentelemetry.io/">OpenTelemetry&lt;/a>. Additional flags can be
+passed to Toolbox to enable different logging behavior, or to export metrics
+through a specific &lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-263/concepts/telemetry/#exporter">exporter&lt;/a>.&lt;/p>
 &lt;h2 id="logging">Logging&lt;a class="td-heading-self-link" href="#logging" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>The following flags can be used to customize Toolbox logging:&lt;/p></description></item></channel></rss>
