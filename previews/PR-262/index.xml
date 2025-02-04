@@ -870,7 +870,7 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">&lt;code>langchain-vertexai&lt;/code> package&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">&lt;code>langchain-google-genai&lt;/code> package&lt;/a>&lt;/li>
-&lt;li>[&lt;code>langchain-anthropic&lt;/code> package][install-anthropic]&lt;/li>
+&lt;li>&lt;a href="https://python.langchain.com/docs/integrations/chat/anthropic/#setup">&lt;code>langchain-anthropic&lt;/code> package&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
