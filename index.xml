@@ -861,7 +861,7 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
  &lt;td>Password of the SQL Server user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</guid><description/></item><item><title>Contributing</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/development/contributing/</guid><description/></item><item><title>Deploy to Cloud Run</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/how-to/deploy_toolbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/how-to/deploy_toolbox/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/table></description></item><item><title>Architecture</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/concepts/overview/</guid><description/></item><item><title>Deploy to Cloud Run</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/how-to/deploy_toolbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/how-to/deploy_toolbox/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs/install">Install&lt;/a> the Google Cloud CLI.&lt;/p>
@@ -903,7 +903,19 @@ telemetry data.&lt;/p>
 &lt;li>&lt;code>Connectors&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;p>Example of setting up the classes of pipeline components (in this example, we
-don&amp;rsquo;t use connectors):&lt;/p></description></item><item><title>Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+don&amp;rsquo;t use connectors):&lt;/p></description></item><item><title>FAQ</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/about/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/about/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox">How can I deploy or run Toolbox?&lt;a class="td-heading-self-link" href="#how-can-i-deploy-or-run-toolbox" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Gen AI Toolbox for Databases is open-source and can be ran or deployed to a
+multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/genai-toolbox/releases/">compiled binaries and
+docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
+&lt;p>For detailed instructions, check our these resources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/">Quickstart: How to Run Locally&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/how-to/deploy_toolbox/">Deploy to Cloud Run&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;a class="td-heading-self-link" href="#do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Nope! While some of the sources Toolbox connects to may require GCP credentials,
+Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different resources
+that don&amp;rsquo;t.&lt;/p></description></item><item><title>Quickstart</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a>&lt;/li>
