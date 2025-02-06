@@ -16,7 +16,7 @@
 access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Configuration</title><link>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-273/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-273/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
 have multiple files, you can tell toolbox which to load with the &lt;code>--tools_file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
-&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-273/resources/">Resources&lt;/a> section of the documentation.&lt;/p>
+&lt;a href="https://vigilant-guacamole-plnwrm9.pages.github.io/previews/PR-273/resources/">Resources&lt;/a>.&lt;/p>
 &lt;h3 id="sources">Sources&lt;a class="td-heading-self-link" href="#sources" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>The &lt;code>sources&lt;/code> section of your &lt;code>tools.yaml&lt;/code> defines what data sources your
 Toolbox should have access to. Most tools will have at least one source to
