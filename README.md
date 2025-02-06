@@ -1,8 +1,9 @@
 
 # 🧰 Gen AI Toolbox for Databases
 
-> [!Note] Gen AI Toolbox for Databases is currently in beta, and may see
-> breaking changes until the first stable release (v1.0).
+> [!NOTE] 
+> Gen AI Toolbox for Databases is currently in beta, and may see breaking 
+> changes until the first stable release (v1.0).
 
 Gen AI Toolbox for Databases is an open source server that makes it easier to
 build Gen AI tools for interacting with databases. It enables you to develop
