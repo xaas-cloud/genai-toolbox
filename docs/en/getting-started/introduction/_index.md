@@ -90,7 +90,7 @@ You can use `toolbox help` for a full list of flags! To stop the server, send a
 terminate signal (`ctrl+c` on most platforms).
 
 For more detailed documentation on deploying to different environments, check
-out the resources in the [How-to section](../how-to/_index.md)
+out the resources in the [How-to section](../../how-to/_index.md)
 
 ### Integrating your application
 
