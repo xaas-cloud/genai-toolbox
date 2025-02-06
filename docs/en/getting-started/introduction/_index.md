@@ -50,7 +50,8 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-curl -O https://storage.googleapis.com/genai-toolbox/v0.1.0/linux/amd64/toolbox
+export VERSION=0.1.0
+curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
 
