@@ -57,7 +57,7 @@ centralized location to store and update tools, allowing you to share tools
 between agents and applications and update those tools without necessarily
 redeploying your application.
 
-![architecture](./docs/en/getting-started/architecture.png)
+![architecture](./docs/en/getting-started/introduction/architecture.png)
 
 ## Getting Started
 
