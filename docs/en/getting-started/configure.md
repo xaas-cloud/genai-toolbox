@@ -10,7 +10,7 @@ have multiple files, you can tell toolbox which to load with the `--tools_file
 tools.yaml` flag.
 
 You can find more detailed reference documentation to all resource types in the
-[Resources](../resources/) section of the documentation.
+[Resources](../resources/).
 
 ### Sources
 
@@ -30,7 +30,7 @@ sources:
 ```
 
 For more details on configuring different types of sources, see the
-[Sources](../resources/sources/) reference docs.
+[Sources](../resources/sources/).
 
 ### Tools
 
@@ -52,14 +52,14 @@ tools:
 ```
 
 For more details on configuring different types of tools, see the
-[Tools](../resources/tools/) reference docs.
+[Tools](../resources/tools/).
 
 
 ### Toolsets
 
 The `toolsets` section of your `tools.yaml` allows you to define groups of tools
 that you want to be able to load together. This can be useful for defining
-different sets for different agents or different application.
+different sets for different agents or different applications.
 
 ```yaml
 toolsets:

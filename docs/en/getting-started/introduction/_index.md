@@ -2,7 +2,7 @@
 title: "Introduction"
 type: docs
 weight: 1
-description: A introduction to Gen AI Toolbox for Databases.
+description: An introduction to Gen AI Toolbox for Databases.
 ---
 
 Gen AI Toolbox for Databases is an open source server that makes it easier to
@@ -14,13 +14,13 @@ connection pooling, authentication, and more.
 
 Toolbox helps you build Gen AI tools that let your agents access data in your
 database. Toolbox provides:
-- Simplified development: integrate tools to your agent in less than 10 lines of
-  code, reuse tools between multiple agents or frameworks, and deploy new
-  versions of tools more easily.
-- Better performance: best practices such as connection pooling,
+- **Simplified development**: Integrate tools to your agent in less than 10
+- lines of code, reuse tools between multiple agents or frameworks, and deploy
+  new versions of tools more easily.
+- **Better performance**: Best practices such as connection pooling,
   authentication, and more.
-- Enhanced security: integrated auth for more secure access to your data
-- End-to-end observability: out of the box metrics and tracing with built-in
+- **Enhanced security**: Integrated auth for more secure access to your data
+- **End-to-end observability**: Out of the box metrics and tracing with built-in
   support for OpenTelemetry.
 
 
@@ -50,7 +50,7 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-curl -O https://storage.googleapis.com/genai-toolbox/v0.0.5/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.1.0/linux/amd64/toolbox
 chmod +x toolbox
 ```
 
@@ -60,7 +60,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.0.5
+export VERSION=0.1.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -71,7 +71,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.0.5
+go install github.com/googleapis/genai-toolbox@v0.1.0
 ```
 
 {{% /tab %}}
@@ -90,7 +90,7 @@ You can use `toolbox help` for a full list of flags! To stop the server, send a
 terminate signal (`ctrl+c` on most platforms).
 
 For more detailed documentation on deploying to different environments, check
-out the resources in our [How-to section](../how-to/_index.md)
+out the resources in the [How-to section](../how-to/_index.md)
 
 ### Integrating your application
 
@@ -119,5 +119,3 @@ For more detailed instructions on using the Toolbox LangChain SDK, see the
 
 {{% /tab %}}
 {{< /tabpane >}}
-
-
