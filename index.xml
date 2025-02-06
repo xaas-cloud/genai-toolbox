@@ -44,8 +44,7 @@ to a database by following these instructions&lt;/a>.&lt;/p>
 authorize and establish mTLS connections to your Cloud SQL instance. The Go
 connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
 your connection to Cloud SQL.&lt;/p></description></item><item><title>Dgraph</title><link>https://googleapis.github.io/genai-toolbox/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/resources/sources/dgraph/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is a horizontally scalable and distributed graph database.
-It provides ACID transactions, consistent replication, and linearizable reads.&lt;/p>
+&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is an open-source graph database. It is designed for real-time workloads, horizontal scalability, and data flexibility. Implemented as a distributed system, Dgraph processes queries in parallel to deliver the fastest result.&lt;/p>
 &lt;p>This source can connect to either a self-managed Dgraph cluster or one hosted on
 Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started is to
 &lt;a href="https://cloud.dgraph.io/login">sign up for Dgraph Cloud&lt;/a>.&lt;/p>
