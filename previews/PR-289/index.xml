@@ -917,8 +917,7 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Quickstart</title>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-something like &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a> for managing dependencies in your
-environment).&lt;/li>
+something like &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a> for managing dependencies)&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
 &lt;li>Completed setup for usage with a &lt;a href="https://python.langchain.com/docs/integrations/chat/">LangChain chat model&lt;/a>, such as:
 &lt;ul>
