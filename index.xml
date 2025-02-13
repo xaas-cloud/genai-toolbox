@@ -916,7 +916,8 @@ Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different r
 that don&amp;rsquo;t.&lt;/p></description></item><item><title>Quickstart</title><link>https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
-&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a>&lt;/li>
+&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
+something like &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a> for managing dependencies)&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
 &lt;li>Completed setup for usage with a &lt;a href="https://python.langchain.com/docs/integrations/chat/">LangChain chat model&lt;/a>, such as:
 &lt;ul>
