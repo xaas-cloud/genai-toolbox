@@ -215,7 +215,6 @@ steps:
 
   - id: "check-coverage"
     name: golang:1
-    entrypoint: /bin/bash
     script: |
       set -e
       for file in $(find . -name "*_coverage.out"); do
