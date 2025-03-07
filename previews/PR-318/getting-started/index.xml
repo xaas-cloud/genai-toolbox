@@ -32,7 +32,7 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;div class="tab-content" id="tabs-0-content">
  &lt;div class="tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
- &lt;pre tabindex="0">&lt;code> - [`langchain-vertexai` package][install-lc-vertexai]
+ &lt;pre tabindex="0">&lt;code>s - [`langchain-vertexai` package][install-lc-vertexai]
  - [`langchain-google-genai` package][install-lc-genai]
  - [`langchain-anthropic` package][install-lc-anthropic]
  &lt;/code>&lt;/pre>
@@ -41,6 +41,7 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
  &lt;pre tabindex="0">&lt;code> - [`llama-index-llms-vertex` package][install-llama-vertex]
  - [`llama-index-llms-anthropic` package][install-llama-anthropic]
+ - [`llama-index-llms-gemini` package][install-llama-gemini]
  &lt;/code>&lt;/pre>
  &lt;/div>
 &lt;/div>
