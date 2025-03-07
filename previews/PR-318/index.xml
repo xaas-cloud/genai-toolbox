@@ -928,32 +928,29 @@ Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different r
 that don&amp;rsquo;t.&lt;/p></description></item><item><title>Quickstart</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
-&lt;li>
-&lt;p>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Completed setup for usage with an LLM model such as&lt;/p>
+&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
+your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/li>
+&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
+&lt;li>Completed setup for usage with an LLM model such as
+
+ 
+ 
  &lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
-&lt;/li>
-&lt;/ol>
  &lt;li class="nav-item">
  &lt;button class="nav-link active"
  id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
  data-td-tp-persist="langchain" aria-controls="tabs-00-00" aria-selected="true">
- Langchain
+ LangChain
  &lt;/button>
  &lt;/li>&lt;li class="nav-item">
  &lt;button class="nav-link"
  id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- data-td-tp-persist="llamaindex" aria-controls="tabs-00-01" aria-selected="false">
- LlamaIndex
+ aria-controls="tabs-00-01" aria-selected="false">
+ LangChain
  &lt;/button>
  &lt;/li>
 &lt;/ul>
+
 &lt;div class="tab-content" id="tabs-0-content">
  &lt;div class="tab-body tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
@@ -961,14 +958,22 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 `langchain-google-genai`&amp;lt;a href=&amp;quot;https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;. &amp;lt;br&amp;gt;
 `langchain-anthropic`&amp;lt;a href=&amp;quot;https://python.langchain.com/docs/integrations/chat/anthropic/#setup&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.
 &lt;/code>&lt;/pre>
-&lt;pre>&lt;code>&amp;lt;/div&amp;gt;
-&amp;lt;div class=&amp;quot;tab-body tab-pane fade&amp;quot;
- id=&amp;quot;tabs-00-01&amp;quot; role=&amp;quot;tabpanel&amp;quot; aria-labelled-by=&amp;quot;tabs-00-01-tab&amp;quot; tabindex=&amp;quot;0&amp;quot;&amp;gt;
- &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;`llama-index-llms-vertex`&amp;amp;lt;a href=&amp;amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/vertex/&amp;amp;quot;&amp;amp;gt;package&amp;amp;lt;/a&amp;amp;gt;.&amp;amp;lt;br&amp;amp;gt;
+
+ &lt;/div>
+ &lt;div class="tab-body tab-pane fade"
+ id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
+ &lt;pre>&lt;code>`llama-index-llms-vertex`&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/vertex/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
+`llama-index-llms-gemini`&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/gemini/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
+`llama-index-llms-anthropic`&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/anthropic/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;
 &lt;/code>&lt;/pre>
-&lt;p>&lt;code>llama-index-llms-gemini&lt;/code>&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/gemini/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
-&lt;code>llama-index-llms-anthropic&lt;/code>&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/anthropic/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;
-&lt;/code>&lt;/pre>&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+
+ &lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>In this section, we will create a database, insert some data that needs to be
+access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Telemetry data such as logs, metrics, and traces will help developers understand
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
