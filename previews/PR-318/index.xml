@@ -937,47 +937,38 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;/li>
 &lt;li>
 &lt;p>Completed setup for usage with an LLM model such as&lt;/p>
-
- 
- 
  &lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
+&lt;/li>
+&lt;/ol>
  &lt;li class="nav-item">
  &lt;button class="nav-link active"
  id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- aria-controls="tabs-00-00" aria-selected="true">
+ data-td-tp-persist="langchain" aria-controls="tabs-00-00" aria-selected="true">
  Langchain
  &lt;/button>
  &lt;/li>&lt;li class="nav-item">
  &lt;button class="nav-link"
  id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- aria-controls="tabs-00-01" aria-selected="false">
+ data-td-tp-persist="llamaindex" aria-controls="tabs-00-01" aria-selected="false">
  LlamaIndex
  &lt;/button>
  &lt;/li>
 &lt;/ul>
-
 &lt;div class="tab-content" id="tabs-0-content">
- &lt;div class="tab-pane fade show active"
+ &lt;div class="tab-body tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
- &lt;pre tabindex="0">&lt;code> `langchain-vertexai`&amp;lt;a href=&amp;#34;https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
- `langchain-google-genai`&amp;lt;a href=&amp;#34;https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;. &amp;lt;br&amp;gt;
- `langchain-anthropic`&amp;lt;a href=&amp;#34;https://python.langchain.com/docs/integrations/chat/anthropic/#setup&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;.
- &lt;/code>&lt;/pre>
- &lt;/div>
- &lt;div class="tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;pre tabindex="0">&lt;code> `llama-index-llms-vertex`&amp;lt;a href=&amp;#34;https://docs.llamaindex.ai/en/stable/examples/llm/vertex/&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
- `llama-index-llms-gemini`&amp;lt;a href=&amp;#34;https://docs.llamaindex.ai/en/stable/examples/llm/gemini/&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
- `llama-index-llms-anthropic`&amp;lt;a href=&amp;#34;https://docs.llamaindex.ai/en/stable/examples/llm/anthropic/&amp;#34;&amp;gt;package&amp;lt;/a&amp;gt;
- &lt;/code>&lt;/pre>
- &lt;/div>
-&lt;/div>
-
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+ &lt;pre>&lt;code>`langchain-vertexai`&amp;lt;a href=&amp;quot;https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
+`langchain-google-genai`&amp;lt;a href=&amp;quot;https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;. &amp;lt;br&amp;gt;
+`langchain-anthropic`&amp;lt;a href=&amp;quot;https://python.langchain.com/docs/integrations/chat/anthropic/#setup&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;tab-body tab-pane fade&amp;quot;
+ id=&amp;quot;tabs-00-01&amp;quot; role=&amp;quot;tabpanel&amp;quot; aria-labelled-by=&amp;quot;tabs-00-01-tab&amp;quot; tabindex=&amp;quot;0&amp;quot;&amp;gt;
+ &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;`llama-index-llms-vertex`&amp;amp;lt;a href=&amp;amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/vertex/&amp;amp;quot;&amp;amp;gt;package&amp;amp;lt;/a&amp;amp;gt;.&amp;amp;lt;br&amp;amp;gt;
+&lt;/code>&lt;/pre>
+&lt;p>&lt;code>llama-index-llms-gemini&lt;/code>&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/gemini/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;
+&lt;code>llama-index-llms-anthropic&lt;/code>&amp;lt;a href=&amp;quot;https://docs.llamaindex.ai/en/stable/examples/llm/anthropic/&amp;quot;&amp;gt;package&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Telemetry data such as logs, metrics, and traces will help developers understand
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
