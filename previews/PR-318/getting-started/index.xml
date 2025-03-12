@@ -34,7 +34,7 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  &lt;/div>
  &lt;div class="tab-body tab-pane fade"
  id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;p>&lt;a href="https://pypi.org/project/llama-index-llms-gemini">llama-index-llms-google-genai&lt;/a> package.&lt;/p></description></item><item><title>Configuration</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
+ &lt;p>&lt;a href="https://pypi.org/project/llama-index-llms-google-genai/">llama-index-llms-google-genai&lt;/a> package.&lt;/p></description></item><item><title>Configuration</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-318/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
 have multiple files, you can tell toolbox which to load with the &lt;code>--tools_file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
 &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-318/resources/">Resources&lt;/a>.&lt;/p>
