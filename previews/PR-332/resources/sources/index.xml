@@ -63,8 +63,8 @@ and other HTTP-accessible resources.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">baseUrl&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://api.example.com/data&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;10s&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">headers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;application/json&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Authorization&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Bearer YOUR_API_TOKEN&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;application/json&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">queryParams&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param1&lt;/span>: &lt;span style="color:#ae81ff">value1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param2&lt;/span>: &lt;span style="color:#ae81ff">value2&lt;/span>
@@ -101,13 +101,13 @@ and other HTTP-accessible resources.&lt;/p>
  &lt;td>timeout&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;).&lt;/td>
+ &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more info) .&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>headers&lt;/td>
  &lt;td style="text-align: center">map[string]string&lt;/td>
  &lt;td style="text-align: center">false&lt;/td>
- &lt;td>Optional headers to include in the HTTP requests. For example: Content-Type: &amp;ldquo;application/json&amp;quot;Authorization: &amp;ldquo;Bearer YOUR_API_TOKEN&amp;rdquo;&lt;/td>
+ &lt;td>Default headers to include in the HTTP requests.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>MySQL</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
