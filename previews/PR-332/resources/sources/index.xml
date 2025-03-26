@@ -52,19 +52,19 @@ Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started 
 &lt;h3 id="database-user">Database User&lt;a class="td-heading-self-link" href="#database-user" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>When &lt;strong>connecting to a hosted Dgraph database&lt;/strong>, this source uses the API key
 for access. If you are using a dedicated environment, you will additionally need
-the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>HTTP Source</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>HTTP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>The HTTP Source allows the Gen AI Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">sources&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">my-http-source&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;http&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">baseUrl&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://api.example.com/data&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;10s&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">http&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">baseUrl&lt;/span>: &lt;span style="color:#ae81ff">https://api.example.com/data&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#ae81ff">10s&lt;/span> &lt;span style="color:#75715e"># default to 30s&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">headers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Authorization&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Bearer YOUR_API_TOKEN&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;application/json&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Authorization&lt;/span>: &lt;span style="color:#ae81ff">Bearer YOUR_API_TOKEN&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#ae81ff">application/json&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">queryParams&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param1&lt;/span>: &lt;span style="color:#ae81ff">value1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param2&lt;/span>: &lt;span style="color:#ae81ff">value2&lt;/span>
@@ -101,7 +101,7 @@ and other HTTP-accessible resources.&lt;/p>
  &lt;td>timeout&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more info) .&lt;/td>
+ &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more ) .&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>headers&lt;/td>

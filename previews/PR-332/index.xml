@@ -255,38 +255,25 @@ in with the &lt;code>Client ID&lt;/code>.&lt;/p>
 &lt;p>When using &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/tools/#authorized-invocations">Authorized Invocations&lt;/a>, a tool will be
 considered authorized if it has a valid Oauth 2.0 token that matches the Client
 ID.&lt;/p></description></item><item><title>http</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/tools/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/tools/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs and retrieve data.
-Both static and dynamic parameters are supported as part of the request.&lt;/p>
-&lt;ul>
-&lt;li>Static parameters stay the same for every Tool invocation.&lt;/li>
-&lt;li>Dynamic parameters are populated upon Tool invocation by the LLM inputs.&lt;/li>
-&lt;/ul>
-&lt;h3 id="request-headers">Request headers&lt;a class="td-heading-self-link" href="#request-headers" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Static request headers should be specified as maps in the &lt;code>headers&lt;/code> field.&lt;/li>
-&lt;li>Dynamic request headers should be specified as parameters in the &lt;code>headerParams&lt;/code> section.&lt;/li>
-&lt;/ul>
-&lt;h3 id="request-query-parameters">Request query parameters&lt;a class="td-heading-self-link" href="#request-query-parameters" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Static request query parameters should be specified in the &lt;code>path&lt;/code> as part of the URL itself (e.g., &amp;ldquo;/endpoint1?language=en&amp;rdquo;).&lt;/li>
-&lt;li>Dynamic request query parameters should be specified as parameters in the &lt;code>headerParams&lt;/code> section.&lt;/li>
-&lt;/ul>
-&lt;h3 id="request-body">Request body&lt;a class="td-heading-self-link" href="#request-body" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>The request body payload is a string that supports parameter replacement with the &lt;code>$&lt;/code> plus vriable name as the placeholders.
-For example, &lt;code>$id&lt;/code> will be replaced by the value of the parameter with the name &lt;code>id&lt;/code> and &lt;code>$age&lt;/code> by the value of the parameter with the name &lt;code>age&lt;/code>. The parameter values will be populated into the request body payload upon Tool invocation.
-Specify replacement parameters in the &lt;code>bodyParams&lt;/code> section.&lt;/p></description></item><item><title>HTTP Source</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs to retrieve data.
+An HTTP request is the method by which a client communicates with a server to retrieve or manipulate resources.
+Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
+&lt;h3 id="url">URL&lt;a class="td-heading-self-link" href="#url" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>An HTTP request URL identifies the targetthe client wants to access.
+Toolbox composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s &lt;code>path&lt;/code>.
+For example, the following config allows you to reach different paths of the same server using multiple Tools:&lt;/p></description></item><item><title>HTTP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-332/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>The HTTP Source allows the Gen AI Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">sources&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">my-http-source&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;http&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">baseUrl&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://api.example.com/data&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;10s&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">http&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">baseUrl&lt;/span>: &lt;span style="color:#ae81ff">https://api.example.com/data&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#ae81ff">10s&lt;/span> &lt;span style="color:#75715e"># default to 30s&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">headers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Authorization&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Bearer YOUR_API_TOKEN&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;application/json&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Authorization&lt;/span>: &lt;span style="color:#ae81ff">Bearer YOUR_API_TOKEN&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Content-Type&lt;/span>: &lt;span style="color:#ae81ff">application/json&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">queryParams&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param1&lt;/span>: &lt;span style="color:#ae81ff">value1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">param2&lt;/span>: &lt;span style="color:#ae81ff">value2&lt;/span>
@@ -323,7 +310,7 @@ and other HTTP-accessible resources.&lt;/p>
  &lt;td>timeout&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more info) .&lt;/td>
+ &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more ) .&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>headers&lt;/td>
