@@ -101,7 +101,7 @@ and other HTTP-accessible resources.&lt;/p>
  &lt;td>timeout&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to this &lt;a href="https://pkg.go.dev/time#ParseDuration">doc&lt;/a> for more ) .&lt;/td>
+ &lt;td>The timeout for HTTP requests (e.g., &amp;ldquo;5s&amp;rdquo;, &amp;ldquo;1m&amp;rdquo;, refer to &lt;a href="https://pkg.go.dev/time#ParseDuration">ParseDuration&lt;/a> for more examples) .&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>headers&lt;/td>
