@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>How-to on Gen AI Toolbox</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/</link><description>Recent content in How-to on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/index.xml" rel="self" type="application/rss+xml"/><item><title>Connect via MCP Client</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/connect_via_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/connect_via_mcp/</guid><description>&lt;h1 id="toolbox-support-for-mcp">Toolbox support for MCP&lt;a class="td-heading-self-link" href="#toolbox-support-for-mcp" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>How-to on Gen AI Toolbox</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/</link><description>Recent content in How-to on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/index.xml" rel="self" type="application/rss+xml"/><item><title>Connect via MCP Client</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/connect_via_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-379/how-to/connect_via_mcp/</guid><description>&lt;h2 id="toolbox-support-for-mcp">Toolbox support for MCP&lt;a class="td-heading-self-link" href="#toolbox-support-for-mcp" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>To ensure a seamless compatibility between MCP and Toolbox, we provide a native
 integration of MCP.&lt;/p>
-&lt;h2 id="protocol-versions">Protocol Versions&lt;a class="td-heading-self-link" href="#protocol-versions" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="protocol-versions">Protocol Versions&lt;a class="td-heading-self-link" href="#protocol-versions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>Toolbox currently supports the following versions of MCP specification:&lt;/p>
 &lt;ul>
 &lt;li>2024-11-05&lt;/li>
 &lt;/ul>
-&lt;h2 id="what-do-we-not-support-with-toolbox-mcp">What do we not support with Toolbox MCP&lt;a class="td-heading-self-link" href="#what-do-we-not-support-with-toolbox-mcp" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="what-do-we-not-support-with-toolbox-mcp">What do we not support with Toolbox MCP&lt;a class="td-heading-self-link" href="#what-do-we-not-support-with-toolbox-mcp" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>There are certain features within the MCP specification that we are not/not yet
 supporting:&lt;/p>
 &lt;ul>
@@ -18,8 +18,8 @@ automatically loaded when using Toolbox with MCP.&lt;/li>
 parameter, hence it is not currently supported in the beta version of Toolbox.
 All parameters are treated as required.&lt;/li>
 &lt;/ul>
-&lt;h1 id="using-toolbox-with-mcp-client">Using Toolbox with MCP Client&lt;a class="td-heading-self-link" href="#using-toolbox-with-mcp-client" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="using-toolbox-with-mcp-client">Using Toolbox with MCP Client&lt;a class="td-heading-self-link" href="#using-toolbox-with-mcp-client" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;style type="text/css">
  
  .notice {
