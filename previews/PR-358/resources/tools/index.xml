@@ -14,7 +14,7 @@ application end user natural language questions. Natural language streamlines
 the development of generative AI applications by transferring the complexity
 of converting natural language to SQL from the application layer to the
 database layer.&lt;/p></description></item><item><title>dgraph-dql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-358/resources/tools/dgraph-dql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-358/resources/tools/dgraph-dql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>A &lt;code> dgraph-dql&lt;/code> tool executes a pre-defined DQL statement against a Dgraph
+&lt;p>A &lt;code>dgraph-dql&lt;/code> tool executes a pre-defined DQL statement against a Dgraph
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-358/resources/sources/dgraph/">dgraph&lt;/a>&lt;/li>
