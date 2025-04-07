@@ -74,7 +74,7 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		name := paramDef.GetName()
 		escapedName := strings.ReplaceAll(name, "'", "''") // Escape for SQL literal
 		quotedNameParts = append(quotedNameParts, fmt.Sprintf("'%s'", escapedName))
-		placeholderParts = append(placeholderParts, fmt.Sprintf("$%d", i+3)) // $1, $2 reserved
+		placeholderParts = append(placeholderParts, fmt.Sprintf("$%d", i+2)) // $1 reserved
 	}
 
 	var paramNamesSQL string
@@ -88,14 +88,14 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		paramValuesSQL = "ARRAY[]::TEXT[]"
 	}
 
-	// execute_nl_query is the AlloyDB AI function that executes the natural language query
-	// The first parameter is the natural language query, which is passed as $1
-	// The second parameter is the NLConfig, which is passed as a $2
-	// The following params are the list of PSV values passed to the NLConfig
+	// execute_parameterized_query is the AlloyDB AI function that executes queries with PSV param names and values
+	// The first parameter is the generated SQL query, which is passed as $1
+	// The following params are the list of PSV values
 	// Example SQL statement being executed:
-	// SELECT alloydb_ai_nl.execute_nl_query('How many tickets do I have?', 'cymbal_air_nl_config', param_names => ARRAY ['user_email'], param_values => ARRAY ['hailongli@google.com']);
-	stmtFormat := "SELECT alloydb_ai_nl.execute_nl_query($1, $2, param_names => %s, param_values => %s);"
-	stmt := fmt.Sprintf(stmtFormat, paramNamesSQL, paramValuesSQL)
+	// SELECT * FROM parameterized_views.execute_parameterized_query(query => 'SELECT * FROM tickets_psv', param_names => ARRAY ['user_email'], param_values => ARRAY ['hailongli@google.com']);
+
+	executePSVStmtFormat := "SELECT * FROM parameterized_views.execute_parameterized_query(query => $1, param_names =>%s, param_values => %s);"
+	executePSVStmt := fmt.Sprintf(executePSVStmtFormat, paramNamesSQL, paramValuesSQL)
 
 	newQuestionParam := tools.NewStringParameter(
 		"question",                              // name
@@ -114,7 +114,7 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		Name:         cfg.Name,
 		Kind:         ToolKind,
 		Parameters:   cfg.NLConfigParameters,
-		Statement:    stmt,
+		Statement:    executePSVStmt,
 		NLConfig:     cfg.NLConfig,
 		AuthRequired: cfg.AuthRequired,
 		Pool:         s.PostgresPool(),
@@ -143,32 +143,55 @@ type Tool struct {
 
 func (t Tool) Invoke(params tools.ParamValues) ([]any, error) {
 	sliceParams := params.AsSlice()
-	allParamValues := make([]any, len(sliceParams)+1)
-	allParamValues[0] = fmt.Sprintf("%s", sliceParams[0]) // nl_question
-	allParamValues[1] = t.NLConfig                        // nl_config
-	for i, param := range sliceParams[1:] {
-		allParamValues[i+2] = fmt.Sprintf("%s", param)
+	if len(sliceParams) < 1 {
+		return nil, fmt.Errorf("at least one parameter (nl_question) is required")
 	}
 
-	results, err := t.Pool.Query(context.Background(), t.Statement, allParamValues...)
+	// 1. Generate the SQL query using alloydb_ai_nl.get_sql
+	getSQLStmt := "SELECT alloydb_ai_nl.get_sql(nl_config_id => $1, nl_question => $2)->>'sql' AS SQL;"
+	var generatedSQL string
+	err := t.Pool.QueryRow(context.Background(), getSQLStmt, t.NLConfig, sliceParams[0]).Scan(&generatedSQL)
 	if err != nil {
-		return nil, fmt.Errorf("unable to execute query: %w. Query: %v , Values: %v", err, t.Statement, allParamValues)
+		return nil, fmt.Errorf("failed to generate SQL query: %w", err)
 	}
+
+	// 2. Execute the generated query using formatted PSV statement
+	execParams := append([]any{generatedSQL}, sliceParams[1:]...)
+	results, err := t.Pool.Query(context.Background(), t.Statement, execParams...)
+	if err != nil {
+		return nil, fmt.Errorf("unable to execute query: %w. Query: %q, Values: %v", err, t.Statement, execParams)
+	}
+	defer results.Close()
 
 	fields := results.FieldDescriptions()
-
 	var out []any
+
+	// 3. Process results into a slice of maps
 	for results.Next() {
-		v, err := results.Values()
+		values, err := results.Values()
 		if err != nil {
-			return nil, fmt.Errorf("unable to parse row: %w", err)
+			return nil, fmt.Errorf("unable to parse row values: %w", err)
 		}
-		vMap := make(map[string]any)
-		for i, f := range fields {
-			vMap[f.Name] = v[i]
+		if len(values) != len(fields) {
+			return nil, fmt.Errorf("mismatch between number of fields (%d) and values (%d)", len(fields), len(values))
 		}
-		out = append(out, vMap)
+
+		rowMap := make(map[string]any, len(fields))
+		for i, fd := range fields {
+			rowMap[fd.Name] = values[i]
+		}
+		out = append(out, rowMap)
 	}
+
+	if err := results.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating query results: %w", err)
+	}
+
+	// 4. Append the question and generated SQL itself to the output
+	questionMap := map[string]string{"questionAsked": fmt.Sprintf("%s", sliceParams[0])}
+	out = append(out, questionMap)
+	sqlMap := map[string]string{"generatedSQL": generatedSQL}
+	out = append(out, sqlMap)
 
 	return out, nil
 }
