@@ -2,6 +2,7 @@ title = 'MCP Toolbox for Databases'
 relativeURLs = true
 
 languageCode = 'en-us'
+baseUrl = 'https://github.com/googleapis/genai-toolbox/blob/main'
 contentDir = "../docs/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
