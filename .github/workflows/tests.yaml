@@ -82,7 +82,7 @@ jobs:
           auth_dir="./internal/auth/*"
           included_packages=$(go list ./... | grep -v -e "$source_dir" -e "$tool_dir" -e "$auth_dir")
           go test -race -cover -coverprofile=coverage.out -v $included_packages
-          go test -race -v ./internal/sources/... ./internal/tools/... ./internal/auth/...
+          go test -race -v ./internal/sources/... ./internal/tools/... ./internal/auth/... ./cmd/...
 
       - name: Check coverage
         run: |
