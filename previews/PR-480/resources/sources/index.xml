@@ -7,18 +7,10 @@ open-source PostgreSQL.&lt;/p>
 cluster&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>To connect and query the database, you need to grant your database user
-the following IAM roles (or corresponding
-permissions):&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>roles/alloydb.client&lt;/code>&lt;/li>
-&lt;li>&lt;code>roles/serviceusage.serviceUsageConsumer&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="networking">Networking&lt;a class="td-heading-self-link" href="#networking" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>AlloyDB supports connecting over both from external networks via the internet
-(&lt;a href="https://cloud.google.com/alloydb/docs/connect-public-ip">public IP&lt;/a>), and internal networks (&lt;a href="https://cloud.google.com/alloydb/docs/private-ip">private IP&lt;/a>).
-For more information on choosing between the two options, see the AlloyDB page
-&lt;a href="https://cloud.google.com/alloydb/docs/connection-overview">Connection overview&lt;/a>.&lt;/p></description></item><item><title>BigQuery</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/bigquery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/bigquery/</guid><description>&lt;h1 id="bigquery-source">BigQuery Source&lt;a class="td-heading-self-link" href="#bigquery-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
+Connector&lt;/a> to authorize and establish mTLS connections to your
+AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
+(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>BigQuery</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/bigquery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/bigquery/</guid><description>&lt;h1 id="bigquery-source">BigQuery Source&lt;a class="td-heading-self-link" href="#bigquery-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs">BigQuery&lt;/a> is Google Cloud&amp;rsquo;s fully managed, petabyte-scale,
 and cost-effective analytics data warehouse that lets you run analytics
 over vast amounts of data in near real time. With BigQuery, there&amp;rsquo;s no
@@ -52,9 +44,10 @@ relational databases on Google Cloud Platform.&lt;/p>
 to a database by following these instructions&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;a class="td-heading-self-link" href="#iam-permissions" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>To connect and query the database, you need to grant your database user
-the following IAM roles (or corresponding
-permissions):&lt;/p></description></item><item><title>Cloud SQL for SQL Server</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/cloud-sql-mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
+authorize and establish mTLS connections to your Cloud SQL instance. The Go
+connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
+your connection to Cloud SQL.&lt;/p></description></item><item><title>Cloud SQL for SQL Server</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/cloud-sql-mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-480/resources/sources/cloud-sql-mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/sqlserver">Cloud SQL for SQL Server&lt;/a> is a managed database service that
 helps you set up, maintain, manage, and administer your SQL Server databases on
 Google Cloud.&lt;/p>
