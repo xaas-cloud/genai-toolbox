@@ -632,13 +632,14 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-490/resources/sources/cloud-sql-pg/">cloud-sql-postgres&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-490/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>&lt;code>postgres-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
+statement against the &lt;code>source&lt;/code>.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">execute_sql_tool&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">postgres-execute-sql&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">source&lt;/span>: &lt;span style="color:#ae81ff">my-pg-instance&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: |&lt;span style="color:#e6db74">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to execute sql statement.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">Use this tool to execute sql statement.&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;a class="td-heading-self-link" href="#reference" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;table>
  &lt;thead>
