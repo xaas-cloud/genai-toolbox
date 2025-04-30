@@ -259,7 +259,7 @@ pip install google-genai
 {{< /tab >}}
 {{< tab header="ADK" lang="bash" >}}
 
-pip install google-adk langchain
+pip install google-adk
 {{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
