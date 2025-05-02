@@ -287,7 +287,10 @@ The native SDKs can be combined with MCP clients in many cases.&lt;/p>
 &lt;li>
 &lt;p>To create an IAM account, you must have the following IAM permissions (or
 roles):&lt;/p></description></item><item><title>Dgraph</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/dgraph/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is an open-source graph database. It is designed for real-time workloads, horizontal scalability, and data flexibility. Implemented as a distributed system, Dgraph processes queries in parallel to deliver the fastest result.&lt;/p>
+&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is an open-source graph database. It is designed for
+real-time workloads, horizontal scalability, and data flexibility. Implemented
+as a distributed system, Dgraph processes queries in parallel to deliver the
+fastest result.&lt;/p>
 &lt;p>This source can connect to either a self-managed Dgraph cluster or one hosted on
 Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started is to
 &lt;a href="https://cloud.dgraph.io/login">sign up for Dgraph Cloud&lt;/a>.&lt;/p>
@@ -344,9 +347,10 @@ query.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">isQuery&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">timeout&lt;/span>: &lt;span style="color:#ae81ff">20s&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: |&lt;span style="color:#e6db74">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to retrieve the details of users who are admins and are between 30 and 50 years old.
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> The query returns the user&amp;#39;s name, email, role, and age.
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> This can be helpful when you want to fetch admin users within a specific age range.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to retrieve the details of users who are admins and are
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> between 30 and 50 years old. The query returns the user&amp;#39;s name, email,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> role, and age. This can be helpful when you want to fetch admin users
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> within a specific age range.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Example: Fetch admins aged between 30 and 50:
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> [
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> {
@@ -471,16 +475,18 @@ in with the &lt;code>Client ID&lt;/code>.&lt;/p>
 &lt;p>When using &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/tools/#authorized-invocations">Authorized Invocations&lt;/a>, a tool will be
 considered authorized if it has a valid Oauth 2.0 token that matches the Client
 ID.&lt;/p></description></item><item><title>http</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/tools/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/tools/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs to retrieve data.
-An HTTP request is the method by which a client communicates with a server to retrieve or manipulate resources.
-Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
+&lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs to retrieve data. An
+HTTP request is the method by which a client communicates with a server to
+retrieve or manipulate resources. Toolbox allows you to configure the request
+URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
 &lt;h3 id="url">URL&lt;a class="td-heading-self-link" href="#url" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>An HTTP request URL identifies the target the client wants to access.
-Toolbox composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s &lt;code>path&lt;/code>.
-For example, the following config allows you to reach different paths of the same server using multiple Tools:&lt;/p></description></item><item><title>HTTP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP
-endpoints. This enables Generative AI applications to access data from web APIs
-and other HTTP-accessible resources.&lt;/p>
+&lt;p>An HTTP request URL identifies the target the client wants to access. Toolbox
+composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s
+&lt;code>path&lt;/code>. For example, the following config allows you to reach different paths of
+the same server using multiple Tools:&lt;/p></description></item><item><title>HTTP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP endpoints.
+This enables Generative AI applications to access data from web APIs and other
+HTTP-accessible resources.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">sources&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">my-http-source&lt;/span>:
@@ -1085,8 +1091,10 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> RETURN m.title, m.year
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> LIMIT 10&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: |&lt;span style="color:#e6db74">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to get a list of movies for a specific actor and a given minimum release year.
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Takes an full actor name, e.g. &amp;#34;Tom Hanks&amp;#34; and a year e.g 1993 and returns a list of movie titles and release years.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to get a list of movies for a specific actor and a given minimum
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> release year.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Takes an full actor name, e.g. &amp;#34;Tom Hanks&amp;#34; and a year e.g 1993 and returns a list
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> of movie titles and release years.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Do NOT use this tool with a movie title. Do NOT guess an actor name, Do NOT guess a year.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> A actor name is a fully qualified name with first and last name separated by a space.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> For example, if given &amp;#34;Hanks, Tom&amp;#34; the actor name is &amp;#34;Tom Hanks&amp;#34;.
@@ -1424,13 +1432,15 @@ PostgreSQL user&lt;/a> to login to the database with.&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>).&lt;/p>
+your preferred virtual environment tool for managing dependencies e.g.
+&lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>).&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Installed and configured the &lt;a href="https://cloud.google.com/sdk/docs/install">Google Cloud SDK (gcloud CLI)&lt;/a>.&lt;/p>
@@ -1441,10 +1451,12 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud auth application-default login
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>Set your default Google Cloud project (replace &lt;code>YOUR_PROJECT_ID&lt;/code> with your actual project ID):&lt;/p>
+&lt;p>Set your default Google Cloud project (replace &lt;code>YOUR_PROJECT_ID&lt;/code> with your
+actual project ID):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gcloud config set project YOUR_PROJECT_ID
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOOGLE_CLOUD_PROJECT&lt;span style="color:#f92672">=&lt;/span>YOUR_PROJECT_ID
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Toolbox and the client libraries will use this project for BigQuery, unless overridden in configurations.&lt;/p></description></item><item><title>Spanner</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;a class="td-heading-self-link" href="#spanner-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Toolbox and the client libraries will use this project for BigQuery, unless
+overridden in configurations.&lt;/p></description></item><item><title>Spanner</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;a class="td-heading-self-link" href="#spanner-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/spanner/docs">Spanner&lt;/a> is a fully managed, mission-critical database service
 that brings together relational, graph, key-value, and search. It offers
 transactional consistency at global scale, automatic, synchronous replication
@@ -1469,10 +1481,10 @@ following sources:&lt;/p>
 manipulation language (DML)&lt;/a> statements, and specified parameters will
 inserted according to their name: e.g. &lt;code>@name&lt;/code>.&lt;/p>
 &lt;h3 id="postgresql">PostgreSQL&lt;a class="td-heading-self-link" href="#postgresql" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>For the &lt;code>postgresql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared
-statement&lt;/a>, and specified parameters will inserted according to
-their position: e.g. &lt;code>$1&lt;/code> will be the first parameter specified, &lt;code>$@&lt;/code> will be
-the second parameter, and so on.&lt;/p></description></item><item><title>SQL Server</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>For the &lt;code>postgresql&lt;/code> dialect, the specified SQL statement is executed as a
+&lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared statement&lt;/a>, and specified parameters will inserted
+according to their position: e.g. &lt;code>$1&lt;/code> will be the first parameter specified,
+&lt;code>$@&lt;/code> will be the second parameter, and so on.&lt;/p></description></item><item><title>SQL Server</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/mssql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/resources/sources/mssql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://www.microsoft.com/en-us/sql-server">SQL Server&lt;/a> is a relational database management system (RDBMS)
 developed by Microsoft that allows users to store, retrieve, and manage large
 amount of data through a structured format.&lt;/p>
@@ -1632,7 +1644,9 @@ It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;/ul>
 &lt;p>SQLite uses the &lt;code>?&lt;/code> placeholder for parameters in SQL statements. Parameters are
 bound in the order they are provided.&lt;/p>
-&lt;p>The statement field supports any valid SQLite SQL statement, including &lt;code>SELECT&lt;/code>, &lt;code>INSERT&lt;/code>, &lt;code>UPDATE&lt;/code>, &lt;code>DELETE&lt;/code>, &lt;code>CREATE/ALTER/DROP&lt;/code> table statements, and other DDL statements.&lt;/p>
+&lt;p>The statement field supports any valid SQLite SQL statement, including &lt;code>SELECT&lt;/code>,
+&lt;code>INSERT&lt;/code>, &lt;code>UPDATE&lt;/code>, &lt;code>DELETE&lt;/code>, &lt;code>CREATE/ALTER/DROP&lt;/code> table statements, and other
+DDL statements.&lt;/p>
 &lt;h3 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">search-users&lt;/span>:
@@ -1728,7 +1742,18 @@ docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;a class="td-heading-self-link" href="#do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Nope! While some of the sources Toolbox connects to may require GCP credentials,
 Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different resources
-that don&amp;rsquo;t.&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+that don&amp;rsquo;t.&lt;/p></description></item><item><title>Quickstart (Local)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/getting-started/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+Colab">&lt;/a>&lt;/p>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This guide assumes you have already done the following:&lt;/p>
+&lt;ol>
+&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
+your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/li>
+&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>In this section, we will create a database, insert some data that needs to be
+access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Telemetry data such as logs, metrics, and traces will help developers understand
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
@@ -1820,23 +1845,4 @@ telemetry data.&lt;/p>
 &lt;li>&lt;code>Connectors&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;p>Example of setting up the classes of pipeline components (in this example, we
-don&amp;rsquo;t use connectors):&lt;/p></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-511/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-511/getting-started/local_quickstart/</guid><description>&lt;!-- markdownlint-disable MD024 MD025 MD046 -->
-&lt;hr>
-&lt;h2 id="langgraph-llamaindex-or-agent-development-kit">title: &amp;ldquo;Quickstart (Local)&amp;rdquo;
-type: docs
-weight: 2
-description: &amp;gt;
-How to get started running Toolbox locally with Python, PostgreSQL, and
-&lt;a href="https://pypi.org/project/google-genai/">GoogleGenAI&lt;/a>,
-&lt;a href="https://www.langchain.com/langgraph">LangGraph&lt;/a>, &lt;a href="https://www.llamaindex.ai/">LlamaIndex&lt;/a> or &lt;a href="https://google.github.io/adk-docs/">Agent Development Kit&lt;/a>.&lt;a class="td-heading-self-link" href="#langgraph-llamaindex-or-agent-development-kit" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
-&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This guide assumes you have already done the following:&lt;/p>
-&lt;ol>
-&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/li>
-&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item></channel></rss>
+don&amp;rsquo;t use connectors):&lt;/p></description></item></channel></rss>
