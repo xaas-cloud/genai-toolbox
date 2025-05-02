@@ -1146,6 +1146,52 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
  &lt;td>List of &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/tools/#specifying-parameters">parameters&lt;/a> that will be used with the Cypher statement.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
+&lt;/table></description></item><item><title>postgres-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/tools/postgres-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/tools/postgres-execute-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>A &lt;code>postgres-execute-sql&lt;/code> tool executes a SQL statement against a Postgres
+database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/sources/cloud-sql-pg/">cloud-sql-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>postgres-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
+statement against the &lt;code>source&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">execute_sql_tool&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">postgres-execute-sql&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">source&lt;/span>: &lt;span style="color:#ae81ff">my-pg-instance&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">Use this tool to execute sql statement.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;a class="td-heading-self-link" href="#reference" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;postgres-execute-sql&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
 &lt;/table></description></item><item><title>postgres-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/tools/postgres-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-508/resources/tools/postgres-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>A &lt;code>postgres-sql&lt;/code> tool executes a pre-defined SQL statement against a Postgres
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
@@ -1719,15 +1765,7 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Quickstart (MCP with BigQuery)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-508/samples/bigquery/mcp_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-508/samples/bigquery/mcp_quickstart/</guid><description>&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://modelcontextprotocol.io">Model Context Protocol&lt;/a> is an open protocol
-that standardizes how applications provide context to LLMs. Check out this page
-on how to &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-508/how-to/connect_via_mcp/">connect to Toolbox via MCP&lt;/a>.&lt;/p>
-&lt;h2 id="step-1-set-up-your-bigquery-dataset-and-table">Step 1: Set up your BigQuery Dataset and Table&lt;a class="td-heading-self-link" href="#step-1-set-up-your-bigquery-dataset-and-table" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In this section, we will create a BigQuery dataset and a table, then insert some data that needs to be accessed by our agent.&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Create a new BigQuery dataset (replace &lt;code>YOUR_DATASET_NAME&lt;/code> with your desired dataset name, e.g., &lt;code>toolbox_mcp_ds&lt;/code>, and optionally specify a location like &lt;code>US&lt;/code> or &lt;code>EU&lt;/code>):&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-508/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-508/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Telemetry</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-508/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-508/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Telemetry data such as logs, metrics, and traces will help developers understand
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
