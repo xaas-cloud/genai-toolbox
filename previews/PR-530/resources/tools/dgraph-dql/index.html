@@ -67,46 +67,46 @@ database. It&rsquo;s compatible with any of the following sources:</p><ul><li><a
 upserts or mutations, set <code>isQuery=false</code>. You can also configure timeout for a
 query.</p><h2 id=example>Example<a class=td-heading-self-link href=#example aria-label="Heading self-link"></a></h2><ul class="nav nav-tabs" id=tabs-0 role=tablist><li class=nav-item><button class="nav-link active" id=tabs-00-00-tab data-bs-toggle=tab data-bs-target=#tabs-00-00 role=tab data-td-tp-persist=query aria-controls=tabs-00-00 aria-selected=true>
 Query</button></li><li class=nav-item><button class=nav-link id=tabs-00-01-tab data-bs-toggle=tab data-bs-target=#tabs-00-01 role=tab data-td-tp-persist=mutation aria-controls=tabs-00-01 aria-selected=false>
-Mutation</button></li></ul><div class=tab-content id=tabs-0-content><div class="tab-pane fade show active" id=tabs-00-00 role=tabpanel aria-labelled-by=tabs-00-00-tab tabindex=0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#ae81ff>```yaml</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span>  <span style=color:#f92672>search_user</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>dgraph-dql</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-dgraph-source</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      query all($role: string){
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        users(func: has(name)) @filter(eq(role, $role) AND ge(age, 30) AND le(age, 50)) {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          uid
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          name
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          email
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          role
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          age
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>isQuery</span>: <span style=color:#66d9ef>true</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>timeout</span>: <span style=color:#ae81ff>20s</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>     Use this tool to retrieve the details of users who are admins and are
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>     between 30 and 50 years old. The query returns the user&#39;s name, email,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>     role, and age. This can be helpful when you want to fetch admin users
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>     within a specific age range.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>     Example: Fetch admins aged between 30 and 50:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      [
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;name&#34;: &#34;Alice&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;role&#34;: &#34;admin&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;age&#34;: 35
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        },
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;name&#34;: &#34;Bob&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;role&#34;: &#34;admin&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;age&#34;: 45
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      ]</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>parameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>$role</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>admin</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>```</span></span></span></code></pre></div></div><div class="tab-pane fade" id=tabs-00-01 role=tabpanel aria-labelled-by=tabs-00-01-tab tabindex=0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
+Mutation</button></li></ul><div class=tab-content id=tabs-0-content><div class="tab-pane fade show active" id=tabs-00-00 role=tabpanel aria-labelled-by=tabs-00-00-tab tabindex=0><pre tabindex=0><code>```yaml
+tools:
+  search_user:
+    kind: dgraph-dql
+    source: my-dgraph-source
+    statement: |
+      query all($role: string){
+        users(func: has(name)) @filter(eq(role, $role) AND ge(age, 30) AND le(age, 50)) {
+          uid
+          name
+          email
+          role
+          age
+        }
+      }
+    isQuery: true
+    timeout: 20s
+    description: |
+     Use this tool to retrieve the details of users who are admins and are
+     between 30 and 50 years old. The query returns the user&#39;s name, email,
+     role, and age. This can be helpful when you want to fetch admin users
+     within a specific age range.
+     Example: Fetch admins aged between 30 and 50:
+      [
+        {
+          &#34;name&#34;: &#34;Alice&#34;,
+          &#34;role&#34;: &#34;admin&#34;,
+          &#34;age&#34;: 35
+        },
+        {
+          &#34;name&#34;: &#34;Bob&#34;,
+          &#34;role&#34;: &#34;admin&#34;,
+          &#34;age&#34;: 45
+        }
+      ]
+    parameters:
+      - name: $role
+        type: string
+        description: admin
+```</code></pre></div><div class="tab-pane fade" id=tabs-00-01 role=tabpanel aria-labelled-by=tabs-00-01-tab tabindex=0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
 </span></span><span style=display:flex><span>  <span style=color:#f92672>dgraph-manage-user-instance</span>:
 </span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>dgraph-dql</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-dgraph-source</span>
@@ -141,6 +141,6 @@ Mutation</button></li></ul><div class=tab-content id=tabs-0-content><div class="
 </span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Bob</span>
 </span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>email2</span>
 </span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>bob@email.com</span></span></span></code></pre></div></div></div><h2 id=reference>Reference<a class=td-heading-self-link href=#reference aria-label="Heading self-link"></a></h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;dgraph-dql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the dql query should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>dql statement to execute</td></tr><tr><td>isQuery</td><td style=text-align:center>boolean</td><td style=text-align:center>false</td><td>To run statement as query set true otherwise false</td></tr><tr><td>timeout</td><td style=text-align:center>string</td><td style=text-align:center>false</td><td>To set timeout for query</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-530/resources/tools/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-530/resources/tools/#specifying-parameters>parameters</a> that will be used with the dql statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified May 6, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/0cb74b8091a48ebe1509acf6148c511c7b989fff>update prettier for docs resources (0cb74b80)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>bob@email.com</span></span></span></code></pre></div></div></div><h2 id=reference>Reference<a class=td-heading-self-link href=#reference aria-label="Heading self-link"></a></h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;dgraph-dql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the dql query should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>dql statement to execute</td></tr><tr><td>isQuery</td><td style=text-align:center>boolean</td><td style=text-align:center>false</td><td>To run statement as query set true otherwise false</td></tr><tr><td>timeout</td><td style=text-align:center>string</td><td style=text-align:center>false</td><td>To set timeout for query</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-530/resources/tools/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-530/resources/tools/#specifying-parameters>parameters</a> that will be used with the dql statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified May 6, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/5d6d1d5c9de96eae16161284d5fb0abef7587b61>update prettier for docs resources (5d6d1d5c)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-530/js/main.js></script><script defer src=/genai-toolbox/previews/PR-530/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-530/js/tabpane-persist.js></script></body></html>
