@@ -313,8 +313,7 @@ ADK</button></li></ul><div class=tab-content id=tabs-7-content><div class="tab-p
 </span></span><span style=display:flex><span>queries <span style=color:#f92672>=</span> [
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Find hotels in Basel with Basel in it&#39;s name.&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Can you book the Hilton Basel for me?&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Oh wait, this is too expensive. Please cancel it and book the Hyatt Regency</span>
-</span></span><span style=display:flex><span>    instead<span style=color:#f92672>.</span><span style=color:#e6db74>&#34;,</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Oh wait, this is too expensive. Please cancel it and book the Hyatt Regency instead.&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;My check in dates would be from April 10, 2024 to April 19, 2024.&#34;</span>,
 </span></span><span style=display:flex><span>]
 </span></span><span style=display:flex><span>
@@ -423,15 +422,13 @@ ADK</button></li></ul><div class=tab-content id=tabs-7-content><div class="tab-p
 </span></span><span style=display:flex><span>queries <span style=color:#f92672>=</span> [
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Find hotels in Basel with Basel in it&#39;s name.&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Can you book the Hilton Basel for me?&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Oh wait, this is too expensive. Please cancel it and book the Hyatt Regency</span>
-</span></span><span style=display:flex><span>    instead<span style=color:#f92672>.</span><span style=color:#e6db74>&#34;,</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Oh wait, this is too expensive. Please cancel it and book the Hyatt Regency instead.&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;My check in dates would be from April 10, 2024 to April 19, 2024.&#34;</span>,
 </span></span><span style=display:flex><span>]
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> query <span style=color:#f92672>in</span> queries:
 </span></span><span style=display:flex><span>    content <span style=color:#f92672>=</span> types<span style=color:#f92672>.</span>Content(role<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;user&#39;</span>, parts<span style=color:#f92672>=</span>[types<span style=color:#f92672>.</span>Part(text<span style=color:#f92672>=</span>query)])
-</span></span><span style=display:flex><span>    events <span style=color:#f92672>=</span> runner<span style=color:#f92672>.</span>run(session_id<span style=color:#f92672>=</span>session<span style=color:#f92672>.</span>id,
-</span></span><span style=display:flex><span>                        user_id<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;123&#39;</span>, new_message<span style=color:#f92672>=</span>content)
+</span></span><span style=display:flex><span>    events <span style=color:#f92672>=</span> runner<span style=color:#f92672>.</span>run(session_id<span style=color:#f92672>=</span>session<span style=color:#f92672>.</span>id, user_id<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;123&#39;</span>, new_message<span style=color:#f92672>=</span>content)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    responses <span style=color:#f92672>=</span> (
 </span></span><span style=display:flex><span>      part<span style=color:#f92672>.</span>text
@@ -449,6 +446,6 @@ documentation.</a></p></div><div class="tab-body tab-pane fade" id=tabs-08-01 ro
 AgentWorkflow
 documentation.</a></p></div><div class="tab-body tab-pane fade" id=tabs-08-02 role=tabpanel aria-labelled-by=tabs-08-02-tab tabindex=8><p>To learn more about Agents in ADK, check out the <a href=https://google.github.io/adk-docs/>ADK
 documentation.</a></p></div></div></li><li><p>Run your agent, and observe the results:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>python hotel_agent.py
-</span></span></code></pre></div></li></ol><div class=td-page-meta__lastmod>Last modified May 6, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/840da0418ee9dca58e3184c342985ffe2f24b24c>update prettier for other docs (840da041)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+</span></span></code></pre></div></li></ol><div class=td-page-meta__lastmod>Last modified May 6, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/5f4d84dc5ca8ed8ad24ad363bbb062082bc97168>update prettier for other docs (5f4d84dc)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-530/js/main.js></script><script defer src=/genai-toolbox/previews/PR-530/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-530/js/tabpane-persist.js></script></body></html>
