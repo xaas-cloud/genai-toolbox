@@ -27,9 +27,9 @@ import (
 	"maps"
 	"text/template"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	httpsrc "github.com/googleapis/genai-toolbox/internal/sources/http"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	httpsrc "github.com/googleapis/mcp-toolbox/internal/sources/http"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "http"

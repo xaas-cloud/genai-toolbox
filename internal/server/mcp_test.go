@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/googleapis/genai-toolbox/internal/server/mcp"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp"
 )
 
 const jsonrpcVersion = "2.0"

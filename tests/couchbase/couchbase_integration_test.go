@@ -25,7 +25,7 @@ import (
 
 	"github.com/couchbase/gocb/v2"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 const (

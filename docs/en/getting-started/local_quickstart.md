@@ -8,7 +8,7 @@ description: >
   [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [Agent Development Kit](https://google.github.io/adk-docs/). 
 ---
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
 
 ## Before you begin
 
@@ -132,7 +132,7 @@ In this section, we will download Toolbox, configure our tools in a
 
     {{< notice tip >}}
   Select the
-  [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+  [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
   corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->

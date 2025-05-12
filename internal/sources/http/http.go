@@ -20,7 +20,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	"go.opentelemetry.io/otel/trace"
 )
 

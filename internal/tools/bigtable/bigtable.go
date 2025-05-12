@@ -19,9 +19,9 @@ import (
 	"fmt"
 
 	"cloud.google.com/go/bigtable"
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	bigtabledb "github.com/googleapis/genai-toolbox/internal/sources/bigtable"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	bigtabledb "github.com/googleapis/mcp-toolbox/internal/sources/bigtable"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "bigtable-sql"

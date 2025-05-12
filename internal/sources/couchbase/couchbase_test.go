@@ -19,9 +19,9 @@ import (
 
 	yaml "github.com/goccy/go-yaml"
 	"github.com/google/go-cmp/cmp"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/sources/couchbase"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	"github.com/googleapis/mcp-toolbox/internal/sources/couchbase"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
 )
 
 func TestParseFromYamlCouchbase(t *testing.T) {
@@ -44,13 +44,13 @@ func TestParseFromYamlCouchbase(t *testing.T) {
 			`,
 			want: server.SourceConfigs{
 				"my-couchbase-instance": couchbase.Config{
-					Name:                 "my-couchbase-instance",
-					Kind:                 couchbase.SourceKind,
-					ConnectionString:     "localhost",
-					Username:             "Administrator",
-					Password:             "password",
-					Bucket:               "travel-sample",
-					Scope:                "inventory",
+					Name:             "my-couchbase-instance",
+					Kind:             couchbase.SourceKind,
+					ConnectionString: "localhost",
+					Username:         "Administrator",
+					Password:         "password",
+					Bucket:           "travel-sample",
+					Scope:            "inventory",
 				},
 			},
 		},

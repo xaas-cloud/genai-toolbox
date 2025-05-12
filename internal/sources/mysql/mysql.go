@@ -20,7 +20,7 @@ import (
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	"go.opentelemetry.io/otel/trace"
 )
 

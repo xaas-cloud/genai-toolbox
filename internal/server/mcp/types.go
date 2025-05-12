@@ -15,7 +15,7 @@
 package mcp
 
 import (
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 // SERVER_NAME is the server name used in Implementation.

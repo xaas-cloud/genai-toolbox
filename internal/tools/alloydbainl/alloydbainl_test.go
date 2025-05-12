@@ -19,10 +19,10 @@ import (
 
 	yaml "github.com/goccy/go-yaml"
 	"github.com/google/go-cmp/cmp"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/internal/tools"
-	"github.com/googleapis/genai-toolbox/internal/tools/alloydbainl"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/tools/alloydbainl"
 )
 
 func TestParseFromYamlAlloyDBNLA(t *testing.T) {

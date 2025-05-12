@@ -25,9 +25,9 @@ import (
 	"testing"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/googleapis/genai-toolbox/internal/log"
-	"github.com/googleapis/genai-toolbox/internal/telemetry"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/log"
+	"github.com/googleapis/mcp-toolbox/internal/telemetry"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 // fakeVersionString is used as a temporary version string in tests

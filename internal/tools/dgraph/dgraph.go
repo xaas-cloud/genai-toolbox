@@ -19,9 +19,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/dgraph"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources/dgraph"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "dgraph-dql"

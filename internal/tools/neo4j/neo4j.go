@@ -18,11 +18,11 @@ import (
 	"context"
 	"fmt"
 
-	neo4jsc "github.com/googleapis/genai-toolbox/internal/sources/neo4j"
+	neo4jsc "github.com/googleapis/mcp-toolbox/internal/sources/neo4j"
 	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "neo4j-cypher"

@@ -27,10 +27,10 @@ import (
 	"time"
 
 	yaml "github.com/goccy/go-yaml"
-	"github.com/googleapis/genai-toolbox/internal/log"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/telemetry"
-	"github.com/googleapis/genai-toolbox/internal/util"
+	"github.com/googleapis/mcp-toolbox/internal/log"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	"github.com/googleapis/mcp-toolbox/internal/telemetry"
+	"github.com/googleapis/mcp-toolbox/internal/util"
 	"github.com/spf13/cobra"
 )
 

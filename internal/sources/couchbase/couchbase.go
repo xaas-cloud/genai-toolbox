@@ -21,7 +21,7 @@ import (
 
 	"github.com/couchbase/gocb/v2"
 	tlsutil "github.com/couchbase/tools-common/http/tls"
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	"go.opentelemetry.io/otel/trace"
 )
 

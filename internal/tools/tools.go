@@ -18,7 +18,7 @@ import (
 	"context"
 	"slices"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 )
 
 type ToolConfig interface {

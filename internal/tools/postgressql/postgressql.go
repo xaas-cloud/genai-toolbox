@@ -18,11 +18,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/alloydbpg"
-	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlpg"
-	"github.com/googleapis/genai-toolbox/internal/sources/postgres"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources/alloydbpg"
+	"github.com/googleapis/mcp-toolbox/internal/sources/cloudsqlpg"
+	"github.com/googleapis/mcp-toolbox/internal/sources/postgres"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

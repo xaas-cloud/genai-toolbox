@@ -19,7 +19,7 @@ Postgres or AlloyDB for Postgres instance:
 * [Claude desktop][claudedesktop]
 * [Claude code][claudecode]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -65,7 +65,7 @@ Postgres or AlloyDB for Postgres instance:
 
 ## Install MCP Toolbox
 
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.5.0+:
+1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.5.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}

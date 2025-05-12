@@ -27,7 +27,7 @@ import (
 	database "cloud.google.com/go/spanner/admin/database/apiv1"
 	"cloud.google.com/go/spanner/admin/database/apiv1/databasepb"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (

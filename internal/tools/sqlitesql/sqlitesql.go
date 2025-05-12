@@ -19,9 +19,9 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/sqlite"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources/sqlite"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "sqlite-sql"

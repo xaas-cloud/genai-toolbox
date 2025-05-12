@@ -1,4 +1,4 @@
-module github.com/googleapis/genai-toolbox
+module github.com/googleapis/mcp-toolbox
 
 go 1.23.0
 
@@ -22,6 +22,7 @@ require (
 	github.com/goccy/go-yaml v1.17.1
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
+	github.com/googleapis/genai-toolbox v0.5.0
 	github.com/jackc/pgx/v5 v5.7.4
 	github.com/microsoft/go-mssqldb v1.8.0
 	github.com/neo4j/neo4j-go-driver/v5 v5.28.1
@@ -66,7 +67,6 @@ require (
 	github.com/couchbase/goprotostellar v1.0.2 // indirect
 	github.com/couchbase/tools-common/errors v1.0.0 // indirect
 	github.com/couchbaselabs/gocbconnstr/v2 v2.0.0-20240607131231-fb385523de28 // indirect
-	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/envoyproxy/go-control-plane/envoy v1.32.4 // indirect
 	github.com/envoyproxy/protoc-gen-validate v1.2.1 // indirect
@@ -100,7 +100,6 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
-	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect

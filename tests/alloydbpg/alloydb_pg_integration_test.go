@@ -26,7 +26,7 @@ import (
 
 	"cloud.google.com/go/alloydbconn"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

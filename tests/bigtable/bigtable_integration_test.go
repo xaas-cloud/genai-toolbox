@@ -29,7 +29,7 @@ import (
 
 	"cloud.google.com/go/bigtable"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (
@@ -74,13 +74,13 @@ func TestBigtableToolEndpoints(t *testing.T) {
 	muts, rowKeys := getTestData(columnFamilyName)
 
 	// Do not change the shape of statement without checking tests/common_test.go.
-	// The structure and value of seed data has to match https://github.com/googleapis/genai-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
+	// The structure and value of seed data has to match https://github.com/googleapis/mcp-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
 	param_test_statement := fmt.Sprintf("SELECT TO_INT64(cf['id']) as id, CAST(cf['name'] AS string) as name, FROM %s WHERE TO_INT64(cf['id']) = @id OR CAST(cf['name'] AS string) = @name;", tableName)
 	teardownTable1 := setupBtTable(t, ctx, sourceConfig["project"].(string), sourceConfig["instance"].(string), tableName, columnFamilyName, muts, rowKeys)
 	defer teardownTable1(t)
 
 	// Do not change the shape of statement without checking tests/common_test.go.
-	// The structure and value of seed data has to match https://github.com/googleapis/genai-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
+	// The structure and value of seed data has to match https://github.com/googleapis/mcp-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
 	auth_tool_statement := fmt.Sprintf("SELECT CAST(cf['name'] AS string) as name FROM %s WHERE CAST(cf['email'] AS string) = @email;", tableNameAuth)
 	teardownTable2 := setupBtTable(t, ctx, sourceConfig["project"].(string), sourceConfig["instance"].(string), tableNameAuth, columnFamilyName, muts, rowKeys)
 	defer teardownTable2(t)
@@ -103,7 +103,7 @@ func TestBigtableToolEndpoints(t *testing.T) {
 
 	tests.RunToolGetTest(t)
 
-	// Actual test parameters are set in https://github.com/googleapis/genai-toolbox/blob/52b09a67cb40ac0c5f461598b4673136699a3089/tests/tool_test.go#L250
+	// Actual test parameters are set in https://github.com/googleapis/mcp-toolbox/blob/52b09a67cb40ac0c5f461598b4673136699a3089/tests/tool_test.go#L250
 	select1Want := "[{\"$col1\":1}]"
 	failInvocationWant := `{"jsonrpc":"2.0","id":"invoke-fail-tool","result":{"content":[{"type":"text","text":"unable to prepare statement: rpc error: code = InvalidArgument desc = Syntax error: Unexpected identifier \"SELEC\" [at 1:1]"}],"isError":true}}`
 	invokeParamWant, mcpInvokeParamWant := tests.GetNonSpannerInvokeParamWant()
@@ -127,8 +127,8 @@ func getTestData(columnFamilyName string) ([]*bigtable.Mutation, []string) {
 	now := bigtable.Time(time.Now())
 	for rowKey, mutData := range map[string]map[string][]byte{
 		// Do not change the test data without checking tests/common_test.go.
-		// The structure and value of seed data has to match https://github.com/googleapis/genai-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
-		// Expected values are defined in https://github.com/googleapis/genai-toolbox/blob/52b09a67cb40ac0c5f461598b4673136699a3089/tests/tool_test.go#L229-L310
+		// The structure and value of seed data has to match https://github.com/googleapis/mcp-toolbox/blob/4dba0df12dc438eca3cb476ef52aa17cdf232c12/tests/common_test.go#L200-L251
+		// Expected values are defined in https://github.com/googleapis/mcp-toolbox/blob/52b09a67cb40ac0c5f461598b4673136699a3089/tests/tool_test.go#L229-L310
 		"row-01": {
 			"name":  []byte("Alice"),
 			"email": []byte(tests.SERVICE_ACCOUNT_EMAIL),

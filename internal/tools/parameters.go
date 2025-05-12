@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/googleapis/genai-toolbox/internal/util"
+	"github.com/googleapis/mcp-toolbox/internal/util"
 )
 
 const (

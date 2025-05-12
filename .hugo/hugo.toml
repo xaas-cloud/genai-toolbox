@@ -29,8 +29,8 @@ enableRobotsTXT = true
 
 [params]
   copyright = "Google LLC"
-  github_repo = "https://github.com/googleapis/genai-toolbox"
-  github_project_repo = "https://github.com/googleapis/genai-toolbox"
+  github_repo = "https://github.com/googleapis/mcp-toolbox"
+  github_project_repo = "https://github.com/googleapis/mcp-toolbox"
   github_subdir = "docs"
   offlineSearch = true
   [params.ui]
@@ -43,7 +43,7 @@ enableRobotsTXT = true
 [[menu.main]]
   name = "GitHub"
   weight = 50
-  url = "https://github.com/googleapis/genai-toolbox"
+  url = "https://github.com/googleapis/mcp-toolbox"
   pre = "<i class='fa-brands fa-github'></i>"
 
 [markup.goldmark.renderer]

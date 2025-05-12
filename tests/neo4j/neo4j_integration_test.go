@@ -26,7 +26,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (

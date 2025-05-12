@@ -18,7 +18,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 	"go.opentelemetry.io/otel/trace"
 )

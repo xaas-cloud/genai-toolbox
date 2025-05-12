@@ -7,7 +7,7 @@ description: >
   LangGraph, LlamaIndex, or ADK.
 ---
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
 ## Before you begin
 
 This guide assumes you have already done the following:
@@ -126,7 +126,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
 
     {{< notice tip >}}
  Select the
- [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+ [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
  corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
@@ -428,7 +428,7 @@ prompt = """
 """
 
 # --- Configure the Agent ---
-# TODO(developer): Replace "my-toolset" with the actual ID of your toolset as configured in your GenAI Toolbox server.
+# TODO(developer): Replace "my-toolset" with the actual ID of your toolset as configured in your MCP Toolbox server.
 agent_toolset = toolbox_tools.get_toolset("my-toolset")
 
 root_agent = Agent(

@@ -21,8 +21,8 @@ import (
 	"slices"
 
 	"cloud.google.com/go/cloudsqlconn/sqlserver/mssql"
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/util"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/util"
 	"go.opentelemetry.io/otel/trace"
 )
 

@@ -20,9 +20,9 @@ import (
 	"strings"
 
 	bigqueryapi "cloud.google.com/go/bigquery"
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	bigqueryds "github.com/googleapis/genai-toolbox/internal/sources/bigquery"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	bigqueryds "github.com/googleapis/mcp-toolbox/internal/sources/bigquery"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 	"google.golang.org/api/iterator"
 )
 

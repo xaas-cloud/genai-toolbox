@@ -23,14 +23,14 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/googleapis/genai-toolbox/internal/auth/google"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	cloudsqlpgsrc "github.com/googleapis/genai-toolbox/internal/sources/cloudsqlpg"
-	httpsrc "github.com/googleapis/genai-toolbox/internal/sources/http"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/internal/tools"
-	"github.com/googleapis/genai-toolbox/internal/tools/http"
-	"github.com/googleapis/genai-toolbox/internal/tools/postgressql"
+	"github.com/googleapis/mcp-toolbox/internal/auth/google"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	cloudsqlpgsrc "github.com/googleapis/mcp-toolbox/internal/sources/cloudsqlpg"
+	httpsrc "github.com/googleapis/mcp-toolbox/internal/sources/http"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/tools/http"
+	"github.com/googleapis/mcp-toolbox/internal/tools/postgressql"
 	"github.com/spf13/cobra"
 )
 

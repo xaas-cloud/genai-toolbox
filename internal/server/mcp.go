@@ -26,7 +26,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/internal/server/mcp"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/metric"

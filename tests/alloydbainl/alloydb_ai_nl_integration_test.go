@@ -27,8 +27,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googleapis/genai-toolbox/internal/server/mcp"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (

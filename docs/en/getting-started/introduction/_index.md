@@ -47,7 +47,7 @@ redeploying your application.
 For the latest version, check the [releases page][releases] and use the
 following instructions for your OS and CPU architecture.
 
-[releases]: https://github.com/googleapis/genai-toolbox/releases
+[releases]: https://github.com/googleapis/mcp-toolbox/releases
 
 <!-- {x-release-please-start-version} -->
 {{< tabpane text=true >}}
@@ -79,7 +79,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.5.0
+go install github.com/googleapis/mcp-toolbox@v0.5.0
 ```
 
 {{% /tab %}}
@@ -124,7 +124,7 @@ tools = await client.load_toolset("toolset_name")
 {{< /highlight >}}
 
 For more detailed instructions on using the Toolbox Core SDK, see the
-[project's README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/README.md).
+[project's README](https://github.com/googleapis/genai-toolbox-sdk-python/blob/main/packages/toolbox-core/README.md).
 
 {{% /tab %}}
 {{% tab header="LangChain" lang="en" %}}
@@ -144,7 +144,7 @@ tools = client.load_toolset()
 {{< /highlight >}}
 
 For more detailed instructions on using the Toolbox LangChain SDK, see the
-[project's README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-langchain/README.md).
+[project's README](https://github.com/googleapis/genai-toolbox-sdk-python/blob/main/packages/toolbox-langchain/README.md).
 
 {{% /tab %}}
 {{% tab header="Llamaindex" lang="en" %}}

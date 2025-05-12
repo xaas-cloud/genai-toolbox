@@ -28,7 +28,7 @@ import (
 	"cloud.google.com/go/cloudsqlconn"
 	"cloud.google.com/go/cloudsqlconn/sqlserver/mssql"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/tests"
+	"github.com/googleapis/mcp-toolbox/tests"
 )
 
 var (

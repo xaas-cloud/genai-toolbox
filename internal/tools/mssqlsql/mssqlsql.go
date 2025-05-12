@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlmssql"
-	"github.com/googleapis/genai-toolbox/internal/sources/mssql"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources/cloudsqlmssql"
+	"github.com/googleapis/mcp-toolbox/internal/sources/mssql"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "mssql-sql"

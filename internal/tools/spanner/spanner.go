@@ -20,9 +20,9 @@ import (
 	"strings"
 
 	"cloud.google.com/go/spanner"
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	spannerdb "github.com/googleapis/genai-toolbox/internal/sources/spanner"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	spannerdb "github.com/googleapis/mcp-toolbox/internal/sources/spanner"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 	"google.golang.org/api/iterator"
 )
 

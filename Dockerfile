@@ -15,7 +15,7 @@
 # Use the latest stable golang 1.x to compile to a binary
 FROM --platform=$BUILDPLATFORM golang:1 as build
 
-WORKDIR /go/src/genai-toolbox
+WORKDIR /go/src/mcp-toolbox
 COPY . .
 
 ARG TARGETOS
@@ -24,13 +24,13 @@ ARG METADATA_TAGS=dev
 
 RUN go get ./...
 RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
-    go build -ldflags "-X github.com/googleapis/genai-toolbox/cmd.metadataString=container.${METADATA_TAGS}"
+    go build -ldflags "-X github.com/googleapis/mcp-toolbox/cmd.metadataString=container.${METADATA_TAGS}"
 
 # Final Stage
 FROM gcr.io/distroless/static:nonroot
 
 WORKDIR /app
-COPY --from=build --chown=nonroot /go/src/genai-toolbox/genai-toolbox /toolbox
+COPY --from=build --chown=nonroot /go/src/mcp-toolbox/mcp-toolbox /toolbox
 USER nonroot
 
 ENTRYPOINT ["/toolbox"] 

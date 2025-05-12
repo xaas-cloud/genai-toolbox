@@ -11,7 +11,7 @@ you to develop tools easier, faster, and more securely by handling the complexit
 such as connection pooling, authentication, and more.
 
 This README provides a brief overview. For comprehensive details, see the [full
-documentation](https://googleapis.github.io/genai-toolbox/).
+documentation](https://googleapis.github.io/mcp-toolbox/).
 
 
 > [!NOTE] 
@@ -71,7 +71,7 @@ redeploying your application.
 For the latest version, check the [releases page][releases] and use the
 following instructions for your OS and CPU architecture.
 
-[releases]: https://github.com/googleapis/genai-toolbox/releases
+[releases]: https://github.com/googleapis/mcp-toolbox/releases
 
 <details open>
 <summary>Binary</summary>
@@ -107,7 +107,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.5.0
+go install github.com/googleapis/mcp-toolbox@v0.5.0
 ```
 <!-- {x-release-please-end} -->
 
@@ -127,7 +127,7 @@ terminate signal (`ctrl+c` on most platforms).
 
 For more detailed documentation on deploying to different environments, check
 out the resources in the [How-to
-section](https://googleapis.github.io/genai-toolbox/how-to/)
+section](https://googleapis.github.io/mcp-toolbox/how-to/)
 
 ### Integrating your application
 
@@ -218,7 +218,7 @@ have multiple files, you can tell toolbox which to load with the `--tools-file
 tools.yaml` flag.
 
 You can find more detailed reference documentation to all resource types in the
-[Resources](https://googleapis.github.io/genai-toolbox/resources/).
+[Resources](https://googleapis.github.io/mcp-toolbox/resources/).
 ### Sources
 
 The `sources` section of your `tools.yaml` defines what data sources your
@@ -237,7 +237,7 @@ sources:
 ```
 
 For more details on configuring different types of sources, see the
-[Sources](https://googleapis.github.io/genai-toolbox/resources/sources).
+[Sources](https://googleapis.github.io/mcp-toolbox/resources/sources).
 
 ### Tools
 
@@ -258,7 +258,7 @@ tools:
 ```
 
 For more details on configuring different types of tools, see the
-[Tools](https://googleapis.github.io/genai-toolbox/resources/tools).
+[Tools](https://googleapis.github.io/mcp-toolbox/resources/tools).
 
 
 ### Toolsets

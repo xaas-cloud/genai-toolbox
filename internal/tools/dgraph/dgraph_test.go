@@ -19,9 +19,9 @@ import (
 
 	yaml "github.com/goccy/go-yaml"
 	"github.com/google/go-cmp/cmp"
-	"github.com/googleapis/genai-toolbox/internal/server"
-	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/internal/tools/dgraph"
+	"github.com/googleapis/mcp-toolbox/internal/server"
+	"github.com/googleapis/mcp-toolbox/internal/testutils"
+	"github.com/googleapis/mcp-toolbox/internal/tools/dgraph"
 )
 
 func TestParseFromYamlDgraph(t *testing.T) {

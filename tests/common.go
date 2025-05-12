@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 // GetToolsConfig returns a mock tools config file

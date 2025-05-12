@@ -23,8 +23,8 @@ import (
 )
 
 const (
-	TracerName = "github.com/googleapis/genai-toolbox/internal/opentel"
-	MetricName = "github.com/googleapis/genai-toolbox/internal/opentel"
+	TracerName = "github.com/googleapis/mcp-toolbox/internal/opentel"
+	MetricName = "github.com/googleapis/mcp-toolbox/internal/opentel"
 
 	toolsetGetCountName = "toolbox.server.toolset.get.count"
 	toolGetCountName    = "toolbox.server.tool.get.count"

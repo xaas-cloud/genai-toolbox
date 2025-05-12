@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/googleapis/genai-toolbox/internal/server/mcp"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

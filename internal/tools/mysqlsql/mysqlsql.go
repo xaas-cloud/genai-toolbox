@@ -19,10 +19,10 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlmysql"
-	"github.com/googleapis/genai-toolbox/internal/sources/mysql"
-	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources/cloudsqlmysql"
+	"github.com/googleapis/mcp-toolbox/internal/sources/mysql"
+	"github.com/googleapis/mcp-toolbox/internal/tools"
 )
 
 const ToolKind string = "mysql-sql"

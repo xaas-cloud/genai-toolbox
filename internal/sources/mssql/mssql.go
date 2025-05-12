@@ -19,7 +19,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	_ "github.com/microsoft/go-mssqldb"
 	"go.opentelemetry.io/otel/trace"
 )

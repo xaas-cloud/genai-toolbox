@@ -161,7 +161,7 @@ Please refer to the [SDK developer guide](https://github.com/googleapis/mcp-tool
 
 There are two types of release for Toolbox, including a versioned release and continuous release.
 
-- Versioned release: Official supported distributions with the `latest` tag. The release process for versioned release is in [versioned.release.cloudbuild.yaml](https://github.com/googleapis/genai-toolbox/blob/main/versioned.release.cloudbuild.yaml).
+- Versioned release: Official supported distributions with the `latest` tag. The release process for versioned release is in [versioned.release.cloudbuild.yaml](https://github.com/googleapis/mcp-toolbox/blob/main/versioned.release.cloudbuild.yaml).
 - Continuous release: Used for early testing features between official supported releases and end-to-end testings.
 
 #### Supported OS and Architecture binaries
@@ -192,7 +192,7 @@ Create a Cloud Build trigger via the UI or `gcloud` with the following specs:
   - global - for default worker pools
 - Source:
   - Generation: 1st gen
-  - Repo: googleapis/genai-toolbox (GitHub App)
+  - Repo: googleapis/mcp-toolbox (GitHub App)
   - Base branch: `^main$`
 - Comment control: Required except for owners and collaborators
 - Filters: add directory filter
