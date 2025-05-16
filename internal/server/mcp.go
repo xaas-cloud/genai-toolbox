@@ -74,10 +74,12 @@ func mcpRouter(s *Server) (chi.Router, error) {
 	r.Use(render.SetContentType(render.ContentTypeJSON))
 
 	r.Get("/sse", func(w http.ResponseWriter, r *http.Request) { sseHandler(s, w, r) })
+	r.Post("/messages", func(w http.ResponseWriter, r *http.Request) { mcpHandler(s, w, r) })
 	r.Post("/", func(w http.ResponseWriter, r *http.Request) { mcpHandler(s, w, r) })
 
 	r.Route("/{toolsetName}", func(r chi.Router) {
 		r.Get("/sse", func(w http.ResponseWriter, r *http.Request) { sseHandler(s, w, r) })
+		r.Post("/messages", func(w http.ResponseWriter, r *http.Request) { mcpHandler(s, w, r) })
 		r.Post("/", func(w http.ResponseWriter, r *http.Request) { mcpHandler(s, w, r) })
 	})
 

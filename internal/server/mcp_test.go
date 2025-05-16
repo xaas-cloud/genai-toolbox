@@ -269,6 +269,217 @@ func TestMcpEndpoint(t *testing.T) {
 	}
 }
 
+func TestMcpEndpointWithMessages(t *testing.T) {
+	mockTools := []MockTool{tool1, tool2, tool3}
+	toolsMap, toolsets := setUpResources(t, mockTools)
+	r, shutdown := setUpServer(t, "mcp", toolsMap, toolsets)
+	defer shutdown()
+	ts := runServer(r, false)
+	defer ts.Close()
+
+	testCases := []struct {
+		name  string
+		url   string
+		isErr bool
+		body  mcp.JSONRPCRequest
+		want  map[string]any
+	}{
+		{
+			name: "initialize",
+			url:  "/messages",
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "mcp-initialize",
+				Request: mcp.Request{
+					Method: "initialize",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "mcp-initialize",
+				"result": map[string]any{
+					"protocolVersion": protocolVersion,
+					"capabilities": map[string]any{
+						"tools": map[string]any{"listChanged": false},
+					},
+					"serverInfo": map[string]any{"name": serverName, "version": fakeVersionString},
+				},
+			},
+		},
+		{
+			name: "basic notification",
+			url:  "/messages",
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Request: mcp.Request{
+					Method: "notification",
+				},
+			},
+		},
+		{
+			name: "tools/list",
+			url:  "/messages",
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "tools-list",
+				Request: mcp.Request{
+					Method: "tools/list",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "tools-list",
+				"result": map[string]any{
+					"tools": []any{
+						map[string]any{
+							"name":        "no_params",
+							"inputSchema": tool1InputSchema,
+						},
+						map[string]any{
+							"name":        "some_params",
+							"inputSchema": tool2InputSchema,
+						},
+						map[string]any{
+							"name":        "array_param",
+							"description": "some description",
+							"inputSchema": tool3InputSchema,
+						},
+					},
+				},
+			},
+		},
+		{
+			name: "tools/list on tool1_only",
+			url:  "/tool1_only/messages",
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "tools-list-tool1",
+				Request: mcp.Request{
+					Method: "tools/list",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "tools-list-tool1",
+				"result": map[string]any{
+					"tools": []any{
+						map[string]any{
+							"name":        "no_params",
+							"inputSchema": tool1InputSchema,
+						},
+					},
+				},
+			},
+		},
+		{
+			name:  "tools/list on invalid tool set",
+			url:   "/foo/messages",
+			isErr: true,
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "tools-list-invalid-toolset",
+				Request: mcp.Request{
+					Method: "tools/list",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "tools-list-invalid-toolset",
+				"error": map[string]any{
+					"code":    -32600.0,
+					"message": "toolset does not exist",
+				},
+			},
+		},
+		{
+			name:  "missing method",
+			url:   "/messages",
+			isErr: true,
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "missing-method",
+				Request: mcp.Request{},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "missing-method",
+				"error": map[string]any{
+					"code":    -32601.0,
+					"message": "method not found",
+				},
+			},
+		},
+		{
+			name:  "invalid method",
+			url:   "/messages",
+			isErr: true,
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: jsonrpcVersion,
+				Id:      "invalid-method",
+				Request: mcp.Request{
+					Method: "foo",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "invalid-method",
+				"error": map[string]any{
+					"code":    -32601.0,
+					"message": "invalid method foo",
+				},
+			},
+		},
+		{
+			name:  "invalid jsonrpc version",
+			url:   "/messages",
+			isErr: true,
+			body: mcp.JSONRPCRequest{
+				Jsonrpc: "1.0",
+				Id:      "invalid-jsonrpc-version",
+				Request: mcp.Request{
+					Method: "foo",
+				},
+			},
+			want: map[string]any{
+				"jsonrpc": "2.0",
+				"id":      "invalid-jsonrpc-version",
+				"error": map[string]any{
+					"code":    -32600.0,
+					"message": "invalid json-rpc version",
+				},
+			},
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			reqMarshal, err := json.Marshal(tc.body)
+			if err != nil {
+				t.Fatalf("unexpected error during marshaling of body")
+			}
+
+			resp, body, err := runRequest(ts, http.MethodPost, tc.url, bytes.NewBuffer(reqMarshal))
+			if err != nil {
+				t.Fatalf("unexpected error during request: %s", err)
+			}
+
+			// Notifications don't expect a response.
+			if tc.want != nil {
+				if contentType := resp.Header.Get("Content-type"); contentType != "application/json" {
+					t.Fatalf("unexpected content-type header: want %s, got %s", "application/json", contentType)
+				}
+
+				var got map[string]any
+				if err := json.Unmarshal(body, &got); err != nil {
+					t.Fatalf("unexpected error unmarshalling body: %s", err)
+				}
+				if !reflect.DeepEqual(got, tc.want) {
+					t.Fatalf("unexpected response: got %+v, want %+v", got, tc.want)
+				}
+			}
+		})
+	}
+}
+
 func TestSseEndpoint(t *testing.T) {
 	r, shutdown := setUpServer(t, "mcp", nil, nil)
 	defer shutdown()
