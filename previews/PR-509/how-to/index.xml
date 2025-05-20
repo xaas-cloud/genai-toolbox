@@ -25,7 +25,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> cloudbuild.googleapis.com &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> artifactregistry.googleapis.com &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> iam.googleapis.com &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> secretmanager.googleapis.com 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> secretmanager.googleapis.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>To create an IAM account, you must have the following IAM permissions (or
@@ -80,7 +80,7 @@ section.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#e6db74">&amp;#34;5000:5000&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">volumes&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">./config:/config&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [ &lt;span style="color:#e6db74">&amp;#34;toolbox&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--tools_file&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/config/tools.yaml&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--address&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;0.0.0.0&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [ &lt;span style="color:#e6db74">&amp;#34;toolbox&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--tools-file&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/config/tools.yaml&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--address&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;0.0.0.0&amp;#34;&lt;/span>]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">depends_on&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">db&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">condition&lt;/span>: &lt;span style="color:#ae81ff">service_healthy&lt;/span>
