@@ -74,10 +74,10 @@ If desired, once connected to `psql` as the `postgres` OS user, you can set a pa
     ```
     {{< notice info >}}
 #### **Having trouble elevating user to DB Owner?**
-* **`postgresql error: must be member of role "toolbox_user"`:** This error means the `toolbox_user` user doesn't have sufficient permissions to do the operations on `toolbox_db`.
+* **`postgresql error: must be member of role "toolbox_user"`:** This error means the current user doesn't have sufficient permissions to do the operations on `toolbox_db`.
 <br/>
 #### **Common Solution**
-For password issues or if the `postgres` role seems inaccessible directly, try switching to the `postgres` operating system user first. This user often has permission to elevate a user to a DB Owner.
+Grant membership in the `toolbox_user` role to `postgres`
 ```bash
 GRANT toolbox_user TO postgres;
 ```
