@@ -1292,13 +1292,6 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  &lt;div class="tab-body tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
  &lt;ul>
-&lt;li>&lt;a href="https://pypi.org/project/toolbox-core/">toolbox-core&lt;/a> package.&lt;/li>
-&lt;/ul>
-
- &lt;/div>
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p></description></item><item><title>Spanner</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-642/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-642/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;a class="td-heading-self-link" href="#spanner-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/spanner/docs">Spanner&lt;/a> is a fully managed, mission-critical database service

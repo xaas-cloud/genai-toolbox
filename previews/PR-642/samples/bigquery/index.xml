@@ -55,12 +55,5 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  &lt;div class="tab-body tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
  &lt;ul>
-&lt;li>&lt;a href="https://pypi.org/project/toolbox-core/">toolbox-core&lt;/a> package.&lt;/li>
-&lt;/ul>
-
- &lt;/div>
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p></description></item></channel></rss>
