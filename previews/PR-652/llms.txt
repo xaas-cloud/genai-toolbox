@@ -5,6 +5,7 @@
 ## Docs
 
 ### Getting Started
+
 How to get started with Toolbox.
 - [Introduction](https://googleapis.github.io/genai-toolbox/previews/PR-652/getting-started/introduction/): An introduction to MCP Toolbox for Databases.
 - [Quickstart (Local)](https://googleapis.github.io/genai-toolbox/previews/PR-652/getting-started/local_quickstart/): How to get started running Toolbox locally with Python, PostgreSQL, and  [GoogleGenAI](https://pypi.org/project/google-genai/),  [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [Agent Development Kit](https://google.github.io/adk-docs/). 
@@ -12,10 +13,12 @@ How to get started with Toolbox.
 - [Configuration](https://googleapis.github.io/genai-toolbox/previews/PR-652/getting-started/configure/): How to configure Toolbox's tools.yaml file.
 
 ### Concepts
+
 Some core concepts in Toolbox
 - [Telemetry](https://googleapis.github.io/genai-toolbox/previews/PR-652/concepts/telemetry/): An overview of telemetry and observability in Toolbox. 
 
 ### How-to
+
 List of guides detailing how to do different things with Toolbox. 
 - [Connect from your IDE](https://googleapis.github.io/genai-toolbox/previews/PR-652/how-to/connect-ide/): List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MCP.
   - [AlloyDB using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-652/how-to/connect-ide/alloydb_pg_mcp/): Connect your IDE to AlloyDB using Toolbox.
@@ -32,6 +35,7 @@ List of guides detailing how to do different things with Toolbox.
 - [Export Telemetry](https://googleapis.github.io/genai-toolbox/previews/PR-652/how-to/export_telemetry/): How to set up and configure Toolbox to use the Otel Collector.
 
 ### Resources
+
 List of reference documentation for resources in Toolbox.
 - [AuthServices](https://googleapis.github.io/genai-toolbox/previews/PR-652/resources/authservices/): AuthServices represent services that handle authentication and authorization. 
   - [Google Sign-In](https://googleapis.github.io/genai-toolbox/previews/PR-652/resources/authservices/google/): Use Google Sign-In for Oauth 2.0 flow and token lifecycle. 
@@ -75,11 +79,13 @@ List of reference documentation for resources in Toolbox.
   - [sqlite-sql](https://googleapis.github.io/genai-toolbox/previews/PR-652/resources/tools/sqlite-sql/): Execute SQL statements against a SQLite database.
 
 ### Samples
+
 Samples and guides for using Toolbox.
 - [BigQuery](https://googleapis.github.io/genai-toolbox/previews/PR-652/samples/bigquery/): How to get started with Toolbox using BigQuery.
   - [Quickstart (Local with BigQuery)](https://googleapis.github.io/genai-toolbox/previews/PR-652/samples/bigquery/local_quickstart/): How to get started running Toolbox locally with Python, BigQuery, and  LangGraph, LlamaIndex, or ADK.
   - [Quickstart (MCP with BigQuery)](https://googleapis.github.io/genai-toolbox/previews/PR-652/samples/bigquery/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and BigQuery as the source.
 
 ### About
+
 A list of other information related to Toolbox.
 - [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-652/about/faq/): Frequently asked questions about Toolbox.
