@@ -2389,7 +2389,7 @@ Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs w
 
 
 # Cloud SQL for SQL Server using MCP
-Connect your IDE to Cloud SQl for SQL Server using Toolbox.
+Connect your IDE to Cloud SQL for SQL Server using Toolbox.
 
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Cloud SQL for SQL Server instance:
@@ -2653,6 +2653,7 @@ The following tools are available to the LLM:
 {{< notice note >}}
 Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
 {{< /notice >}}
+
 
 # PostgreSQL using MCP
 Connect your IDE to PostgreSQL using Toolbox.
