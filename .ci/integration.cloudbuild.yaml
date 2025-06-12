@@ -33,7 +33,7 @@ steps:
       - name: "go"
         path: "/gopath"
     script: |
-      go test -c -race ./tests/...
+      go test -c -cover -coverprofile=coverage.out -race ./tests/...
 
   - id: "cloud-sql-pg"
     name: golang:1
@@ -75,7 +75,7 @@ steps:
     args:
       - -c
       - |
-        ./alloydbpg.test -test.v
+        ./alloydbpg.test -test.v -test.coverprofile=coverage.out
 
   - id: "alloydb-ai-nl"
     name: golang:1
