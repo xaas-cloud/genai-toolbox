@@ -76,7 +76,7 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.6.0
+export VERSION=0.7.0
 curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -87,7 +87,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.6.0
+export VERSION=0.7.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -98,7 +98,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.6.0
+go install github.com/googleapis/genai-toolbox@v0.7.0
 ```
 
 {{% /tab %}}
@@ -323,7 +323,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -919,7 +919,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1365,1294 +1365,56 @@ List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MC
 # AlloyDB using MCP
 Connect your IDE to AlloyDB using Toolbox.
 
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like AlloyDB. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a AlloyDB for Postgres instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the AlloyDB, Compute Engine, Cloud Resource Manager, and Service Networking APIs in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,servicenetworking.googleapis.com).
-
-1. [Create a cluster and its primary instance](https://cloud.google.com/alloydb/docs/quickstart/create-and-connect). These instructions assume that your AlloyDB instance has a [public IP address](https://cloud.google.com/alloydb/docs/connect-public-ip). By default, AlloyDB assigns a private IP address to a new instance. Toolbox will connect securely using the [AlloyDB Language Connectors](https://cloud.google.com/alloydb/docs/language-connectors-overview).
-
-1. Configure the required roles and permissions to complete this task. You will need [Cloud AlloyDB Client](https://cloud.google.com/alloydb/docs/auth-proxy/connect#required-iam-permissions) (`roles/alloydb.client`)  and Service Usage Consumer (`roles/serviceusage.serviceUsageConsumer`) roles or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-1. Create or reuse [a database user](https://cloud.google.com/alloydb/docs/database-users/manage-roles) and have the username and password ready.
-
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-    ```
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-    ```
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-    ```
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "alloydb": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","alloydb-postgres","--stdio"],
-          "env": {
-            "ALLOYDB_POSTGRES_PROJECT": "your-gcp-project-id",
-            "ALLOYDB_POSTGRES_REGION": "your-cluster-region",
-            "ALLOYDB_POSTGRES_CLUSTER": "your-cluster-name",
-            "ALLOYDB_POSTGRES_INSTANCE": "your-instance-name",
-            "ALLOYDB_POSTGRES_DATABASE": "your-database-name",
-            "ALLOYDB_POSTGRES_USER": "your-database-user",
-            "ALLOYDB_POSTGRES_PASSWORD": "your-database-password"
-          }
-        }
-      }
-    }
-
-    ```
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to AlloyDB using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **list_tables**: lists tables and descriptions
-1. **execute_sql**: execute any SQL statement
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
 
 # BigQuery using MCP
 Connect your IDE to BigQuery using Toolbox.
 
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like BigQuery. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a BigQuery instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the BigQuery API in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=bigquery.googleapis.com&redirect=https://console.cloud.google.com).
-
-1. Configure the required roles and permissions to complete this task. You will need [BigQuery User](https://cloud.google.com/bigquery/docs/access-control) role (`roles/bigquery.user`), BigQuery Data Viewer role(`roles/bigquery.dataViewer`), or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "bigquery": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","bigquery","--stdio"],
-          "env": {
-            "BIGQUERY_PROJECT": ""
-          }
-        }
-      }
-    }
-    ```
-
-
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to BigQuery using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **execute_sql**: execute SQL statement
-1. **get_dataset_info**: get dataset metadata
-1. **get_table_info**: get table metadata
-1. **list_dataset_ids**: list datasets
-1. **list_table_ids**: list tables
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
 
 # Cloud SQL for MySQL using MCP
 Connect your IDE to Cloud SQL for MySQL using Toolbox.
 
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Cloud SQL for MySQL instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the Cloud SQL Admin API in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin&redirect=https://console.cloud.google.com).
-
-1. [Create a Cloud SQL for MySQL instance](https://cloud.google.com/sql/docs/mysql/create-instance). These instructions assume that your Cloud SQL instance has a [public IP address](https://cloud.google.com/sql/docs/mysql/configure-ip). By default, Cloud SQL assigns a public IP address to a new instance. Toolbox will connect securely using the [Cloud SQL connectors](https://cloud.google.com/sql/docs/mysql/language-connectors).
-
-1. Configure the required roles and permissions to complete this task. You will need [Cloud SQL > Client](https://cloud.google.com/sql/docs/mysql/roles-and-permissions#proxy-roles-permissions) role (`roles/cloudsql.client`) or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-1. Create or reuse [a database user](https://cloud.google.com/sql/docs/mysql/create-manage-users) and have the username and password ready.
-
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-      }
-    }
-    ```
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-mysql": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mysql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MYSQL_PROJECT": "",
-            "CLOUD_SQL_MYSQL_REGION": "",
-            "CLOUD_SQL_MYSQL_INSTANCE": "",
-            "CLOUD_SQL_MYSQL_DATABASE": "",
-            "CLOUD_SQL_MYSQL_USER": "",
-            "CLOUD_SQL_MYSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-
-    ```
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to Cloud SQL for MySQL using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **list_tables**: lists tables and descriptions
-1. **execute_sql**: execute any SQL statement
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/sql/docs/mysql/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/sql/docs/mysql/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
 
 # Cloud SQL for Postgres using MCP
 Connect your IDE to Cloud SQL for Postgres using Toolbox.
 
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Cloud SQL for Postgres instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the Cloud SQL Admin API in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin&redirect=https://console.cloud.google.com).
-
-1. [Create  or select a Cloud SQL for PostgreSQL instance](https://cloud.google.com/sql/docs/postgres/create-instance). These instructions assume that your Cloud SQL instance has a [public IP address](https://cloud.google.com/sql/docs/postgres/configure-ip). By default, Cloud SQL assigns a public IP address to a new instance. Toolbox will connect securely using the [Cloud SQL connectors](https://cloud.google.com/sql/docs/postgres/language-connectors).
-
-1. Configure the required roles and permissions to complete this task. You will need [Cloud SQL > Client](https://cloud.google.com/sql/docs/postgres/roles-and-permissions#proxy-roles-permissions) role (`roles/cloudsql.client`) or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-1. Create or reuse [a database user](https://cloud.google.com/sql/docs/postgres/create-manage-users) and have the username and password ready.
-
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-postgres": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-postgres","--stdio"],
-          "env": {
-            "CLOUD_SQL_POSTGRES_PROJECT": "",
-            "CLOUD_SQL_POSTGRES_REGION": "",
-            "CLOUD_SQL_POSTGRES_INSTANCE": "",
-            "CLOUD_SQL_POSTGRES_DATABASE": "",
-            "CLOUD_SQL_POSTGRES_USER": "",
-            "CLOUD_SQL_POSTGRES_PASSWORD": ""
-          }
-        }
-      }
-    }
-
-    ```
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to Cloud SQL for PostgreSQL using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **list_tables**: lists tables and descriptions
-1. **execute_sql**: execute any SQL statement
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/sql/docs/postgres/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/sql/docs/postgres/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
 
 # Cloud SQL for SQL Server using MCP
 Connect your IDE to Cloud SQL for SQL Server using Toolbox.
 
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Cloud SQL for SQL Server instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the Cloud SQL Admin API in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin&redirect=https://console.cloud.google.com).
-
-1. [Create or select a Cloud SQL for SQL Server instance](https://cloud.google.com/sql/docs/sqlserver/create-instance). These instructions assume that your Cloud SQL instance has a [public IP address](https://cloud.google.com/sql/docs/sqlserver/configure-ip). By default, Cloud SQL assigns a public IP address to a new instance. Toolbox will connect securely using the [Cloud SQL connectors](https://cloud.google.com/sql/docs/sqlserver/language-connectors).
-
-1. Configure the required roles and permissions to complete this task. You will need [Cloud SQL > Client](https://cloud.google.com/sql/docs/sqlserver/roles-and-permissions#proxy-roles-permissions) role (`roles/cloudsql.client`) or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-1. Create or reuse [a database user](https://cloud.google.com/sql/docs/sqlserver/create-manage-users) and have the username and password ready.
-
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-        }
-      }
-    }
-    ```
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-    ```
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-    ```json
-    {
-      "mcpServers": {
-        "cloud-sql-sqlserver": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","cloud-sql-mssql","--stdio"],
-          "env": {
-            "CLOUD_SQL_MSSQL_PROJECT": "",
-            "CLOUD_SQL_MSSQL_REGION": "",
-            "CLOUD_SQL_MSSQL_INSTANCE": "",
-            "CLOUD_SQL_MSSQL_DATABASE": "",
-            "CLOUD_SQL_MSSQL_IP_ADDRESS": "",
-            "CLOUD_SQL_MSSQL_USER": "",
-            "CLOUD_SQL_MSSQL_PASSWORD": ""
-          }
-        }
-      }
-    }
-
-    ```
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to Cloud SQL for Sql Server using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **list_tables**: lists tables and descriptions
-1. **execute_sql**: execute any SQL statement
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/sql/docs/sqlserver/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/sql/docs/sqlserver/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
 
 # PostgreSQL using MCP
@@ -2697,19 +1459,19 @@ This guide can be used with [AlloyDB Omni](https://cloud.google.com/alloydb/omni
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2907,357 +1669,13 @@ Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs w
 # Spanner using MCP
 Connect your IDE to Spanner using Toolbox.
 
+<html>
+  <head>
+    <link rel="canonical" href="https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>
+    <meta http-equiv="refresh" content="0;url=https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>
+  </head>
+</html>
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Spanner. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Spanner instance:
-
-* [Cursor][cursor]
-* [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
-* [Cline][cline]  (VS Code extension)
-* [Claude desktop][claudedesktop]
-* [Claude code][claudecode]
-
-[toolbox]: https://github.com/googleapis/genai-toolbox
-[cursor]: #configure-your-mcp-client
-[windsurf]: #configure-your-mcp-client
-[vscode]: #configure-your-mcp-client
-[cline]: #configure-your-mcp-client
-[claudedesktop]: #configure-your-mcp-client
-[claudecode]: #configure-your-mcp-client
-
-## Before you begin
-
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
-
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
-
-
-## Set up the database
-
-1. [Enable the Spanner API in the Google Cloud project](https://console.cloud.google.com/flows/enableapi?apiid=spanner.googleapis.com&redirect=https://console.cloud.google.com).
-
-1. [Create or select a Spanner instance and database](https://cloud.google.com/spanner/docs/create-query-database-console).
-
-1. Configure the required roles and permissions to complete this task. You will need [Cloud Spanner Database User](https://cloud.google.com/spanner/docs/iam#roles) role (`roles/spanner.databaseUser`) or equivalent IAM permissions to connect to the instance.
-
-1. Configured [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) for your environment.
-
-## Install MCP Toolbox
-
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
-
-   <!-- {x-release-please-start-version} -->
-   {{< tabpane persist=header >}}
-{{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
-{{< /tab >}}
-
-{{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
-{{< /tab >}}
-
-{{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
-{{< /tab >}}
-{{< /tabpane >}}
-    <!-- {x-release-please-end} -->
-
-
-1. Make the binary executable:
-
-    ```bash
-    chmod +x toolbox
-    ```
-
-1. Verify the installation:
-
-    ```bash
-    ./toolbox --version
-    ```
-
-## Configure your MCP Client
-
-{{< tabpane text=true >}}
-{{% tab header="Claude code" lang="en" %}}
-
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
-1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude code to apply the new configuration.
-{{% /tab %}}
-
-{{% tab header="Claude desktop" lang="en" %}}
-
-1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
-1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
-{{% /tab %}}
-
-{{% tab header="Cline" lang="en" %}}
-
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
-1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Cursor" lang="en" %}}
-
-1. Create a `.cursor` directory in your project root if it doesn't exist.
-1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
-{{% /tab %}}
-
-{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
-
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-{{% /tab %}}
-
-{{% tab header="Windsurf" lang="en" %}}
-
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
-
-   Spanner with `googlesql` dialect
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-   Spanner with `postgresql` dialect
-
-    ```json
-    {
-      "mcpServers": {
-        "spanner": {
-          "command": "./PATH/TO/toolbox",
-          "args": ["--prebuilt","spanner-postgres","--stdio"],
-          "env": {
-            "SPANNER_PROJECT": "",
-            "SPANNER_INSTANCE": "",
-            "SPANNER_DATABASE": ""
-          }
-        }
-      }
-    }
-    ```
-
-{{% /tab %}}
-{{< /tabpane >}}
-
-## Use Tools
-
-Your AI tool is now connected to Spanner using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
-
-The following tools are available to the LLM:
-
-1. **list_tables**: lists tables and descriptions
-1. **execute_sql**: execute DML SQL statement
-1. **execute_sql_dql**: execute DQL SQL statement
-
-{{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
-{{< /notice >}}
 
 # Connect via MCP Client
 How to connect to Toolbox from a MCP Client.
@@ -4103,52 +2521,104 @@ token you will provide a function (that returns an id). This function is called
 when the tool is invoked. This allows you to cache and refresh the ID token as
 needed.
 
+The primary method for providing these getters is via the `auth_token_getters` parameter when loading tools, or the `add_auth_token_getter`() / `add_auth_token_getters()` methods on a loaded tool object.
+
 ### Specifying tokens during load
 
 {{< tabpane persist=header >}}
-{{< tab header="LangChain" lang="Python" >}}
+{{< tab header="Core" lang="Python" >}}
+import asyncio
+from toolbox_core import ToolboxClient
+
 async def get_auth_token():
     # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
     # This example just returns a placeholder. Replace with your actual token retrieval.
     return "YOUR_ID_TOKEN" # Placeholder
 
-# for a single tool use
+async def main():
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+        auth_tool = await toolbox.load_tool(
+            "get_sensitive_data",
+            auth_token_getters={"my_auth_app_1": get_auth_token}
+        )
+        result = await auth_tool(param="value")
+        print(result)
 
-authorized_tool = toolbox.load_tool("my-tool-name", auth_tokens={"my_auth": get_auth_token})
+if __name__ == "__main__":
+    asyncio.run(main())
+{{< /tab >}}
+{{< tab header="LangChain" lang="Python" >}}
+import asyncio
+from toolbox_langchain import ToolboxClient
 
-# for a toolset use
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
 
-authorized_tools = toolbox.load_toolset("my-toolset-name", auth_tokens={"my_auth": get_auth_token})
+async def main():
+    toolbox = ToolboxClient("http://127.0.0.1:5000")
+
+    auth_tool = await toolbox.aload_tool(
+        "get_sensitive_data",
+        auth_token_getters={"my_auth_app_1": get_auth_token}
+    )
+    result = await auth_tool.ainvoke({"param": "value"})
+    print(result)
+
+if __name__ == "__main__":
+    asyncio.run(main())
 {{< /tab >}}
 {{< tab header="Llamaindex" lang="Python" >}}
+import asyncio
+from toolbox_llamaindex import ToolboxClient
+
 async def get_auth_token():
     # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
     # This example just returns a placeholder. Replace with your actual token retrieval.
     return "YOUR_ID_TOKEN" # Placeholder
 
-# for a single tool use
+async def main():
+    toolbox = ToolboxClient("http://127.0.0.1:5000")
 
-authorized_tool = toolbox.load_tool("my-tool-name", auth_tokens={"my_auth": get_auth_token})
+    auth_tool = await toolbox.aload_tool(
+        "get_sensitive_data",
+        auth_token_getters={"my_auth_app_1": get_auth_token}
+    )
+    # result = await auth_tool.acall(param="value")
+    # print(result.content)
 
-# for a toolset use
-
-authorized_tools = toolbox.load_toolset("my-toolset-name", auth_tokens={"my_auth": get_auth_token})
-{{< /tab >}}
+if __name__ == "__main__":
+    asyncio.run(main()){{< /tab >}}
 {{< /tabpane >}}
 
 ### Specifying tokens for existing tools
 
 {{< tabpane persist=header >}}
+{{< tab header="Core" lang="Python" >}}
+tools = await toolbox.load_toolset()
+
+# for a single token
+
+authorized_tool = tools[0].add_auth_token_getter("my_auth", get_auth_token)
+
+# OR, if multiple tokens are needed
+
+authorized_tool = tools[0].add_auth_token_getters({
+  "my_auth1": get_auth1_token,
+  "my_auth2": get_auth2_token,
+})
+{{< /tab >}}
 {{< tab header="LangChain" lang="Python" >}}
 tools = toolbox.load_toolset()
 
 # for a single token
 
-auth_tools = [tool.add_auth_token("my_auth", get_auth_token) for tool in tools]
+authorized_tool = tools[0].add_auth_token_getter("my_auth", get_auth_token)
 
 # OR, if multiple tokens are needed
 
-authorized_tool = tools[0].add_auth_tokens({
+authorized_tool = tools[0].add_auth_token_getters({
   "my_auth1": get_auth1_token,
   "my_auth2": get_auth2_token,
 })
@@ -4158,11 +2628,11 @@ tools = toolbox.load_toolset()
 
 # for a single token
 
-auth_tools = [tool.add_auth_token("my_auth", get_auth_token) for tool in tools]
+authorized_tool = tools[0].add_auth_token_getter("my_auth", get_auth_token)
 
 # OR, if multiple tokens are needed
 
-authorized_tool = tools[0].add_auth_tokens({
+authorized_tool = tools[0].add_auth_token_getters({
   "my_auth1": get_auth1_token,
   "my_auth2": get_auth2_token,
 })
@@ -5129,6 +3599,92 @@ instead of hardcoding your secrets into the configuration file.
 | password  |  string  |     true     | Password of the Postgres user (e.g. "my-password").                    |
 
 
+# Redis
+Redis is an open-source, in-memory data structure store.
+
+
+## About
+
+Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+
+If you are new to Redis, you can find installation and getting started guides on the [official Redis website](https://redis.io/docs/getting-started/).
+
+## Requirements
+
+### Redis
+
+[AUTH string][auth] is a password for connection to Redis. If you have the `requirepass` directive set in your Redis configuration, incoming client connections must authenticate in order to connect.
+
+Specify your AUTH string in the password field:
+
+```yaml
+sources:
+    my-redis-instance:
+     kind: redis
+     address:
+       - 127.0.0.1
+     username: ${MY_USER_NAME}
+     password: ${MY_AUTH_STRING} # Omit this field if you don't have a password.
+     # database: 0
+     # clusterEnabled: false
+     # useGCPIAM: false
+```
+
+{{< notice tip >}}
+Use environment variable replacement with the format ${ENV_NAME}
+instead of hardcoding your secrets into the configuration file.
+{{< /notice >}}
+
+### Memorystore For Redis
+
+Memorystore standalone instances support authentication using an [AUTH][auth]
+string.
+
+Here is an example tools.yaml config with [AUTH][auth] enabled:
+
+```yaml
+sources:
+    my-redis-cluster-instance:
+     kind: memorystore-redis
+     address:
+       - 127.0.0.1
+     password: ${MY_AUTH_STRING}
+     # useGCPIAM: false
+     # clusterEnabled: false
+```
+
+Memorystore Redis Cluster supports IAM authentication instead. Grant your account the
+required [IAM role][iam] and make sure to set `useGCPIAM` to `true`.
+
+Here is an example tools.yaml config for Memorystore Redis Cluster instances
+using IAM authentication:
+
+```yaml
+sources:
+    my-redis-cluster-instance:
+     kind: memorystore-redis
+     address: 127.0.0.1
+     useGCPIAM: true
+     clusterEnabled: true
+```
+
+[iam]: https://cloud.google.com/memorystore/docs/cluster/about-iam-auth
+
+## Reference
+
+| **field**      | **type** | **required** | **description**                                                                                                                 |
+|----------------|:--------:|:------------:|---------------------------------------------------------------------------------------------------------------------------------|
+| kind           |  string  |     true     | Must be "memorystore-redis".                                                                                                    |
+| address        |  string  |     true     | Primary endpoint for the Memorystore Redis instance to connect to.                                                              |
+| username       |  string  |    false     | If you are using a non-default user, specify the user name here. If you are using Memorystore for Redis, leave this field blank |
+| password       |  string  |    false     | If you have [Redis AUTH][auth] enabled, specify the AUTH string here                                                            |
+| database       |   int    |    false     | The Redis database to connect to. Not applicable for cluster enabled instances. The default database is `0`.                    |
+| clusterEnabled |   bool   |    false     | Set it to `true` if using a Redis Cluster instance. Defaults to `false`.                                                        |
+| useGCPIAM      |  string  |    false     | Set it to `true` if you are using GCP's IAM authentication. Defaults to `false`.                                                |
+
+[auth]: https://cloud.google.com/memorystore/docs/redis/about-redis-auth
+
+
 # Spanner
 Spanner is a fully managed database service from Google Cloud that combines  relational, key-value, graph, and search capabilities.
 
@@ -5298,6 +3854,66 @@ sources:
 SQLite connections are configured with these defaults for optimal performance:
 - `MaxOpenConns`: 1 (SQLite only supports one writer at a time)
 - `MaxIdleConns`: 1
+
+# Valkey
+Valkey is an open-source, in-memory data structure store, forked from Redis.
+
+
+## About
+
+Valkey is an open-source, in-memory data structure store that originated as a fork of Redis. It's designed to be used as a database, cache, and message broker, supporting a wide range of data structures like strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+
+If you're new to Valkey, you can find installation and getting started guides on the [official Valkey website](https://valkey.io/docs/getting-started/).
+
+## Example
+
+```yaml
+sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 127.0.0.1
+     username: ${YOUR_USERNAME}
+     password: ${YOUR_PASSWORD}
+     # database: 0
+     # useGCPIAM: false
+     # disableCache: false
+```
+
+{{< notice tip >}}
+Use environment variable replacement with the format ${ENV_NAME}
+instead of hardcoding your secrets into the configuration file.
+{{< /notice >}}
+
+### IAM Authentication
+
+If you are using GCP's Memorystore for Valkey, you can connect using IAM
+authentication. Grant your account the required [IAM role][iam] and set
+`useGCPIAM` to `true`:
+
+```yaml
+sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 127.0.0.1
+     useGCPIAM: true
+```
+
+[iam]: https://cloud.google.com/memorystore/docs/valkey/about-iam-auth
+
+## Reference
+
+| **field**    | **type** | **required** | **description**                                                                                                                  |
+|--------------|:--------:|:------------:|----------------------------------------------------------------------------------------------------------------------------------|
+| kind         |  string  |     true     | Must be "valkey".                                                                                                                |
+| address      | []string |     true     | Endpoints for the Valkey instance to connect to.                                                                                 |
+| username     |  string  |    false     | If you are using a non-default user, specify the user name here. If you are using Memorystore for Valkey, leave this field blank |
+| password     |  string  |    false     | Password for the Valkey instance                                                                                                 |
+| database     |   int    |    false     | The Valkey database to connect to. Not applicable for cluster enabled instances. The default database is `0`.                    |
+| useGCPIAM    |   bool   |    false     | Set it to `true` if you are using GCP's IAM authentication. Defaults to `false`.                                                 |
+| disableCache |   bool   |    false     | Set it to `true` if you want to enable client-side caching. Defaults to `false`.                                                 |
+
 
 # Tools
 Tools define actions an agent can take -- such as reading and writing to a  source.
@@ -5536,8 +4152,7 @@ database layer.
 ## Requirements
 {{< notice tip >}} AlloyDB AI natural language is currently in gated public
 preview. For more information on availability and limitations, please see
-[AlloyDB AI natural language
-overview](https://cloud.google.com/alloydb/docs/natural-language-questions-overview)
+[AlloyDB AI natural language overview](https://cloud.google.com/alloydb/docs/ai/natural-language-overview)
 {{< /notice >}}
 
 To enable AlloyDB AI natural language for your AlloyDB cluster, please follow
@@ -5545,8 +4160,8 @@ the steps listed in the [Generate SQL queries that answer natural language
 questions][alloydb-ai-gen-nl], including enabling the extension and configuring
 context for your application.
 
-[alloydb-ai-nl-overview]: https://cloud.google.com/alloydb/docs/natural-language-questions-overview
-[alloydb-ai-gen-nl]: https://cloud.google.com/alloydb/docs/alloydb/docs/ai/generate-queries-natural-language
+[alloydb-ai-nl-overview]: https://cloud.google.com/alloydb/docs/ai/natural-language-overview
+[alloydb-ai-gen-nl]: https://cloud.google.com/alloydb/docs/ai/generate-sql-queries-natural-language
 
 
 ## Configuration
@@ -5576,7 +4191,7 @@ Parameters](../tools/#array-parameters) or Bound Parameters to provide secure
 access to queries generated using natural language, as these parameters are not
 visible to the LLM.
 
-[alloydb-psv]: https://cloud.google.com/alloydb/docs/ai/use-psvs#parameterized_secure_views
+[alloydb-psv]: https://cloud.google.com/alloydb/docs/parameterized-secure-views-overview
 
 ## Example
 
@@ -6774,6 +5389,60 @@ tools:
 | templateParameters  |  [templateParameters](_index#template-parameters)         |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
+# redis
+A "redis" tool executes a set of pre-defined Redis commands against a Redis instance.
+
+
+## About
+
+A redis tool executes a series of pre-defined Redis commands against a
+Redis source.
+
+The specified Redis commands are executed sequentially. Each command is
+represented as a string list, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.
+
+### Dynamic Command Parameters
+
+Command arguments can be templated using the `$variableName` annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:
+
+```yaml
+  commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+  parameters:
+    - name: userNames
+      type: array
+      description: The user names to be set.  
+```
+
+If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
+to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
+
+## Example
+
+```yaml
+tools:
+  user_data_tool:
+    kind: redis
+    source: my-redis-instance
+    description: |
+      Use this tool to interact with user data stored in Redis.
+      It can set, retrieve, and delete user-specific information.
+    commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+      - [GET, $userId]
+    parameters:
+      - name: userId
+        type: string
+        description: The unique identifier for the user.
+      - name: userNames
+        type: array
+        description: The user names to be set.  
+```
+
+
 # spanner-execute-sql
 A "spanner-execute-sql" tool executes a SQL statement against a Spanner database.
 
@@ -6997,6 +5666,60 @@ tools:
 | statement | string | Yes | The SQL statement to execute |
 
 
+# valkey
+A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
+
+
+## About
+
+A valkey tool executes a series of pre-defined Valkey commands against a
+Memorystore for Valkey instance.
+
+The specified Valkey commands are executed sequentially. Each command is
+represented as a string array, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.
+
+### Dynamic Command Parameters
+
+Command arguments can be templated using the `$variableName` annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:
+
+```yaml
+  commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+  parameters:
+    - name: userNames
+      type: array
+      description: The user names to be set.  
+```
+
+If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
+to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
+
+## Example
+
+```yaml
+tools:
+  user_data_tool:
+    kind: valkey
+    source: my-valkey-instance
+    description: |
+      Use this tool to interact with user data stored in Valkey.
+      It can set, retrieve, and delete user-specific information.
+    commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+      - [GET, $userId]
+    parameters:
+      - name: userId
+        type: string
+        description: The unique identifier for the user.
+      - name: userNames
+        type: array
+        description: The user names to be set.  
+```
+
+
 # Samples
 Samples and guides for using Toolbox.
 
@@ -7035,6 +5758,13 @@ This guide assumes you have already done the following:
     ```
 1. Completed setup for usage with an LLM model such as
 {{< tabpane text=true persist=header >}}
+{{% tab header="Core" lang="en" %}}
+- [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup) package.
+
+- [langchain-google-genai](https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup) package.
+
+- [langchain-anthropic](https://python.langchain.com/docs/integrations/chat/anthropic/#setup) package.
+{{% /tab %}}
 {{% tab header="LangChain" lang="en" %}}
 - [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup) package.
 
@@ -7134,7 +5864,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -7249,6 +5979,10 @@ you can connect to a
 1. In a new terminal, install the SDK package.
     
     {{< tabpane persist=header >}}
+{{< tab header="Core" lang="bash" >}}
+
+pip install toolbox-core
+{{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
 pip install toolbox-langchain
@@ -7265,8 +5999,15 @@ pip install google-adk
 {{< /tabpane >}}
 
 1. Install other required dependencies:
-    
+
     {{< tabpane persist=header >}}
+{{< tab header="Core" lang="bash" >}}
+
+# TODO(developer): replace with correct package if needed
+pip install langgraph langchain-google-vertexai
+# pip install langchain-google-genai
+# pip install langchain-anthropic
+{{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
 # TODO(developer): replace with correct package if needed
@@ -7288,8 +6029,120 @@ pip install toolbox-core
 1. Create a new file named `hotel_agent.py` and copy the following
    code to create an agent:
     {{< tabpane persist=header >}}
+{{< tab header="Core" lang="python" >}}
+
+import asyncio
+
+from google import genai
+from google.genai.types import (
+    Content,
+    FunctionDeclaration,
+    GenerateContentConfig,
+    Part,
+    Tool,
+)
+
+from toolbox_core import ToolboxClient
+
+prompt = """
+  You're a helpful hotel assistant. You handle hotel searching, booking and
+  cancellations. When the user searches for a hotel, mention it's name, id,
+  location and price tier. Always mention hotel id while performing any
+  searches. This is very important for any operations. For any bookings or
+  cancellations, please provide the appropriate confirmation. Be sure to
+  update checkin or checkout dates if mentioned by the user.
+  Don't ask for confirmations from the user.
+"""
+
+queries = [
+    "Find hotels in Basel with Basel in it's name.",
+    "Please book the hotel Hilton Basel for me.",
+    "This is too expensive. Please cancel it.",
+    "Please book Hyatt Regency for me",
+    "My check in dates for my booking would be from April 10, 2024 to April 19, 2024.",
+]
+
+async def run_application():
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox_client:
+
+        # The toolbox_tools list contains Python callables (functions/methods) designed for LLM tool-use
+        # integration. While this example uses Google's genai client, these callables can be adapted for
+        # various function-calling or agent frameworks. For easier integration with supported frameworks
+        # (https://github.com/googleapis/mcp-toolbox-python-sdk/tree/main/packages), use the
+        # provided wrapper packages, which handle framework-specific boilerplate.
+        toolbox_tools = await toolbox_client.load_toolset("my-toolset")
+        genai_client = genai.Client(
+            vertexai=True, project="project-id", location="us-central1"
+        )
+
+        genai_tools = [
+            Tool(
+                function_declarations=[
+                    FunctionDeclaration.from_callable_with_api_option(callable=tool)
+                ]
+            )
+            for tool in toolbox_tools
+        ]
+        history = []
+        for query in queries:
+            user_prompt_content = Content(
+                role="user",
+                parts=[Part.from_text(text=query)],
+            )
+            history.append(user_prompt_content)
+
+            response = genai_client.models.generate_content(
+                model="gemini-2.0-flash-001",
+                contents=history,
+                config=GenerateContentConfig(
+                    system_instruction=prompt,
+                    tools=genai_tools,
+                ),
+            )
+            history.append(response.candidates[0].content)
+            function_response_parts = []
+            for function_call in response.function_calls:
+                fn_name = function_call.name
+                # The tools are sorted alphabetically
+                if fn_name == "search-hotels-by-name":
+                    function_result = await toolbox_tools[3](**function_call.args)
+                elif fn_name == "search-hotels-by-location":
+                    function_result = await toolbox_tools[2](**function_call.args)
+                elif fn_name == "book-hotel":
+                    function_result = await toolbox_tools[0](**function_call.args)
+                elif fn_name == "update-hotel":
+                    function_result = await toolbox_tools[4](**function_call.args)
+                elif fn_name == "cancel-hotel":
+                    function_result = await toolbox_tools[1](**function_call.args)
+                else:
+                    raise ValueError("Function name not present.")
+                function_response = {"result": function_result}
+                function_response_part = Part.from_function_response(
+                    name=function_call.name,
+                    response=function_response,
+                )
+                function_response_parts.append(function_response_part)
+
+            if function_response_parts:
+                tool_response_content = Content(role="tool", parts=function_response_parts)
+                history.append(tool_response_content)
+
+            response2 = genai_client.models.generate_content(
+                model="gemini-2.0-flash-001",
+                contents=history,
+                config=GenerateContentConfig(
+                    tools=genai_tools,
+                ),
+            )
+            final_model_response_content = response2.candidates[0].content
+            history.append(final_model_response_content)
+            print(response2.text)
+
+asyncio.run(run_application())
+{{< /tab >}}
 {{< tab header="LangChain" lang="python" >}}
 
+import asyncio
 from langgraph.prebuilt import create_react_agent
 # TODO(developer): replace this with another import if needed
 from langchain_google_vertexai import ChatVertexAI
@@ -7316,25 +6169,25 @@ queries = [
     "My check in dates would be from April 10, 2024 to April 19, 2024.",
 ]
 
-def main():
+async def main():
     # TODO(developer): replace this with another model if needed
     model = ChatVertexAI(model_name="gemini-2.0-flash-001")
     # model = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001")
     # model = ChatAnthropic(model="claude-3-5-sonnet-20240620")
     
     # Load the tools from the Toolbox server
-    async with ToolboxClient("http://127.0.0.1:5000") as client:
-        tools = client.load_toolset()
+    client = ToolboxClient("http://127.0.0.1:5000")
+    tools = await client.aload_toolset()
 
-        agent = create_react_agent(model, tools, checkpointer=MemorySaver())
+    agent = create_react_agent(model, tools, checkpointer=MemorySaver())
 
-        config = {"configurable": {"thread_id": "thread-1"}}
-        for query in queries:
-            inputs = {"messages": [("user", prompt + query)]}
-            response = agent.invoke(inputs, stream_mode="values", config=config)
-            print(response["messages"][-1].content)
+    config = {"configurable": {"thread_id": "thread-1"}}
+    for query in queries:
+        inputs = {"messages": [("user", prompt + query)]}
+        response = await agent.ainvoke(inputs, stream_mode="values", config=config)
+        print(response["messages"][-1].content)
 
-main()
+asyncio.run(main())
 {{< /tab >}}
 {{< tab header="LlamaIndex" lang="python" >}}
 import asyncio
@@ -7383,19 +6236,19 @@ async def main():
     # )
     
     # Load the tools from the Toolbox server
-    async with ToolboxClient("http://127.0.0.1:5000") as client:
-        tools = client.load_toolset()
+    client = ToolboxClient("http://127.0.0.1:5000")
+    tools = await client.aload_toolset()
 
-        agent = AgentWorkflow.from_tools_or_functions(
-            tools,
-            llm=llm,
-            system_prompt=prompt,
-        )
-        ctx = Context(agent)
-        for query in queries:
-            response = await agent.run(user_msg=query, ctx=ctx)
-            print(f"---- {query} ----")
-            print(str(response))
+    agent = AgentWorkflow.from_tools_or_functions(
+        tools,
+        llm=llm,
+        system_prompt=prompt,
+    )
+    ctx = Context(agent)
+    for query in queries:
+        response = await agent.arun(user_msg=query, ctx=ctx)
+        print(f"---- {query} ----")
+        print(str(response))
 
 asyncio.run(main())
 {{< /tab >}}
@@ -7482,6 +6335,9 @@ with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox_client:
 {{< /tabpane >}}
     
     {{< tabpane text=true persist=header >}}
+{{% tab header="Core" lang="en" %}}
+To learn more about the Core SDK, check out the [Toolbox Core SDK documentation.](https://github.com/googleapis/genai-toolbox/tree/main/sdks/toolbox-core)
+{{% /tab %}}
 {{% tab header="Langchain" lang="en" %}}
 To learn more about Agents in LangChain, check out the [LangGraph Agent documentation.](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)
 {{% /tab %}}
@@ -7581,7 +6437,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
