@@ -275,6 +275,7 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;/ul>
 &lt;p>The specified SQL statement is executed as a parameterized statement, and specified
 parameters will be used according to their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
