@@ -16,7 +16,7 @@ Ways to contact us:
 - If you found a bug or have ideas for improvements, [open an issue][issue] and
   we will reply as soon as possible.
 
-- For any types of communications, join our [discord server][discord], where we can discuss things in real-time for a faster response.
+- For any topics, join our [discord server][discord], where we can discuss things in real-time for a faster response.
 
   [issue]: https://github.com/googleapis/genai-toolbox/issues
   [discord]: https://discord.com/invite/Dmm69peqjh
