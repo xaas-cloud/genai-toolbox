@@ -2,7 +2,7 @@
 title: "Contact Us"
 type: docs
 weight: 10
-description: Contact the Toolbox team
+description: Contact the Toolbox team.
 ---
 
 Toolbox is an open source project and we welcome contributions and discussion from the

@@ -2,7 +2,7 @@
 title: "Blogs"
 type: docs
 weight: 3
-description: Toolbox Tuesday blog posts
+description: Toolbox Tuesday blog posts.
 ---
 
 ## Toolbox Tuesday Blogs
