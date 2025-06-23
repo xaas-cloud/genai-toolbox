@@ -8,7 +8,7 @@ description: Contact the Toolbox team
 Toolbox is an open source project and we welcome contributions and discussion from the
 developer community.
 
-Ways to contact us:
+## How to Get in Touch
 
 - If you want to make a contribution, [open an issue][issue] first so that we can agree
   on the general design.
