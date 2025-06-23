@@ -92,4 +92,4 @@ Samples and guides for using Toolbox.
 ### About
 
 A list of other information related to Toolbox.
-- [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/faq/): Frequently asked questions about Toolbox.- [Blogs](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/blogs/): Toolbox Tuesday blog posts- [Contact Us](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/contactus/): Contact the Toolbox team
+- [FAQ](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/faq/): Frequently asked questions about Toolbox.- [Blogs](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/blogs/): Toolbox Tuesday blog posts.- [Contact Us](https://googleapis.github.io/genai-toolbox/previews/PR-739/about/contact/): Contact the Toolbox team.

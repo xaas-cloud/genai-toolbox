@@ -6871,7 +6871,7 @@ Yes! Toolbox is compatible with [Anthropic's Model Context Protocol (MCP)](https
 connect to Toolbox with an MCP client.
 
 # Blogs
-Toolbox Tuesday blog posts
+Toolbox Tuesday blog posts.
 
 ## Toolbox Tuesday Blogs
 
@@ -6892,12 +6892,12 @@ Follow us and stay tuned!
 
 
 # Contact Us
-Contact the Toolbox team
+Contact the Toolbox team.
 
 Toolbox is an open source project and we welcome contributions and discussion from the
 developer community.
 
-Ways to contact us:
+## How to Get in Touch
 
 - If you want to make a contribution, [open an issue][issue] first so that we can agree
   on the general design.
