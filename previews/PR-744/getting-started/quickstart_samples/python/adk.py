@@ -8,6 +8,8 @@ from toolbox_core import ToolboxSyncClient
 
 import asyncio
 
+os.environ['GOOGLE_API_KEY'] = 'your-api-key'
+
 async def run_adk():
    with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox_client:
 
