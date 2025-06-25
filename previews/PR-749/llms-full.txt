@@ -3289,16 +3289,16 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                                             |
-|-----------|:--------:|:------------:|---------------------------------------------------------------------------------------------|
-| kind      |  string  |     true     | Must be "cloud-sql-postgres".                                                               |
-| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").               |
-| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                |
-| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                     |
-| database  |  string  |     true     | Name of the Postgres database to connect to (e.g. "my_db").                                 |
-| user      |  string  |     false     | Name of the Postgres user to connect as (e.g. "my-pg-user"). Defaults to IAM auth using [ADC][adc] email if unspecified.                               |
-| password  |  string  |     false     | Password of the Postgres user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.                                        |
-| ipType    |  string  |    false     | IP Type of the Cloud SQL instance; must be one of `public` or `private`. Default: `public`. |
+| **field** | **type** | **required** | **description**                                                                                                          |
+|-----------|:--------:|:------------:|--------------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "cloud-sql-postgres".                                                                                            |
+| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").                                            |
+| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                                             |
+| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                                                  |
+| database  |  string  |     true     | Name of the Postgres database to connect to (e.g. "my_db").                                                              |
+| user      |  string  |     false    | Name of the Postgres user to connect as (e.g. "my-pg-user"). Defaults to IAM auth using [ADC][adc] email if unspecified. |
+| password  |  string  |     false    | Password of the Postgres user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.            |
+| ipType    |  string  |     false    | IP Type of the Cloud SQL instance; must be one of `public` or `private`. Default: `public`.                              |
 
 
 # Cloud SQL for SQL Server
@@ -3394,7 +3394,7 @@ instead of hardcoding your secrets into the configuration file.
 | kind      |  string  |     true     | Must be "cloud-sql-mssql".                                                                  |
 | project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").               |
 | region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                |
-| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                      |
+| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                     |
 | database  |  string  |     true     | Name of the Cloud SQL database to connect to (e.g. "my_db").                                |
 | ipAddress |  string  |     true     | IP address of the Cloud SQL instance to connect to.                                         |
 | user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-pg-user").                              |
@@ -3426,21 +3426,21 @@ sources:
 
 ## Reference
 
-| **field**           | **type** | **required** | **description**                                                                                                             |
-|---------------------|:--------:|:------------:|-----------------------------------------------------------------------------------------------------------------------------|
-| kind                | string   |    true      | Must be "couchbase".                                                                                                         |
-| connectionString   | string   |    true      | Connection string for the Couchbase cluster.                                                                                |
-| bucket              | string   |    true      | Name of the bucket to connect to.                                                                                           |
-| scope               | string   |    true      | Name of the scope within the bucket.                                                                                        |
-| username            | string   |    false     | Username for authentication.                                                                                                |
-| password            | string   |    false     | Password for authentication.                                                                                                |
-| clientCert         | string   |    false     | Path to client certificate file for TLS authentication.                                                                     |
-| clientCertPassword| string   |    false     | Password for the client certificate.                                                                                        |
-| clientKey          | string   |    false     | Path to client key file for TLS authentication.                                                                             |
-| clientKeyPassword | string   |    false     | Password for the client key.                                                                                                |
-| caCert             | string   |    false     | Path to CA certificate file.                                                                                                |
-| noSslVerify       | boolean  |    false     | If true, skip server certificate verification. **Warning:** This option should only be used in development or testing environments. Disabling SSL verification poses significant security risks in production as it makes your connection vulnerable to man-in-the-middle attacks. |
-| profile             | string   |    false     | Name of the connection profile to apply.                                                                                    |
+| **field**            | **type** | **required** | **description**                                         |
+|----------------------|:--------:|:------------:|---------------------------------------------------------|
+| kind                 | string   |    true      | Must be "couchbase".                                    |
+| connectionString     | string   |    true      | Connection string for the Couchbase cluster.            |
+| bucket               | string   |    true      | Name of the bucket to connect to.                       |
+| scope                | string   |    true      | Name of the scope within the bucket.                    |
+| username             | string   |    false     | Username for authentication.                            |
+| password             | string   |    false     | Password for authentication.                            |
+| clientCert           | string   |    false     | Path to client certificate file for TLS authentication. |
+| clientCertPassword   | string   |    false     | Password for the client certificate.                    |
+| clientKey            | string   |    false     | Path to client key file for TLS authentication.         |
+| clientKeyPassword    | string   |    false     | Password for the client key.                            |
+| caCert               | string   |    false     | Path to CA certificate file.                            |
+| noSslVerify          | boolean  |    false     | If true, skip server certificate verification. **Warning:** This option should only be used in development or testing environments. Disabling SSL verification poses significant security risks in production as it makes your connection vulnerable to man-in-the-middle attacks. |
+| profile              | string   |    false     | Name of the connection profile to apply.                |
 | queryScanConsistency | integer  |    false     | Query scan consistency. Controls the consistency guarantee for index scanning. Values: 1 for "not_bounded" (fastest option, but results may not include the most recent operations), 2 for "request_plus" (highest consistency level, includes all operations up until the query started, but incurs a performance penalty). If not specified, defaults to the Couchbase Go SDK default. |
 
 
@@ -3496,7 +3496,7 @@ instead of hardcoding your secrets into the configuration file.
 | **Field**   | **Type** | **Required** | **Description**                                                                                  |
 |-------------|:--------:|:------------:|--------------------------------------------------------------------------------------------------|
 | kind        |  string  |     true     | Must be "dgraph".                                                                                |
-| dgraphUrl   |  string  |     true     | Connection URI (e.g. "<https://xxx.cloud.dgraph.io>", "<https://localhost:8080>").                   |
+| dgraphUrl   |  string  |     true     | Connection URI (e.g. "<https://xxx.cloud.dgraph.io>", "<https://localhost:8080>").               |
 | user        |  string  |     false    | Name of the Dgraph user to connect as (e.g., "groot").                                           |
 | password    |  string  |     false    | Password of the Dgraph user (e.g., "password").                                                  |
 | apiKey      |  string  |     false    | API key to connect to a Dgraph Cloud instance.                                                   |
@@ -3953,10 +3953,10 @@ sources:
 
 ### Configuration Fields
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| kind | string | Yes | Must be "sqlite" |
-| database | string | Yes | Path to SQLite database file, or ":memory:" for an in-memory database |
+| **field** | **type** | **required** | **description**                                                                                                     |
+|-----------|:--------:|:------------:|---------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "spanner".                                                                                                  |
+| database  |  string  |     true     | Path to SQLite database file, or ":memory:" for an in-memory database.                                              |
 
 ### Connection Properties
 
@@ -4378,7 +4378,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-execute-sql".                                                                  |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4411,7 +4411,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-get-dataset-info".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-get-dataset-info".                                                             |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4444,7 +4444,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-get-table-info".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-get-table-info".                                                               |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4477,7 +4477,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-list-dataset-ids".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-list-dataset-ids".                                                             |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4510,7 +4510,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-list-table-ids".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-list-table-ids".                                                               |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4937,8 +4937,8 @@ tools:
 | source      |                   string                   |     true     | Name of the source the dql query should execute on.                                          |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                           |
 | statement   |                   string                   |     true     | dql statement to execute                                                                     |
-| isQuery     |                  boolean                   |    false     | To run statement as query set true otherwise false                                            |
-| timeout     |                   string                   |    false     | To set timeout for query                                                                      |
+| isQuery     |                  boolean                   |    false     | To run statement as query set true otherwise false                                           |
+| timeout     |                   string                   |    false     | To set timeout for query                                                                     |
 | parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be used with the dql statement. |
 
 
@@ -5376,7 +5376,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "mysql-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "mysql-execute-sql".                                                                     |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -5587,7 +5587,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "postgres-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "postgres-execute-sql".                                                                  |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -5782,7 +5782,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "spanner-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "spanner-execute-sql".                                                                   |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 | readOnly    |                   bool                     |     false    | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.         |
@@ -6022,10 +6022,10 @@ tools:
 
 | **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
 |--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
-| kind               |                   string                         |     true     | Must be "sqlite-sql".                                                                                                                    |
+| kind               |                   string                         |     true     | Must be "sqlite-sql".                                                                                                                      |
 | source             |                   string                         |     true     | Name of the source the SQLite source configuration.                                                                                        |
 | description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
-| statement          |                   string                         |     true     | The SQL statement to execute.                                                                                                        |
+| statement          |                   string                         |     true     | The SQL statement to execute.                                                                                                              |
 | parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
