@@ -471,7 +471,6 @@ you can connect to a
 [local runtime](https://research.google.com/colaboratory/local-runtimes.html).
 {{< /notice >}}
 
-<!-- markdownlint-disable MD013 -->
 1. In a new terminal, install the SDK package.
 
     {{< tabpane persist=header >}}
