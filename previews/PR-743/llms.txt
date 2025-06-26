@@ -58,29 +58,20 @@ List of reference documentation for resources in Toolbox.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/sources/sqlite/): SQLite is a C-language library that implements a small, fast, self-contained,  high-reliability, full-featured, SQL database engine.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/sources/valkey/): Valkey is an open-source, in-memory data structure store, forked from Redis.
 - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/): Tools define actions an agent can take -- such as reading and writing to a  source.
-  - [alloydb-ai-nl](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/alloydb-ai-nl/): The "alloydb-ai-nl" tool leverages  [AlloyDB AI](https://cloud.google.com/alloydb/ai) next-generation Natural  Language support to provide the ability to query the database directly using natural language.
-  - [bigquery-execute-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-execute-sql/): A "bigquery-execute-sql" tool executes a SQL statement against BigQuery.
-  - [bigquery-get-dataset-info](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-get-dataset-info/): A "bigquery-get-dataset-info" tool retrieves metadata for a BigQuery dataset.
-  - [bigquery-get-table-info](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-get-table-info/): A "bigquery-get-table-info" tool retrieves metadata for a BigQuery table.
-  - [bigquery-list-dataset-ids](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-list-dataset-ids/): A "bigquery-list-dataset-ids" tool returns all dataset IDs from the source.
-  - [bigquery-list-table-ids](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-list-table-ids/): A "bigquery-list-table-ids" tool returns table IDs in a given BigQuery dataset.
-  - [bigquery-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery-sql/): A "bigquery-sql" tool executes a pre-defined SQL statement.
-  - [bigtable-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigtable-sql/): A "bigtable-sql" tool executes a pre-defined SQL statement against a Google  Cloud Bigtable instance.
-  - [couchbase-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/couchbase-sql/): A "couchbase-sql" tool executes a pre-defined SQL statement against a Couchbase database.
-  - [dgraph-dql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/dgraph-dql/): A "dgraph-dql" tool executes a pre-defined DQL statement against a Dgraph database.
-  - [http](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/http/): A "http" tool sends out an HTTP request to an HTTP endpoint.
-  - [mssql-execute-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mssql-execute-sql/): A "mssql-execute-sql" tool executes a SQL statement against a SQL Server database.
-  - [mssql-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mssql-sql/): A "mssql-sql" tool executes a pre-defined SQL statement against a SQL Server database.
-  - [mysql-execute-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mysql-execute-sql/): A "mysql-execute-sql" tool executes a SQL statement against a MySQL database.
-  - [mysql-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mysql-sql/): A "mysql-sql" tool executes a pre-defined SQL statement against a MySQL database.
-  - [neo4j-cypher](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/neo4j-cypher/): A "neo4j-cypher" tool executes a pre-defined cypher statement against a Neo4j database.
-  - [postgres-execute-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/postgres-execute-sql/): A "postgres-execute-sql" tool executes a SQL statement against a Postgres database.
-  - [postgres-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/postgres-sql/): A "postgres-sql" tool executes a pre-defined SQL statement against a Postgres database.
-  - [redis](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/redis/): A "redis" tool executes a set of pre-defined Redis commands against a Redis instance.
-  - [spanner-execute-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/spanner-execute-sql/): A "spanner-execute-sql" tool executes a SQL statement against a Spanner database.
-  - [spanner-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/spanner-sql/): A "spanner-sql" tool executes a pre-defined SQL statement against a Google  Cloud Spanner database.
-  - [sqlite-sql](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/sqlite-sql/): Execute SQL statements against a SQLite database.
-  - [valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/valkey/): A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
+  - [AlloyDB AI NL](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/alloydbainl/): Bigquery Tools.
+  - [Bigquery](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery/): Bigquery Tools.
+  - [Bigtable](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigtable/): Bigtable Tools.
+  - [Couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/couchbase/): Couchbase Tools.
+  - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/dgraph/): Dgraph Tools.
+  - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/http/): HTTP Tools.
+  - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mysql/): MySQL Tools.
+  - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/neo4j/): Neo4j Tools.
+  - [Postgres](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/postgres/): Postgres Tools.
+  - [Redis](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/redis/): Redis Tools.
+  - [Spanner](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/spanner/): Spanner Tools.
+  - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mssql/): SQL Server Tools.
+  - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/sqlite/): SQLite Tools.
+  - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/valkey/): Valkey Tools.
 
 ### Samples
 
