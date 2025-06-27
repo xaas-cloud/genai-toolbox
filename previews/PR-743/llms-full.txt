@@ -4258,67 +4258,67 @@ AlloyDB AI NL Tool.
 
 
 # BigQuery
-BigQuery Tools.
+Tools that work with BigQuery Sources.
 
 
 
 # Bigtable
-Bigtable Tools.
+Tools that work with Bigtable Sources.
 
 
 
 # Couchbase
-Couchbase Tools.
+Tools that work with Couchbase Sources.
 
 
 
 # Dgraph
-Dgraph Tools.
+Tools that work with Dgraph Sources.
 
 
 
 # HTTP
-HTTP Tools.
+Tools that work with HTTP Sources.
 
 
 
 # MySQL
-MySQL Tools.
+Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
 
 
 
 # Neo4j
-Neo4j Tools.
+Tools that work with Neo4j Sources.
 
 
 
 # Postgres
-Postgres Tools.
+Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
 
 
 
 # Redis
-Redis Tools.
+Tools that work with Redis Sources.
 
 
 
 # Spanner
-Spanner Tools.
+Tools that work with Spanner Sources.
 
 
 
 # SQL Server
-SQL Server Tools.
+Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
 
 
 
 # SQLite
-SQLite Tools.
+Tools that work with SQLite Sources.
 
 
 
 # Valkey
-Valkey Tools.
+Tools that work with Valkey Sources.
 
 
 

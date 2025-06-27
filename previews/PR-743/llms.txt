@@ -59,19 +59,19 @@ List of reference documentation for resources in Toolbox.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/sources/valkey/): Valkey is an open-source, in-memory data structure store, forked from Redis.
 - [Tools](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/): Tools define actions an agent can take -- such as reading and writing to a  source.
   - [AlloyDB AI NL](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/alloydbainl/): AlloyDB AI NL Tool.
-  - [BigQuery](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery/): BigQuery Tools.
-  - [Bigtable](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigtable/): Bigtable Tools.
-  - [Couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/couchbase/): Couchbase Tools.
-  - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/dgraph/): Dgraph Tools.
-  - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/http/): HTTP Tools.
-  - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mysql/): MySQL Tools.
-  - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/neo4j/): Neo4j Tools.
-  - [Postgres](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/postgres/): Postgres Tools.
-  - [Redis](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/redis/): Redis Tools.
-  - [Spanner](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/spanner/): Spanner Tools.
-  - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mssql/): SQL Server Tools.
-  - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/sqlite/): SQLite Tools.
-  - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/valkey/): Valkey Tools.
+  - [BigQuery](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigquery/): Tools that work with BigQuery Sources.
+  - [Bigtable](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/bigtable/): Tools that work with Bigtable Sources.
+  - [Couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/couchbase/): Tools that work with Couchbase Sources.
+  - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/http/): Tools that work with HTTP Sources.
+  - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
+  - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/neo4j/): Tools that work with Neo4j Sources.
+  - [Postgres](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
+  - [Redis](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/redis/): Tools that work with Redis Sources.
+  - [Spanner](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/spanner/): Tools that work with Spanner Sources.
+  - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
+  - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/sqlite/): Tools that work with SQLite Sources.
+  - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-743/resources/tools/valkey/): Tools that work with Valkey Sources.
 
 ### Samples
 
