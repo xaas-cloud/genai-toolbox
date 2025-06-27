@@ -4253,12 +4253,12 @@ tools:
 
 
 # AlloyDB AI NL
-Bigquery Tools.
+AlloyDB AI NL Tool.
 
 
 
-# Bigquery
-Bigquery Tools.
+# BigQuery
+BigQuery Tools.
 
 
 
