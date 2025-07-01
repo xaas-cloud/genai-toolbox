@@ -319,6 +319,13 @@ func parseParamFromDelayedUnmarshaler(ctx context.Context, u *util.DelayedUnmars
 		if err := dec.DecodeContext(ctx, a); err != nil {
 			return nil, fmt.Errorf("unable to parse as %q: %w", t, err)
 		}
+		if a.Default != nil {
+			intD, ok := a.Default.(uint64)
+			if !ok {
+				return nil, fmt.Errorf("default value fail to assert to type int64")
+			}
+			a.Default = int(intD)
+		}
 		if a.AuthSources != nil {
 			logger.WarnContext(ctx, "`authSources` is deprecated, use `authServices` for parameters instead")
 			a.AuthServices = append(a.AuthServices, a.AuthSources...)

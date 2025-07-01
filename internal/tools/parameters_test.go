@@ -150,7 +150,7 @@ func TestParametersMarshal(t *testing.T) {
 				},
 			},
 			want: tools.Parameters{
-				tools.NewIntParameterWithDefault("my_integer", uint64(5), "this param is an int"),
+				tools.NewIntParameterWithDefault("my_integer", 5, "this param is an int"),
 			},
 		},
 		{
