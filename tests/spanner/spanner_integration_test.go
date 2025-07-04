@@ -230,7 +230,7 @@ func setupSpannerTable(t *testing.T, ctx context.Context, adminClient *database.
 			Statements: []string{fmt.Sprintf("DROP TABLE %s", tableName)},
 		})
 		if err != nil {
-			t.Errorf("unable to start drop table operation: %s", err)
+			t.Errorf("unable to start drop %s operation: %s", tableName, err)
 			return
 		}
 
