@@ -1142,9 +1142,10 @@ func TestSingleEdit(t *testing.T) {
 	regexEscapedPathDir = path.Clean(regexEscapedPathDir)
 
 	begunWatchingDir := regexp.MustCompile(fmt.Sprintf(`DEBUG "Added directory %s to watcher."`, regexEscapedPathDir))
-	_, err = testutils.WaitForString(ctx, begunWatchingDir, pr)
+	res, err := testutils.WaitForString(ctx, begunWatchingDir, pr)
+	t.Log("log result: ", res)
 	if err != nil {
-		t.Fatalf("timeout or error waiting for watcher to start: %s", err)
+		t.Fatalf("timeout or error waiting for watcher to start: %s, actually got: ", err)
 	}
 
 	err = os.WriteFile(fileToWatch, []byte("modification"), 0777)
@@ -1153,7 +1154,8 @@ func TestSingleEdit(t *testing.T) {
 	}
 
 	detectedFileChange := regexp.MustCompile(fmt.Sprintf(`DEBUG "WRITE event detected in %s"`, regexEscapedPathFile))
-	_, err = testutils.WaitForString(ctx, detectedFileChange, pr)
+	res, err = testutils.WaitForString(ctx, detectedFileChange, pr)
+	t.Log("log result: ", res)
 	if err != nil {
 		t.Fatalf("timeout or error waiting for file to detect write: %s", err)
 	}
