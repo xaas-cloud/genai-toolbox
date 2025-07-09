@@ -111,94 +111,94 @@ Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
 names, or other parts of the query.</p></blockquote><ul class="nav nav-tabs" id=tabs-0 role=tablist><li class=nav-item><button class="nav-link active" id=tabs-00-00-tab data-bs-toggle=tab data-bs-target=#tabs-00-00 role=tab data-td-tp-persist=googlesql aria-controls=tabs-00-00 aria-selected=true>
 GoogleSQL</button></li><li class=nav-item><button class=nav-link id=tabs-00-01-tab data-bs-toggle=tab data-bs-target=#tabs-00-01 role=tab data-td-tp-persist=postgresql aria-controls=tabs-00-01 aria-selected=false>
-PostgreSQL</button></li></ul><div class=tab-content id=tabs-0-content><div class="tab-pane fade show active" id=tabs-00-00 role=tabpanel aria-labelled-by=tabs-00-00-tab tabindex=0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>search_flights_by_number</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>spanner-sql</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-spanner-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT * FROM flights
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      WHERE airline = @airline
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      AND flight_number = @flight_number
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      LIMIT 10</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to get information for a specific flight.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Takes an airline code and flight number and returns info on the flight.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Do NOT use this tool with a flight id. Do NOT guess an airline code or flight number.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      A airline code is a code for an airline service consisting of two-character
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      airline designator and followed by flight number, which is 1 to 4 digit number.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      For example, if given CY 0123, the airline is &#34;CY&#34;, and flight_number is &#34;123&#34;.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Another example for this is DL 1234, the airline is &#34;DL&#34;, and flight_number is &#34;1234&#34;.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      If the tool returns more than one option choose the date closes to today.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;airline&#34;: &#34;CY&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;flight_number&#34;: &#34;888&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;airline&#34;: &#34;DL&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;flight_number&#34;: &#34;1234&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>parameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>airline</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Airline unique 2 letter identifier</span>
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>flight_number</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>to 4 digit number</span></span></span></code></pre></div></div><div class="tab-pane fade" id=tabs-00-01 role=tabpanel aria-labelled-by=tabs-00-01-tab tabindex=0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>search_flights_by_number</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>spanner</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-spanner-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT * FROM flights
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      WHERE airline = $1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      AND flight_number = $2
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      LIMIT 10</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to get information for a specific flight.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Takes an airline code and flight number and returns info on the flight.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Do NOT use this tool with a flight id. Do NOT guess an airline code or flight number.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      A airline code is a code for an airline service consisting of two-character
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      airline designator and followed by flight number, which is 1 to 4 digit number.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      For example, if given CY 0123, the airline is &#34;CY&#34;, and flight_number is &#34;123&#34;.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Another example for this is DL 1234, the airline is &#34;DL&#34;, and flight_number is &#34;1234&#34;.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      If the tool returns more than one option choose the date closes to today.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;airline&#34;: &#34;CY&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;flight_number&#34;: &#34;888&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;airline&#34;: &#34;DL&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;flight_number&#34;: &#34;1234&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>parameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>airline</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Airline unique 2 letter identifier</span>
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>flight_number</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>to 4 digit number</span></span></span></code></pre></div></div></div><h3 id=example-with-template-parameters>Example with Template Parameters</h3><blockquote><p><strong>Note:</strong> This tool allows direct modifications to the SQL statement,
+PostgreSQL</button></li></ul><div class=tab-content id=tabs-0-content><div class="tab-pane fade show active" id=tabs-00-00 role=tabpanel aria-labelled-by=tabs-00-00-tab tabindex=0><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>search_flights_by_number</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>spanner-sql</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-spanner-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      SELECT * FROM flights
+</span></span></span><span class=line><span class=cl><span class=sd>      WHERE airline = @airline
+</span></span></span><span class=line><span class=cl><span class=sd>      AND flight_number = @flight_number
+</span></span></span><span class=line><span class=cl><span class=sd>      LIMIT 10</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to get information for a specific flight.
+</span></span></span><span class=line><span class=cl><span class=sd>      Takes an airline code and flight number and returns info on the flight.
+</span></span></span><span class=line><span class=cl><span class=sd>      Do NOT use this tool with a flight id. Do NOT guess an airline code or flight number.
+</span></span></span><span class=line><span class=cl><span class=sd>      A airline code is a code for an airline service consisting of two-character
+</span></span></span><span class=line><span class=cl><span class=sd>      airline designator and followed by flight number, which is 1 to 4 digit number.
+</span></span></span><span class=line><span class=cl><span class=sd>      For example, if given CY 0123, the airline is &#34;CY&#34;, and flight_number is &#34;123&#34;.
+</span></span></span><span class=line><span class=cl><span class=sd>      Another example for this is DL 1234, the airline is &#34;DL&#34;, and flight_number is &#34;1234&#34;.
+</span></span></span><span class=line><span class=cl><span class=sd>      If the tool returns more than one option choose the date closes to today.
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;airline&#34;: &#34;CY&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;flight_number&#34;: &#34;888&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;airline&#34;: &#34;DL&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;flight_number&#34;: &#34;1234&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>parameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>airline</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Airline unique 2 letter identifier</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>flight_number</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w> </span><span class=l>to 4 digit number</span></span></span></code></pre></div></div><div class="tab-pane fade" id=tabs-00-01 role=tabpanel aria-labelled-by=tabs-00-01-tab tabindex=0><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>search_flights_by_number</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>spanner</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-spanner-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      SELECT * FROM flights
+</span></span></span><span class=line><span class=cl><span class=sd>      WHERE airline = $1
+</span></span></span><span class=line><span class=cl><span class=sd>      AND flight_number = $2
+</span></span></span><span class=line><span class=cl><span class=sd>      LIMIT 10</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to get information for a specific flight.
+</span></span></span><span class=line><span class=cl><span class=sd>      Takes an airline code and flight number and returns info on the flight.
+</span></span></span><span class=line><span class=cl><span class=sd>      Do NOT use this tool with a flight id. Do NOT guess an airline code or flight number.
+</span></span></span><span class=line><span class=cl><span class=sd>      A airline code is a code for an airline service consisting of two-character
+</span></span></span><span class=line><span class=cl><span class=sd>      airline designator and followed by flight number, which is 1 to 4 digit number.
+</span></span></span><span class=line><span class=cl><span class=sd>      For example, if given CY 0123, the airline is &#34;CY&#34;, and flight_number is &#34;123&#34;.
+</span></span></span><span class=line><span class=cl><span class=sd>      Another example for this is DL 1234, the airline is &#34;DL&#34;, and flight_number is &#34;1234&#34;.
+</span></span></span><span class=line><span class=cl><span class=sd>      If the tool returns more than one option choose the date closes to today.
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;airline&#34;: &#34;CY&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;flight_number&#34;: &#34;888&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;airline&#34;: &#34;DL&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;flight_number&#34;: &#34;1234&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>parameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>airline</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Airline unique 2 letter identifier</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>flight_number</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w> </span><span class=l>to 4 digit number</span></span></span></code></pre></div></div></div><h3 id=example-with-template-parameters>Example with Template Parameters</h3><blockquote><p><strong>Note:</strong> This tool allows direct modifications to the SQL statement,
 including identifiers, column names, and table names. <strong>This makes it more
 vulnerable to SQL injections</strong>. Using basic parameters only (see above) is
 recommended for performance and safety reasons. For more details, please check
-<a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a>.</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>list_table</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>spanner</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-spanner-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT * FROM {{.tableName}};</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to list all information from a specific table.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;tableName&#34;: &#34;flights&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>templateParameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>tableName</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Table to select from</span>
-</span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;spanner-sql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the SQL should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>SQL statement to execute on.</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#specifying-parameters>parameters</a> that will be inserted into the SQL statement.</td></tr><tr><td>readOnly</td><td style=text-align:center>bool</td><td style=text-align:center>false</td><td>When set to <code>true</code>, the <code>statement</code> is run as a read-only transaction. Default: <code>false</code>.</td></tr><tr><td>templateParameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a> that will be inserted into the SQL statement before executing prepared statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified June 30, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/a1b60100c279d17f63e54d246f6018bed96084ea>chore: Group tools by type (#743) (a1b60100)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+<a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a>.</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>list_table</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>spanner</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-spanner-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      SELECT * FROM {{.tableName}};</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to list all information from a specific table.
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;tableName&#34;: &#34;flights&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>templateParameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tableName</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Table to select from</span><span class=w>
+</span></span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;spanner-sql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the SQL should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>SQL statement to execute on.</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#specifying-parameters>parameters</a> that will be inserted into the SQL statement.</td></tr><tr><td>readOnly</td><td style=text-align:center>bool</td><td style=text-align:center>false</td><td>When set to <code>true</code>, the <code>statement</code> is run as a read-only transaction. Default: <code>false</code>.</td></tr><tr><td>templateParameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/spanner/#template-parameters>templateParameters</a> that will be inserted into the SQL statement before executing prepared statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified June 30, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/a1b60100c279d17f63e54d246f6018bed96084ea>chore: Group tools by type (#743) (a1b60100)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-789/js/main.js></script><script defer src=/genai-toolbox/previews/PR-789/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-789/js/tabpane-persist.js></script></body></html>

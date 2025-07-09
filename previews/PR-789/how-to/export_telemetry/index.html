@@ -101,32 +101,32 @@ implementation of how to receive, process and export telemetry data. It removes
 the need to run, operate, and maintain multiple agents/collectors.</p><h2 id=configure-the-collector>Configure the Collector</h2><p>To configure the collector, you will have to provide a configuration file. The
 configuration file consists of four classes of pipeline component that access
 telemetry data.</p><ul><li><code>Receivers</code></li><li><code>Processors</code></li><li><code>Exporters</code></li><li><code>Connectors</code></li></ul><p>Example of setting up the classes of pipeline components (in this example, we
-don&rsquo;t use connectors):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>receivers</span>:
-</span></span><span style=display:flex><span>  <span style=color:#f92672>otlp</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>protocols</span>:
-</span></span><span style=display:flex><span>      <span style=color:#f92672>http</span>:
-</span></span><span style=display:flex><span>        <span style=color:#f92672>endpoint</span>: <span style=color:#e6db74>&#34;127.0.0.1:4553&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>exporters</span>:
-</span></span><span style=display:flex><span>  <span style=color:#f92672>googlecloud</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>project</span>: <span style=color:#ae81ff>&lt;YOUR_GOOGLE_CLOUD_PROJECT&gt;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>processors</span>:
-</span></span><span style=display:flex><span>  <span style=color:#f92672>batch</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>send_batch_size</span>: <span style=color:#ae81ff>200</span>
-</span></span></code></pre></div><p>After each pipeline component is configured, you will enable it within the
-<code>service</code> section of the configuration file.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>service</span>:
-</span></span><span style=display:flex><span>  <span style=color:#f92672>pipelines</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>traces</span>:
-</span></span><span style=display:flex><span>      <span style=color:#f92672>receivers</span>: [<span style=color:#e6db74>&#34;otlp&#34;</span>]
-</span></span><span style=display:flex><span>      <span style=color:#f92672>processors</span>: [<span style=color:#e6db74>&#34;batch&#34;</span>]
-</span></span><span style=display:flex><span>      <span style=color:#f92672>exporters</span>: [<span style=color:#e6db74>&#34;googlecloud&#34;</span>]
-</span></span></code></pre></div><h2 id=running-the-collector>Running the Collector</h2><p>There are a couple of steps to run and use a Collector.</p><ol><li><p><a href=https://opentelemetry.io/docs/collector/installation/>Install the
+don&rsquo;t use connectors):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>receivers</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>otlp</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>protocols</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>http</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>endpoint</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;127.0.0.1:4553&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>exporters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>googlecloud</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>project</span><span class=p>:</span><span class=w> </span><span class=l>&lt;YOUR_GOOGLE_CLOUD_PROJECT&gt;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>processors</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>batch</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>send_batch_size</span><span class=p>:</span><span class=w> </span><span class=m>200</span><span class=w>
+</span></span></span></code></pre></div><p>After each pipeline component is configured, you will enable it within the
+<code>service</code> section of the configuration file.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>service</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>pipelines</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>traces</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>receivers</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;otlp&#34;</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>processors</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;batch&#34;</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>exporters</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;googlecloud&#34;</span><span class=p>]</span><span class=w>
+</span></span></span></code></pre></div><h2 id=running-the-collector>Running the Collector</h2><p>There are a couple of steps to run and use a Collector.</p><ol><li><p><a href=https://opentelemetry.io/docs/collector/installation/>Install the
 Collector</a> binary.
 Pull a binary or Docker image for the OpenTelemetry contrib collector.</p></li><li><p>Set up credentials for telemetry backend.</p></li><li><p>Set up the Collector config. Below are some examples for setting up the
-Collector config:</p><ul><li><a href=https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/googlecloudexporter>Google Cloud Exporter</a></li><li><a href=https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/googlemanagedprometheusexporter#example-configuration>Google Managed Service for Prometheus Exporter</a></li></ul></li><li><p>Run the Collector with the configuration file.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./otelcol-contrib --config<span style=color:#f92672>=</span>collector-config.yaml
+Collector config:</p><ul><li><a href=https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/googlecloudexporter>Google Cloud Exporter</a></li><li><a href=https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/googlemanagedprometheusexporter#example-configuration>Google Managed Service for Prometheus Exporter</a></li></ul></li><li><p>Run the Collector with the configuration file.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./otelcol-contrib --config<span class=o>=</span>collector-config.yaml
 </span></span></code></pre></div></li><li><p>Run toolbox with the <code>--telemetry-otlp</code> flag. Configure it to send them to
-<code>http://127.0.0.1:4553</code> (for HTTP) or the Collector&rsquo;s URL.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./toolbox --telemetry-otlp<span style=color:#f92672>=</span>http://127.0.0.1:4553
+<code>http://127.0.0.1:4553</code> (for HTTP) or the Collector&rsquo;s URL.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./toolbox --telemetry-otlp<span class=o>=</span>http://127.0.0.1:4553
 </span></span></code></pre></div></li><li><p>Once telemetry datas are collected, you can view them in your telemetry
 backend. If you are using GCP exporters, telemetry will be visible in GCP
 dashboard at <a href=https://console.cloud.google.com/monitoring/metrics-explorer>Metrics Explorer</a> and <a href=https://console.cloud.google.com/traces>Trace

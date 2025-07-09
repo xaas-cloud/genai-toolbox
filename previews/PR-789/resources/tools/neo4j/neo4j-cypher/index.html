@@ -102,39 +102,39 @@ statement</a>, and specified parameters will be used according to
 their name: e.g. <code>$id</code>.</p><blockquote><p><strong>Note:</strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.</p></blockquote><h2 id=example>Example</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>search_movies_by_actor</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>neo4j-cypher</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-neo4j-movies-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      MATCH (m:Movie)&lt;-[:ACTED_IN]-(p:Person)
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      WHERE p.name = $name AND m.year &gt; $year
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      RETURN m.title, m.year
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      LIMIT 10</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to get a list of movies for a specific actor and a given minimum release year.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Takes an full actor name, e.g. &#34;Tom Hanks&#34; and a year e.g 1993 and returns a list of movie titles and release years.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Do NOT use this tool with a movie title. Do NOT guess an actor name, Do NOT guess a year.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      A actor name is a fully qualified name with first and last name separated by a space.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      For example, if given &#34;Hanks, Tom&#34; the actor name is &#34;Tom Hanks&#34;.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      If the tool returns more than one option choose the most recent movies.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;name&#34;: &#34;Meg Ryan&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;year&#34;: 1993
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;name&#34;: &#34;Clint Eastwood&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;year&#34;: 2000
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>parameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>name</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Full actor name, &#34;firstname lastname&#34;</span>
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>year</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>integer</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>4</span> <span style=color:#ae81ff>digit number starting in 1900 up to the current year </span>
-</span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;neo4j-cypher&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the Cypher query should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Cypher statement to execute</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/neo4j/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/neo4j/#specifying-parameters>parameters</a> that will be used with the Cypher statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified June 30, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/a1b60100c279d17f63e54d246f6018bed96084ea>chore: Group tools by type (#743) (a1b60100)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+names, or other parts of the query.</p></blockquote><h2 id=example>Example</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>search_movies_by_actor</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>neo4j-cypher</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-neo4j-movies-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      MATCH (m:Movie)&lt;-[:ACTED_IN]-(p:Person)
+</span></span></span><span class=line><span class=cl><span class=sd>      WHERE p.name = $name AND m.year &gt; $year
+</span></span></span><span class=line><span class=cl><span class=sd>      RETURN m.title, m.year
+</span></span></span><span class=line><span class=cl><span class=sd>      LIMIT 10</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to get a list of movies for a specific actor and a given minimum release year.
+</span></span></span><span class=line><span class=cl><span class=sd>      Takes an full actor name, e.g. &#34;Tom Hanks&#34; and a year e.g 1993 and returns a list of movie titles and release years.
+</span></span></span><span class=line><span class=cl><span class=sd>      Do NOT use this tool with a movie title. Do NOT guess an actor name, Do NOT guess a year.
+</span></span></span><span class=line><span class=cl><span class=sd>      A actor name is a fully qualified name with first and last name separated by a space.
+</span></span></span><span class=line><span class=cl><span class=sd>      For example, if given &#34;Hanks, Tom&#34; the actor name is &#34;Tom Hanks&#34;.
+</span></span></span><span class=line><span class=cl><span class=sd>      If the tool returns more than one option choose the most recent movies.
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;name&#34;: &#34;Meg Ryan&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;year&#34;: 1993
+</span></span></span><span class=line><span class=cl><span class=sd>      }}
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;name&#34;: &#34;Clint Eastwood&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;year&#34;: 2000
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>parameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>name</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Full actor name, &#34;firstname lastname&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>year</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>integer</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=m>4</span><span class=w> </span><span class=l>digit number starting in 1900 up to the current year </span><span class=w>
+</span></span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;neo4j-cypher&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the Cypher query should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Cypher statement to execute</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-789/resources/tools/neo4j/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-789/resources/tools/neo4j/#specifying-parameters>parameters</a> that will be used with the Cypher statement.</td></tr></tbody></table><div class=td-page-meta__lastmod>Last modified June 30, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/a1b60100c279d17f63e54d246f6018bed96084ea>chore: Group tools by type (#743) (a1b60100)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-789/js/main.js></script><script defer src=/genai-toolbox/previews/PR-789/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-789/js/tabpane-persist.js></script></body></html>
