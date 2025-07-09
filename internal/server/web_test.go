@@ -6,6 +6,8 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+
+	"github.com/go-goquery/goquery"
 )
 
 func TestWebEndpoint(t *testing.T) {
@@ -23,7 +25,7 @@ func TestWebEndpoint(t *testing.T) {
 		path            string
 		wantStatus      int
 		wantContentType string
-		wantBodySubstr  string
+		wantPageTitle   string
 	}{
 		{
 			name:            "web index page GET",
@@ -31,7 +33,7 @@ func TestWebEndpoint(t *testing.T) {
 			path:            "/",
 			wantStatus:      http.StatusOK,
 			wantContentType: "text/html; charset=utf-8",
-			wantBodySubstr:  "<title>Toolbox UI</title>",
+			wantPageTitle:   "Toolbox UI",
 		},
 	}
 	for _, tc := range testCases {
@@ -61,8 +63,14 @@ func TestWebEndpoint(t *testing.T) {
 				t.Errorf("Unexpected Content-Type header: got %s, want %s", contentType, tc.wantContentType)
 			}
 
-			if !strings.Contains(string(body), tc.wantBodySubstr) {
-				t.Errorf("Unexpected response body: got %q, want to contain %q", string(body), tc.wantBodySubstr)
+			doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
+			if err != nil {
+				t.Fatalf("Failed to parse HTML: %v", err)
+			}
+			gotPageTitle := doc.Find("title").Text()
+
+			if gotPageTitle != tc.wantPageTitle {
+				t.Errorf("Unexpected page title: got %q, want %q", gotPageTitle, tc.wantPageTitle)
 			}
 		})
 	}
