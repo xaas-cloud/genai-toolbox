@@ -104,56 +104,56 @@ language (DML)</a> statements, and specified parameters will
 inserted according to their name: e.g. <code>@name</code>.</p><h2 id=example>Example</h2><blockquote><p><strong>Note:</strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>search_user_by_id_or_name</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>bigtable-sql</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-bigtable-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        TO_INT64(cf[ &#39;id&#39; ]) as id, 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        CAST(cf[ &#39;name&#39; ] AS string) as name, 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      FROM 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        mytable 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      WHERE 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        TO_INT64(cf[ &#39;id&#39; ]) = @id 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        OR CAST(cf[ &#39;name&#39; ] AS string) = @name;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to get information for a specific user.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Takes an id number or a name and returns info on the user.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;id&#34;: 123,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;name&#34;: &#34;Alice&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>parameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>id</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>integer</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>User ID</span>
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>name</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Name of the user</span>
-</span></span></code></pre></div><h3 id=example-with-template-parameters>Example with Template Parameters</h3><blockquote><p><strong>Note:</strong> This tool allows direct modifications to the SQL statement,
+names, or other parts of the query.</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>search_user_by_id_or_name</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>bigtable-sql</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-bigtable-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      SELECT 
+</span></span></span><span class=line><span class=cl><span class=sd>        TO_INT64(cf[ &#39;id&#39; ]) as id, 
+</span></span></span><span class=line><span class=cl><span class=sd>        CAST(cf[ &#39;name&#39; ] AS string) as name, 
+</span></span></span><span class=line><span class=cl><span class=sd>      FROM 
+</span></span></span><span class=line><span class=cl><span class=sd>        mytable 
+</span></span></span><span class=line><span class=cl><span class=sd>      WHERE 
+</span></span></span><span class=line><span class=cl><span class=sd>        TO_INT64(cf[ &#39;id&#39; ]) = @id 
+</span></span></span><span class=line><span class=cl><span class=sd>        OR CAST(cf[ &#39;name&#39; ] AS string) = @name;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to get information for a specific user.
+</span></span></span><span class=line><span class=cl><span class=sd>      Takes an id number or a name and returns info on the user.
+</span></span></span><span class=line><span class=cl><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;id&#34;: 123,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;name&#34;: &#34;Alice&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>parameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>id</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>integer</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>User ID</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>name</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Name of the user</span><span class=w>
+</span></span></span></code></pre></div><h3 id=example-with-template-parameters>Example with Template Parameters</h3><blockquote><p><strong>Note:</strong> This tool allows direct modifications to the SQL statement,
 including identifiers, column names, and table names. <strong>This makes it more
 vulnerable to SQL injections</strong>. Using basic parameters only (see above) is
 recommended for performance and safety reasons. For more details, please check
-<a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a>.</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
-</span></span><span style=display:flex><span> <span style=color:#f92672>list_table</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>bigtable-sql</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>source</span>: <span style=color:#ae81ff>my-bigtable-instance</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT * FROM {{.tableName}};</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>description</span>: |<span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Use this tool to list all information from a specific table.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      Example:
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      {{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#34;tableName&#34;: &#34;flights&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>templateParameters</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>tableName</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>string</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>Table to select from</span>
-</span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;bigtable-sql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the SQL should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>SQL statement to execute on.</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#specifying-parameters>parameters</a> that will be inserted into the SQL statement.</td></tr><tr><td>templateParameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a> that will be inserted into the SQL statement before executing prepared statement.</td></tr></tbody></table><h2 id=tips>Tips</h2><ul><li><a href=https://cloud.google.com/bigtable/docs/manage-data-using-console>Bigtable Studio</a> is a useful to explore and manage your
+<a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a>.</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>tools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span><span class=nt>list_table</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>bigtable-sql</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>my-bigtable-instance</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>statement</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      SELECT * FROM {{.tableName}};</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      Use this tool to list all information from a specific table.
+</span></span></span><span class=line><span class=cl><span class=sd>      Example:
+</span></span></span><span class=line><span class=cl><span class=sd>      {{
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;tableName&#34;: &#34;flights&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>      }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>templateParameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tableName</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=l>Table to select from</span><span class=w>
+</span></span></span></code></pre></div><h2 id=reference>Reference</h2><table><thead><tr><th><strong>field</strong></th><th style=text-align:center><strong>type</strong></th><th style=text-align:center><strong>required</strong></th><th><strong>description</strong></th></tr></thead><tbody><tr><td>kind</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Must be &ldquo;bigtable-sql&rdquo;.</td></tr><tr><td>source</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Name of the source the SQL should execute on.</td></tr><tr><td>description</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>Description of the tool that is passed to the LLM.</td></tr><tr><td>statement</td><td style=text-align:center>string</td><td style=text-align:center>true</td><td>SQL statement to execute on.</td></tr><tr><td>parameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#specifying-parameters>parameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#specifying-parameters>parameters</a> that will be inserted into the SQL statement.</td></tr><tr><td>templateParameters</td><td style=text-align:center><a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a></td><td style=text-align:center>false</td><td>List of <a href=/genai-toolbox/previews/PR-697/resources/tools/bigtable/#template-parameters>templateParameters</a> that will be inserted into the SQL statement before executing prepared statement.</td></tr></tbody></table><h2 id=tips>Tips</h2><ul><li><a href=https://cloud.google.com/bigtable/docs/manage-data-using-console>Bigtable Studio</a> is a useful to explore and manage your
 Bigtable data. If you&rsquo;re unfamiliar with the query syntax, <a href=https://cloud.google.com/bigtable/docs/query-builder>Query
 Builder</a> lets you build a query, run it against a
 table, and then view the results in the console.</li><li>Some Python libraries limit the use of underscore columns such as <code>_key</code>. A
