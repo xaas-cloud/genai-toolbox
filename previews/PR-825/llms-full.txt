@@ -647,7 +647,7 @@ pip install google-genai
    code to create an agent:
     {{< tabpane persist=header >}}
 {{< tab header="ADK" lang="python" >}}
-{{% include "quickstart_samples/python/adk.py" %}}
+{{% include "quickstart_samples/adk.py" %}}
 {{< /tab >}}
 {{< tab header="LangChain" lang="python" >}}
 import asyncio
@@ -3634,6 +3634,7 @@ sources:
         database: my_db
         user: ${USER_NAME}
         password: ${PASSWORD}
+        queryTimeout: 30s # Optional: query timeout duration
 ```
 
 {{< notice tip >}}
@@ -3643,14 +3644,15 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                                             |
-|-----------|:--------:|:------------:|---------------------------------------------------------------------------------------------|
-| kind      |  string  |     true     | Must be "mysql".                                                                            |
-| host      |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                                                |
-| port      |  string  |     true     | Port to connect to (e.g. "3306").                                                           |
-| database  |  string  |     true     | Name of the MySQL database to connect to (e.g. "my_db").                                    |
-| user      |  string  |     true     | Name of the MySQL user to connect as (e.g. "my-mysql-user").                                |
-| password  |  string  |     true     | Password of the MySQL user (e.g. "my-password").                                            |
+| **field**    | **type** | **required** | **description**                                                                                 |
+| ------------ | :------: | :----------: | ----------------------------------------------------------------------------------------------- |
+| kind         |  string  |     true     | Must be "mysql".                                                                                |
+| host         |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                                                    |
+| port         |  string  |     true     | Port to connect to (e.g. "3306").                                                               |
+| database     |  string  |     true     | Name of the MySQL database to connect to (e.g. "my_db").                                        |
+| user         |  string  |     true     | Name of the MySQL user to connect as (e.g. "my-mysql-user").                                    |
+| password     |  string  |     true     | Password of the MySQL user (e.g. "my-password").                                                |
+| queryTimeout |  string  |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, no timeout is applied. |
 
 
 # Neo4j
@@ -5412,5 +5414,21 @@ Yes! Toolbox is compatible with [Anthropic's Model Context Protocol
 (MCP)](https://modelcontextprotocol.io/). Please checkout [Connect via
 MCP](../how-to/connect_via_mcp.md) on how to connect to Toolbox with an MCP
 client.
+
+
+# SDKs
+Client SDKs to connect to the MCP Toolbox server.
+
+
+# Go SDK
+Go lang client SDK
+
+
+# JS SDK
+Javascript client SDK
+
+
+# Python SDK
+Python client SDK
 
 
