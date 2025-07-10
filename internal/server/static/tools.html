@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Three</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="left-nav">
+        <div class="nav-logo">
+            <img src="/ui/assets/mcptoolboxlogo.png" alt="App Logo">
+        </div>
+        <ul>
+            <li><a href="/ui/sources">Sources</a></li>
+            <li><a href="/ui/authservices">Auth Services</a></li>
+            <li><a href="/ui/tools" class="active">Tools</a></li>
+            <li><a href="/ui/toolsets">Toolsets</a></li>
+        </ul>
+    </nav>
+
+    <aside class="second-nav">
+        <h4>My Tools</h4>
+        <div id="secondary-panel-content">
+            <p>Fetching tools...</p>
+        </div>
+    </aside>
+
+    <div class="main-content-area">
+        <div class="top-bar">
+            <span>Toolbox UI Inspector</span>
+        </div>
+        <main class="content" id="tool-display-area">
+            <h1>Welcome to the Main Page</h1>
+            <p>This is the main content area. Click a tab on the left to navigate.</p>
+        </main>
+    </div>
+    <script type="module" src="js/tools.js"></script>
+</body>
+</html>
