@@ -1938,8 +1938,7 @@ Toolbox enables dynamic reloading by default. To disable, use the `--disable-rel
 Toolbox supports the HTTP transport protocol with and without SSE.
 
 {{< tabpane text=true >}} {{% tab header="HTTP with SSE" lang="en" %}}
-Add the following
-configuration to your MCP client configuration:
+Add the following configuration to your MCP client configuration:
 
 ```bash
 {
