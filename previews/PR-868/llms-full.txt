@@ -1957,10 +1957,21 @@ If you would like to connect to a specific toolset, replace `url` with
 HTTP with SSE is only supported in version `2024-11-05` and is currently
 deprecated.
 {{% /tab %}} {{% tab header="HTTP" lang="en" %}}
-Connect to Toolbox HTTP via `http://127.0.0.1:5000/mcp`.
+Add the following configuration to your MCP client configuration:
 
-If you would like to connect to a specific toolset, connect via
-`http://127.0.0.1:5000/mcp/{toolset_name}`.
+```bash
+{
+  "mcpServers": {
+    "toolbox": {
+      "type": "http",
+      "url": "http://127.0.0.1:5000/mcp",
+    }
+  }
+}
+```
+
+If you would like to connect to a specific toolset, replace `url` with
+`"http://127.0.0.1:5000/mcp/{toolset_name}"`.
 {{% /tab %}} {{< /tabpane >}}
 
 ### Using the MCP Inspector with Toolbox
@@ -2000,6 +2011,23 @@ testing and debugging Toolbox server.
 
 1. For `URL`, type in `http://127.0.0.1:5000/mcp/sse` to use all tool or
    `http//127.0.0.1:5000/mcp/{toolset_name}/sse` to use a specific toolset.
+
+1. Click the `Connect` button. Voila! You should be able to inspect your toolbox
+   tools!
+{{% /tab %}}
+{{% tab header="Streamable HTTP" lang="en" %}}
+1. [Run Toolbox](../getting-started/introduction/_index.md#running-the-server).
+
+1. In a separate terminal, run Inspector directly through `npx`:
+
+    ```bash
+    npx @modelcontextprotocol/inspector
+    ```
+
+1. For `Transport Type` dropdown menu, select `Streamable HTTP`.
+
+1. For `URL`, type in `http://127.0.0.1:5000/mcp` to use all tool or
+   `http//127.0.0.1:5000/mcp/{toolset_name}` to use a specific toolset.
 
 1. Click the `Connect` button. Voila! You should be able to inspect your toolbox
    tools!
