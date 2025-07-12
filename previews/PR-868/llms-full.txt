@@ -1956,7 +1956,7 @@ If you would like to connect to a specific toolset, replace `url` with
 
 HTTP with SSE is only supported in version `2024-11-05` and is currently
 deprecated.
-{{% /tab %}} {{% tab header="HTTP" lang="en" %}}
+{{% /tab %}} {{% tab header="Streamable HTTP" lang="en" %}}
 Add the following configuration to your MCP client configuration:
 
 ```bash
