@@ -1893,6 +1893,7 @@ Toolbox currently supports the following versions of MCP specification:
 * [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26)
 
 ### Toolbox AuthZ/AuthN Not Supported by MCP
+
 The auth implementation in Toolbox is not supported in MCP's auth specification.
 This includes:
   * [Authenticated Parameters](../resources/tools/_index.md#authenticated-parameters)
