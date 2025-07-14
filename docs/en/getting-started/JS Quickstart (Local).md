@@ -3,21 +3,20 @@ title: "JS Quickstart (Local)"
 type: docs
 weight: 2
 description: >
-  How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [LlamaIndex](https://www.llamaindex.ai/), or [GenkitJS](https://github.com/genkit-ai/genkit). This guide covers setup and integration for each framework using the JS SDK.
+  How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [LlamaIndex](https://ts.llamaindex.ai/), or [GenkitJS](https://genkit.dev/docs/get-started/).
 ---
 
 ## Before you begin
 
 This guide assumes you have already done the following:
 
-1. Installed [Node.js (v18 or higher)]
-2. Installed [PostgreSQL 16+ and the `psql` client][install-postgres]
+1. Installed [Node.js (v18 or higher)].
+2. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
 
 ### Cloud Setup (Optional)
 
 If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:
 
-> 📚 Before you begin:
 > - [Install the Google Cloud CLI]
 > - [Set up Application Default Credentials (ADC)]
 
@@ -33,7 +32,6 @@ gcloud services enable aiplatform.googleapis.com
 [Install the Google Cloud CLI]: https://cloud.google.com/sdk/docs/install
 [Set up Application Default Credentials (ADC)]: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
 
----
 
 ## Step 1: Set up your database
 
@@ -170,7 +168,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.8.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -271,11 +269,12 @@ In this section, we will download Toolbox, configure our tools in a
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
-
----
+  {{< notice note >}}
+    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+  {{< /notice >}}
 
 ## Step 3: Set up your Node.js project
-
+{{< notice info>}}
 In this step, you'll create a new folder for your project, initialize it with `npm`, and install the required dependencies.
 
 1. Create a new folder for your project and navigate into it:
@@ -292,7 +291,7 @@ In this step, you'll create a new folder for your project, initialize it with `n
     ```
 
 1. Create a new file in the root directory:
-   
+
     ```bash
     touch index.js
     ```
@@ -311,7 +310,7 @@ In this step, you'll create a new folder for your project, initialize it with `n
 > - Place your main code in `index.js`.
 > - Store sensitive information like API keys in a `.env` file (never commit this to version control).
 
----
+{{</notice>}}
 
 ## Step 4: Install dependencies for your orchestration framework
 
@@ -329,7 +328,6 @@ npm install @toolbox-sdk/core genkit @genkit-ai/vertexai dotenv
 {{< /tab >}}
 {{< /tabpane >}}
 
----
 
 ## Step 5: Add your application code
 
