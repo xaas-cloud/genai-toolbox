@@ -1611,13 +1611,12 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Go SDK</title><lin
 &lt;/html></description></item><item><title>JS Quickstart (Local)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js-quickstart-local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js-quickstart-local/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
-&lt;li>Installed &lt;a href="https://nodejs.org/">Node.js (v18 or higher)&lt;/a>&lt;/li>
-&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
+&lt;li>Installed &lt;a href="https://nodejs.org/">Node.js (v18 or higher)&lt;/a>.&lt;/li>
+&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>.&lt;/li>
 &lt;/ol>
 &lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
 &lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
 &lt;blockquote>
-&lt;p>📚 Before you begin:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment">Set up Application Default Credentials (ADC)&lt;/a>&lt;/li>
@@ -1625,8 +1624,7 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Go SDK</title><lin
 &lt;h4 id="set-your-project-and-enable-vertex-ai">Set your project and enable Vertex AI&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcloud config &lt;span class="nb">set&lt;/span> project YOUR_PROJECT_ID
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gcloud services &lt;span class="nb">enable&lt;/span> aiplatform.googleapis.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
 accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>JS SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</guid><description>&lt;html>
  &lt;head>
