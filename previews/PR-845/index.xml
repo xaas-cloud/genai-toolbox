@@ -1597,7 +1597,7 @@ multitude of environments. For convenience, we release &lt;a href="https://githu
 docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;p>For detailed instructions, check our these resources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/local_quickstart/">Quickstart: How to Run Locally&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../getting-started/local_quickstart.md">Quickstart: How to Run Locally&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-845/how-to/deploy_toolbox/">Deploy to Cloud Run&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;/h2>
@@ -1608,7 +1608,27 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Go SDK</title><lin
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-go"/>
  &lt;meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-go"/>
  &lt;/head>
-&lt;/html></description></item><item><title>JS SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</guid><description>&lt;html>
+&lt;/html></description></item><item><title>JS Quickstart (Local)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js-quickstart-local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js-quickstart-local/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
+&lt;p>This guide assumes you have already done the following:&lt;/p>
+&lt;ol>
+&lt;li>Installed &lt;a href="https://nodejs.org/">Node.js (v18 or higher)&lt;/a>&lt;/li>
+&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
+&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
+&lt;blockquote>
+&lt;p>📚 Before you begin:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment">Set up Application Default Credentials (ADC)&lt;/a>&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;h4 id="set-your-project-and-enable-vertex-ai">Set your project and enable Vertex AI&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcloud config &lt;span class="nb">set&lt;/span> project YOUR_PROJECT_ID
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gcloud services &lt;span class="nb">enable&lt;/span> aiplatform.googleapis.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
+&lt;p>In this section, we will create a database, insert some data that needs to be
+accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>JS SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/js-sdk/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-js"/>
  &lt;meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-js"/>
@@ -1746,32 +1766,7 @@ to expose your developer assistant tools to a Postgres instance:&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Python SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/python-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/python-sdk/</guid><description>&lt;html>
- &lt;head>
- &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-python"/>
- &lt;meta http-equiv="refresh" content="0;url=hhttps://github.com/googleapis/mcp-toolbox-sdk-python"/>
- &lt;/head>
-&lt;/html></description></item><item><title>Quickstart (Local) using JS SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js_quickstart_local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/js_quickstart_local/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
-&lt;p>This guide assumes you have already done the following:&lt;/p>
-&lt;ol>
-&lt;li>Installed &lt;a href="https://nodejs.org/">Node.js (v18 or higher)&lt;/a>&lt;/li>
-&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
-&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
-&lt;blockquote>
-&lt;p>📚 Before you begin:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment">Set up Application Default Credentials (ADC)&lt;/a>&lt;/li>
-&lt;/ul>&lt;/blockquote>
-&lt;h4 id="set-your-project-and-enable-vertex-ai">Set your project and enable Vertex AI&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcloud config &lt;span class="nb">set&lt;/span> project YOUR_PROJECT_ID
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gcloud services &lt;span class="nb">enable&lt;/span> aiplatform.googleapis.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Quickstart (Local) using Python SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Python Quickstart (Local)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/python-quickstart-local/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/getting-started/python-quickstart-local/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
@@ -1784,7 +1779,12 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Connect to postgres using the &lt;code>psql&lt;/code> command:&lt;/p></description></item><item><title>Spanner using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/how-to/connect-ide/spanner_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/how-to/connect-ide/spanner_mcp/</guid><description>&lt;html>
+&lt;p>Connect to postgres using the &lt;code>psql&lt;/code> command:&lt;/p></description></item><item><title>Python SDK</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/python-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/sdks/python-sdk/</guid><description>&lt;html>
+ &lt;head>
+ &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-python"/>
+ &lt;meta http-equiv="refresh" content="0;url=hhttps://github.com/googleapis/mcp-toolbox-sdk-python"/>
+ &lt;/head>
+&lt;/html></description></item><item><title>Spanner using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-845/how-to/connect-ide/spanner_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-845/how-to/connect-ide/spanner_mcp/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>
  &lt;meta http-equiv="refresh" content="0;url=https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>

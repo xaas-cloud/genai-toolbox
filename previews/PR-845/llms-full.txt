@@ -590,7 +590,7 @@ For more detailed instructions on using the Toolbox Go SDK, see the
 
 For end-to-end samples on using the Toolbox Go SDK with orchestration frameworks, see the [project's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
-# Quickstart (Local) using JS SDK
+# JS Quickstart (Local)
 How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [LlamaIndex](https://www.llamaindex.ai/), or [GenkitJS](https://github.com/genkit-ai/genkit). This guide covers setup and integration for each framework using the JS SDK.
 
 
@@ -996,7 +996,13 @@ async function runApplication() {
 
       const toolMessages = await Promise.all(
         response.tool_calls.map(async (call) => {
-          const toolToCall = tools.find((t) => t.name === call.name);
+          const toolToCall = tools.find((t) => t.name === call.name);sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 10.128.0.2:6379
+     useGCPIAM: true
+
           if (!toolToCall) {
             return new ToolMessage({
               content: `Error: Tool ${call.name} not found`,
@@ -1271,7 +1277,7 @@ Make sure your Toolbox server is running (`./toolbox --tools-file "tools.yaml"`)
 node index.js
 ```
 
-# Quickstart (Local) using Python SDK
+# Python Quickstart (Local)
 How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 
 
