@@ -151,7 +151,6 @@ postgres` and a password next time.
     ```bash
     \q
     ```
----
 
 ## Step 2: Install and configure Toolbox
 
@@ -677,7 +676,6 @@ run();
 {{< /tab >}}
 {{< /tabpane >}}
 
----
 
 ## Step 6: Run your application
 
