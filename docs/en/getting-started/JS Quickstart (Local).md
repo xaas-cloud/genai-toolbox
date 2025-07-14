@@ -272,9 +272,12 @@ In this section, we will download Toolbox, configure our tools in a
     Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
   {{< /notice >}}
 
-## Step 3: Set up your Node.js project
-{{< notice info>}}
-In this step, you'll create a new folder for your project, initialize it with `npm`, and install the required dependencies.
+## Step 3: Connect your agent to Toolbox
+
+In this section, we will write and run an agent that will load the Tools
+from Toolbox.
+
+First let's create a new folder for your project, initialize it with `npm`, and install the required dependencies.
 
 1. Create a new folder for your project and navigate into it:
 
@@ -295,7 +298,7 @@ In this step, you'll create a new folder for your project, initialize it with `n
     touch index.js
     ```
 
-**Suggestion:**  
+<!-- **Suggestion:**  
 > We recommend the following folder structure for your project:
 >
 > ```
@@ -305,37 +308,27 @@ In this step, you'll create a new folder for your project, initialize it with `n
 > ├── package.json
 > └── node_modules/
 > ```
->
-> - Place your main code in `index.js`.
-> - Store sensitive information like API keys in a `.env` file (never commit this to version control).
+> -->
 
-{{</notice>}}
 
-## Step 4: Install dependencies for your orchestration framework
+4. Next, depending on which orchestration framework you want to use, install the relevant dependencies:
 
-Depending on which orchestration framework you want to use, install the relevant dependencies:
-
-{{< tabpane persist=header >}}
-{{< tab header="LangChain" lang="bash" >}}
+   {{< tabpane persist=header >}}
+   {{< tab header="LangChain" lang="bash" >}}
 npm install langchain @genai-toolbox/sdk @langchain/google-vertexai dotenv
-{{< /tab >}}
-{{< tab header="LlamaIndex" lang="bash" >}}
-# TODO(developer): replace this with correct Packages
+   {{< /tab >}}
+   {{< tab header="LlamaIndex" lang="bash" >}}
 npm install @llamaindex/core @llamaindex/llms-google-genai @genai-toolbox/sdk dotenv
-{{< /tab >}}
-{{< tab header="GenkitJS" lang="bash" >}}
+   {{< /tab >}}
+   {{< tab header="GenkitJS" lang="bash" >}}
 npm install @toolbox-sdk/core genkit @genkit-ai/vertexai dotenv
-{{< /tab >}}
-{{< /tabpane >}}
+   {{< /tab >}}
+   {{< /tabpane >}}
 
-
-## Step 5: Add your application code
-
-Below are sample code templates for each framework. Replace the sample code with your actual implementation as needed.
+5. Now copy the below code in your `index.js` file based on your orchestration framework.
 
 {{< tabpane persist=header >}}
 {{< tab header="LangChain" lang="js" >}}
-// index.js
 
 import "dotenv/config";
 import { ChatVertexAI } from "@langchain/google-vertexai";
@@ -449,8 +442,6 @@ runApplication()
 {{< /tab >}}
 
 {{< tab header="LlamaIndex" lang="js" >}}
-// index.js
-# TODO(developer): replace this with correct code
 
 import "dotenv/config";
 import { LlamaIndexAgent } from "@llamaindex/core";
@@ -678,11 +669,8 @@ run();
 {{< /tab >}}
 {{< /tabpane >}}
 
+6. Make sure your Toolbox server is running (`./toolbox --tools-file "tools.yaml"`), then run your agent [make sure you are in the root directory]:
 
-## Step 6: Run your application
-
-Make sure your Toolbox server is running (`./toolbox --tools-file "tools.yaml"`), then run your script [make sure you are in the root directory]:
-
-```bash
-node index.js
-```
+    ```sh
+    node index.js
+    ```
