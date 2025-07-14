@@ -1,5 +1,5 @@
 ---
-title: "Quickstart (Local) using JS SDK"
+title: "JS Quickstart (Local)"
 type: docs
 weight: 2
 description: >
@@ -408,7 +408,13 @@ async function runApplication() {
 
       const toolMessages = await Promise.all(
         response.tool_calls.map(async (call) => {
-          const toolToCall = tools.find((t) => t.name === call.name);
+          const toolToCall = tools.find((t) => t.name === call.name);sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 10.128.0.2:6379
+     useGCPIAM: true
+
           if (!toolToCall) {
             return new ToolMessage({
               content: `Error: Tool ${call.name} not found`,
