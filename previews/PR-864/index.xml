@@ -592,7 +592,7 @@ creation time, update time, and read time.&lt;/p>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>firestore-list-collections</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-864/resources/tools/firestore/firestore-list-collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-864/resources/tools/firestore/firestore-list-collections/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>A &lt;code>firestore-list-collections&lt;/code> tool lists collections in Firestore, either at the root level or as subcollections of a specific document.
+&lt;p>A &lt;code>firestore-list-collections&lt;/code> tool lists &lt;a href="https://firebase.google.com/docs/firestore/data-model#collections">collections&lt;/a> in Firestore, either at the root level or as &lt;a href="https://firebase.google.com/docs/firestore/data-model#subcollections">subcollections&lt;/a> of a specific document.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
