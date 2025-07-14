@@ -591,7 +591,7 @@ For more detailed instructions on using the Toolbox Go SDK, see the
 For end-to-end samples on using the Toolbox Go SDK with orchestration frameworks, see the [project's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 # JS Quickstart (Local)
-How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [LlamaIndex](https://ts.llamaindex.ai/), or [GenkitJS](https://genkit.dev/docs/get-started/).
+How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
 
 
 ## Before you begin
@@ -599,7 +599,7 @@ How to get started running Toolbox locally with JavaScript, PostgreSQL, and orch
 This guide assumes you have already done the following:
 
 1. Installed [Node.js (v18 or higher)].
-2. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
+1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
 
 ### Cloud Setup (Optional)
 
@@ -865,51 +865,42 @@ In this section, we will download Toolbox, configure our tools in a
 In this section, we will write and run an agent that will load the Tools
 from Toolbox.
 
-First let's create a new folder for your project, initialize it with `npm`, and install the required dependencies.
-
-1. Create a new folder for your project and navigate into it:
-
-    ```bash
-    mkdir my-agent-app
-    cd my-agent-app
-    ```
-
-1. Initialize a new Node.js project:
+1. (Optional) Initialize a Node.js project:
 
     ```bash
     npm init -y
     ```
 
-1. Create a new file in the root directory:
+1. In a new terminal, install the SDK package.
 
     ```bash
-    touch index.js
+    npm install langchain @toolbox-sdk/core
     ```
 
-4. Next, depending on which orchestration framework you want to use, install the relevant dependencies:
+1. Install other required dependencies
 
    {{< tabpane persist=header >}}
-   {{< tab header="LangChain" lang="bash" >}}
-npm install langchain @genai-toolbox/sdk @langchain/google-vertexai dotenv
-   {{< /tab >}}
-   {{< tab header="LlamaIndex" lang="bash" >}}
-npm install @llamaindex/core @llamaindex/llms-google-genai @genai-toolbox/sdk dotenv
-   {{< /tab >}}
-   {{< tab header="GenkitJS" lang="bash" >}}
-npm install @toolbox-sdk/core genkit @genkit-ai/vertexai dotenv
-   {{< /tab >}}
-   {{< /tabpane >}}
+{{< tab header="LangChain" lang="bash" >}}
+npm install langchain @langchain/google-vertexai
+{{< /tab >}}
+{{< tab header="GenkitJS" lang="bash" >}}
+npm install genkit @genkit-ai/vertexai
+{{< /tab >}}
+{{< /tabpane >}}
 
-5. Now copy the below code in your `index.js` file based on your orchestration framework.
+1. Create a new file named `hotelAgent.js` and copy the following code to create an agent:
 
-{{< tabpane persist=header >}}
+    {{< tabpane persist=header >}}
 {{< tab header="LangChain" lang="js" >}}
 
-import "dotenv/config";
 import { ChatVertexAI } from "@langchain/google-vertexai";
 import { ToolboxClient } from "@toolbox-sdk/core";
 import { tool } from "@langchain/core/tools";
-import { HumanMessage, ToolMessage } from "@langchain/core/messages";
+import { createReactAgent } from "@langchain/langgraph/prebuilt";
+import { MemorySaver } from "@langchain/langgraph";
+
+// Replace it with your API key
+process.env.GOOGLE_API_KEY = 'your-api-key';
 
 const prompt = `
 You're a helpful hotel assistant. You handle hotel searching, booking, and
@@ -929,84 +920,51 @@ const queries = [
 ];
 
 async function runApplication() {
-  console.log("Starting hotel agent...");
-
   const model = new ChatVertexAI({
-    model: "gemini-2.0-flash-001",
-    temperature: 0,
+    model: "gemini-2.0-flash",
   });
+
 
   const client = new ToolboxClient("http://127.0.0.1:5000");
   const toolboxTools = await client.loadToolset("my-toolset");
 
-  console.log(`Loaded ${toolboxTools.length} tools from Toolbox`);
+  // Define the basics of the tool: name, description, schema and core logic
+  const getTool = (toolboxTool) => tool(toolboxTool, {
+    name: toolboxTool.getName(),
+    description: toolboxTool.getDescription(),
+    schema: toolboxTool.getParamSchema()
+  });
+  const tools = toolboxTools.map(getTool);
 
-  const tools = toolboxTools
-    .map((t) => {
-      return tool(t, {
-        name: t.toolName,
-        description: t.description,
-        schema: t.params,
-      });
-    })
-    .filter(Boolean);
+  const agent = createReactAgent({
+    llm: model,
+    tools: tools,
+    checkpointer: new MemorySaver(),
+    systemPrompt: prompt,
+  });
 
-  const modelWithTools = model.bindTools(tools);
+  const langGraphConfig = {
+    configurable: {
+        thread_id: "test-thread",
+    },
+  };
 
-  let messages = [new HumanMessage(prompt)];
 
   for (const query of queries) {
-    console.log(`\nUser: ${query}`);
-
-    messages.push(new HumanMessage(query));
-
-    for (let step = 0; step < 5; step++) {
-      const response = await modelWithTools.invoke(messages);
-
-      if (!response.tool_calls || response.tool_calls.length === 0) {
-        console.log("Agent:", response.content);
-        messages.push(response);
-        break;
-      }
-
-      console.log("Agent decided to use tools:", response.tool_calls);
-      messages.push(response);
-
-      const toolMessages = await Promise.all(
-        response.tool_calls.map(async (call) => {
-          const toolToCall = tools.find((t) => t.name === call.name);sources:
-    my-valkey-instance:
-     kind: valkey
-     address:
-       - 10.128.0.2:6379
-     useGCPIAM: true
-
-          if (!toolToCall) {
-            return new ToolMessage({
-              content: `Error: Tool ${call.name} not found`,
-              tool_call_id: call.id,
-            });
-          }
-          try {
-            const result = await toolToCall.invoke(call.args);
-            return new ToolMessage({
-              content: JSON.stringify(result ?? "No result returned."),
-              tool_call_id: call.id,
-            });
-          } catch (e) {
-            return new ToolMessage({
-              content: `Error: ${e.message}`,
-              tool_call_id: call.id,
-            });
-          }
-        })
-      );
-
-      messages.push(...toolMessages);
-    }
-  }
-  if (client.close) {
-    await client.close();
+    const agentOutput = await agent.invoke(
+    {
+        messages: [
+        {
+            role: "user",
+            content: query,
+        },
+        ],
+        verbose: true,
+    },
+    langGraphConfig
+    );
+    const response = agentOutput.messages[agentOutput.messages.length - 1].content;
+    console.log(response);
   }
 }
 
@@ -1016,239 +974,108 @@ runApplication()
 
 {{< /tab >}}
 
-{{< tab header="LlamaIndex" lang="js" >}}
-
-import "dotenv/config";
-import { LlamaIndexAgent } from "@llamaindex/core";
-import { GoogleGenAI } from "@llamaindex/llms-google-genai";
-import { ToolboxClient } from "@genai-toolbox/sdk";
-
-// Sample prompt and queries
-const prompt = `
-You're a helpful hotel assistant. You handle hotel searching, booking, and cancellations.
-... (same as above) ...
-`;
-
-const queries = [
-  "Find hotels in Basel with Basel in its name.",
-  // ...more queries...
-];
-
-async function runApplication() {
-  const llm = new GoogleGenAI({
-    model: "gemini-2.0-flash-001",
-    // Add any required config here
-  });
-
-  const client = new ToolboxClient("http://127.0.0.1:5000");
-  const tools = await client.loadToolset("my-toolset");
-
-  const agent = new LlamaIndexAgent({
-    llm,
-    tools,
-    systemPrompt: prompt,
-  });
-
-  for (const query of queries) {
-    const response = await agent.run(query);
-    console.log(response);
-  }
-
-  if (client.close) await client.close();
-}
-
-runApplication().catch(console.error);
-{{< /tab >}}
-
 {{< tab header="GenkitJS" lang="js" >}}
+
 import { ToolboxClient } from "@toolbox-sdk/core";
 import { genkit } from "genkit";
-import { vertexAI } from "@genkit-ai/vertexai";
-import { z } from "zod";
+import { googleAI } from '@genkit-ai/googleai';
 
-const toolboxClient = new ToolboxClient("http://127.0.0.1:5000");
-
-const ai = genkit({
-  plugins: [vertexAI({ location: "us-central1", projectId: process.env.PROJECT_ID })],
-});
+// Replace it with your API key
+process.env.GOOGLE_API_KEY = 'your-api-key';
 
 const systemPrompt = `
-You're a helpful hotel assistant. You handle hotel searching, booking and cancellations.
-When the user searches for a hotel, mention its name, ID, location and price tier.
-Always mention hotel ID while performing any operations. This is very important for any operations.
-For any bookings or cancellations, please provide the appropriate confirmation.
-Be sure to update checkin or checkout dates if mentioned by the user.
+You're a helpful hotel assistant. You handle hotel searching, booking, and
+cancellations. When the user searches for a hotel, mention its name, id,
+location and price tier. Always mention hotel ids while performing any
+searches. This is very important for any operations. For any bookings or
+cancellations, please provide the appropriate confirmation. Be sure to
+update checkin or checkout dates if mentioned by the user.
 Don't ask for confirmations from the user.
 `;
 
 const queries = [
-  "Find hotels in Bern with Bern in it's name.",
-  "Please book the hotel  Best Western Bern for me.",
-  "This is too expensive. Please cancel it.",
-  "Please book Comfort Inn Bern for me",
-  "My check in dates for my booking would be from April 10, 2024 to April 19, 2024.",
+  "Find hotels in Basel with Basel in its name.",
+  "Can you book the Hilton Basel for me?",
+  "Oh wait, this is too expensive. Please cancel it and book the Hyatt Regency instead.",
+  "My check in dates would be from April 10, 2024 to April 19, 2024.",
 ];
 
 async function run() {
-  let tools;
-  try {
-    tools = await toolboxClient.loadToolset("my-toolset");
-  } catch {
-    return;
-  }
+  const toolboxClient = new ToolboxClient("http://127.0.0.1:5000");
+
+  const ai = genkit({
+    plugins: [
+      googleAI({
+        apiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY
+      })
+    ],
+    model: googleAI.model('gemini-2.0-flash'),
+  });
 
   const toolboxTools = await toolboxClient.loadToolset("my-toolset");
+  const toolMap = Object.fromEntries(
+    toolboxTools.map((tool) => {
+      const definedTool = ai.defineTool(
+        {
+          name: tool.getName(),
+          description: tool.getDescription(),
+          inputSchema: tool.getParamSchema(),
+        },
+        tool
+      );
+      return [tool.getName(), definedTool];
+    })
+  );
+  const tools = Object.values(toolMap);
 
-  const toolMap = {};
-  for (const tool of toolboxTools) {
-    let inputSchema;
-    switch (tool.getName()) {
-      case "search-hotels-by-name":
-        inputSchema = z.object({ name: z.string() });
-        break;
-      case "search-hotels-by-location":
-        inputSchema = z.object({ location: z.string() });
-        break;
-      case "book-hotel":
-        inputSchema = z.object({ hotel_id: z.string() });
-        break;
-      case "update-hotel":
-        inputSchema = z.object({
-          hotel_id: z.string(),
-          checkin_date: z.string(),
-          checkout_date: z.string(),
-        });
-        break;
-      case "cancel-hotel":
-        inputSchema = z.object({ hotel_id: z.string() });
-        break;
-      default:
-        inputSchema = z.object({});
-    }
+  let conversationHistory = [{ role: "system", content: [{ text: systemPrompt }] }];
 
-    const definedTool = ai.defineTool(
-      {
-        name: tool.getName(),
-        description: tool.getDescription(),
-        inputSchema,
-      },
-      tool
-    );
-
-    toolMap[tool.getName()] = definedTool;
-  }
-
-  let conversationHistory = [
-    {
-      role: "system",
-      content: [{ text: systemPrompt }],
-    },
-  ];
-
-  for (const userQuery of queries) {
-    console.log(`\n👤 User: "${userQuery}"`);
-    conversationHistory.push({
-      role: "user",
-      content: [{ text: userQuery }],
-    });
-
+  for (const query of queries) {
+    conversationHistory.push({ role: "user", content: [{ text: query }] });
     const response = await ai.generate({
-      model: vertexAI.model("gemini-2.5-flash"),
       messages: conversationHistory,
-      tools: Object.values(toolMap),
+      tools: tools,
     });
+    conversationHistory.push(response.message);
 
-    let content = [],
-      functionCalls = [];
-
-    if (response.toolRequests?.length) {
-      functionCalls = response.toolRequests;
-      content = response.content || [{ text: response.text || "" }];
-    } else if (response.candidates?.length) {
-      content = response.candidates[0].content;
-      functionCalls = content.filter((part) => part.functionCall);
-    } else {
-      content = [{ text: response.text || response.output || "No response text found" }];
-    }
-
-    conversationHistory.push({
-      role: "model",
-      content,
-    });
-
-    if (functionCalls.length > 0) {
-      for (const call of functionCalls) {
-        const toolName =
-          call.functionCall?.name || call.toolRequest?.name || call.name;
-        const toolArgs =
-          call.functionCall?.args || call.toolRequest?.input || call.input;
-
-        const tool = toolMap[toolName];
-        if (!tool) continue;
-
-        try {
-          const toolResponse = await tool.invoke(toolArgs);
-
-          conversationHistory.push({
-            role: "function",
-            content: [
-              {
-                functionResponse: {
-                  name: toolName,
-                  response: toolResponse,
-                },
-              },
-            ],
-          });
-
-          if (toolName.includes("search-hotels")) {
-            if (Array.isArray(toolResponse) && toolResponse.length > 0) {
-              const hotelList = toolResponse
-                .map(
-                  (h) =>
-                    `*   Hotel Name: ${h.name}, ID: ${h.hotel_id}, Location: ${h.location}, Price Tier: ${h.price_tier}`
-                )
-                .join("\n");
-              console.log(`🤖 Hotel Agent: I found these hotels in Bern:\n\n${hotelList}`);
-            } else {
-              console.log("🤖 Hotel Agent: No hotels found.");
-            }
+    const toolRequests = response.toolRequests;
+    if (toolRequests?.length > 0) {
+      // Execute tools concurrently and collect their responses.
+      const toolResponses = await Promise.all(
+        toolRequests.map(async (call) => {
+          try {
+            const toolOutput = await toolMap[call.name].invoke(call.input);
+            return { role: "tool", content: [{ toolResponse: { name: call.name, output: toolOutput } }] };
+          } catch (e) {
+            console.error(`Error executing tool ${call.name}:`, e);
+            return { role: "tool", content: [{ toolResponse: { name: call.name, output: { error: e.message } } }] };
           }
-        } catch {}
-      }
-
-      const finalResponse = await ai.generate({
-        model: vertexAI.model("gemini-2.5-flash"),
-        messages: conversationHistory,
-        tools: Object.values(toolMap),
-      });
-
-      const finalMessage =
-        finalResponse.text || finalResponse.output || "No final response";
-
-      conversationHistory.push({
-        role: "model",
-        content: [{ text: finalMessage }],
-      });
-
-      console.log(`🤖 Hotel Agent: ${finalMessage}`);
-    } else {
-      const message =
-        response.text || response.output || content[0]?.text || "No response";
-      console.log(`🤖 Hotel Agent: ${message}`);
+        })
+      );
+      
+      conversationHistory.push(...toolResponses);
+      
+      // Call the AI again with the tool results.
+      response = await ai.generate({ messages: conversationHistory, tools });
+      conversationHistory.push(response.message);
     }
+    
+    console.log(response.text);
   }
 }
+
+run();
 
 run();
 {{< /tab >}}
 {{< /tabpane >}}
 
-6. Make sure your Toolbox server is running (`./toolbox --tools-file "tools.yaml"`), then run your agent [make sure you are in the root directory]:
+1. Run your agent, and observe the results:
 
     ```sh
-    node index.js
+    node hotelAgent.js
     ```
+
 
 # Python Quickstart (Local)
 How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
@@ -1263,6 +1090,20 @@ This guide assumes you have already done the following:
 1. Installed [Python 3.9+][install-python] (including [pip][install-pip] and
    your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv])
 1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres]
+
+### Cloud Setup (Optional)
+
+If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using `vertexai=True` or a Google GenAI model), follow these one-time setup steps for local development:
+
+- [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+- [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+
+- Set your project and enable Vertex AI
+
+```bash
+gcloud config set project YOUR_PROJECT_ID
+gcloud services enable aiplatform.googleapis.com
+```
 
 [install-python]: https://wiki.python.org/moin/BeginnersGuide/Download
 [install-pip]: https://pip.pypa.io/en/stable/installation/
@@ -1387,6 +1228,7 @@ postgres` and a password next time.
     ```bash
     \q
     ```
+
 
 ## Step 2: Install and configure Toolbox
 
@@ -1900,7 +1742,7 @@ Documentation](https://github.com/googleapis/python-genai?tab=readme-ov-file#man
 {{% /tab %}}
 {{< /tabpane >}}
 
-4. Run your agent, and observe the results:
+1. Run your agent, and observe the results:
 
     ```sh
     python hotel_agent.py
