@@ -201,6 +201,31 @@ func TestParametersMarshal(t *testing.T) {
 			},
 		},
 		{
+			name: "object",
+			in: []map[string]any{
+				{
+					"name":        "my_object",
+					"type":        "object",
+					"description": "this param is an object",
+					"properties": map[string]any{
+						"k1": map[string]any{
+							"name":        "k1",
+							"type":        "float",
+							"description": "float property",
+						},
+						"k2": map[string]any{
+							"name":        "k2",
+							"type":        "string",
+							"description": "string property",
+						},
+					},
+				},
+			},
+			want: tools.Parameters{
+				tools.NewObjectParameter("my_object", "this param is an object", map[string]tools.Parameter{"k1": tools.NewFloatParameter("k1", "float property"), "k2": tools.NewStringParameter("k2", "string property")}),
+			},
+		},
+		{
 			name: "string default",
 			in: []map[string]any{
 				{
@@ -292,6 +317,32 @@ func TestParametersMarshal(t *testing.T) {
 			},
 			want: tools.Parameters{
 				tools.NewArrayParameterWithDefault("my_array", []any{1.0, 1.1}, "this param is an array of floats", tools.NewFloatParameter("my_float", "float item")),
+			},
+		},
+		{
+			name: "object",
+			in: []map[string]any{
+				{
+					"name":        "my_object",
+					"type":        "object",
+					"default":     map[string]any{"hello": "world"},
+					"description": "this param is an object",
+					"properties": map[string]any{
+						"k1": map[string]any{
+							"name":        "k1",
+							"type":        "float",
+							"description": "float property",
+						},
+						"k2": map[string]any{
+							"name":        "k2",
+							"type":        "string",
+							"description": "string property",
+						},
+					},
+				},
+			},
+			want: tools.Parameters{
+				tools.NewObjectParameterWithDefault("my_object", map[string]any{"hello": "world"}, "this param is an object", map[string]tools.Parameter{"k1": tools.NewFloatParameter("k1", "float property"), "k2": tools.NewStringParameter("k2", "string property")}),
 			},
 		},
 	}
@@ -592,6 +643,41 @@ func TestAuthParametersMarshal(t *testing.T) {
 			},
 			want: tools.Parameters{
 				tools.NewArrayParameterWithAuth("my_array", "this param is an array of floats", tools.NewFloatParameter("my_float", "float item"), authServices),
+			},
+		},
+		{
+			name: "object",
+			in: []map[string]any{
+				{
+					"name":        "my_object",
+					"type":        "object",
+					"description": "this param is an object",
+					"authServices": []map[string]string{
+						{
+							"name":  "my-google-auth-service",
+							"field": "user_id",
+						},
+						{
+							"name":  "other-auth-service",
+							"field": "user_id",
+						},
+					},
+					"properties": map[string]any{
+						"k1": map[string]any{
+							"name":        "k1",
+							"type":        "float",
+							"description": "float property",
+						},
+						"k2": map[string]any{
+							"name":        "k2",
+							"type":        "string",
+							"description": "string property",
+						},
+					},
+				},
+			},
+			want: tools.Parameters{
+				tools.NewObjectParameterWithAuth("my_object", "this param is an object", authServices, map[string]tools.Parameter{"k1": tools.NewFloatParameter("k1", "float property"), "k2": tools.NewStringParameter("k2", "string property")}),
 			},
 		},
 	}
@@ -1075,8 +1161,24 @@ func TestParamManifest(t *testing.T) {
 				Required:     true,
 				Description:  "bar",
 				AuthServices: []string{},
-				Items:        &tools.ParameterManifest{Name: "foo-string", Type: "string", Required: true, Description: "bar", AuthServices: []string{}},
+				Items: &tools.ParameterManifest{
+					Name:         "foo-string",
+					Type:         "string",
+					Required:     true,
+					Description:  "bar",
+					AuthServices: []string{}},
 			},
+		},
+		{
+			name: "object",
+			in:   tools.NewObjectParameter("foo-object", "bar", map[string]tools.Parameter{"propertyName": tools.NewStringParameter("property", "property desc")}),
+			want: tools.ParameterManifest{
+				Name:         "foo-object",
+				Type:         "object",
+				Required:     true,
+				Description:  "bar",
+				AuthServices: []string{},
+				Properties:   map[string]*tools.ParameterManifest{"propertyName": {Name: "property", Type: "string", Required: true, Description: "property desc", AuthServices: []string{}}}},
 		},
 		{
 			name: "string default",
@@ -1142,6 +1244,17 @@ func TestParamManifest(t *testing.T) {
 				Items:        &tools.ParameterManifest{Name: "foo-string", Type: "string", Required: false, Description: "bar", AuthServices: []string{}},
 			},
 		},
+		{
+			name: "object default",
+			in:   tools.NewObjectParameterWithDefault("foo-object", map[string]any{"hello": "world"}, "bar", map[string]tools.Parameter{"k1": tools.NewFloatParameter("k1", "float property")}),
+			want: tools.ParameterManifest{
+				Name:         "foo-object",
+				Type:         "object",
+				Required:     false,
+				Description:  "bar",
+				AuthServices: []string{},
+				Properties:   map[string]*tools.ParameterManifest{"k1": {Name: "k1", Type: "float", Required: true, Description: "float property", AuthServices: []string{}}}},
+		},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
@@ -1188,6 +1301,15 @@ func TestParamMcpManifest(t *testing.T) {
 				Items:       &tools.ParameterMcpManifest{Type: "string", Description: "bar"},
 			},
 		},
+		{
+			name: "object",
+			in:   tools.NewObjectParameter("foo-object", "bar", map[string]tools.Parameter{"k1": tools.NewStringParameter("k1", "bar")}),
+			want: tools.ParameterMcpManifest{
+				Type:        "object",
+				Description: "bar",
+				Properties:  map[string]*tools.ParameterMcpManifest{"k1": {Type: "string", Description: "bar"}},
+			},
+		},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
@@ -1216,6 +1338,7 @@ func TestMcpManifest(t *testing.T) {
 				tools.NewIntParameter("foo-int2", "bar"),
 				tools.NewArrayParameterWithDefault("foo-array", []any{"hello", "world"}, "bar", tools.NewStringParameter("foo-string", "bar")),
 				tools.NewArrayParameter("foo-array2", "bar", tools.NewStringParameter("foo-string", "bar")),
+				tools.NewObjectParameter("foo-object", "bar", map[string]tools.Parameter{"k1": tools.NewFloatParameter("k1", "float property")}),
 			},
 			want: tools.McpToolsSchema{
 				Type: "object",
@@ -1236,8 +1359,9 @@ func TestMcpManifest(t *testing.T) {
 						Description: "bar",
 						Items:       &tools.ParameterMcpManifest{Type: "string", Description: "bar"},
 					},
+					"foo-object": tools.ParameterMcpManifest{Type: "object", Description: "bar", Properties: map[string]*tools.ParameterMcpManifest{"k1": {Type: "float", Description: "float property"}}},
 				},
-				Required: []string{"foo-string2", "foo-string-req", "foo-int2", "foo-array2"},
+				Required: []string{"foo-string2", "foo-string-req", "foo-int2", "foo-array2", "foo-object"},
 			},
 		},
 	}
