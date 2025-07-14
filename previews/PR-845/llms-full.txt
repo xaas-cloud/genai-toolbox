@@ -886,19 +886,6 @@ First let's create a new folder for your project, initialize it with `npm`, and 
     touch index.js
     ```
 
-<!-- **Suggestion:**  
-> We recommend the following folder structure for your project:
->
-> ```
-> my-agent-app/
-> ├── .env                  # For environment variables (e.g., API keys)
-> ├── index.js              # Main application file
-> ├── package.json
-> └── node_modules/
-> ```
-> -->
-
-
 4. Next, depending on which orchestration framework you want to use, install the relevant dependencies:
 
    {{< tabpane persist=header >}}
