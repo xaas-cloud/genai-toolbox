@@ -320,6 +320,7 @@ Depending on which orchestration framework you want to use, install the relevant
 npm install langchain @genai-toolbox/sdk @langchain/google-vertexai dotenv
 {{< /tab >}}
 {{< tab header="LlamaIndex" lang="bash" >}}
+# TODO(developer): replace this with correct Packages
 npm install @llamaindex/core @llamaindex/llms-google-genai @genai-toolbox/sdk dotenv
 {{< /tab >}}
 {{< tab header="GenkitJS" lang="bash" >}}
@@ -449,6 +450,7 @@ runApplication()
 
 {{< tab header="LlamaIndex" lang="js" >}}
 // index.js
+# TODO(developer): replace this with correct code
 
 import "dotenv/config";
 import { LlamaIndexAgent } from "@llamaindex/core";
