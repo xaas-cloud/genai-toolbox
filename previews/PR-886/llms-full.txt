@@ -2671,8 +2671,9 @@ The native SDKs can be combined with MCP clients in many cases.
 
 Toolbox currently supports the following versions of MCP specification:
 
-* [2024-11-05](https://modelcontextprotocol.io/specification/2024-11-05)
+* [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18)
 * [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26)
+* [2024-11-05](https://modelcontextprotocol.io/specification/2024-11-05)
 
 ### Toolbox AuthZ/AuthN Not Supported by MCP
 
@@ -5254,6 +5255,39 @@ Tools that work with SQLite Sources.
 # Valkey
 Tools that work with Valkey Sources.
 
+
+
+# wait
+A "wait" tool pauses execution for a specified duration.
+
+
+## About
+
+A `wait` tool pauses execution for a specified duration. This can be useful in workflows where a delay is needed between steps.
+
+`wait` takes one input parameter `duration` which is a string representing the time to wait (e.g., "10s", "2m", "1h").
+
+{{% notice info %}} 
+This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
+{{% /notice %}}
+
+## Example
+
+```yaml
+tools:
+  wait_for_tool:
+    kind: wait
+    description: Use this tool to pause execution for a specified duration.
+    timeout: 30s
+```
+
+## Reference
+
+| **field**   |                  **type**                  | **required** | **description**                                                                                  |
+|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
+| kind        |                   string                   |     true     | Must be "wait".                                                                     |
+| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
+| timeout     |                   string                   |     true     | The default duration the tool can wait for.                                                      |
 
 
 # Samples
