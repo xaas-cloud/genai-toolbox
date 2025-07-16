@@ -73,7 +73,7 @@ List of reference documentation for resources in Toolbox.
   - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-885/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-885/resources/tools/sqlite/): Tools that work with SQLite Sources.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-885/resources/tools/valkey/): Tools that work with Valkey Sources.
-  - [wait-for](https://googleapis.github.io/genai-toolbox/previews/PR-885/resources/tools/utility/wait-for/): A "wait-for" tool pauses execution for a specified duration.
+  - [wait](https://googleapis.github.io/genai-toolbox/previews/PR-885/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
 
 ### Samples
 
