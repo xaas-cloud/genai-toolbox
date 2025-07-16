@@ -440,8 +440,11 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 				"filterParams": []map[string]any{
 					{
 						"name":        "nameArray",
-						"type":        "string",
+						"type":        "array",
 						"description": "user names",
+						"items": map[string]any{
+							"type":        "string",
+							"description": "string item"},
 					},
 				},
 				"projectPayload": `{ "_id": 1, "id": 1, "name" : 1 }`,
