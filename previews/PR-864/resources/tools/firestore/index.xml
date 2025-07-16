@@ -133,4 +133,70 @@ all root-level collections in the database.&lt;/p>
  &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/table></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-864/resources/tools/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-864/resources/tools/firestore/firestore-query-collection/</guid><description>&lt;h1 id="firestore-query-collection">firestore-query-collection&lt;/h1>
+&lt;p>The &lt;code>firestore-query-collection&lt;/code> tool allows you to query Firestore collections with filters, ordering, and limit capabilities.&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>To use this tool, you need to configure it in your YAML configuration file:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-firestore&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">firestore&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">config&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">project&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-gcp-project&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;(default)&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">query_collection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">firestore-query-collection&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-firestore&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Query Firestore collections with advanced filtering&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Parameter&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Required&lt;/th>
+ &lt;th>Default&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>collectionPath&lt;/code>&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Yes&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>The path to the Firestore collection to query&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>filters&lt;/code>&lt;/td>
+ &lt;td>array&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>Array of filter objects (as JSON strings) to apply to the query&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>orderBy&lt;/code>&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>JSON string specifying field and direction to order results&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>limit&lt;/code>&lt;/td>
+ &lt;td>integer&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>100&lt;/td>
+ &lt;td>Maximum number of documents to return&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>analyzeQuery&lt;/code>&lt;/td>
+ &lt;td>boolean&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>false&lt;/td>
+ &lt;td>If true, returns query explain metrics including execution statistics&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="filter-format">Filter Format&lt;/h3>
+&lt;p>Each filter in the &lt;code>filters&lt;/code> array should be a JSON string with the following structure:&lt;/p></description></item></channel></rss>
