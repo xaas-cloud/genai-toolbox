@@ -103,7 +103,7 @@ func TestMongoDBToolEndpoints(t *testing.T) {
 	tests.RunToolGetTest(t)
 
 	select1Want, failInvocationWant, invokeParamWant, invokeParamWantNull, mcpInvokeParamWant := getMongoDBWants()
-	tests.RunToolInvokeTest(t, select1Want, invokeParamWant, invokeParamWantNull)
+	tests.RunToolInvokeTest(t, select1Want, invokeParamWant, invokeParamWantNull, true)
 	tests.RunMCPToolCallMethod(t, mcpInvokeParamWant, failInvocationWant)
 
 	delete1Want := "[1]"
@@ -425,6 +425,23 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 						"name":        "id",
 						"type":        "integer",
 						"description": "user id",
+					},
+				},
+				"projectPayload": `{ "_id": 1, "id": 1, "name" : 1 }`,
+				"database":       MongoDbDatabase,
+			},
+			"my-array-tool": map[string]any{
+				"kind":          toolKind,
+				"source":        "my-instance",
+				"description":   "Tool to test invocation with array.",
+				"authRequired":  []string{},
+				"collection":    "test_collection",
+				"filterPayload": `{ "name": { "$in": {{json .nameArray}} }, "id": 3 })`,
+				"filterParams": []map[string]any{
+					{
+						"name":        "nameArray",
+						"type":        "string",
+						"description": "user names",
 					},
 				},
 				"projectPayload": `{ "_id": 1, "id": 1, "name" : 1 }`,
