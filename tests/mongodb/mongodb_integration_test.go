@@ -436,7 +436,7 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 				"description":   "Tool to test invocation with array.",
 				"authRequired":  []string{},
 				"collection":    "test_collection",
-				"filterPayload": `{ "name": { "$in": {{json .nameArray}} }, "id": 3 })`,
+				"filterPayload": `{ "name": { "$in": {{json .nameArray}} }, "_id": 5 })`,
 				"filterParams": []map[string]any{
 					{
 						"name":        "nameArray",
