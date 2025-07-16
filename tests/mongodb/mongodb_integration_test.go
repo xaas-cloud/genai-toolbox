@@ -582,7 +582,7 @@ func getMongoDBWants() (string, string, string, string, string) {
 	select1Want := `[{"_id":3,"id":3,"name":"Sid"}]`
 	failInvocationWant := `invalid JSON input: missing colon after key `
 	invokeParamWant := `[{"_id":5,"id":3,"name":"Alice"}]`
-	invokeParamWantNull := `[{"_id":4,"name":null}]`
+	invokeParamWantNull := `[{"_id":4,"id":4,"name":null}]`
 	mcpInvokeParamWant := `{"jsonrpc":"2.0","id":"my-param-tool","result":{"content":[{"type":"text","text":"{\"_id\":5,\"id\":3,\"name\":\"Alice\"}"}]}}`
 	return select1Want, failInvocationWant, invokeParamWant, invokeParamWantNull, mcpInvokeParamWant
 }
