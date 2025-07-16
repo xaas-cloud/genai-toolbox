@@ -26,6 +26,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/googleapis/genai-toolbox/internal/testutils"
 	"github.com/googleapis/genai-toolbox/tests"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -93,7 +94,7 @@ func TestMongoDBToolEndpoints(t *testing.T) {
 
 	waitCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
-	out, err := cmd.WaitForString(waitCtx, regexp.MustCompile(`Server ready to serve`), cmd.Out)
+	out, err := testutils.WaitForString(waitCtx, regexp.MustCompile(`Server ready to serve`), cmd.Out)
 	if err != nil {
 		t.Logf("toolbox command logs: \n%s", out)
 		t.Fatalf("toolbox didn't start successfully: %s", err)
@@ -101,8 +102,8 @@ func TestMongoDBToolEndpoints(t *testing.T) {
 
 	tests.RunToolGetTest(t)
 
-	select1Want, failInvocationWant, invokeParamWant, mcpInvokeParamWant := getMongoDBWants()
-	tests.RunToolInvokeTest(t, select1Want, invokeParamWant, true)
+	select1Want, failInvocationWant, invokeParamWant, invokeParamWantNull, mcpInvokeParamWant := getMongoDBWants()
+	tests.RunToolInvokeTest(t, select1Want, invokeParamWant, invokeParamWantNull)
 	tests.RunMCPToolCallMethod(t, mcpInvokeParamWant, failInvocationWant)
 
 	delete1Want := "[1]"
@@ -351,6 +352,8 @@ func setupMongoDB(t *testing.T, ctx context.Context, database *mongo.Database) f
 		{"_id": 9, "id": 300, "name": "ToBeUpdatedToBob", "email": "bob@gmail.com"},
 		{"_id": 10, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
 		{"_id": 11, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
+		{"_id": 11, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
+		{"_id": 12, "id": 999, "name": "", "email": ""},
 	}
 	for _, doc := range documents {
 		_, err := database.Collection(collectionName).InsertOne(ctx, doc)
@@ -407,6 +410,23 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 						"name":        "name",
 						"type":        "string",
 						"description": "user name",
+					},
+				},
+				"projectPayload": `{ "_id": 1, "id": 1, "name" : 1 }`,
+				"database":       MongoDbDatabase,
+			},
+			"my-param-tool2": map[string]any{
+				"kind":          toolKind,
+				"source":        "my-instance",
+				"description":   "Tool to test invocation with params.",
+				"authRequired":  []string{},
+				"collection":    "test_collection",
+				"filterPayload": `{ "id" : {{ .id }} }`,
+				"filterParams": []map[string]any{
+					{
+						"name":        "id",
+						"type":        "integer",
+						"description": "user id",
 					},
 				},
 				"projectPayload": `{ "_id": 1, "id": 1, "name" : 1 }`,
@@ -560,10 +580,11 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 
 }
 
-func getMongoDBWants() (string, string, string, string) {
+func getMongoDBWants() (string, string, string, string, string) {
 	select1Want := `[{"_id":3,"id":3,"name":"Sid"}]`
 	failInvocationWant := `invalid JSON input: missing colon after key `
 	invokeParamWant := `[{"_id":5,"id":3,"name":"Alice"}]`
+	invokeParamWantNull := `[{"_id":12,"name":""}]`
 	mcpInvokeParamWant := `{"jsonrpc":"2.0","id":"my-param-tool","result":{"content":[{"type":"text","text":"{\"_id\":5,\"id\":3,\"name\":\"Alice\"}"}]}}`
-	return select1Want, failInvocationWant, invokeParamWant, mcpInvokeParamWant
+	return select1Want, failInvocationWant, invokeParamWant, invokeParamWantNull, mcpInvokeParamWant
 }

@@ -16,13 +16,14 @@ package mongodbdeleteone
 import (
 	"context"
 	"fmt"
+	"slices"
+
 	"github.com/goccy/go-yaml"
 	mongosrc "github.com/googleapis/genai-toolbox/internal/sources/mongodb"
 	"github.com/googleapis/genai-toolbox/internal/tools/mongodb/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"slices"
 
 	"github.com/googleapis/genai-toolbox/internal/sources"
 	"github.com/googleapis/genai-toolbox/internal/tools"

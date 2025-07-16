@@ -17,6 +17,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"slices"
+
 	"github.com/goccy/go-yaml"
 	"github.com/googleapis/genai-toolbox/internal/sources"
 	mongosrc "github.com/googleapis/genai-toolbox/internal/sources/mongodb"
@@ -24,7 +26,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"slices"
 )
 
 const kind string = "mongodb-insert-many"

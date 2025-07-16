@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/googleapis/genai-toolbox/internal/tools"
 	"text/template"
+
+	"github.com/googleapis/genai-toolbox/internal/tools"
 )
 
 // helper function to convert a parameter to JSON formatted string.

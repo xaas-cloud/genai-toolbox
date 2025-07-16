@@ -16,6 +16,8 @@ package mongodbupdatemany
 import (
 	"context"
 	"fmt"
+	"slices"
+
 	"github.com/goccy/go-yaml"
 	"github.com/googleapis/genai-toolbox/internal/sources"
 	mongosrc "github.com/googleapis/genai-toolbox/internal/sources/mongodb"
@@ -24,7 +26,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"slices"
 )
 
 const kind string = "mongodb-update-many"
@@ -185,20 +186,23 @@ func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, erro
 	var filter = bson.D{}
 	err = bson.UnmarshalExtJSON([]byte(filterString), t.Canonical, &filter)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("unable to unmarshal filter string: %w", err)
 	}
 
 	updateString, err := common.GetUpdate(t.UpdateParams, t.UpdatePayload, paramsMap)
+	if err != nil {
+		return nil, fmt.Errorf("unable to get update: %w", err)
+	}
 
 	var update = bson.D{}
 	err = bson.UnmarshalExtJSON([]byte(updateString), false, &update)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("unable to unmarshal update string: %w", err)
 	}
 
 	res, err := t.database.Collection(t.Collection).UpdateMany(ctx, filter, update, options.Update().SetUpsert(t.Upsert))
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error updating collection: %w", err)
 	}
 
 	return []any{res.ModifiedCount, res.UpsertedCount, res.MatchedCount}, nil

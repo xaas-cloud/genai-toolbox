@@ -15,10 +15,11 @@
 package mongodbupdatemany_test
 
 import (
-	"github.com/googleapis/genai-toolbox/internal/tools"
-	"github.com/googleapis/genai-toolbox/internal/tools/mongodb/mongodbupdatemany"
 	"strings"
 	"testing"
+
+	"github.com/googleapis/genai-toolbox/internal/tools"
+	"github.com/googleapis/genai-toolbox/internal/tools/mongodb/mongodbupdatemany"
 
 	yaml "github.com/goccy/go-yaml"
 	"github.com/google/go-cmp/cmp"
