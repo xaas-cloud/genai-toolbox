@@ -344,7 +344,7 @@ func setupMongoDB(t *testing.T, ctx context.Context, database *mongo.Database) f
 		{"_id": 1, "id": 1, "name": "Alice", "email": ServiceAccountEmail},
 		{"_id": 2, "id": 2, "name": "Jane"},
 		{"_id": 3, "id": 3, "name": "Sid"},
-		{"_id": 4, "id": 4, "name": "Bob"},
+		{"_id": 4, "id": 4, "name": nil},
 		{"_id": 5, "id": 3, "name": "Alice", "email": "alice@gmail.com"},
 		{"_id": 6, "id": 100, "name": "ToBeDeleted", "email": "bob@gmail.com"},
 		{"_id": 7, "id": 101, "name": "ToBeDeleted", "email": "bob1@gmail.com"},
@@ -352,7 +352,6 @@ func setupMongoDB(t *testing.T, ctx context.Context, database *mongo.Database) f
 		{"_id": 9, "id": 300, "name": "ToBeUpdatedToBob", "email": "bob@gmail.com"},
 		{"_id": 10, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
 		{"_id": 11, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
-		{"_id": 12, "id": 999, "name": "", "email": ""},
 	}
 	for _, doc := range documents {
 		_, err := database.Collection(collectionName).InsertOne(ctx, doc)
@@ -583,7 +582,7 @@ func getMongoDBWants() (string, string, string, string, string) {
 	select1Want := `[{"_id":3,"id":3,"name":"Sid"}]`
 	failInvocationWant := `invalid JSON input: missing colon after key `
 	invokeParamWant := `[{"_id":5,"id":3,"name":"Alice"}]`
-	invokeParamWantNull := `[{"_id":12,"name":""}]`
+	invokeParamWantNull := `[{"_id":4,"name":null}]`
 	mcpInvokeParamWant := `{"jsonrpc":"2.0","id":"my-param-tool","result":{"content":[{"type":"text","text":"{\"_id\":5,\"id\":3,\"name\":\"Alice\"}"}]}}`
 	return select1Want, failInvocationWant, invokeParamWant, invokeParamWantNull, mcpInvokeParamWant
 }
