@@ -443,6 +443,7 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 						"type":        "array",
 						"description": "user names",
 						"items": map[string]any{
+							"name":        "username",
 							"type":        "string",
 							"description": "string item"},
 					},
