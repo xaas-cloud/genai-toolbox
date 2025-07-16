@@ -1,11 +1,3 @@
-.content {
-    padding: 20px;
-    flex-grow: 1;
-    overflow-y: auto; 
-    display: flex; 
-    flex-direction: column; 
-}
-
 body {
     display: flex;
     height: 100vh;
@@ -271,10 +263,10 @@ body {
     font-size: 1em;
     font-weight: bolder;
     transition: background-color 0.3s ease;
-}
 
-.run-tool-btn:hover {
-    background-color: #357ae8; 
+    &:hover {
+        background-color: #357ae8; 
+    }
 }
 
 .tool-response {
