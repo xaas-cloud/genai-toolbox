@@ -352,7 +352,6 @@ func setupMongoDB(t *testing.T, ctx context.Context, database *mongo.Database) f
 		{"_id": 9, "id": 300, "name": "ToBeUpdatedToBob", "email": "bob@gmail.com"},
 		{"_id": 10, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
 		{"_id": 11, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
-		{"_id": 11, "id": 400, "name": "ToBeUpdatedToAlice", "email": "alice@gmail.com"},
 		{"_id": 12, "id": 999, "name": "", "email": ""},
 	}
 	for _, doc := range documents {
