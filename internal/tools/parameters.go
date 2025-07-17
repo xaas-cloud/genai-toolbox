@@ -413,21 +413,23 @@ func (ps Parameters) McpManifest() McpToolsSchema {
 
 // ParameterManifest represents parameters when served as part of a ToolManifest.
 type ParameterManifest struct {
-	Name         string                        `json:"name"`
-	Type         string                        `json:"type"`
-	Required     bool                          `json:"required"`
-	Description  string                        `json:"description"`
-	AuthServices []string                      `json:"authSources"`
-	Items        *ParameterManifest            `json:"items,omitempty"`
-	Properties   map[string]*ParameterManifest `json:"properties,omitempty"`
+	Name                 string                        `json:"name"`
+	Type                 string                        `json:"type"`
+	Required             bool                          `json:"required"`
+	Description          string                        `json:"description"`
+	AuthServices         []string                      `json:"authSources"`
+	Items                *ParameterManifest            `json:"items,omitempty"`
+	Properties           map[string]*ParameterManifest `json:"properties,omitempty"`
+	AdditionalProperties *ParameterManifest            `json:"additionalProperties,omitempty"`
 }
 
 // ParameterMcpManifest represents properties when served as part of a ToolMcpManifest.
 type ParameterMcpManifest struct {
-	Type        string                           `json:"type"`
-	Description string                           `json:"description"`
-	Items       *ParameterMcpManifest            `json:"items,omitempty"`
-	Properties  map[string]*ParameterMcpManifest `json:"properties,omitempty"`
+	Type                 string                           `json:"type"`
+	Description          string                           `json:"description"`
+	Items                *ParameterMcpManifest            `json:"items,omitempty"`
+	Properties           map[string]*ParameterMcpManifest `json:"properties,omitempty"`
+	AdditionalProperties *ParameterMcpManifest            `json:"addtionalProperties,omitempty"`
 }
 
 // CommonParameter are default fields that are emebdding in most Parameter implementations. Embedding this stuct will give the object Name() and Type() functions.
@@ -1038,7 +1040,7 @@ func (p *ArrayParameter) McpManifest() ParameterMcpManifest {
 }
 
 // NewObjectParameter is a convenience function for initializing a ObjectParameter.
-func NewObjectParameter(name string, desc string, properties map[string]Parameter) *ObjectParameter {
+func NewObjectParameter(name string, desc string, properties map[string]Parameter, additionalProperties Parameter) *ObjectParameter {
 	return &ObjectParameter{
 		CommonParameter: CommonParameter{
 			Name:         name,
@@ -1046,12 +1048,13 @@ func NewObjectParameter(name string, desc string, properties map[string]Paramete
 			Desc:         desc,
 			AuthServices: nil,
 		},
-		Properties: properties,
+		Properties:           properties,
+		AdditionalProperties: additionalProperties,
 	}
 }
 
 // NewObjectParameterWithDefault is a convenience function for initializing a ObjectParameter with default value.
-func NewObjectParameterWithDefault(name string, defaultV map[string]any, desc string, properties map[string]Parameter) *ObjectParameter {
+func NewObjectParameterWithDefault(name string, defaultV map[string]any, desc string, properties map[string]Parameter, additionalProperties Parameter) *ObjectParameter {
 	return &ObjectParameter{
 		CommonParameter: CommonParameter{
 			Name:         name,
@@ -1059,13 +1062,14 @@ func NewObjectParameterWithDefault(name string, defaultV map[string]any, desc st
 			Desc:         desc,
 			AuthServices: nil,
 		},
-		Default:    &defaultV,
-		Properties: properties,
+		Default:              &defaultV,
+		Properties:           properties,
+		AdditionalProperties: additionalProperties,
 	}
 }
 
 // NewObjectParameterWithAuth is a convenience function for initializing a ObjectParameter with a list of ParamAuthService.
-func NewObjectParameterWithAuth(name string, desc string, authServices []ParamAuthService, properties map[string]Parameter) *ObjectParameter {
+func NewObjectParameterWithAuth(name string, desc string, authServices []ParamAuthService, properties map[string]Parameter, additionalProperties Parameter) *ObjectParameter {
 	return &ObjectParameter{
 		CommonParameter: CommonParameter{
 			Name:         name,
@@ -1073,7 +1077,8 @@ func NewObjectParameterWithAuth(name string, desc string, authServices []ParamAu
 			Desc:         desc,
 			AuthServices: authServices,
 		},
-		Properties: properties,
+		Properties:           properties,
+		AdditionalProperties: additionalProperties,
 	}
 }
 
@@ -1081,22 +1086,32 @@ var _ Parameter = &ObjectParameter{}
 
 // ObjectParameter is a parameter representing the "map" type.
 type ObjectParameter struct {
-	CommonParameter `yaml:",inline"`
-	Default         *map[string]any      `yaml:"default"`
-	Properties      map[string]Parameter `yaml:"properties"`
+	CommonParameter      `yaml:",inline"`
+	Default              *map[string]any      `yaml:"default"`
+	Properties           map[string]Parameter `yaml:"properties"`
+	AdditionalProperties Parameter            `yaml:"addtionalProperties"`
 }
 
 func (p *ObjectParameter) UnmarshalYAML(ctx context.Context, unmarshal func(interface{}) error) error {
 	var rawItem struct {
-		CommonParameter `yaml:",inline"`
-		Default         *map[string]any                     `yaml:"default"`
-		Properties      map[string]*util.DelayedUnmarshaler `yaml:"properties"`
+		CommonParameter      `yaml:",inline"`
+		Default              *map[string]any                     `yaml:"default"`
+		Properties           map[string]*util.DelayedUnmarshaler `yaml:"properties"`
+		AdditionalProperties *util.DelayedUnmarshaler            `yaml:"additionalProperties"`
 	}
 	if err := unmarshal(&rawItem); err != nil {
 		return err
 	}
 	p.CommonParameter = rawItem.CommonParameter
 	p.Default = rawItem.Default
+
+	if rawItem.AdditionalProperties != nil {
+		param, err := parseParamFromDelayedUnmarshaler(ctx, rawItem.AdditionalProperties)
+		if err != nil {
+			return fmt.Errorf("failed to parse additionalProperties: %w", err)
+		}
+		p.AdditionalProperties = param
+	}
 
 	if len(rawItem.Properties) == 0 {
 		return nil
@@ -1116,11 +1131,40 @@ func (p *ObjectParameter) UnmarshalYAML(ctx context.Context, unmarshal func(inte
 }
 
 func (p *ObjectParameter) Parse(v any) (any, error) {
-	newV, ok := v.(map[string]any)
+	objVal, ok := v.(map[string]any)
 	if !ok {
 		return nil, &ParseTypeError{p.Name, p.Type, v}
 	}
-	return newV, nil
+
+	parsedObj := make(map[string]any, len(objVal))
+
+	for key, val := range objVal {
+		var (
+			parsedVal any
+			err       error
+		)
+		propertySchema, isDefinedProperty := p.Properties[key]
+
+		if isDefinedProperty {
+			// If the property is explicitly defined in the schema.
+			parsedVal, err = propertySchema.Parse(val)
+			if err != nil {
+				return nil, fmt.Errorf("unable to parse property %q: %w", key, err)
+			}
+		} else if p.AdditionalProperties != nil {
+			// If the property is not defined, but the schema allows additional properties.
+			parsedVal, err = p.AdditionalProperties.Parse(val)
+			if err != nil {
+				return nil, fmt.Errorf("unable to parse additional property %q: %w", key, err)
+			}
+		} else {
+			return nil, fmt.Errorf("unknown property %q found and additional properties are not allowed", key)
+		}
+
+		parsedObj[key] = parsedVal
+	}
+
+	return parsedObj, nil
 }
 
 func (p *ObjectParameter) GetAuthServices() []ParamAuthService {
@@ -1147,13 +1191,18 @@ func (p *ObjectParameter) Manifest() ParameterManifest {
 		m := p.Manifest()
 		propertiesManifest[key] = &m
 	}
+	var apManifest ParameterManifest
+	if p.AdditionalProperties != nil {
+		apManifest = p.AdditionalProperties.Manifest()
+	}
 	return ParameterManifest{
-		Name:         p.Name,
-		Type:         p.Type,
-		Required:     required,
-		Description:  p.Desc,
-		AuthServices: authNames,
-		Properties:   propertiesManifest,
+		Name:                 p.Name,
+		Type:                 p.Type,
+		Required:             required,
+		Description:          p.Desc,
+		AuthServices:         authNames,
+		Properties:           propertiesManifest,
+		AdditionalProperties: &apManifest,
 	}
 }
 
@@ -1169,9 +1218,14 @@ func (p *ObjectParameter) McpManifest() ParameterMcpManifest {
 		m := p.McpManifest()
 		propertiesManifest[key] = &m
 	}
+	var apManifest ParameterMcpManifest
+	if p.AdditionalProperties != nil {
+		apManifest = p.AdditionalProperties.McpManifest()
+	}
 	return ParameterMcpManifest{
-		Type:        p.Type,
-		Description: p.Desc,
-		Properties:  propertiesManifest,
+		Type:                 p.Type,
+		Description:          p.Desc,
+		Properties:           propertiesManifest,
+		AdditionalProperties: &apManifest,
 	}
 }
