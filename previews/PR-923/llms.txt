@@ -82,8 +82,9 @@ Samples and guides for using Toolbox.
 - [BigQuery](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/bigquery/): How to get started with Toolbox using BigQuery.
   - [Quickstart (Local with BigQuery)](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/bigquery/local_quickstart/): How to get started running Toolbox locally with Python, BigQuery, and  LangGraph, LlamaIndex, or ADK.
   - [Quickstart (MCP with BigQuery)](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/bigquery/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and BigQuery as the source.
-- [Quickstart (MCP with Looker)](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/looker/): How to get started running Toolbox with MCP Inspector and Looker as the source.
+- [Looker](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/looker/): How to get started with Toolbox using Looker.
   - [Quickstart (MCP with Looker and Gemini-CLI)](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/looker/looker_gemini/): How to get started running Toolbox with Gemini-CLI and Looker as the source.
+  - [Quickstart (MCP with Looker)](https://googleapis.github.io/genai-toolbox/previews/PR-923/samples/looker/looker_mcp_inspector/): How to get started running Toolbox with MCP Inspector and Looker as the source.
 
 ### About
 
