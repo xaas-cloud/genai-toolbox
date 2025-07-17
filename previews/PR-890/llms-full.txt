@@ -591,7 +591,7 @@ For more detailed instructions on using the Toolbox Go SDK, see the
 For end-to-end samples on using the Toolbox Go SDK with orchestration frameworks, see the [project's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 # Python Quickstart (Local)
-How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
+How to get started running Toolbox locally with [Python](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
@@ -601,22 +601,21 @@ How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent 
 This guide assumes you have already done the following:
 
 1. Installed [Python 3.9+][install-python] (including [pip][install-pip] and
-   your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv])
-1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres]
+   your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv]).
+1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
 
 ### Cloud Setup (Optional)
 
 If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using `vertexai=True` or a Google GenAI model), follow these one-time setup steps for local development:
 
-- [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
-- [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+1. [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+1. [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+1. Set your project and enable Vertex AI
 
-- Set your project and enable Vertex AI
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-gcloud services enable aiplatform.googleapis.com
-```
+    ```bash
+    gcloud config set project YOUR_PROJECT_ID
+    gcloud services enable aiplatform.googleapis.com
+    ```
 
 [install-python]: https://wiki.python.org/moin/BeginnersGuide/Download
 [install-pip]: https://pip.pypa.io/en/stable/installation/
@@ -1234,7 +1233,7 @@ asyncio.run(run_application())
 {{< /tab >}}
 {{< /tabpane >}}
 
-  {{< tabpane text=true persist=header >}}
+    {{< tabpane text=true persist=header >}}
 {{% tab header="ADK" lang="en" %}}
 To learn more about Agent Development Kit, check out the [ADK
 documentation.](https://google.github.io/adk-docs/)
@@ -1261,9 +1260,13 @@ Documentation](https://github.com/googleapis/python-genai?tab=readme-ov-file#man
     python hotel_agent.py
     ```
 
+{{< notice info >}}
+For more information, visit the [Python SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-python).
+{{</ notice >}}
+
 
 # JS Quickstart (Local)
-How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
+How to get started running Toolbox locally with [JavaScript](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
 
 
 ## Before you begin
@@ -1277,15 +1280,14 @@ This guide assumes you have already done the following:
 
 If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:
 
-> - [Install the Google Cloud CLI]
-> - [Set up Application Default Credentials (ADC)]
+1. [Install the Google Cloud CLI]
+1. [Set up Application Default Credentials (ADC)]
+1. Set your project and enable Vertex AI
 
-#### Set your project and enable Vertex AI
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-gcloud services enable aiplatform.googleapis.com
-```
+    ```bash
+    gcloud config set project YOUR_PROJECT_ID
+    gcloud services enable aiplatform.googleapis.com
+    ```
 
 [Node.js (v18 or higher)]: https://nodejs.org/
 [install-postgres]: https://www.postgresql.org/download/
@@ -1543,7 +1545,7 @@ from Toolbox.
     npm init -y
     ```
 
-1. In a new terminal, install the SDK package.
+1. In a new terminal, install the [SDK](https://www.npmjs.com/package/@toolbox-sdk/core).
 
     ```bash
     npm install langchain @toolbox-sdk/core
@@ -1746,6 +1748,9 @@ run();
     node hotelAgent.js
     ```
 
+{{< notice info >}}
+For more information, visit the [JS SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-js).
+{{</ notice >}}
 
 # Quickstart (MCP)
 How to get started running Toolbox locally with MCP Inspector. 
@@ -1963,7 +1968,7 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. Type `y` when it asks to install the inspector package.
 
-1. It should show the following when the MCP Inspector is up and running (please take note of <YOUR_SESSION_TOKEN>):
+1. It should show the following when the MCP Inspector is up and running (please take note of `<YOUR_SESSION_TOKEN>`):
 
     ```bash
     Starting MCP inspector...
@@ -1977,11 +1982,11 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. Open the above link in your browser.
 
-1. For `Transport Type`, select `SSE`.
+1. For `Transport Type`, select `Streamable HTTP`.
 
-1. For `URL`, type in `http://127.0.0.1:5000/mcp/sse`.
+1. For `URL`, type in `http://127.0.0.1:5000/mcp`.
 
-1. For `Authentication` -> `Proxy Session Token`, make sure <YOUR_SESSION_TOKEN> is present.
+1. For `Configuration` -> `Proxy Session Token`, make sure `<YOUR_SESSION_TOKEN>` is present.
 
 1. Click Connect.
 
@@ -1992,7 +1997,6 @@ In this section, we will download Toolbox, configure our tools in a
     ![inspector_tools](./inspector_tools.png)
 
 1. Test out your tools here!
-
 
 # Configuration
 How to configure Toolbox's tools.yaml file.
@@ -2666,8 +2670,9 @@ The native SDKs can be combined with MCP clients in many cases.
 
 Toolbox currently supports the following versions of MCP specification:
 
-* [2024-11-05](https://modelcontextprotocol.io/specification/2024-11-05)
+* [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18)
 * [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26)
+* [2024-11-05](https://modelcontextprotocol.io/specification/2024-11-05)
 
 ### Toolbox AuthZ/AuthN Not Supported by MCP
 
@@ -2714,7 +2719,7 @@ Toolbox enables dynamic reloading by default. To disable, use the `--disable-rel
 
 Toolbox supports the HTTP transport protocol with and without SSE.
 
-{{< tabpane text=true >}} {{% tab header="HTTP with SSE" lang="en" %}}
+{{< tabpane text=true >}} {{% tab header="HTTP with SSE (deprecated)" lang="en" %}}
 Add the following configuration to your MCP client configuration:
 
 ```bash
@@ -2775,7 +2780,7 @@ testing and debugging Toolbox server.
 1. Click the `Connect` button. It might take awhile to spin up Toolbox. Voila!
    You should be able to inspect your toolbox tools!
 {{% /tab %}}
-{{% tab header="HTTP with SSE" lang="en" %}}
+{{% tab header="HTTP with SSE (deprecated)" lang="en" %}}
 1. [Run Toolbox](../getting-started/introduction/_index.md#running-the-server).
 
 1. In a separate terminal, run Inspector directly through `npx`:
@@ -4657,7 +4662,7 @@ sources:
     my-redis-instance:
      kind: redis
      address:
-       - 127.0.0.1
+       - 127.0.0.1:6379
      username: ${MY_USER_NAME}
      password: ${MY_AUTH_STRING} # Omit this field if you don't have a password.
      # database: 0
@@ -4682,7 +4687,7 @@ sources:
     my-redis-cluster-instance:
      kind: memorystore-redis
      address:
-       - 127.0.0.1
+       - 127.0.0.1:6379
      password: ${MY_AUTH_STRING}
      # useGCPIAM: false
      # clusterEnabled: false
@@ -4698,7 +4703,8 @@ using IAM authentication:
 sources:
     my-redis-cluster-instance:
      kind: memorystore-redis
-     address: 127.0.0.1
+     address:
+       - 127.0.0.1:6379
      useGCPIAM: true
      clusterEnabled: true
 ```
@@ -4908,7 +4914,7 @@ sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial
 indexes with radius queries.
 
 If you're new to Valkey, you can find installation and getting started guides on
-the [official Valkey website](https://valkey.io/docs/getting-started/).
+the [official Valkey website](https://valkey.io/topics/quickstart/).
 
 ## Example
 
@@ -4917,7 +4923,7 @@ sources:
     my-valkey-instance:
      kind: valkey
      address:
-       - 127.0.0.1
+       - 127.0.0.1:6379
      username: ${YOUR_USERNAME}
      password: ${YOUR_PASSWORD}
      # database: 0
@@ -4941,7 +4947,7 @@ sources:
     my-valkey-instance:
      kind: valkey
      address:
-       - 127.0.0.1
+       - 127.0.0.1:6379
      useGCPIAM: true
 ```
 
@@ -5286,6 +5292,39 @@ Tools that work with SQLite Sources.
 # Valkey
 Tools that work with Valkey Sources.
 
+
+
+# wait
+A "wait" tool pauses execution for a specified duration.
+
+
+## About
+
+A `wait` tool pauses execution for a specified duration. This can be useful in workflows where a delay is needed between steps.
+
+`wait` takes one input parameter `duration` which is a string representing the time to wait (e.g., "10s", "2m", "1h").
+
+{{% notice info %}} 
+This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
+{{% /notice %}}
+
+## Example
+
+```yaml
+tools:
+  wait_for_tool:
+    kind: wait
+    description: Use this tool to pause execution for a specified duration.
+    timeout: 30s
+```
+
+## Reference
+
+| **field**   |                  **type**                  | **required** | **description**                                                                                  |
+|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
+| kind        |                   string                   |     true     | Must be "wait".                                                                     |
+| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
+| timeout     |                   string                   |     true     | The default duration the tool can wait for.                                                      |
 
 
 # Samples
@@ -6215,17 +6254,25 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. Type `y` when it asks to install the inspector package.
 
-1. It should show the following when the MCP Inspector is up and running:
+1. It should show the following when the MCP Inspector is up and running (please take note of `<YOUR_SESSION_TOKEN>`):
 
     ```bash
-    🔍 MCP Inspector is up and running at http://127.0.0.1:5173 🚀
+    Starting MCP inspector...
+    ⚙️ Proxy server listening on localhost:6277
+    🔑 Session token: <YOUR_SESSION_TOKEN>
+       Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth
+
+    🚀 MCP Inspector is up and running at:
+       http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=<YOUR_SESSION_TOKEN>
     ```
 
 1. Open the above link in your browser.
 
-1. For `Transport Type`, select `SSE`.
+1. For `Transport Type`, select `Streamable HTTP`.
 
-1. For `URL`, type in `http://127.0.0.1:5000/mcp/sse`.
+1. For `URL`, type in `http://127.0.0.1:5000/mcp`.
+
+1. For `Configuration` -> `Proxy Session Token`, make sure `<YOUR_SESSION_TOKEN>` is present.
 
 1. Click Connect.
 
@@ -6236,7 +6283,6 @@ In this section, we will download Toolbox, configure our tools in a
     ![inspector_tools](./inspector_tools.png)
 
 1. Test out your tools here!
-
 
 # About
 A list of other information related to Toolbox.
