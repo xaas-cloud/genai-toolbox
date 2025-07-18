@@ -65,6 +65,7 @@ List of reference documentation for resources in Toolbox.
   - [Bigtable](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/bigtable/): Tools that work with Bigtable Sources.
   - [Couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/couchbase/): Tools that work with Couchbase Sources.
   - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [Firestore](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/http/): Tools that work with HTTP Sources.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-786/resources/tools/neo4j/): Tools that work with Neo4j Sources.

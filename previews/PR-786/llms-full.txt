@@ -5279,6 +5279,11 @@ Tools that work with Dgraph Sources.
 
 
 
+# Firestore
+Tools that work with Firestore Sources.
+
+
+
 # HTTP
 Tools that work with HTTP Sources.
 
