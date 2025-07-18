@@ -50,6 +50,7 @@ List of reference documentation for resources in Toolbox.
   - [Cloud SQL for SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/cloud-sql-mssql/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
   - [couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
   - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
+  - [Firestore](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/firestore/): Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. It's a fully managed, serverless database that supports mobile, web, and server development.
   - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/http/): The HTTP source enables the Toolbox to retrieve data from a remote server using HTTP requests.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/mysql/): MySQL is a relational database management system that stores and manages data.
   - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/sources/neo4j/): Neo4j is a powerful, open source graph database system
@@ -65,6 +66,7 @@ List of reference documentation for resources in Toolbox.
   - [Bigtable](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/bigtable/): Tools that work with Bigtable Sources.
   - [Couchbase](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/couchbase/): Tools that work with Couchbase Sources.
   - [Dgraph](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [Firestore](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/http/): Tools that work with HTTP Sources.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-923/resources/tools/neo4j/): Tools that work with Neo4j Sources.
