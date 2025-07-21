@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { isParamIncluded } from "./toolDisplay.js";
+
 /**
  * Runs a specific tool using the /api/tools/toolName/invoke endpoint
  * @param {string} toolId The unique identifier for the tool.
@@ -22,33 +24,28 @@
  * @param {function(?Object): void} updateLastResults Callback to store the last results.
  */
 export async function handleRunTool(toolId, form, responseArea, parameters, prettifyCheckbox, updateLastResults) {
-    responseArea.value = 'Running tool...';
-    updateLastResults(null);
     const formData = new FormData(form);
     const typedParams = {};
+    responseArea.value = 'Running tool...';
+    updateLastResults(null);
 
     for (const param of parameters) {
         const NAME = param.name;
         const VALUE_TYPE = param.valueType;
         const RAW_VALUE = formData.get(NAME);
+        const INCLUDE_CHECKED = isParamIncluded(toolId, NAME)
 
         try {
+            if (!INCLUDE_CHECKED) {
+                console.debug(`Param ${NAME} was intentionally skipped.`)
+                // if param was purposely unchecked, don't include it in body
+                continue;
+            }
+
             if (VALUE_TYPE === 'boolean') {
                 typedParams[NAME] = RAW_VALUE !== null;
                 console.debug(`Parameter ${NAME} (boolean) set to: ${typedParams[NAME]}`);
                 continue; 
-            }
-
-            // handle missing values for non-boolean types
-            if (RAW_VALUE === null || RAW_VALUE === undefined || RAW_VALUE === '') {
-                if (param.required) {
-                    const errorMessage = `Error: Required parameter "${NAME}" is missing.`;
-                    console.warn(errorMessage);
-                    responseArea.value = errorMessage;
-                    return; 
-                }
-                console.debug(`Optional parameter ${NAME} is missing, skipping.`);
-                continue;
             }
 
             // process remaining types
@@ -57,11 +54,16 @@ export async function handleRunTool(toolId, form, responseArea, parameters, pret
             } else {
                 switch (VALUE_TYPE) {
                     case 'number':
-                        const num = Number(RAW_VALUE);
-                        if (isNaN(num)) {
-                            throw new Error(`Invalid number input for ${NAME}: ${RAW_VALUE}`);
+                        if (RAW_VALUE === "") {
+                            console.debug(`Param ${NAME} was empty, setting to empty string.`)
+                            typedParams[NAME] = "";
+                        } else {
+                            const num = Number(RAW_VALUE);
+                            if (isNaN(num)) {
+                                throw new Error(`Invalid number input for ${NAME}: ${RAW_VALUE}`);
+                            }
+                            typedParams[NAME] = num;
                         }
-                        typedParams[NAME] = num;
                         break;
                     case 'string':
                     default:

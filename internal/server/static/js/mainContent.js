@@ -24,11 +24,12 @@ function renderMainContent(containerId, idString) {
         return;
     }
 
+    const idAttribute = idString ? `id="${idString}"` : '';
     const contentHTML = `
         <div class="main-content-area">
         <div class="top-bar">
         </div>
-        <main class="content" id="${idString}">
+        <main class="content" ${idAttribute}">
             <h1>Welcome to MCP Toolbox UI</h1>
             <p>This is the main content area. Click a tab on the left to navigate.</p>
         </main>
