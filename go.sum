@@ -1104,8 +1104,6 @@ github.com/thlib/go-timezone-local v0.0.7 h1:fX8zd3aJydqLlTs/TrROrIIdztzsdFV23Oz
 github.com/thlib/go-timezone-local v0.0.7/go.mod h1:/Tnicc6m/lsJE0irFMA0LfIwTBo4QP7A8IfyIv4zZKI=
 github.com/valkey-io/valkey-go v1.0.63 h1:LNlDTcUxy9jxrmGHSvd0s/NsgEmQbvREYvvBAHCIir0=
 github.com/valkey-io/valkey-go v1.0.63/go.mod h1:bHmwjIEOrGq/ubOJfh5uMRs7Xj6mV3mQ/ZXUbmqpjqY=
-github.com/valkey-io/valkey-go v1.0.62 h1:oQdPlQGRyxcQWL8fnu6J3SCaQwayc/hRZifjJIaJqu0=
-github.com/valkey-io/valkey-go v1.0.62/go.mod h1:bHmwjIEOrGq/ubOJfh5uMRs7Xj6mV3mQ/ZXUbmqpjqY=
 github.com/xdg-go/pbkdf2 v1.0.0 h1:Su7DPu48wXMwC3bs7MCNG+z4FhcyEuz5dlvchbq0B0c=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
 github.com/xdg-go/scram v1.1.2 h1:FHX5I5B4i4hKRVRBCFRxq1iQRej7WO3hhBuJf+UUySY=
