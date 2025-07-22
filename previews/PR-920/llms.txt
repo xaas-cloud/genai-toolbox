@@ -10,7 +10,8 @@ How to get started with Toolbox.
 - [Introduction](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/introduction/): An introduction to MCP Toolbox for Databases.
 - [Python Quickstart (Local)](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/local_quickstart/): How to get started running Toolbox locally with [Python](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 - [JS Quickstart (Local)](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/local_quickstart_js/): How to get started running Toolbox locally with [JavaScript](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
-- [Quickstart (MCP)](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/mcp_quickstart/): How to get started running Toolbox locally with MCP Inspector. 
+- [Go Quickstart (Local)](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/local_quickstart_go/): How to get started running Toolbox locally with [Go](https://github.com/googleapis/mcp-toolbox-sdk-go), PostgreSQL, and orchestration frameworks such as [LangChain Go](https://tmc.github.io/langchaingo/docs/), [GenkitGo](https://genkit.dev/go/docs/get-started-go/), [Go GenAI](https://github.com/googleapis/go-genai) and [OpenAI Go](https://github.com/openai/openai-go).
+- [Quickstart (MCP)](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/mcp_quickstart/): How to get started running Toolbox locally with MCP Inspector.
 - [Configuration](https://googleapis.github.io/genai-toolbox/previews/PR-920/getting-started/configure/): How to configure Toolbox's tools.yaml file.
 
 ### Concepts
@@ -76,7 +77,7 @@ List of reference documentation for resources in Toolbox.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/sqlite/): Tools that work with SQLite Sources.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/valkey/): Tools that work with Valkey Sources.
   - [wait](https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
-  - [wait-for-operation](https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/utility/waitforoperation/): Wait for a long-running operation to complete.
+  - [alloydb-wait-for-operation](https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
