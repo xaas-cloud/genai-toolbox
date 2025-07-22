@@ -171,7 +171,7 @@ type Tool struct {
 	mcpManifest tools.McpManifest
 }
 
-func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
+func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) (any, error) {
 	paramsMap := params.AsMap()
 
 	filterString, err := common.ParsePayloadTemplate(t.FilterParams, t.FilterPayload, paramsMap)
@@ -201,7 +201,7 @@ func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, erro
 		return nil, fmt.Errorf("error updating collection: %w", err)
 	}
 
-	return []any{res.ModifiedCount}, nil
+	return res.ModifiedCount, nil
 }
 
 func (t Tool) ParseParams(data map[string]any, claims map[string]map[string]any) (tools.ParamValues, error) {

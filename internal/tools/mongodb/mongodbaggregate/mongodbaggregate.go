@@ -165,7 +165,7 @@ type Tool struct {
 	mcpManifest tools.McpManifest
 }
 
-func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
+func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) (any, error) {
 	paramsMap := params.AsMap()
 
 	pipelineString, err := common.ParsePayloadTemplate(t.PipelineParams, t.PipelinePayload, paramsMap)
@@ -182,7 +182,7 @@ func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, erro
 	if t.ReadOnly {
 		//fail if we do a merge or an out
 		for _, stage := range pipeline {
-			for key, _ := range stage {
+			for key := range stage {
 				if key == "$merge" || key == "$out" {
 					return nil, fmt.Errorf("this is not a read-only pipeline: %+v", stage)
 				}
