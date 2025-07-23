@@ -484,7 +484,7 @@ func getMongoDBToolsConfig(sourceConfig map[string]any, toolKind string) map[str
 				"filterParams":  []any{},
 				"database":      MongoDbDatabase,
 			},
-			"my-param-tool": map[string]any{
+			"my-tool": map[string]any{
 				"kind":          toolKind,
 				"source":        "my-instance",
 				"description":   "Tool to test invocation with params.",
