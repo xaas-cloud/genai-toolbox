@@ -42,12 +42,12 @@ This is commonly used in MCP client configurations:
 
 #### BigQuery remote HTTP transport
 ```bash
-./toolbox --prebuilt bigquery --port 8080
+./toolbox --prebuilt bigquery [--port 8080]
 ```
 
 ### Environment Variables
 
-When using `--prebuilt`, you still need to provide database connection details through environment variables. The specific variables depend on the source type:
+When using `--prebuilt`, you still need to provide database connection details through environment variables. The specific variables depend on the source type, see the documentation per database below for the complete list:
 
 For PostgreSQL-based sources:
 - `POSTGRES_HOST`
@@ -59,4 +59,4 @@ For PostgreSQL-based sources:
 
 ## Notes
 
-The `--prebuilt` flag was added in version 0.6.0 as noted in the changelog.
+The `--prebuilt` flag was added in version 0.6.0.
