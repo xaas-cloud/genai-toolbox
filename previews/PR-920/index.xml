@@ -2284,87 +2284,13 @@ execute against.&lt;/p></description></item><item><title>alloydb-wait-for-operat
  position: relative;
  }
 &lt;/style>&lt;div class="notice info" >
-&lt;pre>&lt;code>&amp;lt;p class=&amp;quot;notice-title&amp;quot;&amp;gt;
- &amp;lt;span class=&amp;quot;icon-notice baseline&amp;quot;&amp;gt;
- &amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; viewBox=&amp;quot;92 59.5 300 300&amp;quot;&amp;gt;
-&lt;/code>&lt;/pre>
+ &lt;p class="notice-title">
+ &lt;span class="icon-notice baseline">
+ &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="92 59.5 300 300">
  &lt;path d="M292 303.25V272c0-3.516-2.734-6.25-6.25-6.25H267v-100c0-3.516-2.734-6.25-6.25-6.25h-62.5c-3.516 0-6.25 2.734-6.25 6.25V197c0 3.516 2.734 6.25 6.25 6.25H217v62.5h-18.75c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h87.5c3.516 0 6.25-2.734 6.25-6.25Zm-25-175V97c0-3.516-2.734-6.25-6.25-6.25h-37.5c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h37.5c3.516 0 6.25-2.734 6.25-6.25Zm125 81.25c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
-&lt;pre>&lt;code> &amp;lt;/span&amp;gt;Info&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;This tool is intended for developer assistant workflows with human-in-the-loop and shouldn&amp;amp;rsquo;t be used for production agents.&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
-&lt;/code>&lt;/pre>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alloydb-api-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">baseUrl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://alloydb.googleapis.com&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Authorization&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Bearer ${API_KEY}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">Content-Type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">application/json&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">alloydb-operations-get&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">alloydb-wait-for-operation&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">alloydb-api-source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;This will poll on operations API until the operation is done. For checking operation status we need projectId, locationID and operationId. Once instance is created give follow up steps on how to use the variables to bring data plane MCP server up in local and remote setup.&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">delay&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">1s&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">maxDelay&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">4m&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">multiplier&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">maxRetries&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
- &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>kind&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Must be &amp;ldquo;alloydb-wait-for-operation&amp;rdquo;.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>source&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Name of the source the HTTP request should be sent to.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>description&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>A description of the tool.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>delay&lt;/td>
- &lt;td style="text-align: center">duration&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>The initial delay between polling requests (e.g., &lt;code>3s&lt;/code>). Defaults to 3 seconds.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>maxDelay&lt;/td>
- &lt;td style="text-align: center">duration&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>The maximum delay between polling requests (e.g., &lt;code>4m&lt;/code>). Defaults to 4 minutes.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>multiplier&lt;/td>
- &lt;td style="text-align: center">float&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>The multiplier for the polling delay. The delay is multiplied by this value after each request. Defaults to 2.0.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>maxRetries&lt;/td>
- &lt;td style="text-align: center">int&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>The maximum number of polling attempts before giving up. Defaults to 10.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/firestore/firestore-query-collection/</guid><description>&lt;h1 id="firestore-query-collection">firestore-query-collection&lt;/h1>
+
+ &lt;/span>Info&lt;/p></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-920/resources/tools/firestore/firestore-query-collection/</guid><description>&lt;h1 id="firestore-query-collection">firestore-query-collection&lt;/h1>
 &lt;p>The &lt;code>firestore-query-collection&lt;/code> tool allows you to query Firestore collections with filters, ordering, and limit capabilities.&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>To use this tool, you need to configure it in your YAML configuration file:&lt;/p>
