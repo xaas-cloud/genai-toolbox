@@ -106,13 +106,13 @@ func TestMongoDBToolEndpoints(t *testing.T) {
 	tests.RunToolInvokeTest(t, select1Want, invokeParamWant, invokeIdNullWant, nullString, true, true)
 	tests.RunMCPToolCallMethod(t, mcpInvokeParamWant, failInvocationWant)
 
-	delete1Want := "[1]"
+	delete1Want := "1"
 	deleteManyWant := "[2]"
 	RunToolDeleteInvokeTest(t, delete1Want, deleteManyWant)
 	insert1Want := `["68666e1035bb36bf1b4d47fb"]`
 	insertManyWant := `["68667a6436ec7d0363668db7","68667a6436ec7d0363668db8","68667a6436ec7d0363668db9"]`
 	RunToolInsertInvokeTest(t, insert1Want, insertManyWant)
-	update1Want := "[1]"
+	update1Want := "1"
 	updateManyWant := "[2,0,2]"
 	RunToolUpdateInvokeTest(t, update1Want, updateManyWant)
 	aggregate1Want := `[{"id":2}]`
