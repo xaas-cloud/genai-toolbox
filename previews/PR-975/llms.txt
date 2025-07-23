@@ -74,6 +74,8 @@ List of reference documentation for resources in Toolbox.
   - [Looker](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/looker/): Tools that work with Looker Sources.
   - [mongodb-delete-many](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-delete-many/): A "mongodb-delete-many" tool deletes all documents from a MongoDB collection that match a filter.
   - [mongodb-delete-one](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-delete-one/): A "mongodb-delete-one" tool deletes a single document from a MongoDB collection.
+  - [mongodb-insert-many](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-insert-many/): A "mongodb-insert-many" tool inserts multiple new documents into a MongoDB collection.
+  - [mongodb-insert-one](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-insert-one/): A "mongodb-insert-one" tool inserts a single new document into a MongoDB collection.
   - [mongodb-update-many](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-update-many/): A "mongodb-update-many" tool updates all documents in a MongoDB collection that match a filter.
   - [mongodb-update-one](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mongodb/mongodb-update-one/): A "mongodb-update-one" tool updates a single document in a MongoDB collection.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
