@@ -72,8 +72,7 @@ List of reference documentation for resources in Toolbox.
   - [Firestore](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/http/): Tools that work with HTTP Sources.
   - [Looker](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/looker/): Tools that work with Looker Sources.
-  - [mongodb-find](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find/): A "mongodb-find" tool finds and retrieves documents from a MongoDB collection.
-  - [mongodb-find-one](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find-one/): A "mongodb-find-one" tool finds and retrieves a single document from a MongoDB collection.
+  - [MongoDB](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/): Tools that work with the MongoDB Source.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/neo4j/): Tools that work with Neo4j Sources.
   - [Postgres](https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 

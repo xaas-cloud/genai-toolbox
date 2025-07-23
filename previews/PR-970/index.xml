@@ -1638,7 +1638,6 @@ saved Look.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="../sources/mongodb.md">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example that finds up to 10 users from the &lt;code>customers&lt;/code> collection who live in a specific city. The results are sorted by their last name, and only their first name, last name, and email are returned.&lt;/p></description></item><item><title>mongodb-find-one</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find-one/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find-one/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mongodb-find-one&lt;/code> tool is used to retrieve the &lt;strong>first single document&lt;/strong> that matches a specified filter from a MongoDB collection. If multiple documents match the filter, you can use &lt;code>sort&lt;/code> options to control which document is returned. Otherwise, the selection is not guaranteed.&lt;/p>
