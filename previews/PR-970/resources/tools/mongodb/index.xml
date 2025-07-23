@@ -3,7 +3,7 @@
 &lt;p>The tool returns a JSON array of the documents found.&lt;/p>
 &lt;p>This tool is compatible with the following source kind:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/mongodb.md">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/sources/mongodb/">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example that finds up to 10 users from the &lt;code>customers&lt;/code> collection who live in a specific city. The results are sorted by their last name, and only their first name, last name, and email are returned.&lt;/p></description></item><item><title>mongodb-find-one</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find-one/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/tools/mongodb/mongodb-find-one/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -11,7 +11,7 @@
 &lt;p>The tool returns a single JSON object representing the document, wrapped in a JSON array.&lt;/p>
 &lt;p>This tool is compatible with the following source kind:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/mongodb.md">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-970/resources/sources/mongodb/">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
