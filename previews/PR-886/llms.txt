@@ -80,6 +80,7 @@ List of reference documentation for resources in Toolbox.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/sqlite/): Tools that work with SQLite Sources.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/valkey/): Tools that work with Valkey Sources.
   - [wait](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
+  - [alloydb-wait-for-operation](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
