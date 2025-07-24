@@ -3332,12 +3332,11 @@ This guide covers how to use [MCP Toolbox for Databases][toolbox] to create Allo
 
 1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.10.0+:
 
-      <!-- {x-release-please-start-version} -->
-
+   <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
-   {{< tab header="linux/amd64" lang="bash" >}}
-   curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
-   {{< /tab >}}
+{{< tab header="linux/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
+{{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
 curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
@@ -3348,11 +3347,10 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbo
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
-
-<!-- {x-release-please-end} -->
+    <!-- {x-release-please-end} -->
 
 1. Make the binary executable:
 
@@ -4011,19 +4009,19 @@ to expose your developer assistant tools to a Looker instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -4055,12 +4053,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4086,12 +4080,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4120,12 +4110,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4152,12 +4138,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4186,12 +4168,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4217,12 +4195,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -4313,19 +4287,19 @@ Omni](https://cloud.google.com/alloydb/omni/current/docs/overview).
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -6993,6 +6967,7 @@ sources:
         database: my_db
         user: ${USER_NAME}
         password: ${PASSWORD}
+        # encrypt: strict
 ```
 
 {{< notice tip >}}
@@ -7002,14 +6977,15 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                        |
-|-----------|:--------:|:------------:|------------------------------------------------------------------------|
-| kind      |  string  |     true     | Must be "mssql".                                                       |
-| host      |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                           |
-| port      |  string  |     true     | Port to connect to (e.g. "1433").                                      |
-| database  |  string  |     true     | Name of the SQL Server database to connect to (e.g. "my_db").          |
-| user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-user").            |
-| password  |  string  |     true     | Password of the SQL Server user (e.g. "my-password").                  |
+| **field** | **type** | **required** | **description**                                                                                                                                                                            |
+|-----------|:--------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "mssql".                                                                                                                                                                           |
+| host      |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                                                                                                                                               |
+| port      |  string  |     true     | Port to connect to (e.g. "1433").                                                                                                                                                          |
+| database  |  string  |     true     | Name of the SQL Server database to connect to (e.g. "my_db").                                                                                                                              |
+| user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-user").                                                                                                                                |
+| password  |  string  |     true     | Password of the SQL Server user (e.g. "my-password").                                                                                                                                      |
+| encrypt   |  string  |    false     | Encryption level for data transmitted between the client and server (e.g., "strict"). If not specified, defaults to the [github.com/microsoft/go-mssqldb](https://github.com/microsoft/go-mssqldb?tab=readme-ov-file#common-parameters) package's default encrypt value. |
 
 
 # SQLite
