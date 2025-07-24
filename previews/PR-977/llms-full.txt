@@ -3297,6 +3297,310 @@ List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MC
 
 
 
+# AlloyDB Admin API using MCP
+Create your AlloyDB database with MCP Toolbox.
+
+
+This guide covers how to use [MCP Toolbox for Databases][toolbox] to create AlloyDB clusters and instances from IDE enabling their E2E journey.
+
+- [Cursor][cursor]
+- [Windsurf][windsurf] (Codium)
+- [Visual Studio Code ][vscode] (Copilot)
+- [Cline][cline] (VS Code extension)
+- [Claude desktop][claudedesktop]
+- [Claude code][claudecode]
+- [Gemini CLI][geminicli]
+- [Gemini Code Assist][geminicodeassist]
+
+[toolbox]: https://github.com/googleapis/genai-toolbox
+[cursor]: #configure-your-mcp-client
+[windsurf]: #configure-your-mcp-client
+[vscode]: #configure-your-mcp-client
+[cline]: #configure-your-mcp-client
+[claudedesktop]: #configure-your-mcp-client
+[claudecode]: #configure-your-mcp-client
+[geminicli]: #configure-your-mcp-client
+[geminicodeassist]: #configure-your-mcp-client
+
+## Before you begin
+
+1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
+
+1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
+
+## Install MCP Toolbox
+
+1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.10.0+:
+
+      <!-- {x-release-please-start-version} -->
+
+   {{< tabpane persist=header >}}
+   {{< tab header="linux/amd64" lang="bash" >}}
+   curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
+   {{< /tab >}}
+
+{{< tab header="darwin/arm64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
+{{< /tab >}}
+
+{{< tab header="darwin/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
+{{< /tab >}}
+
+{{< tab header="windows/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox
+{{< /tab >}}
+{{< /tabpane >}}
+
+<!-- {x-release-please-end} -->
+
+1. Make the binary executable:
+
+   ```bash
+   chmod +x toolbox
+   ```
+
+1. Verify the installation:
+
+   ```bash
+   ./toolbox --version
+   ```
+
+## Configure your MCP Client
+
+{{< tabpane text=true >}}
+{{% tab header="Claude code" lang="en" %}}
+
+1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
+1. Create a `.mcp.json` file in your project root if it doesn't exist.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. Restart Claude code to apply the new configuration.
+   {{% /tab %}}
+
+{{% tab header="Claude desktop" lang="en" %}}
+
+1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
+1. Under the Developer tab, tap Edit Config to open the configuration file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. Restart Claude desktop.
+1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
+   {{% /tab %}}
+
+{{% tab header="Cline" lang="en" %}}
+
+1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
+1. Tap Configure MCP Servers to open the configuration file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. You should see a green active status after the server is successfully connected.
+   {{% /tab %}}
+
+{{% tab header="Cursor" lang="en" %}}
+
+1. Create a `.cursor` directory in your project root if it doesn't exist.
+1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
+   {{% /tab %}}
+
+{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
+
+1.  Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
+1.  Create a `.vscode/mcp.json` file if it doesn't exist and open it.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+
+{{% tab header="Windsurf" lang="en" %}}
+
+1.  Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
+1.  Tap on the hammer (MCP) icon, then Configure to open the configuration file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini CLI" lang="en" %}}
+
+1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini Code Assist" lang="en" %}}
+
+1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
+1.  Enable Agent Mode in Gemini Code Assist chat.
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabpane >}}
+
+## Use Tools
+
+Your AI tool is now connected to AlloyDB using MCP. Try asking your AI assistant to create a database, cluster or instance.
+
+The following tools are available to the LLM:
+
+1. **alloydb-create-cluster**: creates alloydb cluster
+1. **alloydb-create-instance**: creates alloydb instance (PRIMARY, READ_POOL or SECONDARY)
+1. **alloydb-get-operation**: polls on operations API until the operation is done.
+
+{{< notice note >}}
+Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
+{{< /notice >}}
+
+## Connect to your Data
+
+After setting up an AlloyDB cluster and instance, you can [connect your IDE to the database](https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox).
+
+
 # AlloyDB using MCP
 Connect your IDE to AlloyDB using Toolbox.
 
@@ -3350,6 +3654,317 @@ Connect your IDE to Cloud SQL for SQL Server using Toolbox.
     <meta http-equiv="refresh" content="0;url=https://cloud.google.com/sql/docs/sqlserver/pre-built-tools-with-mcp-toolbox"/>
   </head>
 </html>
+
+
+# Firestore using MCP
+Connect your IDE to Firestore using Toolbox.
+
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is
+an open protocol for connecting Large Language Models (LLMs) to data sources
+like Firestore. This guide covers how to use [MCP Toolbox for Databases][toolbox]
+to expose your developer assistant tools to a Firestore instance:
+
+* [Cursor][cursor]
+* [Windsurf][windsurf] (Codium)
+* [Visual Studio Code][vscode] (Copilot)
+* [Cline][cline]  (VS Code extension)
+* [Claude desktop][claudedesktop]
+* [Claude code][claudecode]
+* [Gemini CLI][geminicli]
+* [Gemini Code Assist][geminicodeassist]
+
+[toolbox]: https://github.com/googleapis/genai-toolbox
+[cursor]: #configure-your-mcp-client
+[windsurf]: #configure-your-mcp-client
+[vscode]: #configure-your-mcp-client
+[cline]: #configure-your-mcp-client
+[claudedesktop]: #configure-your-mcp-client
+[claudecode]: #configure-your-mcp-client
+[geminicli]: #configure-your-mcp-client
+[geminicodeassist]: #configure-your-mcp-client]
+
+## Set up Firestore
+
+1. Create or select a Google Cloud project.
+
+    * [Create a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+    * [Select an existing project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+
+1. [Enable the Firestore API](https://console.cloud.google.com/apis/library/firestore.googleapis.com) for your project.
+
+1. [Create a Firestore database](https://cloud.google.com/firestore/docs/create-database-web-mobile-client-library) if you haven't already.
+
+1. Set up authentication for your local environment.
+
+    * [Install gcloud CLI](https://cloud.google.com/sdk/docs/install)
+    * Run `gcloud auth application-default login` to authenticate
+
+## Install MCP Toolbox
+
+1. Download the latest version of Toolbox as a binary. Select the [correct
+   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   to your OS and CPU architecture. You are required to use Toolbox version
+   V0.10.0+:
+
+   <!-- {x-release-please-start-version} -->
+   {{< tabpane persist=header >}}
+{{< tab header="linux/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
+{{< /tab >}}
+
+{{< tab header="darwin/arm64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
+{{< /tab >}}
+
+{{< tab header="darwin/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
+{{< /tab >}}
+
+{{< tab header="windows/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox
+{{< /tab >}}
+{{< /tabpane >}}
+    <!-- {x-release-please-end} -->
+
+1. Make the binary executable:
+
+    ```bash
+    chmod +x toolbox
+    ```
+
+1. Verify the installation:
+
+    ```bash
+    ./toolbox --version
+    ```
+
+## Configure your MCP Client
+
+{{< tabpane text=true >}}
+{{% tab header="Claude code" lang="en" %}}
+
+1. Install [Claude
+   Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
+1. Create a `.mcp.json` file in your project root if it doesn't exist.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+    ```
+
+1. Restart Claude code to apply the new configuration.
+{{% /tab %}}
+
+{{% tab header="Claude desktop" lang="en" %}}
+
+1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
+1. Under the Developer tab, tap Edit Config to open the configuration file.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+    ```
+
+1. Restart Claude desktop.
+1. From the new chat screen, you should see a hammer (MCP) icon appear with the
+   new MCP server available.
+{{% /tab %}}
+
+{{% tab header="Cline" lang="en" %}}
+
+1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap
+   the **MCP Servers** icon.
+1. Tap Configure MCP Servers to open the configuration file.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+    ```
+
+1. You should see a green active status after the server is successfully
+   connected.
+{{% /tab %}}
+
+{{% tab header="Cursor" lang="en" %}}
+
+1. Create a `.cursor` directory in your project root if it doesn't exist.
+1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+    ```
+
+1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor
+   Settings > MCP**. You should see a green active status after the server is
+   successfully connected.
+{{% /tab %}}
+
+{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
+
+1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and
+   create a `.vscode` directory in your project root if it doesn't exist.
+1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+    ```
+
+{{% /tab %}}
+
+{{% tab header="Windsurf" lang="en" %}}
+
+1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the
+   Cascade assistant.
+1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
+
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+
+    ```
+
+{{% /tab %}}
+{{% tab header="Gemini CLI" lang="en" %}}
+
+1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Add the following configuration, replace the environment variables with your values, and then save:
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+
+    ```
+
+{{% /tab %}}
+{{% tab header="Gemini Code Assist" lang="en" %}}
+
+1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
+1.  Enable Agent Mode in Gemini Code Assist chat.
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Add the following configuration, replace the environment variables with your values, and then save:
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+
+    ```
+
+{{% /tab %}}
+{{< /tabpane >}}
+
+## Use Tools
+
+Your AI tool is now connected to Firestore using MCP. Try asking your AI
+assistant to list collections, get documents, query collections, or manage
+security rules.
+
+The following tools are available to the LLM:
+
+1. **firestore-get-documents**: Gets multiple documents from Firestore by their paths
+1. **firestore-list-collections**: List Firestore collections for a given parent path
+1. **firestore-delete-documents**: Delete multiple documents from Firestore
+1. **firestore-query-collection**: Query documents from a collection with filtering, ordering, and limit options
+1. **firestore-get-rules**: Retrieves the active Firestore security rules for the current project
+1. **firestore-validate-rules**: Validates Firestore security rules syntax and errors
+
+{{< notice note >}}
+Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs
+will adapt to the tools available, so this shouldn't affect most users.
+{{< /notice >}}
 
 
 # Looker using MCP
@@ -5816,6 +6431,7 @@ the IAM identity has been given the correct IAM permissions for accessing
 Firestore. Common roles include:
 - `roles/datastore.user` - Read and write access to Firestore
 - `roles/datastore.viewer` - Read-only access to Firestore
+- `roles/firebaserules.admin` - Full management of Firebase Security Rules for Firestore. This role is required for operations that involve creating, updating, or managing Firestore security rules (see [Firebase Security Rules roles][firebaserules-roles])
 
 See [Firestore access control][firestore-iam] for more information on
 applying IAM permissions and roles to an identity.
@@ -5824,6 +6440,7 @@ applying IAM permissions and roles to an identity.
 [adc]: https://cloud.google.com/docs/authentication#adc
 [set-adc]: https://cloud.google.com/docs/authentication/provide-credentials-adc
 [firestore-iam]: https://cloud.google.com/firestore/docs/security/iam
+[firebaserules-roles]: https://cloud.google.com/iam/docs/roles-permissions/firebaserules
 
 ### Database Selection
 
@@ -5970,9 +6587,9 @@ MongoDB is a no-sql data platform that can not only serve general purpose data r
 
 ## About
 
-[MongoDB][mongodb-docs] is a leading nosql database that can not only cater your operational data needs but also perform vector search.
+[MongoDB][mongodb-docs] is a popular NoSQL database that stores data in flexible, JSON-like documents, making it easy to develop and scale applications.
 
-[mongodb-docs]: https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-overview/
+[mongodb-docs]: https://www.mongodb.com/docs/atlas/getting-started/
 
 ## Example
 
@@ -5985,14 +6602,14 @@ sources:
         
 ```
 
-
 ## Reference
 
 | **field** | **type** | **required** | **description**                                                   |
 |-----------|:--------:|:------------:|-------------------------------------------------------------------|
 | kind      |  string  |     true     | Must be "mongodb".                                                |
-| uri       |  string  |     true     | connection string to connect to MongoDB                           |                      |
+| uri       |  string  |     true     | connection string to connect to MongoDB                           |
 | database  |  string  |     true     | Name of the mongodb database to connect to (e.g. "sample_mflix"). |
+
 
 # MySQL
 MySQL is a relational database management system that stores and manages data.
@@ -6828,384 +7445,9 @@ Tools that work with Looker Sources.
 
 
 
-# mongodb-aggregate
-A "mongodb-aggregate" tool executes a multi-stage aggregation pipeline against a MongoDB collection.
+# MongoDB
+Tools that work with the MongoDB Source.
 
-
-## About
-
-The `mongodb-aggregate` tool is the most powerful query tool for MongoDB, allowing you to process data through a multi-stage pipeline. Each stage transforms the documents as they pass through, enabling complex operations like grouping, filtering, reshaping documents, and performing calculations.
-
-The core of this tool is the `pipelinePayload`, which must be a string containing a **JSON array of pipeline stage documents**. The tool returns a JSON array of documents produced by the final stage of the pipeline.
-
-A `readOnly` flag can be set to `true` as a safety measure to ensure the pipeline does not contain any write stages (like `$out` or `$merge`).
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
-## Example
-
-Here is an example that calculates the average price and total count of products for each category, but only for products with an "active" status.
-
-```yaml
-tools:
-  get_category_stats:
-    kind: mongodb-aggregate
-    source: my-mongo-source
-    description: Calculates average price and count of products, grouped by category.
-    database: ecommerce
-    collection: products
-    readOnly: true
-    pipelinePayload: |
-      [
-        {
-          "$match": {
-            "status": {{json .status_filter}}
-          }
-        },
-        {
-          "$group": {
-            "_id": "$category",
-            "average_price": { "$avg": "$price" },
-            "item_count": { "$sum": 1 }
-          }
-        },
-        {
-          "$sort": {
-            "average_price": -1
-          }
-        }
-      ]
-    pipelineParams:
-      - name: status_filter
-        type: string
-        description: The product status to filter by (e.g., "active").
-```
-
-## Reference
-
-| **field**         | **type** | **required** | **description**                                                                                                |
-|:------------------|:---------|:-------------|:---------------------------------------------------------------------------------------------------------------|
-| `kind`            | `string` | **true**     | Must be `mongodb-aggregate`.                                                                                   |
-| `source`          | `string` | **true**     | The name of the `mongodb` source to use.                                                                       |
-| `description`     | `string` | **true**     | A description of the tool that is passed to the LLM.                                                           |
-| `database`        | `string` | **true**     | The name of the MongoDB database containing the collection.                                                    |
-| `collection`      | `string` | **true**     | The name of the MongoDB collection to run the aggregation on.                                                  |
-| `pipelinePayload` | `string` | **true**     | A JSON array of aggregation stage documents, provided as a string. Uses `{{json .param_name}}` for templating. |
-| `pipelineParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `pipelinePayload`.                           |
-| `canonical`       | `bool`   | `false`      | Determines if the pipeline string is parsed using MongoDB's Canonical or Relaxed Extended JSON format.         |
-| `readOnly`        | `bool`   | `false`      | If `true`, the tool will fail if the pipeline contains write stages (`$out` or `$merge`). Defaults to `false`. |
-
-
-# mongodb-delete-many
-A "mongodb-delete-many" tool deletes all documents from a MongoDB collection that match a filter.
-
-
-## About
-
-The `mongodb-delete-many` tool performs a **bulk destructive operation**, deleting **ALL** documents from a collection that match a specified filter.
-
-The tool returns the total count of documents that were deleted. If the filter does not match any documents (i.e., the deleted count is 0), the tool will return an error.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
----
-
-## Example
-
-Here is an example that performs a cleanup task by deleting all products from the `inventory` collection that belong to a discontinued brand.
-
-```yaml
-tools:
-  retire_brand_products:
-    kind: mongodb-delete-many
-    source: my-mongo-source
-    description: Deletes all products from a specified discontinued brand.
-    database: ecommerce
-    collection: inventory
-    filterPayload: |
-        { "brand_name": {{json .brand_to_delete}} }
-    filterParams:
-      - name: brand_to_delete
-        type: string
-        description: The name of the discontinued brand whose products should be deleted.
-```
-
-| **field**       | **type** | **required** | **description**                                                                                                     |
-|:----------------|:---------|:-------------|:--------------------------------------------------------------------------------------------------------------------|
-| `kind`          | `string` | **true**     | Must be `mongodb-delete-many`.                                                                                      |
-| `source`        | `string` | **true**     | The name of the `mongodb` source to use.                                                                            |
-| `description`   | `string` | **true**     | A description of the tool that is passed to the LLM.                                                                |
-| `database`      | `string` | **true**     | The name of the MongoDB database containing the collection.                                                         |
-| `collection`    | `string` | **true**     | The name of the MongoDB collection from which to delete documents.                                                  |
-| `filterPayload` | `string` | **true**     | The MongoDB query filter document to select the documents for deletion. Uses `{{json .param_name}}` for templating. |
-| `filterParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `filterPayload`.                                  |
-
-
-# mongodb-delete-one
-A "mongodb-delete-one" tool deletes a single document from a MongoDB collection.
-
-
-## About
-
-The `mongodb-delete-one` tool performs a destructive operation, deleting the **first single document** that matches a specified filter from a MongoDB collection.
-
-If the filter matches multiple documents, only the first one found by the database will be deleted. This tool is useful for removing specific entries, such as a user account or a single item from an inventory based on a unique ID.
-
-The tool returns the number of documents deleted, which will be either `1` if a document was found and deleted, or `0` if no matching document was found.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
----
-
-## Example
-
-Here is an example that deletes a specific user account from the `users` collection by matching their unique email address. This is a permanent action.
-
-```yaml
-tools:
-  delete_user_account:
-    kind: mongodb-delete-one
-    source: my-mongo-source
-    description: Permanently deletes a user account by their email address.
-    database: user_data
-    collection: users
-    filterPayload: |
-        { "email": {{json .email_address}} }
-    filterParams:
-      - name: email_address
-        type: string
-        description: The email of the user account to delete.
-```
-
-| **field**       | **type** | **required** | **description**                                                                                                    |
-|:----------------|:---------|:-------------|:-------------------------------------------------------------------------------------------------------------------|
-| `kind`          | `string` | **true**     | Must be `mongodb-delete-one`.                                                                                      |
-| `source`        | `string` | **true**     | The name of the `mongodb` source to use.                                                                           |
-| `description`   | `string` | **true**     | A description of the tool that is passed to the LLM.                                                               |
-| `database`      | `string` | **true**     | The name of the MongoDB database containing the collection.                                                        |
-| `collection`    | `string` | **true**     | The name of the MongoDB collection from which to delete a document.                                                |
-| `filterPayload` | `string` | **true**     | The MongoDB query filter document to select the document for deletion. Uses `{{json .param_name}}` for templating. |
-| `filterParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `filterPayload`.                                 |
-
-
-# mongodb-insert-many
-A "mongodb-insert-many" tool inserts multiple new documents into a MongoDB collection.
-
-
-## About
-
-The `mongodb-insert-many` tool inserts **multiple new documents** into a specified MongoDB collection in a single bulk operation. This is highly efficient for adding large amounts of data at once.
-
-This tool takes one required parameter named `data`. This `data` parameter must be a string containing a **JSON array of document objects**. Upon successful insertion, the tool returns a JSON array containing the unique `_id` of **each** new document that was created.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
----
-
-## Example
-
-Here is an example configuration for a tool that logs multiple events at once.
-
-```yaml
-tools:
-  log_batch_events:
-    kind: mongodb-insert-many
-    source: my-mongo-source
-    description: Inserts a batch of event logs into the database.
-    database: logging
-    collection: events
-    canonical: true
-```
-
-An LLM would call this tool by providing an array of documents as a JSON string in the `data` parameter, like this:
-`tool_code: log_batch_events(data='[{"event": "login", "user": "user1"}, {"event": "click", "user": "user2"}, {"event": "logout", "user": "user1"}]')`
-
----
-
-## Reference
-
-| **field**     | **type** | **required** | **description**                                                                                    |
-|:--------------|:---------|:-------------|:---------------------------------------------------------------------------------------------------|
-| `kind`        | `string` | **true**     | Must be `mongodb-insert-many`.                                                                     |
-| `source`      | `string` | **true**     | The name of the `mongodb` source to use.                                                           |
-| `description` | `string` | **true**     | A description of the tool that is passed to the LLM.                                               |
-| `database`    | `string` | **true**     | The name of the MongoDB database containing the collection.                                        |
-| `collection`  | `string` | **true**     | The name of the MongoDB collection into which the documents will be inserted.                      |
-| `canonical`   | `bool`   | **true**     | Determines if the data string is parsed using MongoDB's Canonical or Relaxed Extended JSON format. |
-
-
-# mongodb-insert-one
-A "mongodb-insert-one" tool inserts a single new document into a MongoDB collection.
-
-
-## About
-
-The `mongodb-insert-one` tool inserts a **single new document** into a specified MongoDB collection.
-
-This tool takes one required parameter named `data`, which must be a string containing the JSON object you want to insert. Upon successful insertion, the tool returns the unique `_id` of the newly created document.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
-## Example
-
-Here is an example configuration for a tool that adds a new user to a `users` collection.
-
-```yaml
-tools:
-  create_new_user:
-    kind: mongodb-insert-one
-    source: my-mongo-source
-    description: Creates a new user record in the database.
-    database: user_data
-    collection: users
-    canonical: false
-```
-
-An LLM would call this tool by providing the document as a JSON string in the `data` parameter, like this:
-`tool_code: create_new_user(data='{"email": "new.user@example.com", "name": "Jane Doe", "status": "active"}')`
-
-## Reference
-
-| **field**     | **type** | **required** | **description**                                                                                                                                     |
-|:--------------|:---------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `kind`        | `string` | **true**     | Must be `mongodb-insert-one`.                                                                                                                       |
-| `source`      | `string` | **true**     | The name of the `mongodb` source to use.                                                                                                            |
-| `description` | `string` | **true**     | A description of the tool that is passed to the LLM.                                                                                                |
-| `database`    | `string` | **true**     | The name of the MongoDB database containing the collection.                                                                                         |
-| `collection`  | `string` | **true**     | The name of the MongoDB collection into which the document will be inserted.                                                                        |
-| `canonical`   | `bool`   | **true**     | Determines if the data string is parsed using MongoDB's Canonical or Relaxed Extended JSON format.                                                  |
-
-
-# mongodb-update-many
-A "mongodb-update-many" tool updates all documents in a MongoDB collection that match a filter.
-
-
-## About
-
-A `mongodb-update-many` tool updates **all** documents within a specified MongoDB collection that match a given filter. It locates the documents using a `filterPayload` and applies the modifications defined in an `updatePayload`.
-
-The tool returns an array of three integers: `[ModifiedCount, UpsertedCount, MatchedCount]`.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
----
-
-## Example
-
-Here's an example configuration. This tool applies a discount to all items within a specific category and also marks them as being on sale.
-
-```yaml
-tools:
-  apply_category_discount:
-    kind: mongodb-update-many
-    source: my-mongo-source
-    description: Use this tool to apply a discount to all items in a given category.
-    database: products
-    collection: inventory
-    filterPayload: |
-        { "category": {{json .category_name}} }
-    filterParams:
-      - name: category_name
-        type: string
-        description: The category of items to update.
-    updatePayload: |
-        { 
-          "$mul": { "price": {{json .discount_multiplier}} },
-          "$set": { "on_sale": true }
-        }
-    updateParams:
-      - name: discount_multiplier
-        type: number
-        description: The multiplier to apply to the price (e.g., 0.8 for a 20% discount).
-    canonical: false
-    upsert: false
-```
-
-| **field**       | **type** | **required** | **description**                                                                                                                                                                                                             |
-|:----------------|:---------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `kind`          | `string` | **true**     | Must be `mongodb-update-many`.                                                                                                                                                                                              |
-| `source`        | `string` | **true**     | The name of the `mongodb` source to use.                                                                                                                                                                                    |
-| `description`   | `string` | **true**     | A description of the tool that is passed to the LLM.                                                                                                                                                                        |
-| `database`      | `string` | **true**     | The name of the MongoDB database containing the collection.                                                                                                                                                                 |
-| `collection`    | `string` | **true**     | The name of the MongoDB collection in which to update documents.                                                                                                                                                            |
-| `filterPayload` | `string` | **true**     | The MongoDB query filter document to select the documents for updating. It's written as a Go template, using `{{json .param_name}}` to insert parameters.                                                                   |
-| `filterParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `filterPayload`.                                                                                                                                          |
-| `updatePayload` | `string` | **true**     | The MongoDB update document, It's written as a Go template, using `{{json .param_name}}` to insert parameters.                                                                                                              |
-| `updateParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `updatePayload`.                                                                                                                                          |
-| `canonical`     | `bool`   | **true**     | Determines if the `filterPayload` and `updatePayload` strings are parsed using MongoDB's Canonical or Relaxed Extended JSON format. **Canonical** is stricter about type representation, while **Relaxed** is more lenient. |
-| `upsert`        | `bool`   | `false`      | If `true`, a new document is created if no document matches the `filterPayload`. Defaults to `false`.                                                                                                                       |
-
-
-# mongodb-update-one
-A "mongodb-update-one" tool updates a single document in a MongoDB collection.
-
-
-## About
-
-A `mongodb-update-one` tool updates a single document within a specified MongoDB collection. It locates the document to be updated using a `filterPayload` and applies modifications defined in an `updatePayload`. If the filter matches multiple documents, only the first one found will be updated.
-
-This tool is compatible with the following source kind:
-
-* [`mongodb`](../sources/mongodb.md)
-
----
-
-## Example
-
-Here's an example of a `mongodb-update-one` tool configuration. This tool updates the `stock` and `status` fields of a document in the `inventory` collection where the `item` field matches a provided value. If no matching document is found, the `upsert: true` option will create a new one.
-
-```yaml
-tools:
-  update_inventory_item:
-    kind: mongodb-update-one
-    source: my-mongo-source
-    description: Use this tool to update an item's stock and status in the inventory.
-    database: products
-    collection: inventory
-    filterPayload: |
-        { "item": {{json .item_name}} }
-    filterParams:
-      - name: item_name
-        type: string
-        description: The name of the item to update.
-    updatePayload: |
-        { "$set": { "stock": {{json .new_stock}}, "status": {{json .new_status}} } }
-    updateParams:
-      - name: new_stock
-        type: integer
-        description: The new stock quantity.
-      - name: new_status
-        type: string
-        description: The new status of the item (e.g., "In Stock", "Backordered").
-    canonical: false
-    upsert: true
-```
-
-| **field**       | **type** | **required** | **description**                                                                                                                                                                                                                                   |
-|:----------------|:---------|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `kind`          | `string` | **true**     | Must be `mongodb-update-one`.                                                                                                                                                                                                                     |
-| `source`        | `string` | **true**     | The name of the `mongodb` source to use.                                                                                                                                                                                                          |
-| `description`   | `string` | **true**     | A description of the tool that is passed to the LLM.                                                                                                                                                                                              |
-| `database`      | `string` | **true**     | The name of the MongoDB database containing the collection.                                                                                                                                                                                       |
-| `collection`    | `string` | **true**     | The name of the MongoDB collection to update a document in.                                                                                                                                                                                       |
-| `filterPayload` | `string` | **true**     | The MongoDB query filter document to select the document for updating. It's written as a Go template, using `{{json .param_name}}` to insert parameters.                                                                                          |
-| `filterParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `filterPayload`.                                                                                                                                                                |
-| `updatePayload` | `string` | **true**     | The MongoDB update document, which specifies the modifications. This often uses update operators like `$set`. It's written as a Go template, using `{{json .param_name}}` to insert parameters.                                                   |
-| `updateParams`  | `list`   | **true**     | A list of parameter objects that define the variables used in the `updatePayload`.                                                                                                                                                                |
-| `canonical`     | `bool`   | **true**     | Determines if the `updatePayload` string is parsed using MongoDB's Canonical or Relaxed Extended JSON format. **Canonical** is stricter about type representation (e.g., `{"$numberInt": "42"}`), while **Relaxed** is more lenient (e.g., `42`). |
-| `upsert`        | `bool`   | `false`      | If `true`, a new document is created if no document matches the `filterPayload`. Defaults to `false`.                                                                                                                                             |
 
 
 # MySQL
@@ -7243,87 +7485,14 @@ Tools that work with SQLite Sources.
 
 
 
+# Utility tools
+Tools that provide utility.
+
+
+
 # Valkey
 Tools that work with Valkey Sources.
 
-
-
-# wait
-A "wait" tool pauses execution for a specified duration.
-
-
-## About
-
-A `wait` tool pauses execution for a specified duration. This can be useful in workflows where a delay is needed between steps.
-
-`wait` takes one input parameter `duration` which is a string representing the time to wait (e.g., "10s", "2m", "1h").
-
-{{% notice info %}} 
-This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
-{{% /notice %}}
-
-## Example
-
-```yaml
-tools:
-  wait_for_tool:
-    kind: wait
-    description: Use this tool to pause execution for a specified duration.
-    timeout: 30s
-```
-
-## Reference
-
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "wait".                                                                     |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| timeout     |                   string                   |     true     | The default duration the tool can wait for.                                                      |
-
-
-# alloydb-wait-for-operation
-Wait for a long-running AlloyDB operation to complete.
-
-
-The `alloydb-wait-for-operation` tool is a utility tool that waits for a long-running AlloyDB operation to complete. It does this by polling the AlloyDB Admin API operation status endpoint until the operation is finished, using exponential backoff.
-
-{{< notice info >}}
-This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
-{{< /notice >}}
-
-## Example
-
-```yaml
-sources:
-  alloydb-api-source:
-    kind: http
-    baseUrl: https://alloydb.googleapis.com
-    headers:
-      Authorization: Bearer ${API_KEY}
-      Content-Type: application/json
-
-tools:
-  alloydb-operations-get:
-    kind: alloydb-wait-for-operation
-    source: alloydb-api-source
-    description: "This will poll on operations API until the operation is done. For checking operation status we need projectId, locationID and operationId. Once instance is created give follow up steps on how to use the variables to bring data plane MCP server up in local and remote setup."
-    delay: 1s
-    maxDelay: 4m
-    multiplier: 2
-    maxRetries: 10
-```
-
-## Reference
-
-| **field**   | **type** | **required** | **description**                                                                                                  |
-| ----------- | :------: | :----------: | ---------------------------------------------------------------------------------------------------------------- |
-| kind        |  string  |     true     | Must be "alloydb-wait-for-operation".                                                                            |
-| source      |  string  |     true     | Name of the source the HTTP request should be sent to.                                                           |
-| description |  string  |    true     | A description of the tool.                                                                                       |
-| delay       | duration |    false     | The initial delay between polling requests (e.g., `3s`). Defaults to 3 seconds.                                  |
-| maxDelay    | duration |    false     | The maximum delay between polling requests (e.g., `4m`). Defaults to 4 minutes.                                  |
-| multiplier  |  float   |    false     | The multiplier for the polling delay. The delay is multiplied by this value after each request. Defaults to 2.0. |
-| maxRetries  |   int    |    false     | The maximum number of polling attempts before giving up. Defaults to 10.                                         |
 
 
 # Samples

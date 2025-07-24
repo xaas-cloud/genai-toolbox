@@ -23,11 +23,13 @@ Some core concepts in Toolbox
 
 List of guides detailing how to do different things with Toolbox. 
 - [Connect from your IDE](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/): List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MCP.
+  - [AlloyDB Admin API using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/alloydb_pg_admin_mcp/): Create your AlloyDB database with MCP Toolbox.
   - [AlloyDB using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/alloydb_pg_mcp/): Connect your IDE to AlloyDB using Toolbox.
   - [BigQuery using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/bigquery_mcp/): Connect your IDE to BigQuery using Toolbox.
   - [Cloud SQL for MySQL using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/cloud_sql_mysql_mcp/): Connect your IDE to Cloud SQL for MySQL using Toolbox.
   - [Cloud SQL for Postgres using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/cloud_sql_pg_mcp/): Connect your IDE to Cloud SQL for Postgres using Toolbox.
   - [Cloud SQL for SQL Server using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/cloud_sql_mssql_mcp/): Connect your IDE to Cloud SQL for SQL Server using Toolbox.
+  - [Firestore using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/firestore_mcp/): Connect your IDE to Firestore using Toolbox.
   - [Looker using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/looker_mcp/): Connect your IDE to Looker using Toolbox.
   - [PostgreSQL using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/postgres_mcp/): Connect your IDE to PostgreSQL using Toolbox.
   - [Spanner using MCP](https://googleapis.github.io/genai-toolbox/previews/PR-977/how-to/connect-ide/spanner_mcp/): Connect your IDE to Spanner using Toolbox.
@@ -72,13 +74,7 @@ List of reference documentation for resources in Toolbox.
   - [Firestore](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/http/): Tools that work with HTTP Sources.
   - [Looker](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/looker/): Tools that work with Looker Sources.
-  - [mongodb-aggregate](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-aggregate/): A "mongodb-aggregate" tool executes a multi-stage aggregation pipeline against a MongoDB collection.
-  - [mongodb-delete-many](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-delete-many/): A "mongodb-delete-many" tool deletes all documents from a MongoDB collection that match a filter.
-  - [mongodb-delete-one](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-delete-one/): A "mongodb-delete-one" tool deletes a single document from a MongoDB collection.
-  - [mongodb-insert-many](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-insert-many/): A "mongodb-insert-many" tool inserts multiple new documents into a MongoDB collection.
-  - [mongodb-insert-one](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-insert-one/): A "mongodb-insert-one" tool inserts a single new document into a MongoDB collection.
-  - [mongodb-update-many](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-update-many/): A "mongodb-update-many" tool updates all documents in a MongoDB collection that match a filter.
-  - [mongodb-update-one](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/mongodb-update-one/): A "mongodb-update-one" tool updates a single document in a MongoDB collection.
+  - [MongoDB](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mongodb/): Tools that work with the MongoDB Source.
   - [MySQL](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/neo4j/): Tools that work with Neo4j Sources.
   - [Postgres](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
@@ -86,9 +82,8 @@ List of reference documentation for resources in Toolbox.
   - [Spanner](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/spanner/): Tools that work with Spanner Sources.
   - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/sqlite/): Tools that work with SQLite Sources.
+  - [Utility tools](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/utility/): Tools that provide utility.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/valkey/): Tools that work with Valkey Sources.
-  - [wait](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
-  - [alloydb-wait-for-operation](https://googleapis.github.io/genai-toolbox/previews/PR-977/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
