@@ -1593,7 +1593,7 @@ saved Look.&lt;/p>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>MongoDB</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/sources/mongodb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-975/resources/sources/mongodb/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>&lt;a href="https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-overview/">MongoDB&lt;/a> is a leading nosql database that can not only cater your operational data needs but also perform vector search.&lt;/p>
+&lt;p>&lt;a href="https://www.mongodb.com/docs/atlas/getting-started/">MongoDB&lt;/a> is a popular NoSQL database that stores data in flexible, JSON-like documents, making it easy to develop and scale applications.&lt;/p>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-mongodb&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
