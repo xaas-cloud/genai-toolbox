@@ -7,7 +7,7 @@
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Gemini CLI&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Gemini CodeAssist&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Gemini Code Assist&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;ol>
@@ -52,7 +52,7 @@ to expose your developer assistant tools to a Firestore instance:&lt;/p>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Gemini CLI&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client]">Gemini CodeAssist&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-988/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client]">Gemini Code Assist&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="set-up-firestore">Set up Firestore&lt;/h2>
 &lt;ol>
