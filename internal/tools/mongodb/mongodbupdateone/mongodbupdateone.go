@@ -56,7 +56,7 @@ type Config struct {
 	UpdatePayload string           `yaml:"updatePayload" validate:"required"`
 	UpdateParams  tools.Parameters `yaml:"updateParams" validate:"required"`
 
-	Canonical bool `yaml:"canonical" validate:"required"` //i want to force the user to choose
+	Canonical bool `yaml:"canonical" validate:"required"`
 	Upsert    bool `yaml:"upsert"`
 }
 
