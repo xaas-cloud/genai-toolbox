@@ -18,7 +18,7 @@ to expose your developer assistant tools to a Firestore instance:
 * [Claude desktop][claudedesktop]
 * [Claude code][claudecode]
 * [Gemini CLI][geminicli]
-* [Gemini CodeAssist][geminicodeassist]
+* [Gemini Code Assist][geminicodeassist]
 
 [toolbox]: https://github.com/googleapis/genai-toolbox
 [cursor]: #configure-your-mcp-client

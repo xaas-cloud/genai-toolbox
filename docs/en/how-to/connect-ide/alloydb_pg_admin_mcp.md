@@ -15,7 +15,7 @@ This guide covers how to use [MCP Toolbox for Databases][toolbox] to create Allo
 - [Claude desktop][claudedesktop]
 - [Claude code][claudecode]
 - [Gemini CLI][geminicli]
-- [Gemini CodeAssist][geminicodeassist]
+- [Gemini Code Assist][geminicodeassist]
 
 [toolbox]: https://github.com/googleapis/genai-toolbox
 [cursor]: #configure-your-mcp-client
@@ -213,6 +213,57 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 
 1.  Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
 1.  Tap on the hammer (MCP) icon, then Configure to open the configuration file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini CLI" lang="en" %}}
+
+1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini Code Assist" lang="en" %}}
+
+1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
+1.  Enable Agent Mode in Gemini Code Assist chat.
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
 1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
 
 > **Note:** The lifetime of token is 1 hour.
