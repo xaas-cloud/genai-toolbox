@@ -5,12 +5,19 @@ performance and availability while maintaining 100% compatibility with
 open-source PostgreSQL.&lt;/p>
 &lt;p>If you are new to AlloyDB for PostgreSQL, you can &lt;a href="https://cloud.google.com/alloydb/docs/create-free-trial-cluster">create a free trial
 cluster&lt;/a>.&lt;/p>
-&lt;h2 id="requirements">Requirements&lt;/h2>
-&lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
-&lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
-Connector&lt;/a> to authorize and establish mTLS connections to your
-AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
-(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>alloydb-ai-nl</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/alloydbainl/alloydb-ai-nl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/alloydbainl/alloydb-ai-nl/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/alloydbainl/alloydb-ai-nl/">&lt;code>alloydb-ai-nl&lt;/code>&lt;/a>&lt;br>
+Use natural language queries on AlloyDB, powered by AlloyDB AI.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-sql/">&lt;code>postgres-sql&lt;/code>&lt;/a>&lt;br>
+Execute SQL queries as prepared statements in AlloyDB Postgres.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/">&lt;code>postgres-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL statements in AlloyDB Postgres.&lt;/p></description></item><item><title>alloydb-ai-nl</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/alloydbainl/alloydb-ai-nl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/alloydbainl/alloydb-ai-nl/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>alloydb-ai-nl&lt;/code> tool leverages &lt;a href="https://cloud.google.com/alloydb/docs/ai/natural-language-overview">AlloyDB AI next-generation natural
 Language&lt;/a> support to allow an Agent the ability to query
 the database directly using natural language. Natural language streamlines the
@@ -422,6 +429,17 @@ that helps you set up, maintain, manage, and administer your MySQL
 relational databases on Google Cloud Platform.&lt;/p>
 &lt;p>If you are new to Cloud SQL for MySQL, you can try &lt;a href="https://cloud.google.com/sql/docs/mysql/connect-instance-local-computer">creating and connecting
 to a database by following these instructions&lt;/a>.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mysql/mysql-sql/">&lt;code>mysql-sql&lt;/code>&lt;/a>&lt;br>
+Execute pre-defined prepared SQL queries in MySQL.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mysql/mysql-execute-sql/">&lt;code>mysql-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL queries in Cloud SQL for MySQL.&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
 &lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
@@ -433,6 +451,17 @@ that helps you set up, maintain, manage, and administer your PostgreSQL
 relational databases on Google Cloud Platform.&lt;/p>
 &lt;p>If you are new to Cloud SQL for PostgreSQL, you can try &lt;a href="https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer">creating and connecting
 to a database by following these instructions&lt;/a>.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-sql/">&lt;code>postgres-sql&lt;/code>&lt;/a>&lt;br>
+Execute SQL queries as prepared statements in PostgreSQL.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/">&lt;code>postgres-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL statements in PostgreSQL.&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
 &lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
@@ -444,12 +473,15 @@ helps you set up, maintain, manage, and administer your SQL Server databases on
 Google Cloud.&lt;/p>
 &lt;p>If you are new to Cloud SQL for SQL Server, you can try &lt;a href="https://cloud.google.com/sql/docs/sqlserver/connect-overview">creating and connecting
 to a database by following these instructions&lt;/a>.&lt;/p>
-&lt;h2 id="requirements">Requirements&lt;/h2>
-&lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
-&lt;p>By default, this source uses the &lt;a href="https://github.com/GoogleCloudPlatform/cloud-sql-go-connector">Cloud SQL Go Connector&lt;/a> to
-authorize and establish mTLS connections to your Cloud SQL instance. The Go
-connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
-your connection to Cloud SQL.&lt;/p></description></item><item><title>Connect via MCP Client</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/</guid><description>&lt;h2 id="toolbox-sdks-vs-model-context-protocol-mcp">Toolbox SDKs vs Model Context Protocol (MCP)&lt;/h2>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-sql/">&lt;code>mssql-sql&lt;/code>&lt;/a>&lt;br>
+Execute pre-defined SQL Server queries with placeholder parameters.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/">&lt;code>mssql-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL Server queries in Cloud SQL for SQL Server.&lt;/p></description></item><item><title>Connect via MCP Client</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/</guid><description>&lt;h2 id="toolbox-sdks-vs-model-context-protocol-mcp">Toolbox SDKs vs Model Context Protocol (MCP)&lt;/h2>
 &lt;p>Toolbox now supports connections via both the native Toolbox SDKs and via &lt;a href="https://modelcontextprotocol.io/">Model
 Context Protocol (MCP)&lt;/a>. However, Toolbox has
 several features which are not supported in the MCP specification (such as
@@ -460,6 +492,11 @@ The native SDKs can be combined with MCP clients in many cases.&lt;/p>
 &lt;p>Toolbox currently supports the following versions of MCP specification:&lt;/p></description></item><item><title>couchbase</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/couchbase/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/couchbase/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>couchbase&lt;/code> source establishes a connection to a Couchbase database cluster,
 allowing tools to execute SQL queries against it.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/couchbase/couchbase-sql/">&lt;code>couchbase-sql&lt;/code>&lt;/a>&lt;br>
+Run SQL++ statements on Couchbase with parameterized input.&lt;/li>
+&lt;/ul>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-couchbase-instance&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -586,6 +623,11 @@ fastest result.&lt;/p>
 &lt;p>This source can connect to either a self-managed Dgraph cluster or one hosted on
 Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started is to
 &lt;a href="https://cloud.dgraph.io/login">sign up for Dgraph Cloud&lt;/a>.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/dgraph/dgraph-dql/">&lt;code>dgraph-dql&lt;/code>&lt;/a>&lt;br>
+Run DQL (Dgraph Query Language) queries.&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>When &lt;strong>connecting to a hosted Dgraph database&lt;/strong>, this source uses the API key
@@ -847,6 +889,11 @@ Toolbox composes the request URL from 3 places:&lt;/p></description></item><item
 &lt;p>The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/http/http/">&lt;code>http&lt;/code>&lt;/a>&lt;br>
+Make HTTP requests to REST APIs or other web services.&lt;/li>
+&lt;/ul>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-http-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -981,7 +1028,601 @@ and other HTTP-accessible resources.&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>mssql-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Looker</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/looker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/looker/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/looker/docs">Looker&lt;/a> is a web based business intelligence and data management
+tool that provides a semantic layer to facilitate querying. It can be deployed
+in the cloud, on GCP, or on premises.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="database-user">Database User&lt;/h3>
+&lt;p>This source only uses API authentication. You will need to
+&lt;a href="https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk">create an API user&lt;/a> to login to Looker.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-looker-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">base_url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http://looker.example.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">client_id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${LOOKER_CLIENT_ID}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">client_secret&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${LOOKER_CLIENT_SECRET}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">verify_ssl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timeout&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">600s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The Looker base url will look like &amp;ldquo;&lt;a href="https://looker.example.com">https://looker.example.com&lt;/a>&amp;rdquo;, don&amp;rsquo;t include a
+trailing &amp;ldquo;/&amp;rdquo;. In some cases, especially if your Looker is deployed on-premises,
+you may need to add the API port numner like &amp;ldquo;&lt;a href="https://looker.example.com:19999">https://looker.example.com:19999&lt;/a>&amp;rdquo;.&lt;/p></description></item><item><title>looker-get-dimensions</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_dimensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_dimensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-dimensions&lt;/code> tool returns all the dimensions from a given explore
+in a given mode in the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-dimensions&lt;/code> accepts two parameters, the &lt;code>model&lt;/code> and the &lt;code>explore&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_dimensions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-dimensions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_dimensions tool retrieves the list of dimensions defined in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> an explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes two parameters, the model_name looked up from get_models and the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> explore_name looked up from get_explores.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-dimensions&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-explores</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_explores/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_explores/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-explores&lt;/code> tool returns all explores
+for a given model from the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-explores&lt;/code> accepts one parameter, the
+&lt;code>model&lt;/code> id.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_explores&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-explores&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_explores tool retrieves the list of explores defined in a LookML model
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> in the Looker system.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes one parameter, the model_name looked up from get_models.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-explores&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-filters</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_filters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_filters/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-filters&lt;/code> tool returns all the filters from a given explore
+in a given mode in the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-filters&lt;/code> accepts two parameters, the &lt;code>model&lt;/code> and the &lt;code>explore&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_dimensions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-filters&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_filters tool retrieves the list of filters defined in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> an explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes two parameters, the model_name looked up from get_models and the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> explore_name looked up from get_explores.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-filters&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-looks</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_looks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_looks/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>The &lt;code>looker-get-looks&lt;/code> tool searches for a saved Look by
+name or description.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-looks&lt;/code> takes four parameters, the &lt;code>title&lt;/code>, &lt;code>desc&lt;/code>, &lt;code>limit&lt;/code>
+and &lt;code>offset&lt;/code>.&lt;/p>
+&lt;p>Title and description use SQL style wildcards and are case insensitive.&lt;/p>
+&lt;p>Limit and offset are used to page through a larger set of matches and
+default to 100 and 0.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_looks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-looks&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> get_looks Tool
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> This tool is used to search for saved looks in a Looker instance.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> String search params use case-insensitive matching. String search
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> params can contain % and &amp;#39;_&amp;#39; as SQL LIKE pattern match wildcard
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> expressions. example=&amp;#34;dan%&amp;#34; will match &amp;#34;danger&amp;#34; and &amp;#34;Danzig&amp;#34; but
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> not &amp;#34;David&amp;#34; example=&amp;#34;D_m%&amp;#34; will match &amp;#34;Damage&amp;#34; and &amp;#34;dump&amp;#34;.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Most search params can accept &amp;#34;IS NULL&amp;#34; and &amp;#34;NOT NULL&amp;#34; as special
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> expressions to match or exclude (respectively) rows where the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> column is null.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The limit and offset are used to paginate the results.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The result of the get_looks tool is a list of json objects.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-looks&amp;rdquo;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-measures</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_measures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_measures/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-measures&lt;/code> tool returns all the measures from a given explore
+in a given mode in the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-measures&lt;/code> accepts two parameters, the &lt;code>model&lt;/code> and the &lt;code>explore&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_measures&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-measures&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_measures tool retrieves the list of measures defined in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> an explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes two parameters, the model_name looked up from get_models and the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> explore_name looked up from get_explores.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-measures&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-models</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_models/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-models&lt;/code> tool returns all the models the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-models&lt;/code> accepts no parameters.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_models&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-models&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_models tool retrieves the list of LookML models in the Looker system.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes no parameters.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-models&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-get-parameters</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_parameters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_get_parameters/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-get-parameters&lt;/code> tool returns all the parameters from a given explore
+in a given mode in the source.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-get-parameters&lt;/code> accepts two parameters, the &lt;code>model&lt;/code> and the &lt;code>explore&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">get_parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-get-parameters&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The get_parameters tool retrieves the list of parameters defined in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> an explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> It takes two parameters, the model_name looked up from get_models and the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> explore_name looked up from get_explores.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-get-parameters&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-query</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_query/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_query/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>The &lt;code>looker-query&lt;/code> tool runs a query using the Looker
+semantic model.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-query&lt;/code> takes eight parameters:&lt;/p>
+&lt;ol>
+&lt;li>the &lt;code>model&lt;/code>&lt;/li>
+&lt;li>the &lt;code>explore&lt;/code>&lt;/li>
+&lt;li>the &lt;code>fields&lt;/code> list&lt;/li>
+&lt;li>an optional set of &lt;code>filters&lt;/code>&lt;/li>
+&lt;li>an optional set of &lt;code>pivots&lt;/code>&lt;/li>
+&lt;li>an optional set of &lt;code>sorts&lt;/code>&lt;/li>
+&lt;li>an optional &lt;code>limit&lt;/code>&lt;/li>
+&lt;li>an optional &lt;code>tz&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">query&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-query&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Query Tool
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> This tool is used to run a query against the LookML model. The
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> model, explore, and fields list must be specified. Pivots,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> filters and sorts are optional.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The model can be found from the get_models tool. The explore
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> can be found from the get_explores tool passing in the model.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The fields can be found from the get_dimensions, get_measures,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> get_filters, and get_parameters tools, passing in the model
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> and the explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Provide a model_id and explore_name, then a list
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> of fields. Optionally a list of pivots can be provided.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The pivots must also be included in the fields list.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Filters are provided as a map of {&amp;#34;field.id&amp;#34;: &amp;#34;condition&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> &amp;#34;field.id2&amp;#34;: &amp;#34;condition2&amp;#34;, ...}. Do not put the field.id in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> quotes. Filter expressions can be found at
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> https://cloud.google.com/looker/docs/filter-expressions.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Sorts can be specified like [ &amp;#34;field.id desc 0&amp;#34; ].
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> An optional row limit can be added. If not provided the limit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> will default to 500. &amp;#34;-1&amp;#34; can be specified for unlimited.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> An optional query timezone can be added. The query_timezone to
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> will default to that of the workstation where this MCP server
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> is running, or Etc/UTC if that can&amp;#39;t be determined. Not all
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> models support custom timezones.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The result of the query tool is JSON&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-query&amp;rdquo;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-query-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_query_sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_query_sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>The &lt;code>looker-query-sql&lt;/code> generates a sql query using the Looker
+semantic model.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-query-sql&lt;/code> takes eight parameters:&lt;/p>
+&lt;ol>
+&lt;li>the &lt;code>model&lt;/code>&lt;/li>
+&lt;li>the &lt;code>explore&lt;/code>&lt;/li>
+&lt;li>the &lt;code>fields&lt;/code> list&lt;/li>
+&lt;li>an optional set of &lt;code>filters&lt;/code>&lt;/li>
+&lt;li>an optional set of &lt;code>pivots&lt;/code>&lt;/li>
+&lt;li>an optional set of &lt;code>sorts&lt;/code>&lt;/li>
+&lt;li>an optional &lt;code>limit&lt;/code>&lt;/li>
+&lt;li>an optional &lt;code>tz&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">query_sql&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-query-sql&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Query SQL Tool
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> This tool is used to generate a sql query against the LookML model. The
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> model, explore, and fields list must be specified. Pivots,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> filters and sorts are optional.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The model can be found from the get_models tool. The explore
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> can be found from the get_explores tool passing in the model.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The fields can be found from the get_dimensions, get_measures,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> get_filters, and get_parameters tools, passing in the model
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> and the explore.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Provide a model_id and explore_name, then a list
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> of fields. Optionally a list of pivots can be provided.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The pivots must also be included in the fields list.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Filters are provided as a map of {&amp;#34;field.id&amp;#34;: &amp;#34;condition&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> &amp;#34;field.id2&amp;#34;: &amp;#34;condition2&amp;#34;, ...}. Do not put the field.id in
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> quotes. Filter expressions can be found at
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> https://cloud.google.com/looker/docs/filter-expressions.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> Sorts can be specified like [ &amp;#34;field.id desc 0&amp;#34; ].
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> An optional row limit can be added. If not provided the limit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> will default to 500. &amp;#34;-1&amp;#34; can be specified for unlimited.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> An optional query timezone can be added. The query_timezone to
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> will default to that of the workstation where this MCP server
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> is running, or Etc/UTC if that can&amp;#39;t be determined. Not all
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> models support custom timezones.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> The result of the query tool is the sql string.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-query-sql&amp;rdquo;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>looker-run-look</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_run_look/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/looker/looker_run_look/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>The &lt;code>looker-run-look&lt;/code> tool runs the query associated with a
+saved Look.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/looker.md">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-run-look&lt;/code> takes one parameter, the &lt;code>look_id&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run_look&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-run-look&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">looker-source&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">|&lt;/span>&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> run_look Tool
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> This tool runs the query associated with a look and returns
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> the data in a JSON structure. It accepts the look_id as the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sd"> parameter.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;looker-run-look&amp;rdquo;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>mssql-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mssql-execute-sql&lt;/code> tool executes a SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
@@ -1049,6 +1690,17 @@ names, or other parts of the query.&lt;/p></description></item><item><title>MySQ
 &lt;p>&lt;a href="https://www.mysql.com/">MySQL&lt;/a> is a relational database management system (RDBMS) that
 stores and manages data. It&amp;rsquo;s a popular choice for developers because of its
 reliability, performance, and ease of use.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mysql/mysql-sql/">&lt;code>mysql-sql&lt;/code>&lt;/a>&lt;br>
+Execute pre-defined prepared SQL queries in MySQL.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mysql/mysql-execute-sql/">&lt;code>mysql-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL queries in MySQL.&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>This source only uses standard authentication. You will need to &lt;a href="https://dev.mysql.com/doc/refman/8.4/en/user-names.html">create a
@@ -1246,144 +1898,20 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item><item><title>Neo4j</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/neo4j/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/neo4j/</guid><description>&lt;p>&lt;a href="https://neo4j.com/docs">Neo4j&lt;/a> is a powerful, open source graph database system with over
+names, or other parts of the query.&lt;/p></description></item><item><title>Neo4j</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/neo4j/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/neo4j/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://neo4j.com/docs">Neo4j&lt;/a> is a powerful, open source graph database system with over
 15 years of active development that has earned it a strong reputation for
 reliability, feature robustness, and performance.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-cypher/">&lt;code>neo4j-cypher&lt;/code>&lt;/a>&lt;br>
+Run Cypher queries against your Neo4j graph database.&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>This source only uses standard authentication. You will need to &lt;a href="https://neo4j.com/docs/operations-manual/current/authentication-authorization/manage-users/">create a Neo4j
 user&lt;/a> to log in to the database with, or use the default &lt;code>neo4j&lt;/code>
-user if available.&lt;/p>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-neo4j-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">neo4j&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">neo4j+s://xxxx.databases.neo4j.io:7687&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${USER_NAME}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">password&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${PASSWORD}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;neo4j&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;style type="text/css">
- 
- .notice {
- --title-color: #fff;
- --title-background-color: #6be;
- --content-color: #444;
- --content-background-color: #e7f2fa;
- }
-
- .notice.info {
- --title-background-color: #fb7;
- --content-background-color: #fec;
- }
-
- .notice.tip {
- --title-background-color: #5a5;
- --content-background-color: #efe;
- }
-
- .notice.warning {
- --title-background-color: #c33;
- --content-background-color: #fee;
- }
-
- 
- @media (prefers-color-scheme:dark) {
- .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
- }
-
- body.dark .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- body.dark .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- body.dark .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- body.dark .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
-
- 
- .notice {
- padding: 18px;
- line-height: 24px;
- margin-bottom: 24px;
- border-radius: 4px;
- color: var(--content-color);
- background: var(--content-background-color);
- }
-
- .notice p:last-child {
- margin-bottom: 0
- }
-
- 
- .notice-title {
- margin: -18px -18px 12px;
- padding: 4px 18px;
- border-radius: 4px 4px 0 0;
- font-weight: 700;
- color: var(--title-color);
- background: var(--title-background-color);
- }
-
- 
- .icon-notice {
- display: inline-flex;
- align-self: center;
- margin-right: 8px;
- }
-
- .icon-notice img,
- .icon-notice svg {
- height: 1em;
- width: 1em;
- fill: currentColor;
- }
-
- .icon-notice img,
- .icon-notice.baseline svg {
- top: .125em;
- position: relative;
- }
-&lt;/style>&lt;div class="notice tip" >
- &lt;p class="notice-title">
- &lt;span class="icon-notice baseline">
- &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300">
- &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-&lt;/svg>
-
- &lt;/span>Tip&lt;/p></description></item><item><title>neo4j-cypher</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-cypher/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-cypher/</guid><description>&lt;h2 id="about">About&lt;/h2>
+user if available.&lt;/p></description></item><item><title>neo4j-cypher</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-cypher/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-cypher/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>neo4j-cypher&lt;/code> tool executes a pre-defined Cypher statement against a Neo4j
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
@@ -1396,7 +1924,12 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item><item><title>postgres-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+names, or other parts of the query.&lt;/p></description></item><item><title>neo4j-execute-cypher</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-execute-cypher/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/neo4j/neo4j-execute-cypher/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>neo4j-execute-cypher&lt;/code> tool executes an arbitrary Cypher query provided as a string parameter against a Neo4j database. It&amp;rsquo;s designed to be a flexible tool for interacting with the database when a pre-defined query is not sufficient. This tool is compatible with any of the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../sources/neo4j.md">neo4j&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>For security, the tool can be configured to be read-only. If the &lt;code>readOnly&lt;/code> flag is set to &lt;code>true&lt;/code>, the tool will analyze the incoming Cypher query and reject any write operations (like &lt;code>CREATE&lt;/code>, &lt;code>MERGE&lt;/code>, &lt;code>DELETE&lt;/code>, etc.) before execution.&lt;/p></description></item><item><title>postgres-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>postgres-execute-sql&lt;/code> tool executes a SQL statement against a Postgres
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
@@ -1461,141 +1994,21 @@ of the prepared statement.&lt;/p></description></item><item><title>PostgreSQL</t
 &lt;p>&lt;a href="https://www.postgresql.org/">PostgreSQL&lt;/a> is a powerful, open source object-relational database
 system with over 35 years of active development that has earned it a strong
 reputation for reliability, feature robustness, and performance.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-sql/">&lt;code>postgres-sql&lt;/code>&lt;/a>&lt;br>
+Execute SQL queries as prepared statements in PostgreSQL.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/postgres/postgres-execute-sql/">&lt;code>postgres-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL statements in PostgreSQL.&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>This source only uses standard authentication. You will need to &lt;a href="https://www.postgresql.org/docs/current/sql-createuser.html">create a
-PostgreSQL user&lt;/a> to login to the database with.&lt;/p>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-pg-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">host&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">127.0.0.1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">5432&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_db&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${USER_NAME}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">password&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${PASSWORD}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;style type="text/css">
- 
- .notice {
- --title-color: #fff;
- --title-background-color: #6be;
- --content-color: #444;
- --content-background-color: #e7f2fa;
- }
-
- .notice.info {
- --title-background-color: #fb7;
- --content-background-color: #fec;
- }
-
- .notice.tip {
- --title-background-color: #5a5;
- --content-background-color: #efe;
- }
-
- .notice.warning {
- --title-background-color: #c33;
- --content-background-color: #fee;
- }
-
- 
- @media (prefers-color-scheme:dark) {
- .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
- }
-
- body.dark .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- body.dark .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- body.dark .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- body.dark .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
-
- 
- .notice {
- padding: 18px;
- line-height: 24px;
- margin-bottom: 24px;
- border-radius: 4px;
- color: var(--content-color);
- background: var(--content-background-color);
- }
-
- .notice p:last-child {
- margin-bottom: 0
- }
-
- 
- .notice-title {
- margin: -18px -18px 12px;
- padding: 4px 18px;
- border-radius: 4px 4px 0 0;
- font-weight: 700;
- color: var(--title-color);
- background: var(--title-background-color);
- }
-
- 
- .icon-notice {
- display: inline-flex;
- align-self: center;
- margin-right: 8px;
- }
-
- .icon-notice img,
- .icon-notice svg {
- height: 1em;
- width: 1em;
- fill: currentColor;
- }
-
- .icon-notice img,
- .icon-notice.baseline svg {
- top: .125em;
- position: relative;
- }
-&lt;/style>&lt;div class="notice tip" >
- &lt;p class="notice-title">
- &lt;span class="icon-notice baseline">
- &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300">
- &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-&lt;/svg>
-
- &lt;/span>Tip&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+PostgreSQL user&lt;/a> to login to the database with.&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
 Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
@@ -1634,6 +2047,11 @@ lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and
 geospatial indexes with radius queries.&lt;/p>
 &lt;p>If you are new to Redis, you can find installation and getting started guides on
 the &lt;a href="https://redis.io/docs/getting-started/">official Redis website&lt;/a>.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/redis/redis/">&lt;code>redis&lt;/code>&lt;/a>&lt;br>
+Run Redis commands and interact with key-value pairs.&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="redis">Redis&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/memorystore/docs/redis/about-redis-auth">AUTH string&lt;/a> is a password for connection to Redis. If you have the
@@ -1646,12 +2064,11 @@ for high availability, and support for two SQL dialects: GoogleSQL (ANSI 2011
 with extensions) and PostgreSQL.&lt;/p>
 &lt;p>If you are new to Spanner, you can try to &lt;a href="https://cloud.google.com/spanner/docs/create-query-database-console">create and query a database using
 the Google Cloud console&lt;/a>.&lt;/p>
-&lt;h2 id="requirements">Requirements&lt;/h2>
-&lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
-&lt;p>Spanner uses &lt;a href="https://cloud.google.com/spanner/docs/iam">Identity and Access Management (IAM)&lt;/a> to control
-user and group access to Spanner resources at the project, Spanner instance, and
-Spanner database levels. Toolbox will use your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
-(ADC)&lt;/a> to authorize and authenticate when interacting with Spanner.&lt;/p></description></item><item><title>spanner-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/spanner/spanner-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/spanner/spanner-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/spanner/spanner-sql/">&lt;code>spanner-sql&lt;/code>&lt;/a>&lt;br>
+Execute SQL on Google Cloud Spanner.&lt;/p></description></item><item><title>spanner-execute-sql</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/spanner/spanner-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/spanner/spanner-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>spanner-execute-sql&lt;/code> tool executes a SQL statement against a Spanner
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
@@ -1723,141 +2140,21 @@ names, or other parts of the query.&lt;/p></description></item><item><title>SQL 
 &lt;p>&lt;a href="https://www.microsoft.com/en-us/sql-server">SQL Server&lt;/a> is a relational database management system (RDBMS)
 developed by Microsoft that allows users to store, retrieve, and manage large
 amount of data through a structured format.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-sql/">&lt;code>mssql-sql&lt;/code>&lt;/a>&lt;br>
+Execute pre-defined SQL Server queries with placeholder parameters.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/mssql/mssql-execute-sql/">&lt;code>mssql-execute-sql&lt;/code>&lt;/a>&lt;br>
+Run parameterized SQL Server queries in SQL Server.&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>This source only uses standard authentication. You will need to &lt;a href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver16">create a
-SQL Server user&lt;/a> to login to the database with.&lt;/p>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">sources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">my-mssql-source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">mssql&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">host&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">127.0.0.1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1433&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my_db&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${USER_NAME}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">password&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${PASSWORD}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;style type="text/css">
- 
- .notice {
- --title-color: #fff;
- --title-background-color: #6be;
- --content-color: #444;
- --content-background-color: #e7f2fa;
- }
-
- .notice.info {
- --title-background-color: #fb7;
- --content-background-color: #fec;
- }
-
- .notice.tip {
- --title-background-color: #5a5;
- --content-background-color: #efe;
- }
-
- .notice.warning {
- --title-background-color: #c33;
- --content-background-color: #fee;
- }
-
- 
- @media (prefers-color-scheme:dark) {
- .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
- }
-
- body.dark .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- body.dark .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- body.dark .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- body.dark .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
-
- 
- .notice {
- padding: 18px;
- line-height: 24px;
- margin-bottom: 24px;
- border-radius: 4px;
- color: var(--content-color);
- background: var(--content-background-color);
- }
-
- .notice p:last-child {
- margin-bottom: 0
- }
-
- 
- .notice-title {
- margin: -18px -18px 12px;
- padding: 4px 18px;
- border-radius: 4px 4px 0 0;
- font-weight: 700;
- color: var(--title-color);
- background: var(--title-background-color);
- }
-
- 
- .icon-notice {
- display: inline-flex;
- align-self: center;
- margin-right: 8px;
- }
-
- .icon-notice img,
- .icon-notice svg {
- height: 1em;
- width: 1em;
- fill: currentColor;
- }
-
- .icon-notice img,
- .icon-notice.baseline svg {
- top: .125em;
- position: relative;
- }
-&lt;/style>&lt;div class="notice tip" >
- &lt;p class="notice-title">
- &lt;span class="icon-notice baseline">
- &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300">
- &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-&lt;/svg>
-
- &lt;/span>Tip&lt;/p></description></item><item><title>SQLite</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/sqlite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/sqlite/</guid><description>&lt;h2 id="about">About&lt;/h2>
+SQL Server user&lt;/a> to login to the database with.&lt;/p></description></item><item><title>SQLite</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/sqlite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/sources/sqlite/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>&lt;a href="https://sqlite.org/">SQLite&lt;/a> is a software library that provides a relational
 database management system. The lite in SQLite means lightweight in terms of
 setup, database administration, and required resources.&lt;/p>
@@ -1868,6 +2165,11 @@ setup, database administration, and required resources.&lt;/p>
 &lt;li>Single database file that can be easily copied or moved&lt;/li>
 &lt;li>Zero-configuration - no setup or administration needed&lt;/li>
 &lt;li>Transactional with ACID properties&lt;/li>
+&lt;/ul>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/sqlite/sqlite-sql/">&lt;code>sqlite-sql&lt;/code>&lt;/a>&lt;br>
+Run SQL queries against a local SQLite database.&lt;/li>
 &lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-file">Database File&lt;/h3>
@@ -2021,51 +2323,13 @@ the &lt;a href="https://valkey.io/topics/quickstart/">official Valkey website&lt
  position: relative;
  }
 &lt;/style>&lt;div class="notice info" >
-&lt;pre>&lt;code>&amp;lt;p class=&amp;quot;notice-title&amp;quot;&amp;gt;
- &amp;lt;span class=&amp;quot;icon-notice baseline&amp;quot;&amp;gt;
- &amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; viewBox=&amp;quot;92 59.5 300 300&amp;quot;&amp;gt;
-&lt;/code>&lt;/pre>
+ &lt;p class="notice-title">
+ &lt;span class="icon-notice baseline">
+ &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="92 59.5 300 300">
  &lt;path d="M292 303.25V272c0-3.516-2.734-6.25-6.25-6.25H267v-100c0-3.516-2.734-6.25-6.25-6.25h-62.5c-3.516 0-6.25 2.734-6.25 6.25V197c0 3.516 2.734 6.25 6.25 6.25H217v62.5h-18.75c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h87.5c3.516 0 6.25-2.734 6.25-6.25Zm-25-175V97c0-3.516-2.734-6.25-6.25-6.25h-37.5c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h37.5c3.516 0 6.25-2.734 6.25-6.25Zm125 81.25c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
-&lt;pre>&lt;code> &amp;lt;/span&amp;gt;Info&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;This tool is intended for developer assistant workflows with human-in-the-loop and shouldn&amp;amp;rsquo;t be used for production agents.&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
-&lt;/code>&lt;/pre>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">wait_for_tool&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">wait&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Use this tool to pause execution for a specified duration.&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timeout&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">30s&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
- &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>kind&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Must be &amp;ldquo;wait&amp;rdquo;.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>description&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>timeout&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>The default duration the tool can wait for.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title>AlloyDB using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
+
+ &lt;/span>Info&lt;/p></description></item><item><title>AlloyDB using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
  &lt;meta http-equiv="refresh" content="0;url=https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
@@ -2134,7 +2398,29 @@ to expose your developer assistant tools to a Firestore instance:&lt;/p>
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-js"/>
  &lt;meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-js"/>
  &lt;/head>
-&lt;/html></description></item><item><title>PostgreSQL using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/postgres_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/postgres_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
+&lt;/html></description></item><item><title>Looker using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
+an open protocol for connecting Large Language Models (LLMs) to data sources
+like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+to expose your developer assistant tools to a Looker instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Visual Studio Code&lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/looker_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-up-looker">Set up Looker&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Get a Looker Client ID and Client Secret. Follow the directions
+&lt;a href="https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk">here&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Have the base URL of your Looker instance available. It is likely
+something like &lt;code>https://looker.example.com&lt;/code>. In some cases the API is
+listening at a different port, and you will need to use
+&lt;code>https://looker.example.com:19999&lt;/code> instead.&lt;/p></description></item><item><title>PostgreSQL using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/postgres_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/postgres_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
 like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to a Postgres instance:&lt;/p>
@@ -2284,7 +2570,25 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-python"/>
  &lt;meta http-equiv="refresh" content="0;url=hhttps://github.com/googleapis/mcp-toolbox-sdk-python"/>
  &lt;/head>
-&lt;/html></description></item><item><title>Spanner using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/spanner_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/spanner_mcp/</guid><description>&lt;html>
+&lt;/html></description></item><item><title>Quickstart (MCP with Looker and Gemini-CLI)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/looker/looker_gemini/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/looker/looker_gemini/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://modelcontextprotocol.io">Model Context Protocol&lt;/a> is an open protocol
+that standardizes how applications provide context to LLMs. Check out this page
+on how to &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/">connect to Toolbox via MCP&lt;/a>.&lt;/p>
+&lt;h2 id="step-1-get-a-looker-client-id-and-client-secret">Step 1: Get a Looker Client ID and Client Secret&lt;/h2>
+&lt;p>The Looker Client ID and Client Secret can be obtained from the Users page of
+your Looker instance. Refer to the documentation
+&lt;a href="https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk">here&lt;/a>.
+You may need to ask an administrator to get the Client ID and Client Secret
+for you.&lt;/p></description></item><item><title>Quickstart (MCP with Looker)</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/looker/looker_mcp_inspector/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/samples/looker/looker_mcp_inspector/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://modelcontextprotocol.io">Model Context Protocol&lt;/a> is an open protocol
+that standardizes how applications provide context to LLMs. Check out this page
+on how to &lt;a href="https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect_via_mcp/">connect to Toolbox via MCP&lt;/a>.&lt;/p>
+&lt;h2 id="step-1-get-a-looker-client-id-and-client-secret">Step 1: Get a Looker Client ID and Client Secret&lt;/h2>
+&lt;p>The Looker Client ID and Client Secret can be obtained from the Users page of
+your Looker instance. Refer to the documentation
+&lt;a href="https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk">here&lt;/a>.
+You may need to ask an administrator to get the Client ID and Client Secret
+for you.&lt;/p></description></item><item><title>Spanner using MCP</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/spanner_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/how-to/connect-ide/spanner_mcp/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>
  &lt;meta http-equiv="refresh" content="0;url=https://cloud.google.com/spanner/docs/pre-built-tools-with-mcp-toolbox"/>
@@ -2487,7 +2791,129 @@ etc., you could use environment variables instead with the format &lt;code>${ENV
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sources">Sources&lt;/h3>
 &lt;p>The &lt;code>sources&lt;/code> section of your &lt;code>tools.yaml&lt;/code> defines what data sources your
 Toolbox should have access to. Most tools will have at least one source to
-execute against.&lt;/p></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/firestore/firestore-query-collection/</guid><description>&lt;h1 id="firestore-query-collection">firestore-query-collection&lt;/h1>
+execute against.&lt;/p></description></item><item><title>alloydb-wait-for-operation</title><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/utility/alloydbwaitforoperation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/utility/alloydbwaitforoperation/</guid><description>&lt;p>The &lt;code>alloydb-wait-for-operation&lt;/code> tool is a utility tool that waits for a long-running AlloyDB operation to complete. It does this by polling the AlloyDB Admin API operation status endpoint until the operation is finished, using exponential backoff.&lt;/p>
+&lt;style type="text/css">
+ 
+ .notice {
+ --title-color: #fff;
+ --title-background-color: #6be;
+ --content-color: #444;
+ --content-background-color: #e7f2fa;
+ }
+
+ .notice.info {
+ --title-background-color: #fb7;
+ --content-background-color: #fec;
+ }
+
+ .notice.tip {
+ --title-background-color: #5a5;
+ --content-background-color: #efe;
+ }
+
+ .notice.warning {
+ --title-background-color: #c33;
+ --content-background-color: #fee;
+ }
+
+ 
+ @media (prefers-color-scheme:dark) {
+ .notice {
+ --title-color: #fff;
+ --title-background-color: #069;
+ --content-color: #ddd;
+ --content-background-color: #023;
+ }
+
+ .notice.info {
+ --title-background-color: #a50;
+ --content-background-color: #420;
+ }
+
+ .notice.tip {
+ --title-background-color: #363;
+ --content-background-color: #121;
+ }
+
+ .notice.warning {
+ --title-background-color: #800;
+ --content-background-color: #400;
+ }
+ }
+
+ body.dark .notice {
+ --title-color: #fff;
+ --title-background-color: #069;
+ --content-color: #ddd;
+ --content-background-color: #023;
+ }
+
+ body.dark .notice.info {
+ --title-background-color: #a50;
+ --content-background-color: #420;
+ }
+
+ body.dark .notice.tip {
+ --title-background-color: #363;
+ --content-background-color: #121;
+ }
+
+ body.dark .notice.warning {
+ --title-background-color: #800;
+ --content-background-color: #400;
+ }
+
+ 
+ .notice {
+ padding: 18px;
+ line-height: 24px;
+ margin-bottom: 24px;
+ border-radius: 4px;
+ color: var(--content-color);
+ background: var(--content-background-color);
+ }
+
+ .notice p:last-child {
+ margin-bottom: 0
+ }
+
+ 
+ .notice-title {
+ margin: -18px -18px 12px;
+ padding: 4px 18px;
+ border-radius: 4px 4px 0 0;
+ font-weight: 700;
+ color: var(--title-color);
+ background: var(--title-background-color);
+ }
+
+ 
+ .icon-notice {
+ display: inline-flex;
+ align-self: center;
+ margin-right: 8px;
+ }
+
+ .icon-notice img,
+ .icon-notice svg {
+ height: 1em;
+ width: 1em;
+ fill: currentColor;
+ }
+
+ .icon-notice img,
+ .icon-notice.baseline svg {
+ top: .125em;
+ position: relative;
+ }
+&lt;/style>&lt;div class="notice info" >
+ &lt;p class="notice-title">
+ &lt;span class="icon-notice baseline">
+ &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="92 59.5 300 300">
+ &lt;path d="M292 303.25V272c0-3.516-2.734-6.25-6.25-6.25H267v-100c0-3.516-2.734-6.25-6.25-6.25h-62.5c-3.516 0-6.25 2.734-6.25 6.25V197c0 3.516 2.734 6.25 6.25 6.25H217v62.5h-18.75c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h87.5c3.516 0 6.25-2.734 6.25-6.25Zm-25-175V97c0-3.516-2.734-6.25-6.25-6.25h-37.5c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h37.5c3.516 0 6.25-2.734 6.25-6.25Zm125 81.25c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
+&lt;/svg>
+
+ &lt;/span>Info&lt;/p></description></item><item><title/><link>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/firestore/firestore-query-collection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://googleapis.github.io/genai-toolbox/previews/PR-982/resources/tools/firestore/firestore-query-collection/</guid><description>&lt;h1 id="firestore-query-collection">firestore-query-collection&lt;/h1>
 &lt;p>The &lt;code>firestore-query-collection&lt;/code> tool allows you to query Firestore collections with filters, ordering, and limit capabilities.&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>To use this tool, you need to configure it in your YAML configuration file:&lt;/p>
