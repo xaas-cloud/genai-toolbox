@@ -78,9 +78,8 @@ List of reference documentation for resources in Toolbox.
   - [Spanner](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/spanner/): Tools that work with Spanner Sources.
   - [SQL Server](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
   - [SQLite](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/sqlite/): Tools that work with SQLite Sources.
+  - [Utility tools](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/utility/): Tools that provide utility.
   - [Valkey](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/valkey/): Tools that work with Valkey Sources.
-  - [wait](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
-  - [alloydb-wait-for-operation](https://googleapis.github.io/genai-toolbox/previews/PR-886/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
