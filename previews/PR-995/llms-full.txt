@@ -157,7 +157,7 @@ from toolbox_core import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
     # these tools can be passed to your application!
     tools = await client.load_toolset("toolset_name")
@@ -178,7 +178,7 @@ from toolbox_langchain import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
     # these tools can be passed to your application!
     tools = client.load_toolset()
@@ -199,7 +199,7 @@ from toolbox_llamaindex import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
 # these tools can be passed to your application
 
@@ -225,7 +225,7 @@ tools:
 import { ToolboxClient } from '@toolbox-sdk/core';
 
 // update the url to point to your server
-const URL = '<http://127.0.0.1:5000>';
+const URL = 'http://127.0.0.1:5000';
 let client = new ToolboxClient(URL);
 
 // these tools can be passed to your application!
@@ -239,7 +239,7 @@ const toolboxTools = await client.loadToolset('toolsetName');
 import { ToolboxClient } from '@toolbox-sdk/core';
 
 // update the url to point to your server
-const URL = '<http://127.0.0.1:5000>';
+const URL = 'http://127.0.0.1:5000';
 let client = new ToolboxClient(URL);
 
 // these tools can be passed to your application!
@@ -274,7 +274,7 @@ const ai = genkit({
 });
 
 // update the url to point to your server
-const URL = '<http://127.0.0.1:5000>';
+const URL = 'http://127.0.0.1:5000';
 let client = new ToolboxClient(URL);
 
 // these tools can be passed to your application!
@@ -299,7 +299,7 @@ import { ToolboxClient } from '@toolbox-sdk/core';
 import { tool } from "llamaindex";
 
 // update the url to point to your server
-const URL = '<http://127.0.0.1:5000>';
+const URL = 'http://127.0.0.1:5000';
 let client = new ToolboxClient(URL);
 
 // these tools can be passed to your application!
@@ -340,7 +340,7 @@ import (
 	"context"
 	"log"
 
-  "github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
 )
 
 func main() {
@@ -372,8 +372,8 @@ import (
 	"encoding/json"
 	"log"
 
-  "github.com/googleapis/mcp-toolbox-sdk-go/core"
-  "github.com/tmc/langchaingo/llms"
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"github.com/tmc/langchaingo/llms"
 )
 
 func main() {
@@ -469,8 +469,8 @@ import (
 	"encoding/json"
 	"log"
 
-  "github.com/googleapis/mcp-toolbox-sdk-go/core"
-  "google.golang.org/genai"
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"google.golang.org/genai"
 )
 
 func main() {
@@ -524,8 +524,8 @@ import (
 	"encoding/json"
 	"log"
 
-  "github.com/googleapis/mcp-toolbox-sdk-go/core"
-  openai "github.com/openai/openai-go"
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	openai "github.com/openai/openai-go"
 )
 
 func main() {

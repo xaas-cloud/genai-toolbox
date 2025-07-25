@@ -203,7 +203,7 @@ tools:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># update the url to point to your server</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;http://127.0.0.1:5000&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># these tools can be passed to your application!</span>
 </span></span><span class=line><span class=cl>    <span class=n>tools</span> <span class=o>=</span> <span class=k>await</span> <span class=n>client</span><span class=o>.</span><span class=n>load_toolset</span><span class=p>(</span><span class=s2>&#34;toolset_name&#34;</span><span class=p>)</span></span></span></code></pre></div><p>For more detailed instructions on using the Toolbox Core SDK, see the
@@ -213,7 +213,7 @@ tools:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># update the url to point to your server</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;http://127.0.0.1:5000&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1># these tools can be passed to your application!</span>
 </span></span><span class=line><span class=cl>    <span class=n>tools</span> <span class=o>=</span> <span class=n>client</span><span class=o>.</span><span class=n>load_toolset</span><span class=p>()</span></span></span></code></pre></div><p>For more detailed instructions on using the Toolbox LangChain SDK, see the
@@ -223,7 +223,7 @@ tools:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># update the url to point to your server</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>with</span> <span class=n>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;http://127.0.0.1:5000&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>client</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># these tools can be passed to your application</span>
 </span></span><span class=line><span class=cl>
@@ -237,14 +237,14 @@ Genkit</button></li><li class=nav-item><button class=nav-link id=tabs-04-03-tab 
 LlamaIndex</button></li></ul><div class=tab-content id=tabs-4-content><div class="tab-body tab-pane fade show active" id=tabs-04-00 role=tabpanel aria-labelled-by=tabs-04-00-tab tabindex=4><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>ToolboxClient</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@toolbox-sdk/core&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// update the url to point to your server
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;&lt;http://127.0.0.1:5000&gt;&#39;</span><span class=p>;</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;http://127.0.0.1:5000&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>client</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// these tools can be passed to your application!
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>toolboxTools</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>client</span><span class=p>.</span><span class=nx>loadToolset</span><span class=p>(</span><span class=s1>&#39;toolsetName&#39;</span><span class=p>);</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id=tabs-04-01 role=tabpanel aria-labelled-by=tabs-04-01-tab tabindex=4><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>ToolboxClient</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@toolbox-sdk/core&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// update the url to point to your server
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;&lt;http://127.0.0.1:5000&gt;&#39;</span><span class=p>;</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;http://127.0.0.1:5000&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>client</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// these tools can be passed to your application!
@@ -272,7 +272,7 @@ LlamaIndex</button></li></ul><div class=tab-content id=tabs-4-content><div class
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// update the url to point to your server
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;&lt;http://127.0.0.1:5000&gt;&#39;</span><span class=p>;</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;http://127.0.0.1:5000&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>client</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// these tools can be passed to your application!
@@ -290,7 +290,7 @@ LlamaIndex</button></li></ul><div class=tab-content id=tabs-4-content><div class
 </span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>tool</span> <span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;llamaindex&#34;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// update the url to point to your server
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;&lt;http://127.0.0.1:5000&gt;&#39;</span><span class=p>;</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>URL</span> <span class=o>=</span> <span class=s1>&#39;http://127.0.0.1:5000&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>client</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// these tools can be passed to your application!
@@ -319,7 +319,7 @@ OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class=
 </span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
 </span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -344,8 +344,8 @@ OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class=
 </span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
 </span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/tmc/langchaingo/llms&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/tmc/langchaingo/llms&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -427,8 +427,8 @@ OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class=
 </span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
 </span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;google.golang.org/genai&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;google.golang.org/genai&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -474,8 +474,8 @@ OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class=
 </span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
 </span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl>  <span class=nx>openai</span> <span class=s>&#34;github.com/openai/openai-go&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>openai</span> <span class=s>&#34;github.com/openai/openai-go&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -515,6 +515,6 @@ OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class=
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><p>For more detailed instructions on using the Toolbox Go SDK, see the
 <a href=https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/README.md>project&rsquo;s README</a>.</p><p>For end-to-end samples on using the Toolbox Go SDK with orchestration
 frameworks, see the <a href=https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples>project&rsquo;s
-samples</a></p><div class=section-index></div><div class=td-page-meta__lastmod>Last modified July 24, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/401a5c3959973e5b40b0b3a76f62a94ef834abea>docs: update docs lint (401a5c395)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+samples</a></p><div class=section-index></div><div class=td-page-meta__lastmod>Last modified July 24, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/84624a6deddcff2e4fdc1e9d634a939a732ff9ec>docs: update docs lint (84624a6de)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-995/js/main.js></script><script defer src=/genai-toolbox/previews/PR-995/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-995/js/tabpane-persist.js></script></body></html>
