@@ -316,205 +316,205 @@ Go GenAI</button></li><li class=nav-item><button class=nav-link id=tabs-05-04-ta
 OpenAI Go</button></li></ul><div class=tab-content id=tabs-5-content><div class="tab-body tab-pane fade show active" id=tabs-05-00 role=tabpanel aria-labelled-by=tabs-05-00-tab tabindex=5><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl> <span class=c1>// update the url to point to your server</span>
-</span></span><span class=line><span class=cl> <span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// update the url to point to your server</span>
+</span></span><span class=line><span class=cl>	<span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;http://127.0.0.1:5000&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Framework agnostic tools</span>
-</span></span><span class=line><span class=cl> <span class=nx>tools</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadToolset</span><span class=p>(</span><span class=s>&#34;toolsetName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Framework agnostic tools</span>
+</span></span><span class=line><span class=cl>	<span class=nx>tools</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadToolset</span><span class=p>(</span><span class=s>&#34;toolsetName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id=tabs-05-01 role=tabpanel aria-labelled-by=tabs-05-01-tab tabindex=5><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;encoding/json&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/tmc/langchaingo/llms&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/tmc/langchaingo/llms&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Make sure to add the error checks</span>
-</span></span><span class=line><span class=cl> <span class=c1>// update the url to point to your server</span>
-</span></span><span class=line><span class=cl> <span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Make sure to add the error checks</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// update the url to point to your server</span>
+</span></span><span class=line><span class=cl>	<span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;http://127.0.0.1:5000&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Framework agnostic tool</span>
-</span></span><span class=line><span class=cl> <span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Framework agnostic tool</span>
+</span></span><span class=line><span class=cl>	<span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Fetch the tool&#39;s input schema</span>
-</span></span><span class=line><span class=cl> <span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Fetch the tool&#39;s input schema</span>
+</span></span><span class=line><span class=cl>	<span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=kd>var</span> <span class=nx>paramsSchema</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span>
-</span></span><span class=line><span class=cl> <span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>paramsSchema</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=kd>var</span> <span class=nx>paramsSchema</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span>
+</span></span><span class=line><span class=cl>	<span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>paramsSchema</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Use this tool with LangChainGo</span>
-</span></span><span class=line><span class=cl> <span class=nx>langChainTool</span> <span class=o>:=</span> <span class=nx>llms</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Type</span><span class=p>:</span> <span class=s>&#34;function&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Function</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>llms</span><span class=p>.</span><span class=nx>FunctionDefinition</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Description</span><span class=p>:</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>paramsSchema</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Use this tool with LangChainGo</span>
+</span></span><span class=line><span class=cl>	<span class=nx>langChainTool</span> <span class=o>:=</span> <span class=nx>llms</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Type</span><span class=p>:</span> <span class=s>&#34;function&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Function</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>llms</span><span class=p>.</span><span class=nx>FunctionDefinition</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Description</span><span class=p>:</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>paramsSchema</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id=tabs-05-02 role=tabpanel aria-labelled-by=tabs-05-02-tab tabindex=5><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;encoding/json&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/firebase/genkit/go/ai&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/firebase/genkit/go/genkit&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/invopop/jsonschema&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/firebase/genkit/go/ai&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/firebase/genkit/go/genkit&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;github.com/invopop/jsonschema&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Make sure to add the error checks</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Update the url to point to your server</span>
-</span></span><span class=line><span class=cl> <span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
-</span></span><span class=line><span class=cl> <span class=nx>g</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>genkit</span><span class=p>.</span><span class=nf>Init</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Make sure to add the error checks</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Update the url to point to your server</span>
+</span></span><span class=line><span class=cl>	<span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;http://127.0.0.1:5000&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=nx>g</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>genkit</span><span class=p>.</span><span class=nf>Init</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Framework agnostic tool</span>
-</span></span><span class=line><span class=cl> <span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Framework agnostic tool</span>
+</span></span><span class=line><span class=cl>	<span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Convert the tool using the tbgenkit package</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// Use this tool with Genkit Go</span>
-</span></span><span class=line><span class=cl> <span class=nx>genkitTool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tbgenkit</span><span class=p>.</span><span class=nf>ToGenkitTool</span><span class=p>(</span><span class=nx>tool</span><span class=p>,</span> <span class=nx>g</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to convert tool: %v\n&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Convert the tool using the tbgenkit package</span>
+</span></span><span class=line><span class=cl> 	<span class=c1>// Use this tool with Genkit Go</span>
+</span></span><span class=line><span class=cl>	<span class=nx>genkitTool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tbgenkit</span><span class=p>.</span><span class=nf>ToGenkitTool</span><span class=p>(</span><span class=nx>tool</span><span class=p>,</span> <span class=nx>g</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to convert tool: %v\n&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id=tabs-05-03 role=tabpanel aria-labelled-by=tabs-05-03-tab tabindex=5><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;encoding/json&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;google.golang.org/genai&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;google.golang.org/genai&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Make sure to add the error checks</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Update the url to point to your server</span>
-</span></span><span class=line><span class=cl> <span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Make sure to add the error checks</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Update the url to point to your server</span>
+</span></span><span class=line><span class=cl>	<span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;http://127.0.0.1:5000&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Framework agnostic tool</span>
-</span></span><span class=line><span class=cl> <span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Framework agnostic tool</span>
+</span></span><span class=line><span class=cl>	<span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Fetch the tool&#39;s input schema</span>
-</span></span><span class=line><span class=cl> <span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Fetch the tool&#39;s input schema</span>
+</span></span><span class=line><span class=cl>	<span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=kd>var</span> <span class=nx>schema</span> <span class=o>*</span><span class=nx>genai</span><span class=p>.</span><span class=nx>Schema</span>
-</span></span><span class=line><span class=cl> <span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>schema</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=kd>var</span> <span class=nx>schema</span> <span class=o>*</span><span class=nx>genai</span><span class=p>.</span><span class=nx>Schema</span>
+</span></span><span class=line><span class=cl>	<span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>schema</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>funcDeclaration</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>genai</span><span class=p>.</span><span class=nx>FunctionDeclaration</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Description</span><span class=p>:</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>schema</span><span class=p>,</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>funcDeclaration</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>genai</span><span class=p>.</span><span class=nx>FunctionDeclaration</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Description</span><span class=p>:</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>schema</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Use this tool with Go GenAI</span>
-</span></span><span class=line><span class=cl> <span class=nx>genAITool</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>genai</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>FunctionDeclarations</span><span class=p>:</span> <span class=p>[]</span><span class=o>*</span><span class=nx>genai</span><span class=p>.</span><span class=nx>FunctionDeclaration</span><span class=p>{</span><span class=nx>funcDeclaration</span><span class=p>},</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Use this tool with Go GenAI</span>
+</span></span><span class=line><span class=cl>	<span class=nx>genAITool</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>genai</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>FunctionDeclarations</span><span class=p>:</span> <span class=p>[]</span><span class=o>*</span><span class=nx>genai</span><span class=p>.</span><span class=nx>FunctionDeclaration</span><span class=p>{</span><span class=nx>funcDeclaration</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div><div class="tab-body tab-pane fade" id=tabs-05-04 role=tabpanel aria-labelled-by=tabs-05-04-tab tabindex=5><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;encoding/json&#34;</span>
-</span></span><span class=line><span class=cl> <span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;encoding/json&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>openai</span> <span class=s>&#34;github.com/openai/openai-go&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;github.com/googleapis/mcp-toolbox-sdk-go/core&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>openai</span> <span class=s>&#34;github.com/openai/openai-go&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Make sure to add the error checks</span>
-</span></span><span class=line><span class=cl> <span class=c1>// Update the url to point to your server</span>
-</span></span><span class=line><span class=cl> <span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;&lt;http://127.0.0.1:5000&gt;&#34;</span>
-</span></span><span class=line><span class=cl> <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Make sure to add the error checks</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Update the url to point to your server</span>
+</span></span><span class=line><span class=cl>	<span class=nx>URL</span> <span class=o>:=</span> <span class=s>&#34;http://127.0.0.1:5000&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nf>NewToolboxClient</span><span class=p>(</span><span class=nx>URL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to create Toolbox client: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Framework agnostic tool</span>
-</span></span><span class=line><span class=cl> <span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Framework agnostic tool</span>
+</span></span><span class=line><span class=cl>	<span class=nx>tool</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>LoadTool</span><span class=p>(</span><span class=s>&#34;toolName&#34;</span><span class=p>,</span> <span class=nx>ctx</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to load tools: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Fetch the tool&#39;s input schema</span>
-</span></span><span class=line><span class=cl> <span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
-</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Fetch the tool&#39;s input schema</span>
+</span></span><span class=line><span class=cl>	<span class=nx>inputschema</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tool</span><span class=p>.</span><span class=nf>InputSchema</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Failed to fetch inputSchema: %v&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=kd>var</span> <span class=nx>paramsSchema</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionParameters</span>
-</span></span><span class=line><span class=cl> <span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>paramsSchema</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=kd>var</span> <span class=nx>paramsSchema</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionParameters</span>
+</span></span><span class=line><span class=cl>	<span class=nx>_</span> <span class=p>=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=nx>inputschema</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>paramsSchema</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl> <span class=c1>// Use this tool with OpenAI Go</span>
-</span></span><span class=line><span class=cl> <span class=nx>openAITool</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionToolParam</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>Function</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionDefinitionParam</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Description</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>String</span><span class=p>(</span><span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>()),</span>
-</span></span><span class=line><span class=cl>   <span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>paramsSchema</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span>
-</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Use this tool with OpenAI Go</span>
+</span></span><span class=line><span class=cl>	<span class=nx>openAITool</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionToolParam</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>Function</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionDefinitionParam</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Name</span><span class=p>:</span>        <span class=nx>tool</span><span class=p>.</span><span class=nf>Name</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Description</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>String</span><span class=p>(</span><span class=nx>tool</span><span class=p>.</span><span class=nf>Description</span><span class=p>()),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Parameters</span><span class=p>:</span>  <span class=nx>paramsSchema</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></div><p>For more detailed instructions on using the Toolbox Go SDK, see the
 <a href=https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/README.md>project&rsquo;s README</a>.</p><p>For end-to-end samples on using the Toolbox Go SDK with orchestration
 frameworks, see the <a href=https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples>project&rsquo;s
-samples</a></p><div class=section-index></div><div class=td-page-meta__lastmod>Last modified July 24, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/fd209d3f42be6088b99f81ad515facdcf9f9cf37>docs: update docs lint (fd209d3f4)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+samples</a></p><div class=section-index></div><div class=td-page-meta__lastmod>Last modified July 24, 2025: <a href=https://github.com/googleapis/genai-toolbox/commit/401a5c3959973e5b40b0b3a76f62a94ef834abea>docs: update docs lint (401a5c395)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2025
 <span class=td-footer__authors>Google LLC</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><script src=/genai-toolbox/previews/PR-995/js/main.js></script><script defer src=/genai-toolbox/previews/PR-995/js/click-to-copy.js crossorigin=anonymous></script><script src=/genai-toolbox/previews/PR-995/js/tabpane-persist.js></script></body></html>
