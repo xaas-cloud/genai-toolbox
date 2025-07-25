@@ -89,7 +89,7 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.9.0
+export VERSION=0.10.0
 curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -100,10 +100,17 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.9.0
+export VERSION=0.10.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
+{{% /tab %}}
+{{% tab header="Homebrew" lang="en" %}}
+To install Toolbox using Homebrew on macOS or Linux:
+
+```sh
+brew install mcp-toolbox
+```
 {{% /tab %}}
 {{% tab header="Compile from source" lang="en" %}}
 
@@ -111,7 +118,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.9.0
+go install github.com/googleapis/genai-toolbox@v0.10.0
 ```
 
 {{% /tab %}}
@@ -131,6 +138,14 @@ execute `toolbox` to start the server:
 Toolbox enables dynamic reloading by default. To disable, use the
 `--disable-reload` flag.
 {{< /notice >}}
+
+#### Homebrew Users
+
+If you installed Toolbox using Homebrew, the `toolbox` binary is available in your system path. You can start the server with the same command:
+
+```sh
+toolbox --tools-file "tools.yaml"
+```
 
 You can use `toolbox help` for a full list of flags! To stop the server, send a
 terminate signal (`ctrl+c` on most platforms).
@@ -744,7 +759,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1419,7 +1434,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1995,7 +2010,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -2858,7 +2873,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -3401,7 +3416,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3430,7 +3445,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3462,7 +3477,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3492,7 +3507,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3524,7 +3539,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3553,7 +3568,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 1. Generate Access token to be used as API_KEY using `gcloud auth
    print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3581,7 +3596,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
    a `settings.json` file.
 1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -3611,7 +3626,7 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
    a `settings.json` file.
 1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
 
-> **Note:** The lifetime of token is 1 hour.
+    > **Note:** The lifetime of token is 1 hour.
 
 1. Add the following configuration, replace the environment variables with your
    values, and save:
@@ -4364,19 +4379,19 @@ Omni](https://cloud.google.com/alloydb/omni/current/docs/overview).
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -7843,7 +7858,7 @@ to use BigQuery, and then run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -8477,7 +8492,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
