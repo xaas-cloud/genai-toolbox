@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/googleapis/genai-toolbox/compare/v0.10.0...v0.11.0) (2025-07-25)
+
+
+### Features
+
+* Add homebrew installation support for toolbox ([#936](https://github.com/googleapis/genai-toolbox/issues/936)) ([8ff60ca](https://github.com/googleapis/genai-toolbox/commit/8ff60ca430485676d5a259532da1d3e08c94cd0a))
+
 ## [0.10.0](https://github.com/googleapis/genai-toolbox/compare/v0.9.0...v0.10.0) (2025-07-25)
 
 
