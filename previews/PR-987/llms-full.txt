@@ -89,7 +89,7 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.9.0
+export VERSION=0.10.0
 curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -100,7 +100,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.9.0
+export VERSION=0.10.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -111,7 +111,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.9.0
+go install github.com/googleapis/genai-toolbox@v0.10.0
 ```
 
 {{% /tab %}}
@@ -738,7 +738,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1410,7 +1410,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1985,7 +1985,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -2842,7 +2842,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -3297,6 +3297,308 @@ List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MC
 
 
 
+# AlloyDB Admin API using MCP
+Create your AlloyDB database with MCP Toolbox.
+
+
+This guide covers how to use [MCP Toolbox for Databases][toolbox] to create AlloyDB clusters and instances from IDE enabling their E2E journey.
+
+- [Cursor][cursor]
+- [Windsurf][windsurf] (Codium)
+- [Visual Studio Code ][vscode] (Copilot)
+- [Cline][cline] (VS Code extension)
+- [Claude desktop][claudedesktop]
+- [Claude code][claudecode]
+- [Gemini CLI][geminicli]
+- [Gemini Code Assist][geminicodeassist]
+
+[toolbox]: https://github.com/googleapis/genai-toolbox
+[cursor]: #configure-your-mcp-client
+[windsurf]: #configure-your-mcp-client
+[vscode]: #configure-your-mcp-client
+[cline]: #configure-your-mcp-client
+[claudedesktop]: #configure-your-mcp-client
+[claudecode]: #configure-your-mcp-client
+[geminicli]: #configure-your-mcp-client
+[geminicodeassist]: #configure-your-mcp-client
+
+## Before you begin
+
+1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
+
+1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
+
+## Install MCP Toolbox
+
+1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.10.0+:
+
+   <!-- {x-release-please-start-version} -->
+   {{< tabpane persist=header >}}
+{{< tab header="linux/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
+{{< /tab >}}
+
+{{< tab header="darwin/arm64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
+{{< /tab >}}
+
+{{< tab header="darwin/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
+{{< /tab >}}
+
+{{< tab header="windows/amd64" lang="bash" >}}
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
+{{< /tab >}}
+{{< /tabpane >}}
+    <!-- {x-release-please-end} -->
+
+1. Make the binary executable:
+
+   ```bash
+   chmod +x toolbox
+   ```
+
+1. Verify the installation:
+
+   ```bash
+   ./toolbox --version
+   ```
+
+## Configure your MCP Client
+
+{{< tabpane text=true >}}
+{{% tab header="Claude code" lang="en" %}}
+
+1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
+1. Create a `.mcp.json` file in your project root if it doesn't exist.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. Restart Claude code to apply the new configuration.
+   {{% /tab %}}
+
+{{% tab header="Claude desktop" lang="en" %}}
+
+1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
+1. Under the Developer tab, tap Edit Config to open the configuration file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. Restart Claude desktop.
+1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
+   {{% /tab %}}
+
+{{% tab header="Cline" lang="en" %}}
+
+1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
+1. Tap Configure MCP Servers to open the configuration file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. You should see a green active status after the server is successfully connected.
+   {{% /tab %}}
+
+{{% tab header="Cursor" lang="en" %}}
+
+1. Create a `.cursor` directory in your project root if it doesn't exist.
+1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1. Add the following configuration, replace the environment variables with your values, and save:
+
+   ```json
+   {
+     "mcpServers": {
+       "alloydb-admin": {
+         "command": "./PATH/TO/toolbox",
+         "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
+   {{% /tab %}}
+
+{{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
+
+1.  Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
+1.  Create a `.vscode/mcp.json` file if it doesn't exist and open it.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+
+{{% tab header="Windsurf" lang="en" %}}
+
+1.  Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
+1.  Tap on the hammer (MCP) icon, then Configure to open the configuration file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini CLI" lang="en" %}}
+
+1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{% tab header="Gemini Code Assist" lang="en" %}}
+
+1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
+1.  Enable Agent Mode in Gemini Code Assist chat.
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+
+> **Note:** The lifetime of token is 1 hour.
+
+1.  Add the following configuration, replace the environment variables with your values, and save:
+
+```json
+{
+  "mcpServers": {
+    "alloydb-admin": {
+      "command": "./PATH/TO/toolbox",
+      "args": ["--prebuilt", "alloydb-postgres-admin", "--stdio"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabpane >}}
+
+## Use Tools
+
+Your AI tool is now connected to AlloyDB using MCP. Try asking your AI assistant to create a database, cluster or instance.
+
+The following tools are available to the LLM:
+
+1. **alloydb-create-cluster**: creates alloydb cluster
+1. **alloydb-create-instance**: creates alloydb instance (PRIMARY, READ_POOL or SECONDARY)
+1. **alloydb-get-operation**: polls on operations API until the operation is done.
+
+{{< notice note >}}
+Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
+{{< /notice >}}
+
+## Connect to your Data
+
+After setting up an AlloyDB cluster and instance, you can [connect your IDE to the database](https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox).
+
+
 # AlloyDB using MCP
 Connect your IDE to AlloyDB using Toolbox.
 
@@ -3367,6 +3669,8 @@ to expose your developer assistant tools to a Firestore instance:
 * [Cline][cline]  (VS Code extension)
 * [Claude desktop][claudedesktop]
 * [Claude code][claudecode]
+* [Gemini CLI][geminicli]
+* [Gemini Code Assist][geminicodeassist]
 
 [toolbox]: https://github.com/googleapis/genai-toolbox
 [cursor]: #configure-your-mcp-client
@@ -3375,6 +3679,8 @@ to expose your developer assistant tools to a Firestore instance:
 [cline]: #configure-your-mcp-client
 [claudedesktop]: #configure-your-mcp-client
 [claudecode]: #configure-your-mcp-client
+[geminicli]: #configure-your-mcp-client
+[geminicodeassist]: #configure-your-mcp-client]
 
 ## Set up Firestore
 
@@ -3397,24 +3703,24 @@ to expose your developer assistant tools to a Firestore instance:
 1. Download the latest version of Toolbox as a binary. Select the [correct
    binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
-   V0.6.0+:
+   V0.10.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3591,6 +3897,51 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/windows/amd64/toolbo
     ```
 
 {{% /tab %}}
+{{% tab header="Gemini CLI" lang="en" %}}
+
+1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Add the following configuration, replace the environment variables with your values, and then save:
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+
+    ```
+
+{{% /tab %}}
+{{% tab header="Gemini Code Assist" lang="en" %}}
+
+1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
+1.  Enable Agent Mode in Gemini Code Assist chat.
+1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
+1.  Add the following configuration, replace the environment variables with your values, and then save:
+    ```json
+    {
+      "mcpServers": {
+        "firestore": {
+          "command": "./PATH/TO/toolbox",
+          "args": ["--prebuilt","firestore","--stdio"],
+          "env": {
+            "FIRESTORE_PROJECT": "your-project-id",
+            "FIRESTORE_DATABASE": "(default)"
+          }
+        }
+      }
+    }
+
+    ```
+
+{{% /tab %}}
 {{< /tabpane >}}
 
 ## Use Tools
@@ -3658,19 +4009,19 @@ to expose your developer assistant tools to a Looker instance:
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -3702,12 +4053,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3733,12 +4080,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3767,12 +4110,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3799,12 +4138,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3833,12 +4168,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3864,12 +4195,8 @@ curl -O <https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/tool
     {
       "mcpServers": {
         "looker-toolbox": {
-          "command": "/PATH/TO/toolbox",
-          "args": [
-            "--stdio",
-            "--prebuilt",
-            "looker"
-          ],
+          "command": "./PATH/TO/toolbox",
+          "args": ["--stdio", "--prebuilt", "looker"],
           "env": {
             "LOOKER_BASE_URL": "https://looker.example.com",
             "LOOKER_CLIENT_ID": "",
@@ -3960,19 +4287,19 @@ Omni](https://cloud.google.com/alloydb/omni/current/docs/overview).
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.9.0/linux/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/arm64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.9.0/darwin/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O <https://storage.googleapis.com/genai-toolbox/v0.9.0/windows/amd64/toolbox>
+curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -5982,6 +6309,90 @@ sources:
 | queryScanConsistency | integer  |    false     | Query scan consistency. Controls the consistency guarantee for index scanning. Values: 1 for "not_bounded" (fastest option, but results may not include the most recent operations), 2 for "request_plus" (highest consistency level, includes all operations up until the query started, but incurs a performance penalty). If not specified, defaults to the Couchbase Go SDK default. |
 
 
+# Dataplex
+Dataplex Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
+
+
+# Dataplex Source
+
+[Dataplex][dataplex-docs] Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
+
+At the heart of these governance capabilities is a catalog that contains a centralized inventory of the data assets in your organization. Dataplex Universal Catalog holds business, technical, and runtime metadata for all of your data. It helps you discover relationships and semantics in the metadata by applying artificial intelligence and machine learning.
+
+[dataplex-docs]: https://cloud.google.com/dataplex/docs
+
+## Example
+
+```yaml
+sources:
+  my-dataplex-source:
+    kind: "dataplex"
+    project: "my-project-id"
+```
+
+## Sample System Prompt
+
+You can use the following system prompt as "Custom Instructions" in your client application.
+
+```
+Whenever you will receive response from dataplex_search_entries tool decide what do to by following these steps:
+1. If there are multiple search results found
+    1.1. Present the list of search results
+    1.2. Format the output in nested ordered list, for example:
+    Given
+    ```
+    {
+        results: [
+            {
+                name: "projects/test-project/locations/us/entryGroups/@bigquery-aws-us-east-1/entries/users"
+                entrySource: {
+                displayName: "Users"
+                description: "Table contains list of users."
+                location: "aws-us-east-1"
+                system: "BigQuery"
+                }
+            },
+            {
+                name: "projects/another_project/locations/us-central1/entryGroups/@bigquery/entries/top_customers"
+                entrySource: {
+                displayName: "Top customers",
+                description: "Table contains list of best customers."
+                location: "us-central1"
+                system: "BigQuery"
+                }
+            },
+        ]
+    }
+    ```
+    Return output formatted as markdown nested list:
+    ```
+    * Users:
+        - projectId: test_project
+        - location: aws-us-east-1
+        - description: Table contains list of users.
+    * Top customers:
+        - projectId: another_project
+        - location: us-central1
+        - description: Table contains list of best customers.
+    ```
+    1.3. Ask to select one of the presented search results
+2. If there is only one search result found
+    2.1. Present the search result immediately.
+3. If there are no search result found
+    3.1. Explain that no search result was found
+    3.2. Suggest to provide a more specific search query.
+
+Do not try to search within search results on your own.
+```
+
+## Reference
+
+| **field** | **type** | **required** | **description**                                                                  |
+|-----------|:--------:|:------------:|----------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "dataplex".                                                              |
+| project   |  string  |     true     | Id of the GCP project used for quota and billing purposes (e.g. "my-project-id").|
+
+
 # Dgraph
 Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
 
@@ -6226,6 +6637,36 @@ instead of hardcoding your secrets into the configuration file.
 | client_secret |  string  |     true     | The client secret assigned by Looker.                                                     |
 | verify_ssl    |  string  |     true     | Whether to check the ssl certificate of the server.                                       |
 | timeout       |  string  |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, 120s is applied. |
+
+
+# MongoDB
+MongoDB is a no-sql data platform that can not only serve general purpose data requirements also perform VectorSearch where both operational data and embeddings used of search can reside in same document.
+
+
+## About
+
+[MongoDB][mongodb-docs] is a popular NoSQL database that stores data in flexible, JSON-like documents, making it easy to develop and scale applications.
+
+[mongodb-docs]: https://www.mongodb.com/docs/atlas/getting-started/
+
+## Example
+
+```yaml
+sources:
+    my-mongodb:
+        kind: mongodb
+        uri: "mongodb+srv://username:password@host.mongodb.net"
+        database: sample_mflix
+        
+```
+
+## Reference
+
+| **field** | **type** | **required** | **description**                                                   |
+|-----------|:--------:|:------------:|-------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "mongodb".                                                |
+| uri       |  string  |     true     | connection string to connect to MongoDB                           |
+| database  |  string  |     true     | Name of the mongodb database to connect to (e.g. "sample_mflix"). |
 
 
 # MySQL
@@ -6610,6 +7051,7 @@ sources:
         database: my_db
         user: ${USER_NAME}
         password: ${PASSWORD}
+        # encrypt: strict
 ```
 
 {{< notice tip >}}
@@ -6619,14 +7061,15 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                        |
-|-----------|:--------:|:------------:|------------------------------------------------------------------------|
-| kind      |  string  |     true     | Must be "mssql".                                                       |
-| host      |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                           |
-| port      |  string  |     true     | Port to connect to (e.g. "1433").                                      |
-| database  |  string  |     true     | Name of the SQL Server database to connect to (e.g. "my_db").          |
-| user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-user").            |
-| password  |  string  |     true     | Password of the SQL Server user (e.g. "my-password").                  |
+| **field** | **type** | **required** | **description**                                                                                                                                                                            |
+|-----------|:--------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "mssql".                                                                                                                                                                           |
+| host      |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                                                                                                                                               |
+| port      |  string  |     true     | Port to connect to (e.g. "1433").                                                                                                                                                          |
+| database  |  string  |     true     | Name of the SQL Server database to connect to (e.g. "my_db").                                                                                                                              |
+| user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-user").                                                                                                                                |
+| password  |  string  |     true     | Password of the SQL Server user (e.g. "my-password").                                                                                                                                      |
+| encrypt   |  string  |    false     | Encryption level for data transmitted between the client and server (e.g., "strict"). If not specified, defaults to the [github.com/microsoft/go-mssqldb](https://github.com/microsoft/go-mssqldb?tab=readme-ov-file#common-parameters) package's default encrypt value. |
 
 
 # SQLite
@@ -7042,6 +7485,11 @@ Tools that work with Couchbase Sources.
 
 
 
+# Dataplex
+Tools that work with Dataplex Sources.
+
+
+
 # Dgraph
 Tools that work with Dgraph Sources.
 
@@ -7059,6 +7507,11 @@ Tools that work with HTTP Sources.
 
 # Looker
 Tools that work with Looker Sources.
+
+
+
+# MongoDB
+Tools that work with the MongoDB Source.
 
 
 
@@ -7292,7 +7745,7 @@ to use BigQuery, and then run the Toolbox server.
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -7924,7 +8377,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.9.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -8286,26 +8739,25 @@ How to get started running Toolbox with MCP Inspector and AlloyDB as the source.
 that standardizes how applications provide context to LLMs. Check out this page
 on how to [connect to Toolbox via MCP](../../how-to/connect_via_mcp.md).
 
-## Prerequisites
+## Before you begin
 
-Before you begin, you need to enable the `pgvector` and `google_ml_integration` extensions in your AlloyDB instance.
+This guide assumes you have already done the following:
 
-1.  **Connect to your AlloyDB instance.**
-    You can use the AlloyDB Studio, `psql` command-line tool or any other PostgreSQL client.
+1.  [Create a AlloyDB cluster and instance](https://cloud.google.com/alloydb/docs/cluster-create) with a database and user.
+1. Connect to the instance using [AlloyDB Studio](https://cloud.google.com/alloydb/docs/manage-data-using-studio), [`psql` command-line tool](https://www.postgresql.org/download/), or any other PostgreSQL client.
 
-2.  **Enable the extensions:**
-    Run the following SQL commands:
+2.  Enable the `pgvector` and `google_ml_integration` [extensions](https://cloud.google.com/alloydb/docs/ai). These are required for Semantic Search and Natural Language to SQL tools. Run the following SQL commands:
 
     ```sql
     CREATE EXTENSION IF NOT EXISTS "vector";
     CREATE EXTENSION IF NOT EXISTS "google_ml_integration";
     ```
 
-## Step 1: Set up your AlloyDB instance and tables
+## Step 1: Set up your AlloyDB database
 
 In this section, we will create the necessary tables and functions in your AlloyDB instance.
 
-1.  **Create the tables:**
+1.  Create tables using the following commands:
 
     ```sql
     CREATE TABLE products (
@@ -8314,7 +8766,7 @@ In this section, we will create the necessary tables and functions in your Alloy
       description TEXT,
       price DECIMAL(10, 2) NOT NULL,
       category_id INT,
-      embedding vector(768)
+      embedding vector(3072) -- Vector size for model(gemini-embedding-001)
     );
 
     CREATE TABLE customers (
@@ -8346,7 +8798,7 @@ In this section, we will create the necessary tables and functions in your Alloy
     );
     ```
 
-2.  **Insert sample data into the tables.**
+2.  Insert sample data into the tables:
 
     ```sql
     INSERT INTO categories (category_id, name) VALUES
@@ -8354,10 +8806,10 @@ In this section, we will create the necessary tables and functions in your Alloy
     (2, 'Vases');
 
     INSERT INTO products (product_id, name, description, price, category_id, embedding) VALUES
-    (1, 'Rose', 'A beautiful red rose', 2.50, 1, embedding('text-embedding-005', 'A beautiful red rose')),
-    (2, 'Tulip', 'A colorful tulip', 1.50, 1, embedding('text-embedding-005', 'A colorful tulip')),
-    (3, 'Glass Vase', 'A transparent glass vase', 10.00, 2, embedding('text-embedding-005', 'A transparent glass vase')),
-    (4, 'Ceramic Vase', 'A handmade ceramic vase', 15.00, 2, embedding('text-embedding-005', 'A handmade ceramic vase'));
+    (1, 'Rose', 'A beautiful red rose', 2.50, 1, embedding('gemini-embedding-001', 'A beautiful red rose')),
+    (2, 'Tulip', 'A colorful tulip', 1.50, 1, embedding('gemini-embedding-001', 'A colorful tulip')),
+    (3, 'Glass Vase', 'A transparent glass vase', 10.00, 2, embedding('gemini-embedding-001', 'A transparent glass vase')),
+    (4, 'Ceramic Vase', 'A handmade ceramic vase', 15.00, 2, embedding('gemini-embedding-001', 'A handmade ceramic vase'));
 
     INSERT INTO customers (customer_id, name, email) VALUES
     (1, 'John Doe', 'john.doe@example.com'),
@@ -8417,9 +8869,9 @@ sources:
     password: YOUR_PASSWORD
 ```
 
-Next, define the tools the AI model can use. We will categorize them into three types:
+Next, define the tools the agent can use. We will categorize them into three types:
 
-### 1. Standard SQL Tools
+### 1. Structured Queries Tools
 
 These tools execute predefined SQL statements. They are ideal for common, structured queries like managing a shopping cart. Add the following to your `tools.yaml` file:
 
@@ -8501,16 +8953,16 @@ tools:
 These tools use vector embeddings to find the most relevant results based on the meaning of a user's query, rather than just keywords. Append the following tools to the `tools` section in your `tools.yaml`:
 
 ```yaml
-  search-flowers-recommendation:
+  search-product-recommendations:
     kind: postgres-sql
     source: alloydb-pg-source
     description: >-
-      Search for flowers based on user needs.
-      Use this tool to search for flowers. This tool requires the user's needs.
+      Search for products based on user needs.
+      Use this tool to search for products. This tool requires the user's needs.
     parameters:
-      - name: needs
+      - name: query
         type: string
-        description: The flower characteristics
+        description: The product characteristics
     statement: |
       SELECT
         product_id,
@@ -8519,25 +8971,21 @@ These tools use vector embeddings to find the most relevant results based on the
         ROUND(CAST(price AS numeric), 2) as price
       FROM
         products
-      WHERE
-        category_id = 1
       ORDER BY
-        embedding('text-embedding-005', $1)::vector <=> embedding
+        embedding('gemini-embedding-001', $1)::vector <=> embedding
       LIMIT 5;
 ```
 
 ### 3. Natural Language to SQL (NL2SQL) Tools
 
-1. Create a natural language configuration on your AlloyDB cluster
+1. Create a [natural language configuration](https://cloud.google.com/alloydb/docs/ai/use-natural-language-generate-sql-queries#create-config) for your AlloyDB cluster.
 
     {{< notice tip >}}Before using NL2SQL tools, 
     you must first install the `alloydb_ai_nl` extension and 
     create the [semantic layer](https://cloud.google.com/alloydb/docs/ai/natural-language-overview) under a configuration named `flower_shop`.
     {{< /notice >}}
 
-2. Configure your NL2SQL tool to use your configuration
-
-These tools translate natural language questions into SQL queries, allowing users to interact with the database conversationally. Append the following tool to the `tools` section:
+2. Configure your NL2SQL tool to use your configuration. These tools translate natural language questions into SQL queries, allowing users to interact with the database conversationally. Append the following tool to the `tools` section:
 
 ```yaml
   ask-questions-about-products:
@@ -8556,7 +9004,7 @@ Finally, group the tools into a `toolset` to make them available to the model. A
 toolsets:
   flower_shop:
     - access-cart-information
-    - search-flowers-recommendation
+    - search-product-recommendations
     - ask-questions-about-products
     - add-to-cart
     - delete-from-cart
