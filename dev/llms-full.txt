@@ -8985,6 +8985,64 @@ This abbreviated syntax works for the qualified predicates except for `label` in
 | project   |  string  |     true     | ID of the GCP project used for quota and billing purposes (e.g. "my-project-id").|
 
 
+# Dataproc Clusters
+Google Cloud Dataproc Clusters lets you provision and manage Apache Spark and Hadoop clusters.
+
+
+## About
+
+The [Dataproc
+Clusters](https://cloud.google.com/dataproc/docs/concepts/overview) source
+allows Toolbox to interact with Dataproc Clusters hosted on Google Cloud.
+
+## Available Tools
+
+- [`dataproc-get-cluster`](../tools/dataproc/dataproc-get-cluster.md)
+  Get a specific Dataproc cluster.
+- [`dataproc-list-clusters`](../tools/dataproc/dataproc-list-clusters.md)
+  List and filter Dataproc clusters.
+- [`dataproc-get-job`](../tools/dataproc/dataproc-get-job.md)
+  Get a specific Dataproc job.
+- [`dataproc-list-jobs`](../tools/dataproc/dataproc-list-jobs.md)
+  List and filter Dataproc jobs.
+
+## Requirements
+
+### IAM Permissions
+
+Dataproc uses [Identity and Access Management
+(IAM)](https://cloud.google.com/dataproc/docs/concepts/iam/iam) to control user
+and group access to Dataproc resources.
+
+Toolbox will use your [Application Default Credentials
+(ADC)](https://cloud.google.com/docs/authentication#adc) to authorize and
+authenticate when interacting with Dataproc. When using this method, you need to
+ensure the IAM identity associated with your ADC has the correct
+[permissions](https://cloud.google.com/dataproc/docs/concepts/iam/iam)
+for the actions you intend to perform. Common roles include
+`roles/dataproc.editor` or `roles/dataproc.viewer`. Follow this
+[guide](https://cloud.google.com/docs/authentication/provide-credentials-adc) to
+set up your ADC.
+
+## Example
+
+```yaml
+kind: sources
+name: my-dataproc-source
+type: dataproc
+project: my-project
+region: us-central1
+```
+
+## Reference
+
+| **field** | **type** | **required** | **description**                                    |
+| --------- | :------: | :----------: | -------------------------------------------------- |
+| type      |  string  |     true     | Must be "dataproc".                                |
+| project   |  string  |     true     | ID of the GCP project with Dataproc resources.     |
+| region    |  string  |     true     | Region containing Dataproc resources.            |
+
+
 # Dgraph
 Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
 
@@ -11267,6 +11325,39 @@ parameters:
     description: 1 to 4 digit number
 ```
 
+## Prebuilt vs. Custom Tools
+
+MCP Toolbox provides two main approaches for tools: **prebuilt** and **custom**.
+
+[**Prebuilt tools**](../../reference/prebuilt-tools/) are ready to use out of
+the box. For example, a tool like
+[`postgres-execute-sql`](postgres/postgres-execute-sql/) has fixed parameters
+and always works the same way, allowing the agent to execute arbitrary SQL.
+While these are convenient, they are typically only safe when a developer is in
+the loop (e.g., during prototyping, developing, or debugging).
+
+For application use cases, you need to be wary of security risks such as prompt
+injection or data poisoning. Allowing an LLM to execute arbitrary queries in
+production is highly dangerous.
+
+To secure your application, you should **use custom tools** to suit your
+specific schema and application needs. Creating a custom tool restricts the
+agent's capabilities to only what is necessary. For example, you can use the
+[`postgres-sql`](postgres/postgres-sql/) tool to define a specific action. This
+typically involves:
+
+*   **Prepared Statements:** Writing a SQL query ahead of time and letting the
+    agent only fill in specific [basic parameters](#basic-parameters).
+*   [**Bound Parameters:**](../../sdks/python-sdk/core/#option-a-binding-parameters-to-a-loaded-tool)
+    Passing parameters directly to the underlying engine as bound variables
+    rather than allowing the LLM to provide them.
+*   **Secure Parameters:** Using mechanisms like [authenticated
+    parameters](#authenticated-parameters) to restrict what data the agent can
+    access based on the logged-in user.
+
+By creating custom tools, you significantly reduce the attack surface and ensure
+the agent operates within defined, safe boundaries.
+
 ## Specifying Parameters
 
 Parameters for each Tool will define what inputs the agent will need to provide
@@ -12764,6 +12855,16 @@ Tools that work with Dataform.
 # Dataplex
 Tools that work with Dataplex Sources.
 
+
+
+# Dataproc
+Tools that work with Google Cloud Dataproc Sources.
+
+
+- [dataproc-get-cluster](./dataproc-get-cluster.md)
+- [dataproc-get-job](./dataproc-get-job.md)
+- [dataproc-list-clusters](./dataproc-list-clusters.md)
+- [dataproc-list-jobs](./dataproc-list-jobs.md)
 
 
 # Dgraph
@@ -20774,6 +20875,20 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `search_aspect_types`: Finds aspect types relevant to the
         query.
 
+## Dataproc
+
+*   `--prebuilt` value: `dataproc`
+*   **Environment Variables:**
+    *   `DATAPROC_PROJECT`: The GCP project ID.
+    *   `DATAPROC_REGION`: The Dataproc region.
+*   **Permissions:**
+    *   **Dataproc Viewer** (`roles/dataproc.viewer`) to examine clusters and jobs.
+*   **Tools:**
+    *   `list_clusters`: Lists Dataproc clusters.
+    *   `get_cluster`: Gets a Dataproc cluster.
+    *   `list_jobs`: Lists Dataproc jobs.
+    *   `get_job`: Gets a Dataproc job.
+
 ## Elasticsearch
 
 *   `--prebuilt` value: `elasticsearch`
@@ -20841,6 +20956,23 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `add_dashboard_element`: Adds a tile to a dashboard.
     *   `add_dashboard_filter`: Adds a filter to a dashboard.
     *   `generate_embed_url`: Generate an embed url for content.
+
+## Looker Dev
+
+*   `--prebuilt` value: `looker-dev`
+*   **Environment Variables:**
+    *   `LOOKER_BASE_URL`: The URL of your Looker instance.
+    *   `LOOKER_CLIENT_ID`: The client ID for the Looker API.
+    *   `LOOKER_CLIENT_SECRET`: The client secret for the Looker API.
+    *   `LOOKER_VERIFY_SSL`: Whether to verify SSL certificates.
+    *   `LOOKER_USE_CLIENT_OAUTH`: Whether to use OAuth for authentication.
+    *   `LOOKER_SHOW_HIDDEN_MODELS`: Whether to show hidden models.
+    *   `LOOKER_SHOW_HIDDEN_EXPLORES`: Whether to show hidden explores.
+    *   `LOOKER_SHOW_HIDDEN_FIELDS`: Whether to show hidden fields.
+*   **Permissions:**
+    *   A Looker account with permissions to access the desired projects
+        and LookML is required.
+*   **Tools:**
     *   `health_pulse`: Test the health of a Looker instance.
     *   `health_analyze`: Analyze the LookML usage of a Looker instance.
     *   `health_vacuum`: Suggest LookML elements that can be removed.
@@ -20860,6 +20992,9 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `get_connection_databases`: Get the available databases in a connection.
     *   `get_connection_tables`: Get the available tables in a connection.
     *   `get_connection_table_columns`: Get the available columns for a table.
+    *   `get_lookml_tests`: Retrieves a list of available LookML tests for a project.
+    *   `run_lookml_tests`: Executes specific LookML tests within a project.
+    *   `create_view_from_table`: Generates boilerplate LookML views directly from the database schema.
 
 ## Looker Conversational Analytics
 
