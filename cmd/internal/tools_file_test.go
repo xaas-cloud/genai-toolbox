@@ -1788,8 +1788,8 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "dataplex prebuilt tools",
 			in:   dataplex_config,
 			wantToolset: server.ToolsetConfigs{
-				"dataplex_tools": tools.ToolsetConfig{
-					Name:      "dataplex_tools",
+				"discovery": tools.ToolsetConfig{
+					Name:      "discovery",
 					ToolNames: []string{"search_entries", "lookup_entry", "search_aspect_types"},
 				},
 			},
