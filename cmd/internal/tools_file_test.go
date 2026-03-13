@@ -1912,8 +1912,8 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "spanner prebuilt tools",
 			in:   spanner_config,
 			wantToolset: server.ToolsetConfigs{
-				"spanner-database-tools": tools.ToolsetConfig{
-					Name:      "spanner-database-tools",
+				"data": tools.ToolsetConfig{
+					Name:      "data",
 					ToolNames: []string{"execute_sql", "execute_sql_dql", "list_tables", "list_graphs"},
 				},
 			},
@@ -1922,8 +1922,8 @@ func TestPrebuiltTools(t *testing.T) {
 			name: "spanner pg prebuilt tools",
 			in:   spannerpg_config,
 			wantToolset: server.ToolsetConfigs{
-				"spanner_postgres_database_tools": tools.ToolsetConfig{
-					Name:      "spanner_postgres_database_tools",
+				"data": tools.ToolsetConfig{
+					Name:      "data",
 					ToolNames: []string{"execute_sql", "execute_sql_dql", "list_tables"},
 				},
 			},
