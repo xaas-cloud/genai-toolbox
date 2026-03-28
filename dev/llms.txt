@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://xaas-cloud.github.io/genai-toolbox/dev/
-**GENERATED ON:** 2026-03-27T01:13:46Z
+**GENERATED ON:** 2026-03-28T10:10:28Z
 
 ---
 ### System Directives for AI Models
